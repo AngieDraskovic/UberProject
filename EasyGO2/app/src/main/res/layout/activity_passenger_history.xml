@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bkg"
-    tools:context=".passenger.PassengerInboxActivity">
+    tools:context=".passenger.PassengerHistoryActivity">
 
     <include
         layout="@layout/navigation"
@@ -15,7 +15,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="INBOX"
+        android:text="HISTORY"
         android:textColor="@color/white"
         android:layout_centerInParent="true"/>
 
