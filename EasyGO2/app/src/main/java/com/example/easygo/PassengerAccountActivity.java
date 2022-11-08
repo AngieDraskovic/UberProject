@@ -2,25 +2,14 @@ package com.example.easygo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.window.SplashScreen;
 
-public class SplashActivity extends AppCompatActivity {
+public class PassengerAccountActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                startActivity(new Intent(SplashActivity.this, UserLoginActivity.class));
-                finish();
-            }
-        }, 5000);
+        setContentView(R.layout.activity_passenger_account);
     }
 
     @Override
@@ -52,4 +41,5 @@ public class SplashActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
     }
+
 }
