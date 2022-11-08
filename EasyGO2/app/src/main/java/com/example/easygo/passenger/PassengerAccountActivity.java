@@ -1,25 +1,27 @@
-package com.example.easygo;
+package com.example.easygo.passenger;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
-public class PassengerMainActivity extends AppCompatActivity {
+import com.example.easygo.R;
+
+public class PassengerAccountActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_passenger_main);
+        setContentView(R.layout.activity_passenger_account);
 
         Button btnHome = findViewById(R.id.btnHome);
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(PassengerMainActivity.this, PassengerMainActivity.class));
+                startActivity(new Intent(PassengerAccountActivity.this, PassengerMainActivity.class));
             }
         });
 
@@ -27,7 +29,7 @@ public class PassengerMainActivity extends AppCompatActivity {
         btnAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(PassengerMainActivity.this, PassengerAccountActivity.class));
+                startActivity(new Intent(PassengerAccountActivity.this, PassengerAccountActivity.class));
             }
         });
 
@@ -35,8 +37,7 @@ public class PassengerMainActivity extends AppCompatActivity {
         btnHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                startActivity(new Intent(PassengerMainActivity.this, PassengerRideHistory.class));
-                Toast.makeText(PassengerMainActivity.this, "History", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(PassengerAccountActivity.this, PassengerRideHistoryActivity.class));
             }
         });
 
@@ -44,7 +45,7 @@ public class PassengerMainActivity extends AppCompatActivity {
         btnInbox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(PassengerMainActivity.this, PassengerInboxActivity.class));
+                startActivity(new Intent(PassengerAccountActivity.this, PassengerInboxActivity.class));
             }
         });
     }
@@ -78,4 +79,5 @@ public class PassengerMainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
     }
+
 }

@@ -3,11 +3,12 @@ package com.example.easygo;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.easygo.driver.DriverMainActivity;
+import com.example.easygo.passenger.PassengerRegisterActivity;
 import com.google.android.material.button.MaterialButton;
 
 public class UserLoginActivity extends AppCompatActivity {
@@ -35,7 +36,7 @@ public class UserLoginActivity extends AppCompatActivity {
 
                     //Toast.makeText(MainActivity,"LOGIN FAILED", Toast.LENGTH_SHORT).show();
                 }
-                startActivity(new Intent(UserLoginActivity.this, PassengerMainActivity.class));
+                startActivity(new Intent(UserLoginActivity.this, DriverMainActivity.class));
             }
         });
 

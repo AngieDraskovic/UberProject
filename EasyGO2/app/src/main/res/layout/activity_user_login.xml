@@ -18,7 +18,7 @@
         android:background="#00BA8940"
         android:fontFamily="serif"
         android:gravity="center"
-        android:text="easyGO"
+        android:text="@string/app_name"
         android:textColor="@color/white"
         android:textSize="50sp"
         android:textStyle="bold" />
@@ -35,7 +35,8 @@
         android:background="#FFFFFF"
         android:drawableLeft="@drawable/ic_baseline_person_outline_24"
         android:drawablePadding="20dp"
-        android:hint="Username"
+        android:inputType="textEmailAddress"
+        android:hint="@string/username"
         android:padding="13dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black" />
@@ -52,7 +53,7 @@
         android:background="@color/white"
         android:drawableLeft="@drawable/ic_baseline_password_24"
         android:drawablePadding="20dp"
-        android:hint="Password"
+        android:hint="@string/password"
         android:inputType="textPassword"
         android:padding="13dp"
         android:textColor="@color/black"
@@ -69,14 +70,14 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:backgroundTint="#D3B55E1C"
-        android:text="login" />
+        android:text="@string/login" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/forgotpass"
         android:layout_below="@id/loginbtn"
-        android:text="Forgot password?"
+        android:text="@string/forgot_password"
         android:textColor="@color/white"
         android:layout_centerHorizontal="true"/>
 
@@ -94,7 +95,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="0dp"
         android:backgroundTint="#941E190F"
-        android:text="Don't have an account? Sign Up"
+        android:text="@string/no_having_account"
         android:textColor="#A58A5E" />
 
 </RelativeLayout>
