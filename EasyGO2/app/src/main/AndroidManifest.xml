@@ -11,37 +11,39 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EasyGO"
+
         tools:targetApi="31">
+
         <activity
-            android:name=".PassengerRideHistoryActivity"
+            android:name=".passenger.PassengerRideHistoryActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".PassengerHistoryActivity"
+            android:name=".passenger.PassengerHistoryActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".DriverInboxActivity"
+            android:name=".driver.DriverInboxActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".DriverHistoryActivity"
+            android:name=".driver.DriverHistoryActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".DriverAccountActivity"
+            android:name=".driver.DriverAccountActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 
 import com.example.easygo.R;
@@ -24,6 +25,7 @@ public class PassengerRegisterActivity extends AppCompatActivity {
             }
         });
     }
+
 
     @Override
     protected void onStart() {

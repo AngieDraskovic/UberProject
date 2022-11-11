@@ -8,10 +8,8 @@
     tools:context=".driver.DriverMainActivity">
 
     <include
-        layout="@layout/navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_layout" />
     <ToggleButton
         android:id="@+id/toggleActive"
         android:layout_width="wrap_content"
