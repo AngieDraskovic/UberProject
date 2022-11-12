@@ -15,6 +15,7 @@ public class MockupMessages {
     public static ArrayList<Message> getMessages() {
         ArrayList<Message> messages = new ArrayList<Message>();
 
+        // Tipa je User jer je tako navedeno u dijagramu, ali realno za razmjenu poruka nam i ne trebaju neki detaljniji podaci
         User driver1 = MockupDrivers.getDrivers().get(1);
         User driver2 = MockupDrivers.getDrivers().get(2);
         User driver3 = MockupDrivers.getDrivers().get(3);
@@ -27,14 +28,25 @@ public class MockupMessages {
         Ride ride2 = MockupRides.getRides().get(2);
         Ride ride3 = MockupRides.getRides().get(3);
 
+        /*
+        Za ride1: putnik pita vozaca da li ostaje dogovor i vozac potvrdjuje.
+        Najbitnije je da se proslijede sender i deliverer sto su u ovom slucaju passenger1 i driver1, kao i voznja na koju se poruka odnosi
+        Ostalo je isto u svim porukama: tekst, vrijeme, tip poruke.
+         */
         Message ride1Message1 = new Message(1, "Da li ostaje dogovor?", LocalDateTime.now(), MessaggeType.RIDE, passenger1, driver1, ride1);
         Message ride1Message2 = new Message(2, "Dogovor ostaje.", LocalDateTime.now(), MessaggeType.RIDE, driver1, passenger1, ride1);
 
+        /*
+        Za ride2: Imamo 2 putnika u drugoj voznji i obojica pitaju vozaca isto pitanje.
+         */
         Message ride2Message1 = new Message(4, "Da li ostaje dogovor?", LocalDateTime.now(), MessaggeType.RIDE, passenger2, driver2, ride2);
         Message ride2Message2 = new Message(5, "Dogovor ostaje.", LocalDateTime.now(), MessaggeType.RIDE, driver2, passenger2, ride2);
         Message ride2Message3 = new Message(6, "Da li ostaje dogovor?", LocalDateTime.now(), MessaggeType.RIDE, passenger3, driver2, ride2);
         Message ride2Message4 = new Message(7, "Dogovor ostaje.", LocalDateTime.now(), MessaggeType.RIDE, driver2, passenger3, ride2);
 
+        /*
+        Za ride3: Isto kao i za ride1 samo drugi vozac
+         */
         Message ride3Message1 = new Message(8, "Da li ostaje dogovor?", LocalDateTime.now(), MessaggeType.RIDE, passenger1, driver3, ride3);
         Message ride3Message2 = new Message(9, "Dogovor ostaje.", LocalDateTime.now(), MessaggeType.RIDE, driver3, passenger1, ride3);
 
