@@ -8,8 +8,13 @@ import java.util.HashMap;
 
 public class MockupDrivers {
 
+    private static HashMap<Integer, Driver> driversMap = getDrivers();
+
     public static HashMap<Integer, Driver> getDrivers() {
-        HashMap<Integer, Driver> driversMap = new HashMap<Integer, Driver>();
+        if (driversMap != null)
+            return driversMap;
+
+        driversMap = new HashMap<Integer, Driver>();
 
         Driver driver1 = new Driver(1, "Dejan", "Stankovic", -1, "061-032-3230", "dejanstankovic@gmail.com", "Svetog Save 1", "dejan123", false, false, "1MM23", "FDS-33D-1", null);
         Driver driver2 = new Driver(2, "Milos", "Milojevic", -1, "062-032-3230", "milosmilojevic@gmail.com", "Svetog Save 2", "milos123", false, false, "2MM23", "FDS-33D-2", null);

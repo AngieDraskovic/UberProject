@@ -6,8 +6,14 @@ import java.util.HashMap;
 
 public class MockupPassengers {
 
+    private static int lastId;
+    private static HashMap<Integer, Passenger> passengersMap = getPassengers();
+
     public static HashMap<Integer, Passenger> getPassengers() {
-        HashMap<Integer, Passenger> passengersMap = new HashMap<Integer, Passenger>();
+        if (passengersMap != null)
+            return passengersMap;
+
+        passengersMap = new HashMap<Integer, Passenger>();
 
         Passenger passenger1 = new Passenger(4, "Mirko", "Ivanic", -1, "061-032-3230", "mirkoivanic@gmail.com", "Svetog Save 1", "mirko123", false);
         Passenger passenger2 = new Passenger(5, "Sale", "Katai", -1, "062-032-3230", "salekatai@gmail.com", "Svetog Save 2", "sale123", false);
@@ -16,6 +22,7 @@ public class MockupPassengers {
         passengersMap.put(passenger1.getId(), passenger1);
         passengersMap.put(passenger2.getId(), passenger2);
         passengersMap.put(passenger3.getId(), passenger3);
+        lastId = 6;
 
         return passengersMap;
     }
@@ -29,4 +36,15 @@ public class MockupPassengers {
     }
 
 
+    /*  Po meni je atribut id bespotreban jer je email taj koji je jedinstven za sve korisnike, ali tako stoji u njihovom dijagramu.
+        Ovako cuvamo poslednji id passenger-a (lastId) tako da cemo novi id dobiti tako sto inkrementiramo lastId za jedan.
+        Mnogo je jednostavnije sa email-om da se radi, ali to cemo vjerovatno kad budemo sa bazom radili, ovo su ipak probni podaci.
+     */
+    public static int generateId() {
+        return ++lastId;
+    }
+
+    public static void addNew(Passenger newPassenger) {
+        passengersMap.put(newPassenger.getId(), newPassenger);
+    }
 }

@@ -24,7 +24,6 @@ public class UserLoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_login);
 
-
         TextView emailEditTxt =  findViewById(R.id.username);
         TextView passwordEditTxt =  findViewById(R.id.password);
 
@@ -59,9 +58,7 @@ public class UserLoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(UserLoginActivity.this, PassengerRegisterActivity.class));
-
             }
-
         });
 
     }
