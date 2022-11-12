@@ -17,12 +17,12 @@ public class User {
     private String address;
     private String password;
     private boolean blocked;
-    private List<Message> sendMessages;
+    private List<Message> sentMessages;
     private List<Message> deliveredMessages;
     private List<Rejection> rejections;
 
     public User() {
-        this.sendMessages = new ArrayList<Message>();
+        this.sentMessages = new ArrayList<Message>();
         this.deliveredMessages = new ArrayList<Message>();
         this.rejections = new ArrayList<Rejection>();
     }
@@ -95,9 +95,16 @@ public class User {
     public void setBlocked(boolean blocked) {
         this.blocked = blocked;
     }
-    public List<Message> getSendMessages() { return sendMessages; }
+    public List<Message> getSentMessages() { return sentMessages; }
     public List<Message> getDeliveredMessages() { return deliveredMessages; }
-    public void setSendMessages(List<Message> sendMessages) { this.sendMessages = sendMessages; }
+    public void setSentMessages(List<Message> sentMessages) { this.sentMessages = sentMessages; }
     public void setDeliveredMessages(List<Message> deliveredMessages) { this.deliveredMessages = deliveredMessages; }
 
+    public List<Rejection> getRejections() {
+        return rejections;
+    }
+
+    public void setRejections(List<Rejection> rejections) {
+        this.rejections = rejections;
+    }
 }
