@@ -1,6 +1,6 @@
 package com.example.easygo.model.enumerations;
 
-public class PaymentType {
+public enum PaymentType {
     CREDIT_CARD,
     PAYPAL,
     BITCOIN;

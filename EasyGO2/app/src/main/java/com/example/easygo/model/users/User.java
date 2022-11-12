@@ -1,18 +1,34 @@
 package com.example.easygo.model.users;
 
+import com.example.easygo.model.Message;
+import com.example.easygo.model.Rejection;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class User {
 
     private int id;
     private String name;
     private String surname;
-    private String profilePic;
+    private int profilePic;
     private String phone;
     private String email;
     private String address;
     private String password;
     private boolean blocked;
+    private List<Message> sendMessages;
+    private List<Message> deliveredMessages;
+    private List<Rejection> rejections;
 
-    public User(int id, String name, String surname, String profilePic, String phone, String email, String address, String password, boolean blocked){
+    public User() {
+        this.sendMessages = new ArrayList<Message>();
+        this.deliveredMessages = new ArrayList<Message>();
+        this.rejections = new ArrayList<Rejection>();
+    }
+
+    public User(int id, String name, String surname, int profilePic, String phone, String email, String address, String password, boolean blocked){
+        this();
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -22,10 +38,9 @@ public class User {
         this.address = address;
         this.password = password;
         this.blocked = blocked;
-        this.blocked = blocked;
     }
 
-    public()
+
     public int getId() {
         return id;
     }
@@ -44,10 +59,10 @@ public class User {
     public void setSurname(String surname) {
         this.surname = surname;
     }
-    public String getProfilePic() {
+    public int getProfilePic() {
         return profilePic;
     }
-    public void setProfilePic(String profilePic) {
+    public void setProfilePic(int profilePic) {
         this.profilePic = profilePic;
     }
     public String getPhone() {
@@ -80,6 +95,9 @@ public class User {
     public void setBlocked(boolean blocked) {
         this.blocked = blocked;
     }
-
+    public List<Message> getSendMessages() { return sendMessages; }
+    public List<Message> getDeliveredMessages() { return deliveredMessages; }
+    public void setSendMessages(List<Message> sendMessages) { this.sendMessages = sendMessages; }
+    public void setDeliveredMessages(List<Message> deliveredMessages) { this.deliveredMessages = deliveredMessages; }
 
 }
