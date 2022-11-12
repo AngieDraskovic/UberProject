@@ -10,13 +10,9 @@ import java.util.HashMap;
 
 public class MockupRides {
 
-    private static HashMap<Integer, Ride> ridesMap;
+    public static HashMap<Integer, Ride> getRides() {
+        HashMap<Integer, Ride> ridesMap = new HashMap<Integer, Ride>();
 
-    public MockupRides(){
-        createRides();
-    }
-
-    public void createRides() {
         LocalDateTime start1 = LocalDateTime.of(2022, 11, 15, 15, 15);
         LocalDateTime end1 = LocalDateTime.of(2022, 11, 15, 15, 45);
         Driver driver1 = MockupDrivers.getDrivers().get(1);
@@ -43,9 +39,7 @@ public class MockupRides {
         ridesMap.put(ride1.getId(), ride1);
         ridesMap.put(ride2.getId(), ride2);
         ridesMap.put(ride3.getId(), ride3);
-    }
 
-    public static HashMap<Integer, Ride> getRides() {
         return ridesMap;
     }
 
