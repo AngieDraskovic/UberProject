@@ -11,13 +11,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MockupMessages {
-    private static ArrayList<Message> messages;
 
-    public MockupMessages(){
-        createMessages();
-    }
+    public static ArrayList<Message> getMessages() {
+        ArrayList<Message> messages = new ArrayList<Message>();
 
-    public void createMessages() {
         User driver1 = MockupDrivers.getDrivers().get(1);
         User driver2 = MockupDrivers.getDrivers().get(2);
         User driver3 = MockupDrivers.getDrivers().get(3);
@@ -49,9 +46,7 @@ public class MockupMessages {
         messages.add(ride2Message4);
         messages.add(ride3Message1);
         messages.add(ride3Message2);
-    }
 
-    public static ArrayList<Message> getMessages() {
         return messages;
     }
 
