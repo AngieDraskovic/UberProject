@@ -28,7 +28,6 @@
             android:elevation="5dp"
             app:srcCompat="@drawable/profile1" />
 
-
         <LinearLayout
             android:layout_width="239dp"
             android:layout_height="199dp"
@@ -165,8 +164,8 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="304dp"
-        android:layout_height="202dp"
+        android:layout_width="357dp"
+        android:layout_height="198dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="400dp"
         android:background="@drawable/white_background"
@@ -205,7 +204,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="330dp"
+            android:layout_width="match_parent"
             android:layout_height="43dp"
             android:layout_marginTop="2dp"
             android:background="#FFFFFF"
@@ -230,7 +229,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="330dp"
+            android:layout_width="match_parent"
             android:layout_height="43dp"
             android:layout_marginTop="2dp"
             android:background="#FFFFFF"
@@ -255,7 +254,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="330dp"
+            android:layout_width="375dp"
             android:layout_height="43dp"
             android:layout_marginTop="2dp"
             android:background="#FFFFFF"
