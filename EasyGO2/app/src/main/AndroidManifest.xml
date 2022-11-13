@@ -12,10 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EasyGO"
         tools:targetApi="31">
+        <activity
+            android:name=".driver.DriverProfileActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
         <meta-data
             android:name="com.google.android.actions"
-            android:value=""
-          />
+            android:value="" />
 
         <activity
             android:name=".passenger.PassengerProfileActivity"
@@ -66,9 +73,8 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
-                android:name=".passenger.PassengerInboxActivity"
+            android:name=".passenger.PassengerInboxActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

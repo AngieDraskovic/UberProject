@@ -5,17 +5,289 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bkg"
-    tools:context=".driver.DriverAccountActivity">
+    android:elevation="10dp"
+    tools:context=".passenger.PassengerAccountActivity">
+
 
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar_layout" />
 
-    <TextView
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/profileImg"
+            android:layout_width="131dp"
+            android:layout_height="169dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="160dp"
+            android:elevation="5dp"
+            app:srcCompat="@drawable/profile_default" />
+
+
+        <LinearLayout
+            android:layout_width="239dp"
+            android:layout_height="199dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="150dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/white_background"
+            android:elevation="3dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/driverFullName"
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:layout_marginTop="10dp"
+                android:background="#FFFFFF"
+                android:clickable="true"
+                android:elevation="20dp"
+                android:fadingEdge="vertical"
+                android:visibility="visible">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="33dp"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginTop="11dp"
+                    android:clickable="false"
+                    android:text="User: "
+                    android:textColor="#80000000"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/txtUser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="33dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="11dp"
+                    android:clickable="false"
+                    android:text="Milos Milojevic"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="330dp"
+                android:layout_height="43dp"
+                android:layout_marginTop="2dp"
+                android:background="#FFFFFF"
+                android:elevation="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="33dp"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginTop="11dp"
+                    android:clickable="false"
+                    android:text="Email: "
+                    android:textColor="#80000000"
+                    android:textSize="14sp" />
+
+
+                <TextView
+                    android:id="@+id/txtEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="33dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="11dp"
+                    android:clickable="false"
+                    android:text="milosmilojevic@gmail.com"
+
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="330dp"
+                android:layout_height="43dp"
+                android:layout_marginTop="2dp"
+                android:background="#FBFBFB"
+                android:elevation="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="33dp"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginTop="11dp"
+                    android:clickable="false"
+                    android:text="Phone: "
+                    android:textColor="#7E000000"
+                    android:textSize="14sp" />
+
+
+                <TextView
+                    android:id="@+id/txtPhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="33dp"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginTop="11dp"
+                    android:clickable="false"
+                    android:text="064123423"
+
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="330dp"
+                android:layout_height="43dp"
+                android:layout_marginTop="2dp"
+                android:background="#FBFBFB"
+                android:elevation="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="33dp"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginTop="11dp"
+                    android:clickable="false"
+                    android:text="Address: "
+                    android:textColor="#7E000000"
+                    android:textSize="11sp" />
+
+
+                <TextView
+                    android:id="@+id/txtAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="33dp"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginTop="11dp"
+                    android:clickable="false"
+                    android:text="Svetog Save 1"
+
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="304dp"
+        android:layout_height="151dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="450dp"
+        android:background="@drawable/white_background"
+        android:elevation="3dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/driverProfile"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_marginTop="10dp"
+            android:background="#FDFFFFFF"
+            android:clickable="true"
+            android:elevation="20dp"
+            android:fadingEdge="vertical"
+            android:visibility="visible">
+
+
+            <ImageView
+                android:id="@+id/driverIconPicture"
+                android:layout_width="42dp"
+                android:layout_height="34dp"
+                android:layout_marginLeft="7dp"
+                android:layout_marginTop="7dp"
+                app:srcCompat="@drawable/icon_profile2" />
+
+            <TextView
+                android:layout_width="182dp"
+                android:layout_height="33dp"
+                android:layout_marginTop="11dp"
+                android:clickable="false"
+                android:text="USER PROFILE"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="330dp"-->
+<!--            android:layout_height="43dp"-->
+<!--            android:layout_marginTop="2dp"-->
+<!--            android:background="#FFFFFF"-->
+<!--            android:elevation="20dp">-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/iconRoutes"-->
+<!--                android:layout_width="50dp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_marginLeft="4dp"-->
+<!--                android:textAlignment="center"-->
+<!--                app:srcCompat="@drawable/routes" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="220dp"-->
+<!--                android:layout_height="33dp"-->
+<!--                android:layout_marginTop="11dp"-->
+<!--                android:text="FAVOURITE ROUTES"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="18sp" />-->
+<!--        </LinearLayout>-->
+
+        <LinearLayout
+            android:layout_width="330dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="2dp"
+            android:background="#FFFFFF"
+            android:elevation="20dp">
+
+            <ImageView
+                android:id="@+id/iconVehicle"
+                android:layout_width="49dp"
+                android:layout_height="31dp"
+                android:layout_marginLeft="7dp"
+                android:layout_marginTop="7dp"
+                app:srcCompat="@drawable/vehicle" />
+
+            <TextView
+                android:layout_width="127dp"
+                android:layout_height="43dp"
+                android:layout_marginTop="11dp"
+                android:text="VEHICLE"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="330dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="2dp"
+            android:background="#FFFFFF"
+            android:elevation="20dp">
+
+            <ImageView
+                android:id="@+id/reportsIcon"
+                android:layout_width="53dp"
+                android:layout_height="29dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="7dp"
+                app:srcCompat="@drawable/reports" />
+
+            <TextView
+                android:layout_width="130dp"
+                android:layout_height="29dp"
+                android:layout_marginTop="11dp"
+                android:text="REPORTS"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/backImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ACCOUNT"
-        android:textColor="@color/white"
-        android:layout_centerInParent="true"/>
-
+        app:srcCompat="@drawable/whitish_background" />
 </RelativeLayout>
