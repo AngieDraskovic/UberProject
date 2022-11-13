@@ -3,6 +3,7 @@ package com.example.easygo.mockup;
 import com.example.easygo.model.users.Passenger;
 
 import java.util.HashMap;
+import com.example.easygo.R;
 
 public class MockupPassengers {
 
@@ -15,9 +16,9 @@ public class MockupPassengers {
 
         passengersMap = new HashMap<Integer, Passenger>();
 
-        Passenger passenger1 = new Passenger(4, "Mirko", "Ivanic", -1, "061-032-3230", "mirkoivanic@gmail.com", "Svetog Save 1", "mirko123", false);
-        Passenger passenger2 = new Passenger(5, "Sale", "Katai", -1, "062-032-3230", "salekatai@gmail.com", "Svetog Save 2", "sale123", false);
-        Passenger passenger3 = new Passenger(6, "Osman", "Bukari", -1, "063-032-3230", "osmanbukari@gmail.com", "Svetog Save 3", "osman123", false);
+        Passenger passenger1 = new Passenger(4, "Mirko", "Ivanic", R.drawable.mirko_ivanic, "061-032-3230", "mirkoivanic@gmail.com", "Svetog Save 1", "mirko123", false);
+        Passenger passenger2 = new Passenger(5, "Sale", "Katai", R.drawable.sale_katai, "062-032-3230", "salekatai@gmail.com", "Svetog Save 2", "sale123", false);
+        Passenger passenger3 = new Passenger(6, "Osman", "Bukari", R.drawable.osman_bukari, "063-032-3230", "osmanbukari@gmail.com", "Svetog Save 3", "osman123", false);
 
         passengersMap.put(passenger1.getId(), passenger1);
         passengersMap.put(passenger2.getId(), passenger2);

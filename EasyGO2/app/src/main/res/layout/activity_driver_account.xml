@@ -40,7 +40,7 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:id="@+id/userProfile2"
+                android:id="@+id/driverFullName"
                 android:layout_width="match_parent"
                 android:layout_height="43dp"
                 android:layout_marginTop="10dp"
@@ -178,7 +178,7 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/userProfile"
+            android:id="@+id/driverProfile"
             android:layout_width="match_parent"
             android:layout_height="43dp"
             android:layout_marginTop="10dp"
@@ -190,7 +190,7 @@
 
 
             <ImageView
-                android:id="@+id/iconProfile"
+                android:id="@+id/driverIconPicture"
                 android:layout_width="42dp"
                 android:layout_height="34dp"
                 android:layout_marginLeft="7dp"
@@ -241,7 +241,7 @@
             android:elevation="20dp">
 
             <ImageView
-                android:id="@+id/iconReports"
+                android:id="@+id/iconVehicle"
                 android:layout_width="49dp"
                 android:layout_height="31dp"
                 android:layout_marginLeft="7dp"
@@ -266,7 +266,7 @@
             android:elevation="20dp">
 
             <ImageView
-                android:id="@+id/walletIcon"
+                android:id="@+id/reportsIcon"
                 android:layout_width="53dp"
                 android:layout_height="29dp"
                 android:layout_marginLeft="5dp"
@@ -286,7 +286,7 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/backImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/whitish_background" />

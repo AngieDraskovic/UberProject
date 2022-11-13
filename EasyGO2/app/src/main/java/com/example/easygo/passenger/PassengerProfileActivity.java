@@ -18,7 +18,6 @@ public class PassengerProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_passenger_profile);
 
-
         EditText nameEdit = (EditText)findViewById(R.id.et_first_name);
         nameEdit.setOnFocusChangeListener(new View.OnFocusChangeListener(){
             @Override

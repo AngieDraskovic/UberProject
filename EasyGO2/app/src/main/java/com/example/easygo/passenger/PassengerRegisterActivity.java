@@ -38,7 +38,7 @@ public class PassengerRegisterActivity extends AppCompatActivity {
                 takeValues();
                 if (validInput()) {
                     int id = MockupPassengers.generateId();
-                    Passenger passenger = new Passenger(id, name, surname, -1, phone, email, address, password, false);
+                    Passenger passenger = new Passenger(id, name, surname, R.drawable.profile_default, phone, email, address, password, false);
                     MockupPassengers.addNew(passenger);
                     LoggedIn.setPassenger(passenger);
                     startActivity(new Intent(PassengerRegisterActivity.this, PassengerMainActivity.class));
