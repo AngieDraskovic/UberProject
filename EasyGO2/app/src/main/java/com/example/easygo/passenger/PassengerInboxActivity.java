@@ -3,6 +3,7 @@ package com.example.easygo.passenger;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -11,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 
 import com.example.easygo.R;
 import com.example.easygo.adapters.MessageAdapter2;
@@ -18,17 +20,18 @@ import com.example.easygo.adapters.MessageAdapter2;
 public class PassengerInboxActivity extends AppCompatActivity {
 
 
-    private RecyclerView recyclerView;
+    private DrawerLayout drawerLayout;
+    private ListView mDrawerList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_passenger_inbox);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        recyclerView = findViewById(R.id.mesaggesRecyclerView);
+        mDrawerList = findViewById(R.id.navList);
+        drawerLayout = findViewById(R.id.mesaggesDrawerView);
         MessageAdapter2 messageAdapter2 = new MessageAdapter2(this);
-        recyclerView.setAdapter(messageAdapter2);
+        mDrawerList.setAdapter(messageAdapter2);
     }
 
     @Override

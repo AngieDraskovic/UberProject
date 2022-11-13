@@ -13,6 +13,8 @@ import com.example.easygo.model.Message;
 
 import org.w3c.dom.Text;
 
+import java.util.concurrent.BrokenBarrierException;
+
 public class MessageAdapter2 extends BaseAdapter
 {
     private Activity activity;
@@ -55,7 +57,7 @@ public class MessageAdapter2 extends BaseAdapter
         email.setText(message.getText());
 
         image.setImageResource(-1);
-        return  vi;
+        return vi;
 
 
 

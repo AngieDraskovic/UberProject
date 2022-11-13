@@ -33,15 +33,24 @@
         >
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/mesaggesRecyclerView"
+        <androidx.drawerlayout.widget.DrawerLayout
+            android:id="@+id/mesaggesDrawerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clipToPadding="false"
-            android:orientation="vertical"
             android:overScrollMode="never"
             android:padding="20dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            android:orientation="vertical">
+
+            <ListView
+                android:id="@+id/navList"
+                android:layout_width="280dp"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/profileBox"
+                android:choiceMode="singleChoice"
+                android:background="#ffffffff" />
+
+        </androidx.drawerlayout.widget.DrawerLayout>
 
 
 
