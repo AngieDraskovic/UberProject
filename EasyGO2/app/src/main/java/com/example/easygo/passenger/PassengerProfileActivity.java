@@ -28,7 +28,6 @@ public class PassengerProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_passenger_profile);
     }
 
-
     @Override
     protected void onStart() {
         super.onStart();
@@ -59,6 +58,8 @@ public class PassengerProfileActivity extends AppCompatActivity {
         password.setText(passenger.getAddress());
 
         //na fokus se pojavljuje hint a brise se napisano
+
+        EditText nameEdit = (EditText)findViewById(R.id.et_first_name);
         nameEdit.setOnFocusChangeListener(new View.OnFocusChangeListener(){
             @Override
             public void onFocusChange(View v, boolean hasFocus){

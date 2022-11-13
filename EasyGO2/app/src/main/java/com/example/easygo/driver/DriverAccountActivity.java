@@ -8,14 +8,23 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import com.example.easygo.LoggedIn;
 import com.example.easygo.R;
+import com.example.easygo.model.users.Driver;
 import com.example.easygo.passenger.PassengerAccountActivity;
 import com.example.easygo.passenger.PassengerInboxActivity;
 import com.example.easygo.passenger.PassengerMainActivity;
+import com.example.easygo.passenger.PassengerProfileActivity;
 import com.example.easygo.passenger.PassengerRideHistoryActivity;
 
 public class DriverAccountActivity extends AppCompatActivity {
+
+    private Driver driver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +32,19 @@ public class DriverAccountActivity extends AppCompatActivity {
         setContentView(R.layout.activity_driver_account);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        this.driver = LoggedIn.getDriver();
+        setDriverData();
+
+        LinearLayout editProfile = findViewById(R.id.driverProfile);
+        editProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(DriverAccountActivity.this, DriverProfileActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -56,5 +78,26 @@ public class DriverAccountActivity extends AppCompatActivity {
         }
         return true;
     }
+
+    /*
+        Kad se predje na ProfileActivity pa se onda vrati na AccountActivity, i dalje se prikazuju stari podaci.
+        Zato je dodato onResume jer ce se svaki put kad se vrati na ovu aktivnost podaci ponovo ucitavati.
+     */
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setDriverData();
+    }
+
+    private void setDriverData() {
+        String user = driver.getName() + " " + driver.getSurname();
+
+        ((TextView) findViewById(R.id.txtUser)).setText(user);
+        ((TextView) findViewById(R.id.txtEmail)).setText(driver.getEmail());
+        ((TextView) findViewById(R.id.txtPhone)).setText(driver.getPhone());
+        ((TextView) findViewById(R.id.txtAddress)).setText(driver.getAddress());
+        ((ImageView) findViewById(R.id.profileImg)).setImageResource(driver.getProfilePic());
+    }
+
 
 }
