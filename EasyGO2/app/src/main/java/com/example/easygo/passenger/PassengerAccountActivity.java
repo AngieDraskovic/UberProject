@@ -20,6 +20,9 @@ import com.example.easygo.R;
 
 public class PassengerAccountActivity extends AppCompatActivity {
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,6 +76,8 @@ public class PassengerAccountActivity extends AppCompatActivity {
     }
 
 
+
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -83,6 +88,8 @@ public class PassengerAccountActivity extends AppCompatActivity {
         super.onRestart();
     }
 
+    @Override
+    protected void onResume(){super.onResume();}
     @Override
     protected void onPostResume() {
         super.onPostResume();

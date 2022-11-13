@@ -10,16 +10,55 @@ import android.widget.TextView;
 
 import com.example.easygo.R;
 import com.example.easygo.UserLoginActivity;
+import com.example.easygo.model.users.Passenger;
 
 public class PassengerProfileActivity extends AppCompatActivity {
+
+    private EditText nameEdit;
+    private EditText lastnameEdit;
+    private EditText email;
+    private EditText address;
+    private EditText phone;
+    private EditText password;
+    private Passenger passenger;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_passenger_profile);
+    }
 
 
-        EditText nameEdit = (EditText)findViewById(R.id.et_first_name);
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+
+        nameEdit = (EditText)findViewById(R.id.et_first_name);
+        lastnameEdit = (EditText)findViewById(R.id.et_last_name);
+        email = (EditText)findViewById(R.id.et_email);
+        phone = (EditText)findViewById(R.id.et_contact_no);
+        address = (EditText)findViewById(R.id.et_address);
+        password = (EditText)findViewById(R.id.et_password);
+
+        //setujem editTextove sa mockup podacima
+        nameEdit.setText(passenger.getName());
+        lastnameEdit.setText(passenger.getName());
+        email.setText(passenger.getEmail());
+        phone.setText(passenger.getPhone());
+        address.setText(passenger.getAddress());
+        password.setText(passenger.getAddress());
+
+        //na fokus se pojavljuje hint a brise se napisano
         nameEdit.setOnFocusChangeListener(new View.OnFocusChangeListener(){
             @Override
             public void onFocusChange(View v, boolean hasFocus){
@@ -29,7 +68,7 @@ public class PassengerProfileActivity extends AppCompatActivity {
                 }
             }
         });
-        EditText lastnameEdit = (EditText)findViewById(R.id.et_last_name);
+
         lastnameEdit.setOnFocusChangeListener(new View.OnFocusChangeListener(){
             @Override
             public void onFocusChange(View v, boolean hasFocus){
@@ -40,7 +79,6 @@ public class PassengerProfileActivity extends AppCompatActivity {
             }
         });
 
-        EditText email = (EditText)findViewById(R.id.et_email);
         email.setOnFocusChangeListener(new View.OnFocusChangeListener(){
             @Override
             public void onFocusChange(View v, boolean hasFocus){
@@ -51,7 +89,7 @@ public class PassengerProfileActivity extends AppCompatActivity {
             }
         });
 
-        EditText phone = (EditText)findViewById(R.id.et_contact_no);
+        phone = (EditText)findViewById(R.id.et_contact_no);
         phone.setOnFocusChangeListener(new View.OnFocusChangeListener(){
             @Override
             public void onFocusChange(View v, boolean hasFocus){
@@ -63,7 +101,6 @@ public class PassengerProfileActivity extends AppCompatActivity {
         });
 
 
-        EditText address = (EditText)findViewById(R.id.et_address);
         address.setOnFocusChangeListener(new View.OnFocusChangeListener(){
             @Override
             public void onFocusChange(View v, boolean hasFocus){
@@ -74,7 +111,6 @@ public class PassengerProfileActivity extends AppCompatActivity {
             }
         });
 
-        EditText password = (EditText)findViewById(R.id.et_password);
         password.setOnFocusChangeListener(new View.OnFocusChangeListener(){
             @Override
             public void onFocusChange(View v, boolean hasFocus){
@@ -94,19 +130,8 @@ public class PassengerProfileActivity extends AppCompatActivity {
             }
         });
 
+
     }
-
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-    }
-
     @Override
     protected void onPostResume() {
         super.onPostResume();
