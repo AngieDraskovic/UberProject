@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-
-    tools:context=".passenger.PassengerInboxActivity">
+    android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/imageProfile"
+        android:id="@+id/senderProfileIcon"
         android:layout_width="49dp"
         android:layout_height="53dp"
         android:scaleType="centerCrop"
@@ -22,7 +18,7 @@
         android:layout_marginLeft="49dp" />
 
     <TextView
-        android:id="@+id/textName"
+        android:id="@+id/txtSenderName"
         android:layout_width="260dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -33,7 +29,7 @@
         android:textSize="15sp" />
 
     <TextView
-        android:id="@+id/textEmail"
+        android:id="@+id/txtMessageContent"
         android:layout_width="260dp"
         android:layout_height="wrap_content"
         android:ellipsize="end"

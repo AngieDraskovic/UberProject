@@ -1,5 +1,6 @@
 package com.example.easygo.mockup;
 
+import com.example.easygo.LoggedIn;
 import com.example.easygo.model.Message;
 import com.example.easygo.model.Ride;
 import com.example.easygo.model.enumerations.MessaggeType;
@@ -20,9 +21,9 @@ public class MockupMessages {
         User driver2 = MockupDrivers.getDrivers().get(2);
         User driver3 = MockupDrivers.getDrivers().get(3);
 
-        User passenger1 =  MockupPassengers.getPassengers().get(1);
-        User passenger2 =  MockupPassengers.getPassengers().get(2);
-        User passenger3 =  MockupPassengers.getPassengers().get(3);
+        User passenger1 =  MockupPassengers.getPassengers().get(4);
+        User passenger2 =  MockupPassengers.getPassengers().get(5);
+        User passenger3 =  MockupPassengers.getPassengers().get(6);
 
         Ride ride1 = MockupRides.getRides().get(1);
         Ride ride2 = MockupRides.getRides().get(2);
@@ -60,6 +61,15 @@ public class MockupMessages {
         messages.add(ride3Message2);
 
         return messages;
+    }
+
+    public static ArrayList<Message> getCurrUserMessages() {
+        User currUser = LoggedIn.getUser();
+        HashMap<User, Message> lastMessageMap = new HashMap<User, Message>();
+        for (Message message : getMessages()) {
+
+        }
+        return null;
     }
 
 }
