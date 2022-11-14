@@ -36,6 +36,8 @@ public class MockupMessages {
         Najbitnije je da se proslijede sender i deliverer sto su u ovom slucaju passenger1 i driver1, kao i voznja na koju se poruka odnosi
         Ostalo je isto u svim porukama: tekst, vrijeme, tip poruke.
          */
+
+
         Message ride1Message1 = new Message(1, "Da li ostaje dogovor?", LocalDateTime.now(), MessaggeType.RIDE, passenger1, driver1, ride1);
         Message ride1Message2 = new Message(2, "Dogovor ostaje.", LocalDateTime.now(), MessaggeType.RIDE, driver1, passenger1, ride1);
 
@@ -85,7 +87,7 @@ public class MockupMessages {
 
         for (HashMap.Entry<User, ArrayList<Message>> set : messagesMap.entrySet()) {
             String lastMessage = set.getValue().get(set.getValue().size()-1).getText();
-            conversations.add(new Conversation(set.getKey(), lastMessage, set.getValue()));
+            conversations.add(new Conversation(set.getKey(), lastMessage, set.getValue(), set.getValue().get(set.getValue().size()-1)));
         }
 
         return conversations;

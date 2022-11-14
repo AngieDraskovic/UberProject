@@ -14,6 +14,9 @@ import com.example.easygo.model.Message;
 
 import org.w3c.dom.Text;
 
+import java.nio.charset.StandardCharsets;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.concurrent.BrokenBarrierException;
 
 public class MessageAdapter2 extends BaseAdapter
@@ -46,10 +49,22 @@ public class MessageAdapter2 extends BaseAdapter
         ImageView senderProfileIcon = vi.findViewById(R.id.senderProfileIcon);
         TextView txtSenderName = vi.findViewById(R.id.txtSenderName);
         TextView txtMessageContent = vi.findViewById(R.id.txtMessageContent);
-
+        TextView txtMessageTime = vi.findViewById(R.id.messageTime);
+        TextView txtMessageDate = vi.findViewById(R.id.messageDate);
         senderProfileIcon.setImageResource(conversation.getAnotherUser().getProfilePic());
         txtSenderName.setText(conversation.getAnotherUser().getName());
         txtMessageContent.setText(conversation.getLastMessage());
+
+        LocalDateTime date = conversation.getLastMessageObject().getTime();
+
+        String[] splitted = date.toString().split("T");
+
+
+        String[] timeString = splitted[1].split(":");
+        String hours = timeString[0] + ":" + timeString[1];
+        txtMessageTime.setText(hours);
+        txtMessageDate.setText(splitted[0]);
+
 
         return vi;
     }

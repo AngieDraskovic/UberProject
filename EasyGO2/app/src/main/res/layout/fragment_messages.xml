@@ -3,12 +3,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".passenger.MessagesFragment">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="33dp">
+            <SearchView
+                android:layout_width="270dp"
+                android:layout_height="match_parent"
+                app:iconifiedByDefault="false"
+                app:queryHint="Search inbox" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginBottom="0dp"
+            android:backgroundTint="#E3AC5B"
+            android:text="FILTER"
+            android:layout_centerVertical="true"
+            android:textColor="@color/white" />
+    </LinearLayout>
     <ListView
+        android:paddingTop="2dp"
         android:id="@android:id/list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+
 
 </LinearLayout>
