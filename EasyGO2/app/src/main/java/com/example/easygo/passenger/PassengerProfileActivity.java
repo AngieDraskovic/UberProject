@@ -5,11 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.easygo.LoggedIn;
 import com.example.easygo.R;
 import com.example.easygo.UserLoginActivity;
+import com.example.easygo.driver.DriverProfileActivity;
 import com.example.easygo.model.users.Passenger;
 
 public class PassengerProfileActivity extends AppCompatActivity {
@@ -41,7 +45,7 @@ public class PassengerProfileActivity extends AppCompatActivity {
     @Override
     protected void onResume(){
         super.onResume();
-
+        this.passenger = LoggedIn.getPassenger();
         nameEdit = (EditText)findViewById(R.id.et_first_name);
         lastnameEdit = (EditText)findViewById(R.id.et_last_name);
         email = (EditText)findViewById(R.id.et_email);
@@ -51,11 +55,11 @@ public class PassengerProfileActivity extends AppCompatActivity {
 
         //setujem editTextove sa mockup podacima
         nameEdit.setText(passenger.getName());
-        lastnameEdit.setText(passenger.getName());
+        lastnameEdit.setText(passenger.getSurname());
         email.setText(passenger.getEmail());
         phone.setText(passenger.getPhone());
         address.setText(passenger.getAddress());
-        password.setText(passenger.getAddress());
+        password.setText(passenger.getPhone());
 
         //na fokus se pojavljuje hint a brise se napisano
 
@@ -132,6 +136,20 @@ public class PassengerProfileActivity extends AppCompatActivity {
         });
 
 
+        Button btnUpdate = findViewById(R.id.bt_update);
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                passenger.setName(nameEdit.getText().toString());
+                passenger.setSurname(lastnameEdit.getText().toString());
+                passenger.setPhone(phone.getText().toString());
+                passenger.setEmail(email.getText().toString());
+                passenger.setAddress(address.getText().toString());
+                passenger.setPassword(password.getText().toString());
+                Toast.makeText(PassengerProfileActivity.this, "Update successfull!", Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
     @Override
     protected void onPostResume() {

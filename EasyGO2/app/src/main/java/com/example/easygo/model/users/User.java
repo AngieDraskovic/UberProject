@@ -5,6 +5,7 @@ import com.example.easygo.model.Rejection;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class User {
 
@@ -106,5 +107,23 @@ public class User {
 
     public void setRejections(List<Rejection> rejections) {
         this.rejections = rejections;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
+        User user = (User) o;
+        return getId() == user.getId();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId());
+    }
+
+    @Override
+    public String toString() {
+        return name + " " + surname;
     }
 }

@@ -13,6 +13,15 @@
         android:theme="@style/Theme.EasyGO"
         tools:targetApi="31">
         <activity
+            android:name=".passenger.MessageDetailActivity"
+            android:exported="false"
+            android:label="@string/title_activity_message_detail"
+            android:theme="@style/Theme.EasyGO.NoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".driver.DriverProfileActivity"
             android:exported="false">
             <meta-data
