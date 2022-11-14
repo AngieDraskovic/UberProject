@@ -1,5 +1,6 @@
 package com.example.easygo.passenger;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,8 +13,15 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.easygo.LoggedIn;
 import com.example.easygo.R;
 import com.example.easygo.adapters.MessageAdapter2;
+import com.example.easygo.mockup.MockupMessages;
+import com.example.easygo.model.Conversation;
+import com.example.easygo.model.Message;
+import com.example.easygo.model.users.User;
+
+import java.util.ArrayList;
 
 
 public class MessagesFragment extends ListFragment {
@@ -45,6 +53,37 @@ public class MessagesFragment extends ListFragment {
     @Override
     public void onListItemClick(@NonNull ListView l, @NonNull View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
-        Toast.makeText(getActivity(), "Kliknuo si", Toast.LENGTH_SHORT).show();
+
+        Conversation conversation = MockupMessages.getCurrUserMessages().get(position);
+
+        Intent intent = new Intent(getActivity(), MessageDetailActivity.class);
+
+        String[] textMessages = getTextFromConversation(conversation);
+        String[] senders = getSendersFromConversation(conversation);
+        intent.putExtra("textMessages", textMessages);
+        intent.putExtra("senders", senders);
+        startActivity(intent);
+    }
+
+    private String[] getSendersFromConversation(Conversation conversation) {
+        int size = conversation.getMessages().size();
+        String[] senders = new String[size];
+        for (int i = 0; i < size; i++) {
+            User sender = conversation.getMessages().get(i).getSender();
+            User me = LoggedIn.getUser();
+            senders[i] = (sender.equals(me)) ? "Me" : sender.toString();
+        }
+
+
+        return senders;
+    }
+
+    private String[] getTextFromConversation(Conversation conversation) {
+        int size = conversation.getMessages().size();
+        String[] textMessages = new String[size];
+        for (int i = 0; i < size; i++)
+            textMessages[i] = conversation.getMessages().get(i).getText();
+
+        return textMessages;
     }
 }
