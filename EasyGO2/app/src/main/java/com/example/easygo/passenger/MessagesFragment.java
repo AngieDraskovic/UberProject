@@ -59,8 +59,8 @@ public class MessagesFragment extends ListFragment {
 
         Intent intent = new Intent(getActivity(), MessageDetailActivity.class);
 
-        String[] textMessages = getTextFromConversation(conversation);
-        String[] senders = getSendersFromConversation(conversation);
+        String[] textMessages = getTextFromConversation(conversation);      // ['Da li ostaje dogovor', 'da']
+        String[] senders = getSendersFromConversation(conversation);        // ['me', vozac;]
         intent.putExtra("textMessages", textMessages);
         intent.putExtra("senders", senders);
         startActivity(intent);

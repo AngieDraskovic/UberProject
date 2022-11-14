@@ -82,4 +82,16 @@ public class Message {
         this.ride = ride;
     }
 
+    @Override
+    public String toString() {
+        return "Message{" +
+                "id=" + id +
+                ", text='" + text + '\'' +
+                ", time=" + time +
+                ", type=" + type +
+                ", sender=" + sender +
+                ", deliverer=" + deliverer +
+                ", ride=" + ride +
+                '}';
+    }
 }

@@ -40,8 +40,10 @@ public class MockupMessages {
 
         Message ride1Message1 = new Message(1, "Da li ostaje dogovor?", LocalDateTime.now(), MessaggeType.RIDE, passenger1, driver1, ride1);
         Message ride1Message2 = new Message(2, "Dogovor ostaje.", LocalDateTime.now(), MessaggeType.RIDE, driver1, passenger1, ride1);
-
-        /*
+        Message ride1Message3 = new Message(10, "U redu", LocalDateTime.now(), MessaggeType.RIDE, passenger1, driver2, ride1);
+        Message ride1Message4 = new Message(11, "Voznja je spremna.", LocalDateTime.now(), MessaggeType.RIDE, driver2, passenger1, ride1);
+        Message ride1Message5 = new Message(12, "Zelim da napustim voznju!", LocalDateTime.now(), MessaggeType.PANIC, passenger1, driver3, ride1);
+        Message ride1Message6 = new Message(13, "Zaustavljam voznju!", LocalDateTime.now(), MessaggeType.PANIC, driver3, passenger1, ride1);        /*
         Za ride2: Imamo 2 putnika u drugoj voznji i obojica pitaju vozaca isto pitanje.
          */
         Message ride2Message1 = new Message(4, "Da li ostaje dogovor?", LocalDateTime.now(), MessaggeType.RIDE, passenger2, driver2, ride2);
@@ -49,20 +51,27 @@ public class MockupMessages {
         Message ride2Message3 = new Message(6, "Da li ostaje dogovor?", LocalDateTime.now(), MessaggeType.RIDE, passenger3, driver2, ride2);
         Message ride2Message4 = new Message(7, "Dogovor ostaje.", LocalDateTime.now(), MessaggeType.RIDE, driver2, passenger3, ride2);
 
+
         /*
         Za ride3: Isto kao i za ride1 samo drugi vozac
          */
         Message ride3Message1 = new Message(8, "Da li ostaje dogovor?", LocalDateTime.now(), MessaggeType.RIDE, passenger1, driver3, ride3);
         Message ride3Message2 = new Message(9, "Dogovor ostaje.", LocalDateTime.now(), MessaggeType.RIDE, driver3, passenger1, ride3);
 
-        messages.add(ride1Message1);
-        messages.add(ride1Message2);
+
         messages.add(ride2Message1);
         messages.add(ride2Message2);
         messages.add(ride2Message3);
         messages.add(ride2Message4);
         messages.add(ride3Message1);
         messages.add(ride3Message2);
+        messages.add(ride1Message1);
+        messages.add(ride1Message2);
+        messages.add(ride1Message3);
+        messages.add(ride1Message4);
+        messages.add(ride1Message5);
+        messages.add(ride1Message6);
+
 
         return messages;
     }

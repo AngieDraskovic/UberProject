@@ -55,4 +55,14 @@ public class Conversation {
     public void setLastMessageObject(Message lastMessageObject) {
         this.lastMessageObject = lastMessageObject;
     }
+
+    @Override
+    public String toString() {
+        return "Conversation{" +
+                "anotherUser=" + anotherUser +
+                ", lastMessage='" + lastMessage + '\'' +
+                ", messages=" + messages +
+                ", lastMessageObject=" + lastMessageObject +
+                '}';
+    }
 }
