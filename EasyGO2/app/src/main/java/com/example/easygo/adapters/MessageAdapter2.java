@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.example.easygo.R;
 import com.example.easygo.mockup.MockupMessages;
+import com.example.easygo.model.Conversation;
 import com.example.easygo.model.Message;
 
 import org.w3c.dom.Text;
@@ -24,49 +25,33 @@ public class MessageAdapter2 extends BaseAdapter
     }
 
     @Override
-    public int getCount() { return MockupMessages.getMessages().size(); }
+    public int getCount() { return MockupMessages.getCurrUserMessages().size(); }
 
     @Override
-    public Message getItem(int index){
-        return MockupMessages.getMessages().get(index);
-    }
+    public Conversation getItem(int index) { return MockupMessages.getCurrUserMessages().get(index); }
 
     @Override
     public long getItemId(int i) {
-        return MockupMessages.getMessages().get(i).getId();
+        return i;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View vi = convertView;
-        Message message = MockupMessages.getMessages().get(position);
+        Conversation conversation = MockupMessages.getCurrUserMessages().get(position);
 
-        if(convertView==null)
+        if (convertView == null)
             vi = activity.getLayoutInflater().inflate(R.layout.message_list_item, null);
 
         ImageView senderProfileIcon = vi.findViewById(R.id.senderProfileIcon);
         TextView txtSenderName = vi.findViewById(R.id.txtSenderName);
         TextView txtMessageContent = vi.findViewById(R.id.txtMessageContent);
 
-        senderProfileIcon.setImageResource(message.getSender().getProfilePic());
-        txtSenderName.setText(message.getSender().getName());
-        txtMessageContent.setText(message.getText());
+        senderProfileIcon.setImageResource(conversation.getAnotherUser().getProfilePic());
+        txtSenderName.setText(conversation.getAnotherUser().getName());
+        txtMessageContent.setText(conversation.getLastMessage());
 
-//        senderProfileIcon.setImageResource(R.drawable.milos_milojevic);
-//        txtSenderName.setText(message.getText());
-//        txtMessageContent.setText(message.getText());
-
-//        TextView name = (TextView)vi.findViewById(R.id.textName);
-//        TextView email = (TextView)vi.findViewById(R.id.textEmail);
-//        ImageView image = (ImageView)vi.findViewById(R.id.imageProfile);
-//
-//        name.setText(message.getDeliverer().getEmail());
-//        email.setText(message.getText());
-//
-//        image.setImageResource(-1);
         return vi;
-
-
-
     }
+
 }

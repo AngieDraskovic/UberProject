@@ -1,6 +1,7 @@
 package com.example.easygo.mockup;
 
 import com.example.easygo.LoggedIn;
+import com.example.easygo.model.Conversation;
 import com.example.easygo.model.Message;
 import com.example.easygo.model.Ride;
 import com.example.easygo.model.enumerations.MessaggeType;
@@ -10,6 +11,7 @@ import com.example.easygo.model.users.User;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class MockupMessages {
 
@@ -63,13 +65,31 @@ public class MockupMessages {
         return messages;
     }
 
-    public static ArrayList<Message> getCurrUserMessages() {
+    public static ArrayList<Conversation> getCurrUserMessages() {
         User currUser = LoggedIn.getUser();
-        HashMap<User, Message> lastMessageMap = new HashMap<User, Message>();
-        for (Message message : getMessages()) {
+        HashMap<User, ArrayList<Message>> messagesMap = new HashMap<User, ArrayList<Message>>();
+        ArrayList<Conversation> conversations = new ArrayList<Conversation>();
 
+        for (Message message : getMessages()) {
+            if (message.getSender().equals(currUser) || message.getDeliverer().equals(currUser)) {
+                User anotherUser = (message.getSender().equals(currUser)) ? message.getDeliverer() : message.getSender();
+
+                if (messagesMap.containsKey(anotherUser))
+                    messagesMap.get(anotherUser).add(message);
+                else {
+                    messagesMap.put(anotherUser, new ArrayList<Message>());
+                    messagesMap.get(anotherUser).add(message);
+                }
+            }
         }
-        return null;
+
+        for (HashMap.Entry<User, ArrayList<Message>> set : messagesMap.entrySet()) {
+            String lastMessage = set.getValue().get(set.getValue().size()-1).getText();
+            conversations.add(new Conversation(set.getKey(), lastMessage, set.getValue()));
+        }
+
+        return conversations;
+
     }
 
 }

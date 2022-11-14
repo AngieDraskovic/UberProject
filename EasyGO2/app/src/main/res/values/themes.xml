@@ -21,4 +21,10 @@
         <item name="android:windowBackground"> @drawable/background_splashscreen</item>
         <item name="android:statusBarColor">@color/black</item>
     </style>
+    <style name="Theme.EasyGO.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.EasyGO.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.EasyGO.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
