@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.easygo.R;
-
+import com.example.easygo.UserLoginActivity;
 public class PassengerHistoryActivity extends AppCompatActivity {
 
     @Override
@@ -51,6 +51,10 @@ public class PassengerHistoryActivity extends AppCompatActivity {
             case
                     R.id.inbox:
                 startActivity(new Intent(PassengerHistoryActivity.this, PassengerInboxActivity.class));
+                break;
+            case
+                    R.id.logout:
+                startActivity(new Intent(PassengerHistoryActivity.this, UserLoginActivity.class));
                 break;
             default:
                 break;

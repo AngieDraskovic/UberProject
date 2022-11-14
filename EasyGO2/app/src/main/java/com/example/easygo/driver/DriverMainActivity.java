@@ -14,7 +14,7 @@ import com.example.easygo.passenger.PassengerAccountActivity;
 import com.example.easygo.passenger.PassengerInboxActivity;
 import com.example.easygo.passenger.PassengerMainActivity;
 import com.example.easygo.passenger.PassengerRideHistoryActivity;
-
+import com.example.easygo.UserLoginActivity;
 public class DriverMainActivity extends AppCompatActivity {
 
     @Override
@@ -51,6 +51,10 @@ public class DriverMainActivity extends AppCompatActivity {
             case
                     R.id.inbox:
                 startActivity(new Intent(DriverMainActivity.this, DriverInboxActivity.class));
+                break;
+            case
+                    R.id.logout:
+                startActivity(new Intent(DriverMainActivity.this, UserLoginActivity.class));
                 break;
             default:
                 break;

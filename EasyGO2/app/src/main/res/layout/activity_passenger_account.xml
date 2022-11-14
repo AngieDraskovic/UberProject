@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/bkg"
     android:elevation="0dp"
+    android:id="@+id/account"
     tools:context=".passenger.PassengerAccountActivity">
 
 
@@ -234,6 +235,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/financialCard"
             android:layout_width="match_parent"
             android:layout_height="43dp"
             android:layout_marginTop="2dp"
@@ -283,7 +285,10 @@
                 android:textSize="18sp" />
         </LinearLayout>
 
+
     </LinearLayout>
+
+
 
     <ImageView
         android:id="@+id/imageView"

@@ -8,4 +8,16 @@
     android:orientation="vertical"
     tools:context=".passenger.MessageDetailActivity">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:background="@color/black"
+        android:layout_height="45dp"
+        android:textColor="@color/white"
+        android:paddingTop="4dp"
+        android:paddingLeft="17dp"
+        android:textSize="27sp"
+        android:text="Chat" />
+
+
 </LinearLayout>

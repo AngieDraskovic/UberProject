@@ -16,7 +16,7 @@ public class MockupPassengers {
 
         passengersMap = new HashMap<Integer, Passenger>();
 
-        Passenger passenger1 = new Passenger(4, "Mirko", "Ivanic", R.drawable.mirko_ivanic, "061-032-3230", "mirkoivanic@gmail.com", "Svetog Save 1", "mirko123", false);
+        Passenger passenger1 = new Passenger(4, "Ivana", "Simic", R.drawable.profile1, "061-032-3230", "ivanasimic@gmail.com", "Svetog Save 1", "ivana123", false);
         Passenger passenger2 = new Passenger(5, "Sale", "Katai", R.drawable.sale_katai, "062-032-3230", "salekatai@gmail.com", "Svetog Save 2", "sale123", false);
         Passenger passenger3 = new Passenger(6, "Osman", "Bukari", R.drawable.osman_bukari, "063-032-3230", "osmanbukari@gmail.com", "Svetog Save 3", "osman123", false);
 

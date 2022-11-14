@@ -22,7 +22,7 @@ import com.example.easygo.passenger.PassengerInboxActivity;
 import com.example.easygo.passenger.PassengerMainActivity;
 import com.example.easygo.passenger.PassengerProfileActivity;
 import com.example.easygo.passenger.PassengerRideHistoryActivity;
-
+import com.example.easygo.UserLoginActivity;
 public class DriverAccountActivity extends AppCompatActivity {
 
     private Driver driver;
@@ -73,6 +73,10 @@ public class DriverAccountActivity extends AppCompatActivity {
             case
                     R.id.inbox:
                 startActivity(new Intent(DriverAccountActivity.this, DriverInboxActivity.class));
+                break;
+            case
+                    R.id.logout:
+                startActivity(new Intent(DriverAccountActivity.this, UserLoginActivity.class));
                 break;
             default:
                 break;

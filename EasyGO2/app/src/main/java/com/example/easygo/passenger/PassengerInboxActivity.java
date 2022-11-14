@@ -17,7 +17,7 @@ import android.widget.ListView;
 import com.example.easygo.FragmentTransition;
 import com.example.easygo.R;
 import com.example.easygo.adapters.MessageAdapter2;
-
+import com.example.easygo.UserLoginActivity;
 public class PassengerInboxActivity extends AppCompatActivity {
 
 
@@ -65,6 +65,10 @@ public class PassengerInboxActivity extends AppCompatActivity {
             case
                     R.id.inbox:
                 startActivity(new Intent(PassengerInboxActivity.this, PassengerInboxActivity.class));
+                break;
+            case
+                    R.id.logout:
+                startActivity(new Intent(PassengerInboxActivity.this, UserLoginActivity.class));
                 break;
             default:
                 break;

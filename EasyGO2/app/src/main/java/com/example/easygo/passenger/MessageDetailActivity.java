@@ -40,7 +40,7 @@ public class MessageDetailActivity extends AppCompatActivity {
                 txtAnotherMessage = createAnotherMessage(messages[i], senders[i]);
                 rootLinear.addView(txtAnotherMessage);
             }
-
+            createSpace();
         }
 
     }
@@ -52,10 +52,20 @@ public class MessageDetailActivity extends AppCompatActivity {
     @SuppressLint("ResourceAsColor")
     private TextView createMyMessage(String text) {
         TextView txtAnother = new TextView(MessageDetailActivity.this);
-        txtAnother.setText("Me: " + text);
+        txtAnother.setText("ME: " + text);
         txtAnother.setTextColor(R.color.teal_700);
+
         return txtAnother;
     }
+
+    // Samo prostor prazan izmedju poruka
+    private TextView createSpace(){
+        TextView txtAnother = new TextView(MessageDetailActivity.this);
+        txtAnother.setText("    ");
+
+        return txtAnother;
+    }
+
 
     /*
         Kreiramo TextView ako je poruku poslao drugi korisnik

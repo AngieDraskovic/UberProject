@@ -7,8 +7,8 @@
         android:orderInCategory="100"
         app:showAsAction="always" />
 
-    <item android:id="@+id/account"
-        android:title="@string/account"
+    <item android:id="@+id/inbox"
+        android:title="@string/inbox"
         android:orderInCategory="300"
         app:showAsAction="ifRoom"/>
 
@@ -19,10 +19,15 @@
         app:showAsAction="ifRoom" />
 
 
-    <item android:id="@+id/inbox"
-        android:title="@string/inbox"
+    <item android:id="@+id/account"
+        android:title="@string/account"
         android:orderInCategory="300"
         app:showAsAction="always" />
+
+    <item android:id="@+id/logout"
+        android:title="Log out"
+        android:orderInCategory="300"
+        app:showAsAction="ifRoom" />
 
 
 </menu>

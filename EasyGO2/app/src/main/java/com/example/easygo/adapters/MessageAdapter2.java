@@ -77,10 +77,8 @@ public class MessageAdapter2 extends BaseAdapter
     private void setMessageColor(TextView txtMessageContent, TextView txtSenderName, MessaggeType messaggeType) {
         if (messaggeType.equals(MessaggeType.PANIC)) {
             txtMessageContent.setTextColor(Color.parseColor("#FF0000"));
-            txtSenderName.setTextColor(Color.parseColor("#50FF0000"));
         } else {
             txtMessageContent.setTextColor(Color.parseColor("#018786"));
-            txtSenderName.setTextColor(Color.parseColor("#03DAC5"));
         }
     }
 
