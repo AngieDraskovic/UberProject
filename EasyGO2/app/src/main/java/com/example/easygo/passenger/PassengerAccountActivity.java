@@ -13,14 +13,18 @@ import android.view.MenuItem;
 import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.easygo.LoggedIn;
 import com.example.easygo.R;
+import com.example.easygo.model.users.Passenger;
 
 public class PassengerAccountActivity extends AppCompatActivity {
 
-
+    private Passenger passenger;
 
 
     @Override
@@ -31,18 +35,25 @@ public class PassengerAccountActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
+        this.passenger = LoggedIn.getPassenger();
         LinearLayout editProfile = (LinearLayout) findViewById(R.id.userProfile);
+
+
         editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                editProfile.setBackgroundColor(Color.parseColor("#574A46"));
                Intent intent = new Intent(PassengerAccountActivity.this,PassengerProfileActivity.class);
                startActivity(intent);
             }
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setPassengerData();
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.layout_items, menu);
@@ -89,8 +100,6 @@ public class PassengerAccountActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onResume(){super.onResume();}
-    @Override
     protected void onPostResume() {
         super.onPostResume();
     }
@@ -108,6 +117,17 @@ public class PassengerAccountActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+    }
+
+
+    private void setPassengerData() {
+        String user = passenger.getName() + " " + passenger.getSurname();
+
+        ((TextView) findViewById(R.id.txtUser)).setText(user);
+        ((TextView) findViewById(R.id.txtEmail)).setText(passenger.getEmail());
+        ((TextView) findViewById(R.id.txtPhone)).setText(passenger.getPhone());
+        ((TextView) findViewById(R.id.txtAddress)).setText(passenger.getAddress());
+        ((ImageView) findViewById(R.id.profileImg)).setImageResource(passenger.getProfilePic());
     }
 
 

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +25,7 @@ public class PassengerProfileActivity extends AppCompatActivity {
     private EditText address;
     private EditText phone;
     private EditText password;
+    private ImageView profileIcon;
     private Passenger passenger;
 
     @Override
@@ -52,14 +54,15 @@ public class PassengerProfileActivity extends AppCompatActivity {
         phone = (EditText)findViewById(R.id.et_contact_no);
         address = (EditText)findViewById(R.id.et_address);
         password = (EditText)findViewById(R.id.et_password);
-
+        profileIcon = (ImageView)findViewById(R.id.profileIcon);
         //setujem editTextove sa mockup podacima
         nameEdit.setText(passenger.getName());
         lastnameEdit.setText(passenger.getSurname());
         email.setText(passenger.getEmail());
         phone.setText(passenger.getPhone());
         address.setText(passenger.getAddress());
-        password.setText(passenger.getPhone());
+        password.setText(passenger.getPassword());
+        profileIcon.setImageResource(passenger.getProfilePic());
 
         //na fokus se pojavljuje hint a brise se napisano
 
