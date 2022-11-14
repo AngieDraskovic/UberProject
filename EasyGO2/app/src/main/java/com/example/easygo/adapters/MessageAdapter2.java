@@ -1,6 +1,8 @@
 package com.example.easygo.adapters;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -11,9 +13,13 @@ import com.example.easygo.R;
 import com.example.easygo.mockup.MockupMessages;
 import com.example.easygo.model.Conversation;
 import com.example.easygo.model.Message;
+import com.example.easygo.model.enumerations.MessaggeType;
 
 import org.w3c.dom.Text;
 
+import java.nio.charset.StandardCharsets;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.concurrent.BrokenBarrierException;
 
 public class MessageAdapter2 extends BaseAdapter
@@ -35,6 +41,7 @@ public class MessageAdapter2 extends BaseAdapter
         return i;
     }
 
+    @SuppressLint("ResourceAsColor")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View vi = convertView;
@@ -46,12 +53,35 @@ public class MessageAdapter2 extends BaseAdapter
         ImageView senderProfileIcon = vi.findViewById(R.id.senderProfileIcon);
         TextView txtSenderName = vi.findViewById(R.id.txtSenderName);
         TextView txtMessageContent = vi.findViewById(R.id.txtMessageContent);
+        TextView txtMessageTime = vi.findViewById(R.id.messageTime);
+        TextView txtMessageDate = vi.findViewById(R.id.messageDate);
 
         senderProfileIcon.setImageResource(conversation.getAnotherUser().getProfilePic());
-        txtSenderName.setText(conversation.getAnotherUser().getName());
+        txtSenderName.setText(conversation.getAnotherUser().toString());
         txtMessageContent.setText(conversation.getLastMessage());
 
+        setMessageColor(txtMessageContent, txtSenderName, conversation.getLastMessageObject().getType());
+
+        LocalDateTime date = conversation.getLastMessageObject().getTime();
+        
+        String[] splitted = date.toString().split("T");
+        String[] timeString = splitted[1].split(":");
+        String hours = timeString[0] + ":" + timeString[1];
+        txtMessageTime.setText(hours);
+        txtMessageDate.setText(splitted[0]);
+
+
         return vi;
+    }
+
+    private void setMessageColor(TextView txtMessageContent, TextView txtSenderName, MessaggeType messaggeType) {
+        if (messaggeType.equals(MessaggeType.PANIC)) {
+            txtMessageContent.setTextColor(Color.parseColor("#FF0000"));
+            txtSenderName.setTextColor(Color.parseColor("#50FF0000"));
+        } else {
+            txtMessageContent.setTextColor(Color.parseColor("#018786"));
+            txtSenderName.setTextColor(Color.parseColor("#03DAC5"));
+        }
     }
 
 }

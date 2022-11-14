@@ -9,7 +9,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.easygo.FragmentTransition;
 import com.example.easygo.R;
+import com.example.easygo.passenger.MessagesFragment;
 import com.example.easygo.passenger.PassengerAccountActivity;
 import com.example.easygo.passenger.PassengerInboxActivity;
 import com.example.easygo.passenger.PassengerMainActivity;
@@ -23,6 +25,8 @@ public class DriverInboxActivity extends AppCompatActivity {
         setContentView(R.layout.activity_driver_inbox);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        FragmentTransition.to(MessagesFragment.newInstance(), this, false, R.id.messagesContent);
     }
 
     @Override
@@ -55,6 +59,37 @@ public class DriverInboxActivity extends AppCompatActivity {
                 break;
         }
         return true;
+    }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+    }
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 
 }

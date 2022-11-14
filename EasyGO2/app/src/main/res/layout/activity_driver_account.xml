@@ -15,8 +15,12 @@
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="380dp"
+        android:layout_height="209dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="130dp"
+        android:background="@drawable/whitish_background"
+        android:backgroundTint="#090909">
 
 
         <ImageView
@@ -24,16 +28,16 @@
             android:layout_width="131dp"
             android:layout_height="169dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="160dp"
+            android:layout_marginTop="20dp"
             android:elevation="5dp"
             app:srcCompat="@drawable/profile_default" />
 
 
         <LinearLayout
             android:layout_width="239dp"
-            android:layout_height="199dp"
+            android:layout_height="182dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:background="@drawable/white_background"
             android:elevation="3dp"
@@ -43,10 +47,10 @@
                 android:id="@+id/driverFullName"
                 android:layout_width="match_parent"
                 android:layout_height="43dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="2dp"
                 android:background="#FFFFFF"
                 android:clickable="true"
-                android:elevation="20dp"
+                android:elevation="0dp"
                 android:fadingEdge="vertical"
                 android:visibility="visible">
 
@@ -68,8 +72,9 @@
                     android:layout_marginTop="11dp"
                     android:clickable="false"
                     android:text="Milos Milojevic"
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textColor="#574A46"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
 
@@ -99,9 +104,9 @@
                     android:layout_marginTop="11dp"
                     android:clickable="false"
                     android:text="milosmilojevic@gmail.com"
-
-                    android:textColor="@color/black"
-                    android:textSize="14sp" />
+                    android:textColor="#574A46"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
@@ -130,9 +135,9 @@
                     android:layout_marginTop="11dp"
                     android:clickable="false"
                     android:text="064123423"
-
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textColor="#574A46"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
@@ -161,19 +166,19 @@
                     android:layout_marginTop="11dp"
                     android:clickable="false"
                     android:text="Svetog Save 1"
-
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textColor="#574A46"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="304dp"
-        android:layout_height="151dp"
+        android:layout_width="392dp"
+        android:layout_height="135dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="450dp"
-        android:background="@drawable/white_background"
+        android:layout_marginTop="400dp"
+        android:background="@drawable/black_layout"
         android:elevation="3dp"
         android:orientation="vertical">
 
@@ -181,8 +186,8 @@
             android:id="@+id/driverProfile"
             android:layout_width="match_parent"
             android:layout_height="43dp"
-            android:layout_marginTop="10dp"
-            android:background="#FDFFFFFF"
+            android:layout_marginTop="1dp"
+            android:background="#131313"
             android:clickable="true"
             android:elevation="20dp"
             android:fadingEdge="vertical"
@@ -204,40 +209,40 @@
                 android:clickable="false"
                 android:text="USER PROFILE"
                 android:textAlignment="center"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="18sp" />
         </LinearLayout>
 
-<!--        <LinearLayout-->
-<!--            android:layout_width="330dp"-->
-<!--            android:layout_height="43dp"-->
-<!--            android:layout_marginTop="2dp"-->
-<!--            android:background="#FFFFFF"-->
-<!--            android:elevation="20dp">-->
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="330dp"-->
+        <!--            android:layout_height="43dp"-->
+        <!--            android:layout_marginTop="2dp"-->
+        <!--            android:background="#FFFFFF"-->
+        <!--            android:elevation="20dp">-->
 
-<!--            <ImageView-->
-<!--                android:id="@+id/iconRoutes"-->
-<!--                android:layout_width="50dp"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:layout_marginLeft="4dp"-->
-<!--                android:textAlignment="center"-->
-<!--                app:srcCompat="@drawable/routes" />-->
+        <!--            <ImageView-->
+        <!--                android:id="@+id/iconRoutes"-->
+        <!--                android:layout_width="50dp"-->
+        <!--                android:layout_height="match_parent"-->
+        <!--                android:layout_marginLeft="4dp"-->
+        <!--                android:textAlignment="center"-->
+        <!--                app:srcCompat="@drawable/routes" />-->
 
-<!--            <TextView-->
-<!--                android:layout_width="220dp"-->
-<!--                android:layout_height="33dp"-->
-<!--                android:layout_marginTop="11dp"-->
-<!--                android:text="FAVOURITE ROUTES"-->
-<!--                android:textAlignment="center"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textSize="18sp" />-->
-<!--        </LinearLayout>-->
+        <!--            <TextView-->
+        <!--                android:layout_width="220dp"-->
+        <!--                android:layout_height="33dp"-->
+        <!--                android:layout_marginTop="11dp"-->
+        <!--                android:text="FAVOURITE ROUTES"-->
+        <!--                android:textAlignment="center"-->
+        <!--                android:textColor="@color/black"-->
+        <!--                android:textSize="18sp" />-->
+        <!--        </LinearLayout>-->
 
         <LinearLayout
-            android:layout_width="330dp"
+            android:layout_width="match_parent"
             android:layout_height="43dp"
             android:layout_marginTop="2dp"
-            android:background="#FFFFFF"
+            android:background="#0C0C0C"
             android:elevation="20dp">
 
             <ImageView
@@ -249,20 +254,20 @@
                 app:srcCompat="@drawable/vehicle" />
 
             <TextView
-                android:layout_width="127dp"
+                android:layout_width="126dp"
                 android:layout_height="43dp"
                 android:layout_marginTop="11dp"
                 android:text="VEHICLE"
                 android:textAlignment="center"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="330dp"
+            android:layout_width="match_parent"
             android:layout_height="43dp"
             android:layout_marginTop="2dp"
-            android:background="#FFFFFF"
+            android:background="#131313"
             android:elevation="20dp">
 
             <ImageView
@@ -274,12 +279,12 @@
                 app:srcCompat="@drawable/reports" />
 
             <TextView
-                android:layout_width="130dp"
+                android:layout_width="126dp"
                 android:layout_height="29dp"
                 android:layout_marginTop="11dp"
                 android:text="REPORTS"
                 android:textAlignment="center"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="18sp" />
         </LinearLayout>
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DDDAB5"
+    android:background="#ACACAC"
     android:orientation="vertical"
     tools:context=".passenger.PassengerInboxActivity">
 
@@ -20,38 +20,38 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-<!--    <ImageView-->
-<!--        android:id="@+id/imageProfile"-->
-<!--        android:layout_width="49dp"-->
-<!--        android:layout_height="53dp"-->
-<!--        android:layout_marginTop="65dp"-->
-<!--        android:scaleType="centerCrop"-->
-<!--        android:src="@drawable/profile1"-->
-<!--        />-->
-<!--    <FrameLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="10dp"-->
-<!--        android:layout_below="@id/imageProfile"-->
-<!--        android:background="@drawable/whitish_background">-->
+    <!--    <ImageView-->
+    <!--        android:id="@+id/imageProfile"-->
+    <!--        android:layout_width="49dp"-->
+    <!--        android:layout_height="53dp"-->
+    <!--        android:layout_marginTop="65dp"-->
+    <!--        android:scaleType="centerCrop"-->
+    <!--        android:src="@drawable/profile1"-->
+    <!--        />-->
+    <!--    <FrameLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="10dp"-->
+    <!--        android:layout_below="@id/imageProfile"-->
+    <!--        android:background="@drawable/whitish_background">-->
 
-<!--        <androidx.drawerlayout.widget.DrawerLayout-->
-<!--            android:id="@+id/mesaggesDrawerView"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:clipToPadding="false"-->
-<!--            android:overScrollMode="never"-->
-<!--            android:padding="20dp"-->
-<!--            android:orientation="vertical">-->
+    <!--        <androidx.drawerlayout.widget.DrawerLayout-->
+    <!--            android:id="@+id/mesaggesDrawerView"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:clipToPadding="false"-->
+    <!--            android:overScrollMode="never"-->
+    <!--            android:padding="20dp"-->
+    <!--            android:orientation="vertical">-->
 
-<!--            <ListView-->
-<!--                android:id="@+id/navList"-->
-<!--                android:layout_width="280dp"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:layout_below="@+id/profileBox"-->
-<!--                android:choiceMode="singleChoice"-->
-<!--                android:background="#ffffffff" />-->
-<!--        </androidx.drawerlayout.widget.DrawerLayout>-->
-<!--    </FrameLayout>-->
+    <!--            <ListView-->
+    <!--                android:id="@+id/navList"-->
+    <!--                android:layout_width="280dp"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:layout_below="@+id/profileBox"-->
+    <!--                android:choiceMode="singleChoice"-->
+    <!--                android:background="#ffffffff" />-->
+    <!--        </androidx.drawerlayout.widget.DrawerLayout>-->
+    <!--    </FrameLayout>-->
 
 </LinearLayout>

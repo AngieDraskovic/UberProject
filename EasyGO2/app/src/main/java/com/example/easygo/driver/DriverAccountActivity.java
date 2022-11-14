@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -40,7 +41,7 @@ public class DriverAccountActivity extends AppCompatActivity {
         editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                editProfile.setBackgroundColor(Color.parseColor("#574A46"));
                 Intent intent = new Intent(DriverAccountActivity.this, DriverProfileActivity.class);
                 startActivity(intent);
             }

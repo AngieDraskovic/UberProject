@@ -49,7 +49,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="140dp"
                     android:background="@color/white"
-                    android:backgroundTint="#6BC59E67"
+                    android:backgroundTint="#000000"
                     android:elevation="100dp"
                     android:src="@drawable/profile1" />
             </com.google.android.material.textfield.TextInputLayout>

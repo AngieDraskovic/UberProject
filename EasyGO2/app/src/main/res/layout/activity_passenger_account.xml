@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bkg"
-    android:elevation="10dp"
+    android:elevation="0dp"
     tools:context=".passenger.PassengerAccountActivity">
 
 
@@ -15,24 +15,27 @@
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
+        android:layout_width="380dp"
+        android:layout_height="209dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="130dp"
+        android:background="@drawable/whitish_background"
+        android:backgroundTint="#090909">
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/profileImg"
             android:layout_width="131dp"
             android:layout_height="169dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="160dp"
+            android:layout_marginTop="20dp"
             android:elevation="5dp"
-            app:srcCompat="@drawable/profile1" />
+            app:srcCompat="@drawable/profile_default" />
 
         <LinearLayout
             android:layout_width="239dp"
-            android:layout_height="199dp"
+            android:layout_height="182dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:background="@drawable/white_background"
             android:elevation="3dp"
@@ -42,10 +45,10 @@
                 android:id="@+id/userProfile2"
                 android:layout_width="match_parent"
                 android:layout_height="43dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="2dp"
                 android:background="#FFFFFF"
                 android:clickable="true"
-                android:elevation="20dp"
+                android:elevation="0dp"
                 android:fadingEdge="vertical"
                 android:visibility="visible">
 
@@ -60,14 +63,15 @@
                     android:textSize="14sp" />
 
                 <TextView
+                    android:id="@+id/txtUser"
                     android:layout_width="wrap_content"
                     android:layout_height="33dp"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="11dp"
                     android:clickable="false"
-                    android:text="Larisa Savic"
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textColor="#574A46"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
 
@@ -90,15 +94,15 @@
 
 
                 <TextView
+                    android:id="@+id/txtEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="33dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="11dp"
                     android:clickable="false"
-                    android:text="larisasavic@gmail.com"
-
-                    android:textColor="@color/black"
-                    android:textSize="14sp" />
+                    android:textColor="#574A46"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
@@ -115,20 +119,21 @@
                     android:layout_marginTop="11dp"
                     android:clickable="false"
                     android:text="Phone: "
+
                     android:textColor="#7E000000"
                     android:textSize="14sp" />
 
 
                 <TextView
+                    android:id="@+id/txtPhone"
                     android:layout_width="wrap_content"
                     android:layout_height="33dp"
                     android:layout_marginLeft="6dp"
                     android:layout_marginTop="11dp"
                     android:clickable="false"
-                    android:text="064123423"
-
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textColor="#574A46"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
@@ -150,25 +155,25 @@
 
 
                 <TextView
+                    android:id="@+id/txtAddress"
                     android:layout_width="wrap_content"
                     android:layout_height="33dp"
                     android:layout_marginLeft="6dp"
                     android:layout_marginTop="11dp"
                     android:clickable="false"
-                    android:text="Majke Jugovica"
-
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textColor="#574A46"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="357dp"
-        android:layout_height="198dp"
+        android:layout_width="392dp"
+        android:layout_height="180dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="400dp"
-        android:background="@drawable/white_background"
+        android:background="@drawable/black_layout"
         android:elevation="3dp"
         android:orientation="vertical">
 
@@ -176,8 +181,8 @@
             android:id="@+id/userProfile"
             android:layout_width="match_parent"
             android:layout_height="43dp"
-            android:layout_marginTop="10dp"
-            android:background="#FDFFFFFF"
+            android:layout_marginTop="1dp"
+            android:background="#1B1A19"
             android:clickable="true"
             android:elevation="20dp"
             android:fadingEdge="vertical"
@@ -199,7 +204,7 @@
                 android:clickable="false"
                 android:text="USER PROFILE"
                 android:textAlignment="center"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="18sp" />
         </LinearLayout>
 
@@ -207,7 +212,7 @@
             android:layout_width="match_parent"
             android:layout_height="43dp"
             android:layout_marginTop="2dp"
-            android:background="#FFFFFF"
+            android:background="#000000"
             android:elevation="20dp">
 
             <ImageView
@@ -219,12 +224,12 @@
                 app:srcCompat="@drawable/routes" />
 
             <TextView
-                android:layout_width="220dp"
+                android:layout_width="214dp"
                 android:layout_height="33dp"
                 android:layout_marginTop="11dp"
                 android:text="FAVOURITE ROUTES"
                 android:textAlignment="center"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="18sp" />
         </LinearLayout>
 
@@ -232,7 +237,7 @@
             android:layout_width="match_parent"
             android:layout_height="43dp"
             android:layout_marginTop="2dp"
-            android:background="#FFFFFF"
+            android:background="#1B1A19"
             android:elevation="20dp">
 
             <ImageView
@@ -244,20 +249,20 @@
                 app:srcCompat="@drawable/wallet" />
 
             <TextView
-                android:layout_width="197dp"
+                android:layout_width="189dp"
                 android:layout_height="43dp"
                 android:layout_marginTop="11dp"
                 android:text="FINANCIAL CARD"
                 android:textAlignment="center"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="375dp"
+            android:layout_width="423dp"
             android:layout_height="43dp"
             android:layout_marginTop="2dp"
-            android:background="#FFFFFF"
+            android:background="#000000"
             android:elevation="20dp">
 
             <ImageView
@@ -269,12 +274,12 @@
                 app:srcCompat="@drawable/reports" />
 
             <TextView
-                android:layout_width="130dp"
+                android:layout_width="120dp"
                 android:layout_height="29dp"
                 android:layout_marginTop="11dp"
                 android:text="REPORTS"
                 android:textAlignment="center"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="18sp" />
         </LinearLayout>
 
