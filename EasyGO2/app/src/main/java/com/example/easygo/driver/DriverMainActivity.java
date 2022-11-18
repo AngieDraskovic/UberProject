@@ -24,6 +24,7 @@ import com.example.easygo.UserLoginActivity;
 public class DriverMainActivity extends AppCompatActivity {
 
     public static final String DRIVER_CHANNEL = "Driver channel";
+    public static final String DRIVER_ACTION = "";
 
     private PendingIntent pendingIntent;
     private AlarmManager alarmManager;
@@ -37,8 +38,8 @@ public class DriverMainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Intent intentService = new Intent(this, DriverMessageService.class);
-        startService(intentService);
+//        Intent intentService = new Intent(this, DriverMessageService.class);
+//        startService(intentService);
 
         createDriverNotificationChannel();
     }

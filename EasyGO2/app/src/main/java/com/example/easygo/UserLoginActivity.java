@@ -3,6 +3,7 @@ package com.example.easygo;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -17,13 +18,18 @@ import com.example.easygo.model.users.Passenger;
 import com.example.easygo.passenger.PassengerMainActivity;
 import com.example.easygo.passenger.PassengerRegisterActivity;
 import com.google.android.material.button.MaterialButton;
+import com.example.easygo.reciever.MessageReceiver;
 
 public class UserLoginActivity extends AppCompatActivity {
+
+    private MessageReceiver messageReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_login);
+
+        registerBroadcastReciever();
 
         TextView emailEditTxt =  findViewById(R.id.username);
         TextView passwordEditTxt =  findViewById(R.id.password);
@@ -64,6 +70,7 @@ public class UserLoginActivity extends AppCompatActivity {
 
     }
 
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -92,6 +99,14 @@ public class UserLoginActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+    }
+
+
+    private void registerBroadcastReciever() {
+        messageReceiver = new MessageReceiver();
+        IntentFilter filter = new IntentFilter();
+        filter.addAction("message");
+        registerReceiver(messageReceiver, filter);
     }
 
 }

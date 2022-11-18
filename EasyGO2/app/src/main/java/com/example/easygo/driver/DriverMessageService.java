@@ -22,10 +22,9 @@ public class DriverMessageService extends Service {
         executor.execute(() -> {
             /*
                 Za sada samo ispisujemo poruku u konzoli, posle cemo raditi sa porukama.
-                Trenutno je bitno da se pokrece na svake 3 minute (Trenutno je na 3 sekunde da bi lakse testirali).
                 Ispod ovoga je zakomentarisano ono sto se radilo na Vezbe05, mozda ce zatrebati kasnije pa zato stoji tu i dalje.
              */
-
+            Log.e("Service", "Send new message");
 
 //            try {
 //                Thread.sleep(1000);
@@ -34,13 +33,10 @@ public class DriverMessageService extends Service {
 //            }
 
             handler.post(() -> {
-                Log.e("Service", "Send new message");
-                //UI Thread work here
-//                Log.i("REZ", "UI Thread work here");
-//                Intent ints = new Intent(MainActivity.SYNC_DATA);
-//                int intsStatus = (int) (Math.random() * 10); //ReviewerTools.getConnectivityStatus(getApplicationContext());
-//                ints.putExtra(RESULT_CODE, intsStatus);
-//                getApplicationContext().sendBroadcast(ints);
+                Log.i("REZ", "UI Thread work here");
+                Intent intent1 = new Intent("message");
+                intent1.putExtra("messageText", "Legendo kako si?");
+                getApplicationContext().sendBroadcast(intent1);
             });
         });
 
