@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.easygo.driver.DriverMainActivity;
+import com.example.easygo.driver.DriverMessageService;
 import com.example.easygo.mockup.MockupDrivers;
 import com.example.easygo.mockup.MockupPassengers;
 import com.example.easygo.model.users.Driver;
