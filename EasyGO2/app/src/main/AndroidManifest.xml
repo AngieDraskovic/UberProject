@@ -12,6 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EasyGO"
         tools:targetApi="31">
+        <receiver
+            android:name=".reciever.MessageReceiver"
+            android:enabled="true"
+            android:exported="true"/>
+
+        <service
+            android:name=".driver.DriverMessageService"
+            android:enabled="true"
+            android:exported="true" />
+
         <activity
             android:name=".passenger.MessageDetailActivity"
             android:exported="false"
