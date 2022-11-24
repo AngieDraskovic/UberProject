@@ -74,6 +74,7 @@ public class PassengerAccountActivity extends AppCompatActivity {
                     @Override
                     public boolean onTouch(View v, MotionEvent event) {
                         popupWindow.dismiss();
+                        financialCard.setBackgroundColor(Color.parseColor("#1B1A19"));
                         return true;
                     }
                 });
