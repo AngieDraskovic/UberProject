@@ -44,6 +44,7 @@ public class PassengerAccountActivity extends AppCompatActivity {
         this.passenger = LoggedIn.getPassenger();
         LinearLayout editProfile = (LinearLayout) findViewById(R.id.userProfile);
         LinearLayout financialCard = (LinearLayout)findViewById(R.id.financialCard);
+        LinearLayout reports = (LinearLayout)findViewById(R.id.reports);
 
         editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,6 +79,16 @@ public class PassengerAccountActivity extends AppCompatActivity {
                 });
             }
         });
+
+        reports.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                reports.setBackgroundColor(Color.parseColor("#574A46"));
+                Intent intent = new Intent(PassengerAccountActivity.this,PassengerReportActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override
