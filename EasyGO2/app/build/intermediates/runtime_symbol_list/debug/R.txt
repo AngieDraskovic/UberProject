@@ -2850,6 +2850,7 @@ int id design_menu_item_action_area 0x7f08009f
 int id design_menu_item_action_area_stub 0x7f0800a0
 int id design_menu_item_text 0x7f0800a1
 int id design_navigation_view 0x7f0800a2
+int id detailsFragmentBtn 0x7f080235
 int id dialog_button 0x7f0800a3
 int id dimensions 0x7f0800a4
 int id direct 0x7f0800a5
@@ -2909,9 +2910,11 @@ int id flip 0x7f0800da
 int id floating 0x7f0800db
 int id forever 0x7f0800dc
 int id forgotpass 0x7f0800dd
+int id fragmentContainer 0x7f08023a
 int id fragment_container_view_tag 0x7f0800de
 int id frost 0x7f0800df
 int id fullscreen_header 0x7f0800e0
+int id futureFragmentBtn 0x7f080237
 int id ghost_view 0x7f0800e1
 int id ghost_view_holder 0x7f0800e2
 int id gone 0x7f0800e3
@@ -2970,6 +2973,7 @@ int id line3 0x7f080117
 int id linear 0x7f080118
 int id listMode 0x7f080119
 int id list_item 0x7f08011a
+int id locationsFragmentBtn 0x7f080238
 int id loginbtn 0x7f08011b
 int id logout 0x7f08011c
 int id marquee 0x7f08011d
@@ -3036,6 +3040,7 @@ int id mtrl_picker_title_text 0x7f080159
 int id mtrl_view_tag_bottom_padding 0x7f08015a
 int id multiply 0x7f08015b
 int id name 0x7f08015c
+int id navFragment 0x7f08023b
 int id navigation_bar_item_active_indicator_view 0x7f08015d
 int id navigation_bar_item_icon_container 0x7f08015e
 int id navigation_bar_item_icon_view 0x7f08015f
@@ -3091,6 +3096,7 @@ int id repeat 0x7f080190
 int id reports 0x7f080191
 int id reportsIcon 0x7f080192
 int id reverseSawtooth 0x7f080193
+int id rideOrderBtn 0x7f080234
 int id right 0x7f080194
 int id rightToLeft 0x7f080195
 int id right_icon 0x7f080196
@@ -3166,6 +3172,7 @@ int id stop 0x7f0801db
 int id stretch 0x7f0801dc
 int id submenuarrow 0x7f0801dd
 int id submit_area 0x7f0801de
+int id successFragmentBtn 0x7f080239
 int id supportScrollUp 0x7f0801df
 int id surname 0x7f0801e0
 int id tabMode 0x7f0801e1
@@ -3388,6 +3395,7 @@ int layout activity_passenger_profile 0x7f0b0027
 int layout activity_passenger_register 0x7f0b0028
 int layout activity_passenger_report 0x7f0b0029
 int layout activity_passenger_ride_history 0x7f0b002a
+int layout activity_ride_order 0x7f0b0087
 int layout activity_splash 0x7f0b002b
 int layout activity_user_login 0x7f0b002c
 int layout custom_dialog 0x7f0b002d
@@ -3407,6 +3415,10 @@ int layout design_navigation_menu_item 0x7f0b003a
 int layout design_text_input_end_icon 0x7f0b003b
 int layout design_text_input_start_icon 0x7f0b003c
 int layout financialcard_popup 0x7f0b003d
+int layout fragment_fragment1_locations 0x7f0b0088
+int layout fragment_fragment2_future 0x7f0b0089
+int layout fragment_fragment3_details 0x7f0b008a
+int layout fragment_fragment4_order 0x7f0b008c
 int layout fragment_messages 0x7f0b003e
 int layout graph_layout 0x7f0b003f
 int layout m3_alert_dialog 0x7f0b0040

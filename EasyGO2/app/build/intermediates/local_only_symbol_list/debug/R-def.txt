@@ -48,6 +48,7 @@ id btnHistory
 id btnHome
 id btnInbox
 id button
+id detailsFragmentBtn
 id driverFullName
 id driverIconPicture
 id driverProfile
@@ -61,6 +62,8 @@ id et_last_name
 id et_password
 id financialCard
 id forgotpass
+id fragmentContainer
+id futureFragmentBtn
 id graph1Name
 id graph2Name
 id graph3Name
@@ -79,6 +82,7 @@ id layout_first_name
 id layout_image
 id layout_last_name
 id layout_password
+id locationsFragmentBtn
 id loginbtn
 id logout
 id messageDate
@@ -86,6 +90,7 @@ id messageTime
 id messagesContent
 id moneyGraph
 id name
+id navFragment
 id numOfKiloGraph
 id numOfRidesGraph
 id number
@@ -95,6 +100,7 @@ id profileIcon
 id profileImg
 id reports
 id reportsIcon
+id rideOrderBtn
 id rootLinear
 id senderProfileIcon
 id signbtn
@@ -103,6 +109,7 @@ id startDate
 id startDate2
 id startDate3
 id startDateTxt
+id successFragmentBtn
 id surname
 id textView
 id toggleActive
@@ -133,9 +140,14 @@ layout activity_passenger_profile
 layout activity_passenger_register
 layout activity_passenger_report
 layout activity_passenger_ride_history
+layout activity_ride_order
 layout activity_splash
 layout activity_user_login
 layout financialcard_popup
+layout fragment_fragment1_locations
+layout fragment_fragment2_future
+layout fragment_fragment3_details
+layout fragment_fragment4_order
 layout fragment_messages
 layout graph_layout
 layout message_list_item

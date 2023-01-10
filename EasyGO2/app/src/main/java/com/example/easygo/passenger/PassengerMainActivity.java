@@ -15,6 +15,8 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.easygo.R;
 import com.example.easygo.UserLoginActivity;
+import com.example.easygo.passenger.rideorder.RideOrderActivity;
+
 public class PassengerMainActivity extends AppCompatActivity {
 
     @Override
@@ -24,6 +26,15 @@ public class PassengerMainActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        /* Dodali smo dugme na pocetnu stranicu passengera i klikom na to dugme pokrecemo proces narucivanja */
+        Button rideOrderBtn = findViewById(R.id.rideOrderBtn);
+        rideOrderBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(PassengerMainActivity.this, RideOrderActivity.class));
+            }
+        });
     }
 
     @Override

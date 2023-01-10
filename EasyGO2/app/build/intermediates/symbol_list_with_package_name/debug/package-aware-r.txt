@@ -2851,6 +2851,7 @@ id design_menu_item_action_area
 id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
+id detailsFragmentBtn
 id dialog_button
 id dimensions
 id direct
@@ -2910,9 +2911,11 @@ id flip
 id floating
 id forever
 id forgotpass
+id fragmentContainer
 id fragment_container_view_tag
 id frost
 id fullscreen_header
+id futureFragmentBtn
 id ghost_view
 id ghost_view_holder
 id gone
@@ -2971,6 +2974,7 @@ id line3
 id linear
 id listMode
 id list_item
+id locationsFragmentBtn
 id loginbtn
 id logout
 id marquee
@@ -3037,6 +3041,7 @@ id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
 id name
+id navFragment
 id navigation_bar_item_active_indicator_view
 id navigation_bar_item_icon_container
 id navigation_bar_item_icon_view
@@ -3092,6 +3097,7 @@ id repeat
 id reports
 id reportsIcon
 id reverseSawtooth
+id rideOrderBtn
 id right
 id rightToLeft
 id right_icon
@@ -3167,6 +3173,7 @@ id stop
 id stretch
 id submenuarrow
 id submit_area
+id successFragmentBtn
 id supportScrollUp
 id surname
 id tabMode
@@ -3389,6 +3396,7 @@ layout activity_passenger_profile
 layout activity_passenger_register
 layout activity_passenger_report
 layout activity_passenger_ride_history
+layout activity_ride_order
 layout activity_splash
 layout activity_user_login
 layout custom_dialog
@@ -3408,6 +3416,10 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout financialcard_popup
+layout fragment_fragment1_locations
+layout fragment_fragment2_future
+layout fragment_fragment3_details
+layout fragment_fragment4_order
 layout fragment_messages
 layout graph_layout
 layout m3_alert_dialog
