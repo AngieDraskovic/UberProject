@@ -4,11 +4,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
@@ -24,6 +27,14 @@ public class PassengerMainActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        WebView webView = findViewById(R.id.web_view);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.loadUrl("file:///android_asset/leaflet.html");
+        webView.evaluateJavascript("loadmap();",null);
+        webView.evaluateJavascript("console.log('js loaded')",null);
+
+
     }
 
     @Override
@@ -65,6 +76,7 @@ public class PassengerMainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
     }
 
     @Override
