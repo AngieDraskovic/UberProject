@@ -11,7 +11,7 @@
 9-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml
 10
 11    <application
-11-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:5:5-150:19
+11-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:5:5-151:19
 12        android:allowBackup="true"
 12-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:6:9-35
 13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -33,277 +33,278 @@
 22        android:testOnly="true"
 23        android:theme="@style/Theme.EasyGO" >
 23-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:13:9-44
-24        <receiver
-24-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:15:9-18:38
-25            android:name="com.example.easygo.reciever.MessageReceiver"
-25-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:16:13-53
-26            android:enabled="true"
-26-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:17:13-35
-27            android:exported="true" />
-27-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:18:13-36
-28
-29        <service
-29-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:20:9-23:39
-30            android:name="com.example.easygo.driver.DriverMessageService"
-30-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:21:13-56
-31            android:enabled="true"
-31-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:22:13-35
-32            android:exported="true" />
-32-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:23:13-36
-33
-34        <activity
-34-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:25:9-33:20
-35            android:name="com.example.easygo.passenger.MessageDetailActivity"
-35-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:26:13-60
-36            android:exported="false"
-36-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:27:13-37
-37            android:label="@string/title_activity_message_detail"
-37-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:28:13-66
-38            android:theme="@style/Theme.EasyGO.NoActionBar" >
-38-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:29:13-60
-39            <meta-data
-39-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:30:13-32:36
-40                android:name="android.app.lib_name"
-40-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:31:17-52
-41                android:value="" />
-41-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:32:17-33
-42        </activity>
-43        <activity
-43-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:34:9-40:20
-44            android:name="com.example.easygo.driver.DriverProfileActivity"
-44-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:35:13-57
-45            android:exported="false" >
-45-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:36:13-37
-46            <meta-data
-46-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:30:13-32:36
-47                android:name="android.app.lib_name"
-47-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:31:17-52
-48                android:value="" />
-48-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:32:17-33
-49        </activity>
-50
-51        <meta-data
-51-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:42:9-44:32
-52            android:name="com.google.android.actions"
-52-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:43:13-54
-53            android:value="" />
-53-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:44:13-29
-54
-55        <activity
-55-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:46:9-52:20
-56            android:name="com.example.easygo.passenger.PassengerProfileActivity"
-56-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:47:13-63
-57            android:exported="false" >
-57-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:48:13-37
-58            <meta-data
-58-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:30:13-32:36
-59                android:name="android.app.lib_name"
-59-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:31:17-52
-60                android:value="" />
-60-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:32:17-33
-61        </activity>
-62        <activity
-62-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:53:9-59:20
-63            android:name="com.example.easygo.passenger.PassengerRideHistoryActivity"
-63-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:54:13-67
-64            android:exported="false" >
-64-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:55:13-37
-65            <meta-data
-65-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:30:13-32:36
-66                android:name="android.app.lib_name"
-66-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:31:17-52
-67                android:value="" />
-67-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:32:17-33
-68        </activity>
-69        <activity
-69-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:60:9-66:20
-70            android:name="com.example.easygo.passenger.PassengerHistoryActivity"
-70-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:61:13-63
-71            android:exported="false" >
-71-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:62:13-37
-72            <meta-data
-72-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:30:13-32:36
-73                android:name="android.app.lib_name"
-73-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:31:17-52
-74                android:value="" />
-74-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:32:17-33
-75        </activity>
-76        <activity
-76-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:67:9-73:20
-77            android:name="com.example.easygo.driver.DriverInboxActivity"
-77-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:68:13-55
-78            android:exported="false" >
-78-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:69:13-37
-79            <meta-data
-79-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:30:13-32:36
-80                android:name="android.app.lib_name"
-80-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:31:17-52
-81                android:value="" />
-81-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:32:17-33
-82        </activity>
-83        <activity
-83-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:74:9-80:20
-84            android:name="com.example.easygo.driver.DriverHistoryActivity"
-84-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:75:13-57
-85            android:exported="false" >
-85-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:76:13-37
-86            <meta-data
-86-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:30:13-32:36
-87                android:name="android.app.lib_name"
-87-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:31:17-52
-88                android:value="" />
-88-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:32:17-33
-89        </activity>
-90        <activity
-90-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:81:9-87:20
-91            android:name="com.example.easygo.driver.DriverAccountActivity"
-91-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:82:13-57
-92            android:exported="false" >
-92-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:83:13-37
-93            <meta-data
-93-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:30:13-32:36
-94                android:name="android.app.lib_name"
-94-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:31:17-52
-95                android:value="" />
-95-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:32:17-33
-96        </activity>
-97        <activity
-97-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:88:9-94:20
-98            android:name="com.example.easygo.driver.DriverMainActivity"
-98-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:89:13-54
-99            android:exported="false" >
-99-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:90:13-37
-100            <meta-data
-100-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:30:13-32:36
-101                android:name="android.app.lib_name"
-101-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:31:17-52
-102                android:value="" />
-102-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:32:17-33
-103        </activity>
-104        <activity
-104-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:95:9-101:20
-105            android:name="com.example.easygo.passenger.PassengerInboxActivity"
-105-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:96:13-61
-106            android:exported="false" >
-106-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:97:13-37
-107            <meta-data
-107-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:30:13-32:36
-108                android:name="android.app.lib_name"
-108-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:31:17-52
-109                android:value="" />
-109-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:32:17-33
-110        </activity>
-111        <activity
-111-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:102:9-108:20
-112            android:name="com.example.easygo.passenger.PassengerAccountActivity"
-112-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:103:13-63
-113            android:exported="false" >
-113-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:104:13-37
-114            <meta-data
-114-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:30:13-32:36
-115                android:name="android.app.lib_name"
-115-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:31:17-52
-116                android:value="" />
-116-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:32:17-33
-117        </activity>
-118        <activity
-118-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:109:9-115:20
-119            android:name="com.example.easygo.passenger.PassengerMainActivity"
-119-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:110:13-60
-120            android:exported="false" >
-120-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:111:13-37
-121            <meta-data
-121-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:30:13-32:36
-122                android:name="android.app.lib_name"
-122-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:31:17-52
-123                android:value="" />
-123-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:32:17-33
-124        </activity>
-125        <activity
-125-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:116:9-122:20
-126            android:name="com.example.easygo.passenger.PassengerRegisterActivity"
-126-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:117:13-64
-127            android:exported="false" >
-127-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:118:13-37
-128            <meta-data
-128-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:30:13-32:36
-129                android:name="android.app.lib_name"
-129-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:31:17-52
-130                android:value="" />
-130-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:32:17-33
-131        </activity>
-132        <activity
-132-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:123:9-129:20
-133            android:name="com.example.easygo.MainActivity"
-133-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:124:13-41
-134            android:exported="true" >
-134-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:125:13-36
-135            <meta-data
-135-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:30:13-32:36
-136                android:name="android.app.lib_name"
-136-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:31:17-52
-137                android:value="" />
-137-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:32:17-33
-138        </activity>
-139        <activity
-139-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:130:9-136:20
-140            android:name="com.example.easygo.UserLoginActivity"
-140-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:131:13-46
-141            android:exported="false" >
-141-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:132:13-37
-142            <meta-data
-142-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:30:13-32:36
-143                android:name="android.app.lib_name"
-143-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:31:17-52
-144                android:value="" />
-144-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:32:17-33
-145        </activity>
-146        <activity
-146-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:137:9-149:20
-147            android:name="com.example.easygo.SplashActivity"
-147-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:138:13-43
-148            android:exported="true" >
-148-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:139:13-36
-149            <intent-filter>
-149-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:140:13-144:29
-150                <action android:name="android.intent.action.MAIN" />
-150-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:141:17-69
-150-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:141:25-66
-151
-152                <category android:name="android.intent.category.LAUNCHER" />
-152-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:143:17-77
-152-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:143:27-74
-153            </intent-filter>
-154
-155            <meta-data
-155-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:30:13-32:36
-156                android:name="android.app.lib_name"
-156-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:31:17-52
-157                android:value="" />
-157-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:32:17-33
-158        </activity>
-159
-160        <provider
-160-->[androidx.emoji2:emoji2:1.2.0] C:\Users\WindowsX\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
-161            android:name="androidx.startup.InitializationProvider"
-161-->[androidx.emoji2:emoji2:1.2.0] C:\Users\WindowsX\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
-162            android:authorities="com.example.easygo.androidx-startup"
-162-->[androidx.emoji2:emoji2:1.2.0] C:\Users\WindowsX\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
-163            android:exported="false" >
-163-->[androidx.emoji2:emoji2:1.2.0] C:\Users\WindowsX\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
-164            <meta-data
-164-->[androidx.emoji2:emoji2:1.2.0] C:\Users\WindowsX\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
-165                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-165-->[androidx.emoji2:emoji2:1.2.0] C:\Users\WindowsX\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
-166                android:value="androidx.startup" />
-166-->[androidx.emoji2:emoji2:1.2.0] C:\Users\WindowsX\.gradle\caches\transforms-3\c03fa7bc00a04a375204b573f0966d9f\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
-167            <meta-data
-167-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\WindowsX\.gradle\caches\transforms-3\0ce9e5f033589fdf0ab757f82f7808ec\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
-168                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-168-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\WindowsX\.gradle\caches\transforms-3\0ce9e5f033589fdf0ab757f82f7808ec\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
-169                android:value="androidx.startup" />
-169-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\WindowsX\.gradle\caches\transforms-3\0ce9e5f033589fdf0ab757f82f7808ec\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
-170        </provider>
-171    </application>
-172
-173</manifest>
+24        <activity
+24-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:15:9-21:20
+25            android:name="com.example.easygo.passenger.PassengerReportActivity"
+25-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:16:13-62
+26            android:exported="false" >
+26-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:17:13-37
+27            <meta-data
+27-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:18:13-20:36
+28                android:name="android.app.lib_name"
+28-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:19:17-52
+29                android:value="" />
+29-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:20:17-33
+30        </activity>
+31        <activity
+31-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:22:9-28:20
+32            android:name="com.example.easygo.passenger.PassengerAccountActivity"
+32-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:23:13-63
+33            android:exported="false" >
+33-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:24:13-37
+34            <meta-data
+34-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:18:13-20:36
+35                android:name="android.app.lib_name"
+35-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:19:17-52
+36                android:value="" />
+36-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:20:17-33
+37        </activity>
+38
+39        <receiver
+39-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:30:9-33:39
+40            android:name="com.example.easygo.reciever.MessageReceiver"
+40-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:31:13-53
+41            android:enabled="true"
+41-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:32:13-35
+42            android:exported="true" />
+42-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:33:13-36
+43
+44        <service
+44-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:35:9-38:39
+45            android:name="com.example.easygo.driver.DriverMessageService"
+45-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:36:13-56
+46            android:enabled="true"
+46-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:37:13-35
+47            android:exported="true" />
+47-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:38:13-36
+48
+49        <activity
+49-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:40:9-48:20
+50            android:name="com.example.easygo.passenger.MessageDetailActivity"
+50-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:41:13-60
+51            android:exported="false"
+51-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:42:13-37
+52            android:label="@string/title_activity_message_detail"
+52-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:43:13-66
+53            android:theme="@style/Theme.EasyGO.NoActionBar" >
+53-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:44:13-60
+54            <meta-data
+54-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:18:13-20:36
+55                android:name="android.app.lib_name"
+55-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:19:17-52
+56                android:value="" />
+56-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:20:17-33
+57        </activity>
+58        <activity
+58-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:49:9-55:20
+59            android:name="com.example.easygo.driver.DriverProfileActivity"
+59-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:50:13-57
+60            android:exported="false" >
+60-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:51:13-37
+61            <meta-data
+61-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:18:13-20:36
+62                android:name="android.app.lib_name"
+62-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:19:17-52
+63                android:value="" />
+63-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:20:17-33
+64        </activity>
+65
+66        <meta-data
+66-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:57:9-59:32
+67            android:name="com.google.android.actions"
+67-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:58:13-54
+68            android:value="" />
+68-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:59:13-29
+69
+70        <activity
+70-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:61:9-67:20
+71            android:name="com.example.easygo.passenger.PassengerProfileActivity"
+71-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:62:13-63
+72            android:exported="false" >
+72-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:63:13-37
+73            <meta-data
+73-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:18:13-20:36
+74                android:name="android.app.lib_name"
+74-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:19:17-52
+75                android:value="" />
+75-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:20:17-33
+76        </activity>
+77        <activity
+77-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:68:9-74:20
+78            android:name="com.example.easygo.passenger.PassengerRideHistoryActivity"
+78-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:69:13-67
+79            android:exported="false" >
+79-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:70:13-37
+80            <meta-data
+80-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:18:13-20:36
+81                android:name="android.app.lib_name"
+81-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:19:17-52
+82                android:value="" />
+82-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:20:17-33
+83        </activity>
+84        <activity
+84-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:75:9-81:20
+85            android:name="com.example.easygo.passenger.PassengerHistoryActivity"
+85-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:76:13-63
+86            android:exported="false" >
+86-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:77:13-37
+87            <meta-data
+87-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:18:13-20:36
+88                android:name="android.app.lib_name"
+88-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:19:17-52
+89                android:value="" />
+89-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:20:17-33
+90        </activity>
+91        <activity
+91-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:82:9-88:20
+92            android:name="com.example.easygo.driver.DriverInboxActivity"
+92-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:83:13-55
+93            android:exported="false" >
+93-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:84:13-37
+94            <meta-data
+94-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:18:13-20:36
+95                android:name="android.app.lib_name"
+95-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:19:17-52
+96                android:value="" />
+96-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:20:17-33
+97        </activity>
+98        <activity
+98-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:89:9-95:20
+99            android:name="com.example.easygo.driver.DriverHistoryActivity"
+99-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:90:13-57
+100            android:exported="false" >
+100-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:91:13-37
+101            <meta-data
+101-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:18:13-20:36
+102                android:name="android.app.lib_name"
+102-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:19:17-52
+103                android:value="" />
+103-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:20:17-33
+104        </activity>
+105        <activity
+105-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:96:9-102:20
+106            android:name="com.example.easygo.driver.DriverAccountActivity"
+106-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:97:13-57
+107            android:exported="false" >
+107-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:98:13-37
+108            <meta-data
+108-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:18:13-20:36
+109                android:name="android.app.lib_name"
+109-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:19:17-52
+110                android:value="" />
+110-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:20:17-33
+111        </activity>
+112        <activity
+112-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:103:9-109:20
+113            android:name="com.example.easygo.driver.DriverMainActivity"
+113-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:104:13-54
+114            android:exported="false" >
+114-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:105:13-37
+115            <meta-data
+115-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:18:13-20:36
+116                android:name="android.app.lib_name"
+116-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:19:17-52
+117                android:value="" />
+117-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:20:17-33
+118        </activity>
+119        <activity
+119-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:110:9-116:20
+120            android:name="com.example.easygo.passenger.PassengerInboxActivity"
+120-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:111:13-61
+121            android:exported="false" >
+121-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:112:13-37
+122            <meta-data
+122-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:18:13-20:36
+123                android:name="android.app.lib_name"
+123-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:19:17-52
+124                android:value="" />
+124-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:20:17-33
+125        </activity>
+126        <activity
+126-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:117:9-123:20
+127            android:name="com.example.easygo.passenger.PassengerMainActivity"
+127-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:118:13-60
+128            android:exported="false" >
+128-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:119:13-37
+129            <meta-data
+129-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:18:13-20:36
+130                android:name="android.app.lib_name"
+130-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:19:17-52
+131                android:value="" />
+131-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:20:17-33
+132        </activity>
+133        <activity
+133-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:124:9-130:20
+134            android:name="com.example.easygo.passenger.PassengerRegisterActivity"
+134-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:125:13-64
+135            android:exported="false" >
+135-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:126:13-37
+136            <meta-data
+136-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:18:13-20:36
+137                android:name="android.app.lib_name"
+137-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:19:17-52
+138                android:value="" />
+138-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:20:17-33
+139        </activity>
+140        <activity
+140-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:131:9-137:20
+141            android:name="com.example.easygo.UserLoginActivity"
+141-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:132:13-46
+142            android:exported="false" >
+142-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:133:13-37
+143            <meta-data
+143-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:18:13-20:36
+144                android:name="android.app.lib_name"
+144-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:19:17-52
+145                android:value="" />
+145-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:20:17-33
+146        </activity>
+147        <activity
+147-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:138:9-150:20
+148            android:name="com.example.easygo.SplashActivity"
+148-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:139:13-43
+149            android:exported="true" >
+149-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:140:13-36
+150            <intent-filter>
+150-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:141:13-145:29
+151                <action android:name="android.intent.action.MAIN" />
+151-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:142:17-69
+151-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:142:25-66
+152
+153                <category android:name="android.intent.category.LAUNCHER" />
+153-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:144:17-77
+153-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:144:27-74
+154            </intent-filter>
+155
+156            <meta-data
+156-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:18:13-20:36
+157                android:name="android.app.lib_name"
+157-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:19:17-52
+158                android:value="" />
+158-->C:\Users\WindowsX\Desktop\UberProject\EasyGO2\app\src\main\AndroidManifest.xml:20:17-33
+159        </activity>
+160
+161        <provider
+161-->[androidx.emoji2:emoji2:1.2.0] C:\Users\WindowsX\.gradle\caches\transforms-3\1f2ec24e04aa7670dbdd4e904437e8bf\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+162            android:name="androidx.startup.InitializationProvider"
+162-->[androidx.emoji2:emoji2:1.2.0] C:\Users\WindowsX\.gradle\caches\transforms-3\1f2ec24e04aa7670dbdd4e904437e8bf\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:25:13-67
+163            android:authorities="com.example.easygo.androidx-startup"
+163-->[androidx.emoji2:emoji2:1.2.0] C:\Users\WindowsX\.gradle\caches\transforms-3\1f2ec24e04aa7670dbdd4e904437e8bf\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:26:13-68
+164            android:exported="false" >
+164-->[androidx.emoji2:emoji2:1.2.0] C:\Users\WindowsX\.gradle\caches\transforms-3\1f2ec24e04aa7670dbdd4e904437e8bf\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:27:13-37
+165            <meta-data
+165-->[androidx.emoji2:emoji2:1.2.0] C:\Users\WindowsX\.gradle\caches\transforms-3\1f2ec24e04aa7670dbdd4e904437e8bf\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+166                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+166-->[androidx.emoji2:emoji2:1.2.0] C:\Users\WindowsX\.gradle\caches\transforms-3\1f2ec24e04aa7670dbdd4e904437e8bf\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:30:17-75
+167                android:value="androidx.startup" />
+167-->[androidx.emoji2:emoji2:1.2.0] C:\Users\WindowsX\.gradle\caches\transforms-3\1f2ec24e04aa7670dbdd4e904437e8bf\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:31:17-49
+168            <meta-data
+168-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\WindowsX\.gradle\caches\transforms-3\2843dd8f352d29054991aa53179df82d\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+169                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+169-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\WindowsX\.gradle\caches\transforms-3\2843dd8f352d29054991aa53179df82d\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+170                android:value="androidx.startup" />
+170-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\WindowsX\.gradle\caches\transforms-3\2843dd8f352d29054991aa53179df82d\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+171        </provider>
+172    </application>
+173
+174</manifest>

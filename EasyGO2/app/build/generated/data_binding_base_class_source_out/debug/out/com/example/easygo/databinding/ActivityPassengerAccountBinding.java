@@ -43,6 +43,9 @@ public final class ActivityPassengerAccountBinding implements ViewBinding {
   public final ImageView profileImg;
 
   @NonNull
+  public final LinearLayout reports;
+
+  @NonNull
   public final ToolbarLayoutBinding toolbar;
 
   @NonNull
@@ -69,7 +72,7 @@ public final class ActivityPassengerAccountBinding implements ViewBinding {
   private ActivityPassengerAccountBinding(@NonNull RelativeLayout rootView,
       @NonNull RelativeLayout account, @NonNull LinearLayout financialCard,
       @NonNull ImageView iconProfile, @NonNull ImageView iconReports, @NonNull ImageView iconRoutes,
-      @NonNull ImageView imageView, @NonNull ImageView profileImg,
+      @NonNull ImageView imageView, @NonNull ImageView profileImg, @NonNull LinearLayout reports,
       @NonNull ToolbarLayoutBinding toolbar, @NonNull TextView txtAddress,
       @NonNull TextView txtEmail, @NonNull TextView txtPhone, @NonNull TextView txtUser,
       @NonNull LinearLayout userProfile, @NonNull LinearLayout userProfile2,
@@ -82,6 +85,7 @@ public final class ActivityPassengerAccountBinding implements ViewBinding {
     this.iconRoutes = iconRoutes;
     this.imageView = imageView;
     this.profileImg = profileImg;
+    this.reports = reports;
     this.toolbar = toolbar;
     this.txtAddress = txtAddress;
     this.txtEmail = txtEmail;
@@ -157,6 +161,12 @@ public final class ActivityPassengerAccountBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.reports;
+      LinearLayout reports = ViewBindings.findChildViewById(rootView, id);
+      if (reports == null) {
+        break missingId;
+      }
+
       id = R.id.toolbar;
       View toolbar = ViewBindings.findChildViewById(rootView, id);
       if (toolbar == null) {
@@ -207,8 +217,8 @@ public final class ActivityPassengerAccountBinding implements ViewBinding {
       }
 
       return new ActivityPassengerAccountBinding((RelativeLayout) rootView, account, financialCard,
-          iconProfile, iconReports, iconRoutes, imageView, profileImg, binding_toolbar, txtAddress,
-          txtEmail, txtPhone, txtUser, userProfile, userProfile2, walletIcon);
+          iconProfile, iconReports, iconRoutes, imageView, profileImg, reports, binding_toolbar,
+          txtAddress, txtEmail, txtPhone, txtUser, userProfile, userProfile2, walletIcon);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -21,6 +21,21 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.EasyGO" >
+        <activity
+            android:name="com.example.easygo.passenger.PassengerReportActivity"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.example.easygo.passenger.PassengerAccountActivity"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
         <receiver
             android:name="com.example.easygo.reciever.MessageReceiver"
             android:enabled="true"
@@ -109,13 +124,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name="com.example.easygo.passenger.PassengerAccountActivity"
-            android:exported="false" >
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name="com.example.easygo.passenger.PassengerMainActivity"
             android:exported="false" >
             <meta-data
@@ -125,13 +133,6 @@
         <activity
             android:name="com.example.easygo.passenger.PassengerRegisterActivity"
             android:exported="false" >
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name="com.example.easygo.MainActivity"
-            android:exported="true" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

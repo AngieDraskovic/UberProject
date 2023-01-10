@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.easygo.app-mergeDebugResources-29:/values-fi/values-fi.xml",
+            "outputFile": "com.example.easygo.app-mergeDebugResources-30:/values-fi/values-fi.xml",
             "map": [
                 {
                     "source": "C:\\Users\\WindowsX\\.gradle\\caches\\transforms-3\\459731560744495d36c7572f4eaf1462\\transformed\\material-1.7.0\\res\\values-fi\\values-fi.xml",
