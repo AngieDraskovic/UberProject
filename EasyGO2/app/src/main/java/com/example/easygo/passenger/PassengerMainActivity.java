@@ -16,8 +16,12 @@ import android.widget.Button;
 import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.easygo.FragmentTransition;
 import com.example.easygo.R;
 import com.example.easygo.UserLoginActivity;
+
+import java.util.Map;
+
 public class PassengerMainActivity extends AppCompatActivity {
 
     @Override
@@ -28,12 +32,24 @@ public class PassengerMainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        WebView webView = findViewById(R.id.web_view);
-        webView.getSettings().setJavaScriptEnabled(true);
-        webView.loadUrl("file:///android_asset/leaflet.html");
-        webView.evaluateJavascript("loadmap();",null);
-        webView.evaluateJavascript("console.log('js loaded')",null);
+        FragmentTransition.to(MapFragment.newInstance("", ""), PassengerMainActivity.this, false, R.id.mapFragment);
+//        WebView webView = findViewById(R.id.web_view);
+//        webView.getSettings().setJavaScriptEnabled(true);
+//        webView.loadUrl("file:///android_asset/leaflet.html");
+//        webView.evaluateJavascript("loadmap();",null);
+//        webView.evaluateJavascript("console.log('js loaded')",null);
 
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+//        WebView webView = findViewById(R.id.web_view);
+//        webView.getSettings().setJavaScriptEnabled(true);
+//        webView.loadUrl("file:///android_asset/leaflet.html");
+//        webView.evaluateJavascript("loadmap();",null);
+//        webView.evaluateJavascript("console.log('js loaded')",null);
 
     }
 
