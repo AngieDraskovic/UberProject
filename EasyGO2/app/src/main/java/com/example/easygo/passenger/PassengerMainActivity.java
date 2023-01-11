@@ -29,10 +29,11 @@ public class PassengerMainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         WebView webView = findViewById(R.id.web_view);
-//        webView.getSettings().setJavaScriptEnabled(true);
-//        webView.loadUrl("file:///android_asset/index.html");
         webView.getSettings().setJavaScriptEnabled(true);
         webView.loadUrl("file:///android_asset/leaflet.html");
+
+
+
 //        webView.loadUrl("https://leafletjs.com/examples/quick-start/example.html");
 //        webView.evaluateJavascript("loadmap();",null);
 //        webView.evaluateJavascript("console.log('js loaded')",null);
