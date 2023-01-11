@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="vehicle_options">
+        <item>-</item>
+        <item>STANDARD</item>
+        <item>LUXURY</item>
+        <item>VAN</item>
+    </string-array>
     <color name="black">#FF000000</color>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
@@ -10,6 +16,7 @@
     <string name="account">Account</string>
     <string name="address">Address</string>
     <string name="app_name">EasyGO</string>
+    <string name="baby_transport">Baby Transport</string>
     <string name="confirm_password">Confirm password</string>
     <string name="done">Done</string>
     <string name="email">Email</string>
@@ -26,6 +33,7 @@
     <string name="next">Next</string>
     <string name="no_having_account">Don\'t have an account? Sign Up</string>
     <string name="password">Password</string>
+    <string name="pet_transport">Pet Transport</string>
     <string name="phone_number">Phone number</string>
     <string name="previous">Previous</string>
     <string name="second_fragment_label">Second Fragment</string>
@@ -33,6 +41,7 @@
     <string name="surname">Surname</string>
     <string name="title_activity_message_detail">MessageDetailActivity</string>
     <string name="username">Username</string>
+    <string name="vehicle_prompt">Select vehicle</string>
     <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         
         <item name="colorPrimary">@color/black</item>

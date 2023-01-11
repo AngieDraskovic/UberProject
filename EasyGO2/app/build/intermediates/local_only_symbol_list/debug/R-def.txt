@@ -1,5 +1,6 @@
 R_DEF: Internal format may change without notice
 local
+array vehicle_options
 color black
 color purple_200
 color purple_500
@@ -37,8 +38,10 @@ drawable vladan_milojevic
 drawable wallet
 drawable white_background
 drawable whitish_background
+id VehicleDetailsLbl
 id account
 id adress
+id baby_transport_checkbox
 id backImageView
 id back_arrow
 id bt_update
@@ -48,6 +51,10 @@ id btnHistory
 id btnHome
 id btnInbox
 id button
+id date_picker
+id departureEdit
+id destinationEdit
+id detailsFragmentBtn
 id driverFullName
 id driverIconPicture
 id driverProfile
@@ -61,6 +68,9 @@ id et_last_name
 id et_password
 id financialCard
 id forgotpass
+id fragmentContainer
+id futureFragmentBtn
+id get_datetime_button
 id graph1Name
 id graph2Name
 id graph3Name
@@ -79,6 +89,7 @@ id layout_first_name
 id layout_image
 id layout_last_name
 id layout_password
+id locationsFragmentBtn
 id loginbtn
 id logout
 id messageDate
@@ -86,16 +97,22 @@ id messageTime
 id messagesContent
 id moneyGraph
 id name
+id navFragment
 id numOfKiloGraph
 id numOfRidesGraph
 id number
 id password
 id passwordRepeat
+id pet_transport_checkbox
 id profileIcon
 id profileImg
 id reports
 id reportsIcon
+id rideOrderBtn
 id rootLinear
+id selectDateLbl
+id selectTimeLbl
+id selectVehicleLbl
 id senderProfileIcon
 id signbtn
 id signup
@@ -103,8 +120,10 @@ id startDate
 id startDate2
 id startDate3
 id startDateTxt
+id successFragmentBtn
 id surname
 id textView
+id time_picker
 id toggleActive
 id toolbar
 id txtAddress
@@ -116,6 +135,7 @@ id txtUser
 id userProfile
 id userProfile2
 id username
+id vehicle_spinner
 id viewSupporter
 id walletIcon
 layout activity_driver_account
@@ -133,9 +153,14 @@ layout activity_passenger_profile
 layout activity_passenger_register
 layout activity_passenger_report
 layout activity_passenger_ride_history
+layout activity_ride_order
 layout activity_splash
 layout activity_user_login
 layout financialcard_popup
+layout fragment_fragment1_locations
+layout fragment_fragment2_future
+layout fragment_fragment3_details
+layout fragment_fragment4_order
 layout fragment_messages
 layout graph_layout
 layout message_list_item
@@ -148,6 +173,7 @@ mipmap ic_launcher_round
 string account
 string address
 string app_name
+string baby_transport
 string confirm_password
 string done
 string email
@@ -164,6 +190,7 @@ string name
 string next
 string no_having_account
 string password
+string pet_transport
 string phone_number
 string previous
 string second_fragment_label
@@ -171,6 +198,7 @@ string sign_up
 string surname
 string title_activity_message_detail
 string username
+string vehicle_prompt
 style AppTheme
 style SplashScreen
 style Theme.EasyGO

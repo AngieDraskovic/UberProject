@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".passenger.rideorder.Fragment1Locations">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <EditText
+            android:id="@+id/departureEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:drawableLeft="@drawable/ic_flag"
+            android:layout_marginHorizontal="20dp"
+            android:drawablePadding="20dp"
+            android:inputType="textEmailAddress"
+            android:hint="Departure address"
+            android:padding="13dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
+
+        <EditText
+            android:id="@+id/destinationEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/departureEdit"
+            android:layout_marginTop="20dp"
+            android:background="#FFFFFF"
+            android:drawableLeft="@drawable/ic_flag"
+            android:layout_marginHorizontal="20dp"
+            android:drawablePadding="20dp"
+            android:inputType="textEmailAddress"
+            android:hint="Destination address"
+            android:padding="13dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

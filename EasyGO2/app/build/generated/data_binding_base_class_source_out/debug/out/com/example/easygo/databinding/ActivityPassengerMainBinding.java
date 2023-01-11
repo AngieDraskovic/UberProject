@@ -4,6 +4,7 @@ package com.example.easygo.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,11 +20,15 @@ public final class ActivityPassengerMainBinding implements ViewBinding {
   private final RelativeLayout rootView;
 
   @NonNull
+  public final Button rideOrderBtn;
+
+  @NonNull
   public final ToolbarLayoutBinding toolbar;
 
   private ActivityPassengerMainBinding(@NonNull RelativeLayout rootView,
-      @NonNull ToolbarLayoutBinding toolbar) {
+      @NonNull Button rideOrderBtn, @NonNull ToolbarLayoutBinding toolbar) {
     this.rootView = rootView;
+    this.rideOrderBtn = rideOrderBtn;
     this.toolbar = toolbar;
   }
 
@@ -54,6 +59,12 @@ public final class ActivityPassengerMainBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.rideOrderBtn;
+      Button rideOrderBtn = ViewBindings.findChildViewById(rootView, id);
+      if (rideOrderBtn == null) {
+        break missingId;
+      }
+
       id = R.id.toolbar;
       View toolbar = ViewBindings.findChildViewById(rootView, id);
       if (toolbar == null) {
@@ -61,7 +72,8 @@ public final class ActivityPassengerMainBinding implements ViewBinding {
       }
       ToolbarLayoutBinding binding_toolbar = ToolbarLayoutBinding.bind(toolbar);
 
-      return new ActivityPassengerMainBinding((RelativeLayout) rootView, binding_toolbar);
+      return new ActivityPassengerMainBinding((RelativeLayout) rootView, rideOrderBtn,
+          binding_toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
