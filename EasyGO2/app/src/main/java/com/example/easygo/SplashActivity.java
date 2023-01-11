@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.window.SplashScreen;
 
+import com.example.easygo.passenger.PassengerMainActivity;
+
 public class SplashActivity extends AppCompatActivity {
 
     @Override
@@ -17,10 +19,10 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashActivity.this, UserLoginActivity.class));
+                startActivity(new Intent(SplashActivity.this, PassengerMainActivity.class));
                 finish();
             }
-        }, 5000);
+        }, 50);
     }
 
     @Override
