@@ -66,6 +66,7 @@ animator mtrl_fab_hide_motion_spec
 animator mtrl_fab_show_motion_spec
 animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
+array vehicle_options
 attr SharedValue
 attr SharedValueId
 attr actionBarDivider
@@ -2702,6 +2703,7 @@ id SHOW_PROGRESS
 id SYM
 id TOP_END
 id TOP_START
+id VehicleDetailsLbl
 id accelerate
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
@@ -2778,6 +2780,7 @@ id auto
 id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
+id baby_transport_checkbox
 id backImageView
 id back_arrow
 id barrier
@@ -2839,18 +2842,21 @@ id currentState
 id custom
 id customPanel
 id cut
+id date_picker
 id date_picker_actions
 id decelerate
 id decelerateAndComplete
 id decor_content_parent
 id default_activity_button
 id deltaRelative
+id departureEdit
 id dependency_ordering
 id design_bottom_sheet
 id design_menu_item_action_area
 id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
+id destinationEdit
 id detailsFragmentBtn
 id dialog_button
 id dimensions
@@ -2916,6 +2922,7 @@ id fragment_container_view_tag
 id frost
 id fullscreen_header
 id futureFragmentBtn
+id get_datetime_button
 id ghost_view
 id ghost_view_holder
 id gone
@@ -3082,6 +3089,7 @@ id path
 id pathRelative
 id peekHeight
 id percent
+id pet_transport_checkbox
 id pin
 id position
 id postLayout
@@ -3125,6 +3133,9 @@ id search_mag_icon
 id search_plate
 id search_src_text
 id search_voice_btn
+id selectDateLbl
+id selectTimeLbl
+id selectVehicleLbl
 id select_dialog_listview
 id selected
 id selection_type
@@ -3208,6 +3219,7 @@ id textinput_placeholder
 id textinput_prefix_text
 id textinput_suffix_text
 id time
+id time_picker
 id title
 id titleDividerNoCustom
 id title_template
@@ -3239,6 +3251,7 @@ id useLogo
 id userProfile
 id userProfile2
 id username
+id vehicle_spinner
 id vertical_only
 id viewSupporter
 id view_offset_helper
@@ -3529,6 +3542,7 @@ string address
 string androidx_startup
 string app_name
 string appbar_scrolling_view_behavior
+string baby_transport
 string bottom_sheet_behavior
 string bottomsheet_action_collapse
 string bottomsheet_action_expand
@@ -3665,6 +3679,7 @@ string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string pet_transport
 string phone_number
 string previous
 string search_menu_title
@@ -3674,6 +3689,7 @@ string status_bar_notification_info_overflow
 string surname
 string title_activity_message_detail
 string username
+string vehicle_prompt
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog

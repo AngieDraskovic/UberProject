@@ -5,12 +5,43 @@
     android:layout_height="match_parent"
     tools:context=".passenger.rideorder.Fragment1Locations">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
+
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Locations"
-        android:textColor="@color/white"/>
+        android:layout_centerInParent="true">
+
+        <EditText
+            android:id="@+id/departureEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:drawableLeft="@drawable/ic_flag"
+            android:layout_marginHorizontal="20dp"
+            android:drawablePadding="20dp"
+            android:inputType="textEmailAddress"
+            android:hint="Departure address"
+            android:padding="13dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
+
+        <EditText
+            android:id="@+id/destinationEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/departureEdit"
+            android:layout_marginTop="20dp"
+            android:background="#FFFFFF"
+            android:drawableLeft="@drawable/ic_flag"
+            android:layout_marginHorizontal="20dp"
+            android:drawablePadding="20dp"
+            android:inputType="textEmailAddress"
+            android:hint="Destination address"
+            android:padding="13dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
+
+    </RelativeLayout>
+
 
 </RelativeLayout>
