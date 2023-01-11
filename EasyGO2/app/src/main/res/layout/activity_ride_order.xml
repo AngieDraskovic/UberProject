@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bkg"
+    tools:context=".passenger.rideorder.RideOrderActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_layout" />
+
+    <LinearLayout
+        android:id="@+id/navFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:background="@color/black"
+        android:layout_below="@id/toolbar">
+
+        <Button
+            android:id="@+id/locationsFragmentBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Locations"
+            android:textSize="20px"
+            android:textColor="@color/white"
+            />
+        <Button
+            android:id="@+id/futureFragmentBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Future"
+            android:textSize="20px"
+            android:textColor="@color/white"
+            />
+        <Button
+            android:id="@+id/detailsFragmentBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Details"
+            android:textSize="20px"
+            android:textColor="@color/white"
+            />
+        <Button
+            android:id="@+id/successFragmentBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Order"
+            android:textSize="20px"
+            android:textColor="@color/white"
+            />
+
+    </LinearLayout>
+
+
+
+
+
+    <RelativeLayout
+        android:id="@+id/fragmentContainer"
+        android:layout_below="@id/navFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </RelativeLayout>
+
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="RIDE ORDER"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:layout_centerInParent="true"/>-->
+
+</RelativeLayout>
