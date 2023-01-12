@@ -29,7 +29,7 @@ public class UserLoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_login);
 
-        registerBroadcastReciever();
+      //  registerBroadcastReciever();
 
         TextView emailEditTxt =  findViewById(R.id.username);
         TextView passwordEditTxt =  findViewById(R.id.password);

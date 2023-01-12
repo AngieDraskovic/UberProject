@@ -15,7 +15,6 @@ import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
-
 import com.example.easygo.R;
 import com.example.easygo.UserLoginActivity;
 public class PassengerMainActivity extends AppCompatActivity {
@@ -27,15 +26,15 @@ public class PassengerMainActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         WebView webView = findViewById(R.id.web_view);
 //        webView.getSettings().setJavaScriptEnabled(true);
 //        webView.loadUrl("file:///android_asset/index.html");
         webView.getSettings().setJavaScriptEnabled(true);
         webView.loadUrl("file:///android_asset/leaflet.html");
+      //  webView.addJavascriptInterface(new WebAppinterface(), "Android");
 //        webView.loadUrl("https://leafletjs.com/examples/quick-start/example.html");
-//        webView.evaluateJavascript("loadmap();",null);
-//        webView.evaluateJavascript("console.log('js loaded')",null);
+       webView.evaluateJavascript("loadmap();",null);
+        webView.evaluateJavascript("console.log('js loaded')",null);
     }
 
     @Override
