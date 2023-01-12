@@ -4,12 +4,12 @@
         "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\drawable-v24\\sale_katai.png"
     },
     {
-        "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\drawable-v24_routes.png.flat",
-        "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\drawable-v24\\routes.png"
-    },
-    {
         "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\layout_activity_passenger_main.xml.flat",
         "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\activity_passenger_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\drawable-v24_routes.png.flat",
+        "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\drawable-v24\\routes.png"
     },
     {
         "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\drawable-xxhdpi_ic_message.png.flat",
@@ -40,6 +40,10 @@
         "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\drawable-v24\\ic_baseline_person_outline_24.xml"
     },
     {
+        "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\layout_fragment_fragment4_confirm.xml.flat",
+        "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\fragment_fragment4_confirm.xml"
+    },
+    {
         "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\layout_activity_main.xml.flat",
         "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\activity_main.xml"
     },
@@ -54,10 +58,6 @@
     {
         "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\xml_data_extraction_rules.xml.flat",
         "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\xml\\data_extraction_rules.xml"
-    },
-    {
-        "merged": "com.example.easygo.app-merged_res-32:/layout_fragment_fragment3_details.xml.flat",
-        "source": "com.example.easygo.app-main-34:/layout/fragment_fragment3_details.xml"
     },
     {
         "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\layout_graph_layout.xml.flat",
@@ -88,6 +88,14 @@
         "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\drawable\\ic_baseline_arrow_back_24.xml"
     },
     {
+        "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\drawable-mdpi_ic_flag.png.flat",
+        "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-debug-33:\\drawable-mdpi\\ic_flag.png"
+    },
+    {
+        "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\drawable-hdpi_ic_flag.png.flat",
+        "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-debug-33:\\drawable-hdpi\\ic_flag.png"
+    },
+    {
         "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\layout_fragment_fragment3_details.xml.flat",
         "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\fragment_fragment3_details.xml"
     },
@@ -100,6 +108,10 @@
         "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\navigation.xml"
     },
     {
+        "merged": "com.example.easygo.app-merged_res-32:/layout_fragment_fragment4_confirm.xml.flat",
+        "source": "com.example.easygo.app-main-34:/layout/fragment_fragment4_confirm.xml"
+    },
+    {
         "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\layout_activity_splash.xml.flat",
         "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\activity_splash.xml"
     },
@@ -108,8 +120,20 @@
         "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\drawable-v24\\profile_default.png"
     },
     {
+        "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\layout_fragment_fragment2_time.xml.flat",
+        "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\fragment_fragment2_time.xml"
+    },
+    {
         "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\mipmap-mdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\drawable-xhdpi_ic_flag.png.flat",
+        "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-debug-33:\\drawable-xhdpi\\ic_flag.png"
+    },
+    {
+        "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\drawable-xxhdpi_ic_flag.png.flat",
+        "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-debug-33:\\drawable-xxhdpi\\ic_flag.png"
     },
     {
         "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\drawable_ic_baseline_email_24.xml.flat",
@@ -122,6 +146,10 @@
     {
         "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\drawable-v24_profile.png.flat",
         "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\drawable-v24\\profile.png"
+    },
+    {
+        "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\layout_map.xml.flat",
+        "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\map.xml"
     },
     {
         "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\layout_activity_passenger_history.xml.flat",
@@ -146,6 +174,10 @@
     {
         "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.easygo.app-merged_res-32:/layout_fragment_fragment2_time.xml.flat",
+        "source": "com.example.easygo.app-main-34:/layout/fragment_fragment2_time.xml"
     },
     {
         "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\mipmap-mdpi_ic_launcher_round.webp.flat",
@@ -214,6 +246,10 @@
     {
         "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\drawable-anydpi_ic_message.xml.flat",
         "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-debug-33:\\drawable-anydpi\\ic_message.xml"
+    },
+    {
+        "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\drawable-anydpi_ic_flag.xml.flat",
+        "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-debug-33:\\drawable-anydpi\\ic_flag.xml"
     },
     {
         "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
@@ -310,6 +346,10 @@
     {
         "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\layout_fragment_messages.xml.flat",
         "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\fragment_messages.xml"
+    },
+    {
+        "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\layout_web_view.xml.flat",
+        "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\web_view.xml"
     },
     {
         "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\drawable-v24_vladan_milojevic.png.flat",

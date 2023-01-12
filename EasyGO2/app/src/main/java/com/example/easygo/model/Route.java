@@ -10,8 +10,8 @@ public class Route {
     private int id;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
-    private Location startLocation;
-    private Location endLocation;
+    private Location departure;
+    private Location destination;
     private double kilometers;
     private int estimatedTime;
     private double price;
@@ -19,6 +19,8 @@ public class Route {
 
     public Route(){
         this.passengers = new ArrayList<Passenger>();
+        this.departure = new Location();
+        this.destination = new Location();
     }
 
     public Route(int id, LocalDateTime startTime, LocalDateTime endTime, Location startLocation, Location endLocation, double kilometers, int estimatedTime, double price) {
@@ -26,8 +28,8 @@ public class Route {
         this.id = id;
         this.startTime = startTime;
         this.endTime = endTime;
-        this.startLocation = startLocation;
-        this.endLocation = endLocation;
+        this.departure = startLocation;
+        this.destination = endLocation;
         this.kilometers = kilometers;
         this.estimatedTime = estimatedTime;
         this.price = price;
@@ -57,20 +59,20 @@ public class Route {
         this.endTime = endTime;
     }
 
-    public Location getStartLocation() {
-        return startLocation;
+    public Location getDeparture() {
+        return departure;
     }
 
-    public void setStartLocation(Location startLocation) {
-        this.startLocation = startLocation;
+    public void setDeparture(Location departure) {
+        this.departure = departure;
     }
 
-    public Location getEndLocation() {
-        return endLocation;
+    public Location getDestination() {
+        return destination;
     }
 
-    public void setEndLocation(Location endLocation) {
-        this.endLocation = endLocation;
+    public void setDestination(Location destination) {
+        this.destination = destination;
     }
 
     public double getKilometers() {

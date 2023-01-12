@@ -9,12 +9,9 @@ public class VehicleType {
     private int id;
     private VehicleName vehicleName;
     private int pricePerKilometer;
-    private List<Vehicle> vehicles;
-    private List<Ride> rides;
 
     public VehicleType() {
-        this.vehicles = new ArrayList<Vehicle>();
-        this.rides = new ArrayList<Ride>();
+
     }
 
     public VehicleType(int id, VehicleName vehicleName, int pricePerKilometer) {
@@ -48,19 +45,4 @@ public class VehicleType {
         this.pricePerKilometer = pricePerKilometer;
     }
 
-    public List<Vehicle> getVehicles() {
-        return vehicles;
-    }
-
-    public void setVehicles(List<Vehicle> vehicles) {
-        this.vehicles = vehicles;
-    }
-
-    public List<Ride> getRides() {
-        return rides;
-    }
-
-    public void setRides(List<Ride> rides) {
-        this.rides = rides;
-    }
 }

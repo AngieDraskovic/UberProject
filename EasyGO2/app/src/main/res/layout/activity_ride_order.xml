@@ -32,7 +32,7 @@
             android:id="@+id/futureFragmentBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Future"
+            android:text="Time"
             android:textSize="20px"
             android:textColor="@color/white"
             />
@@ -48,7 +48,7 @@
             android:id="@+id/successFragmentBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Order"
+            android:text="Confirm"
             android:textSize="20px"
             android:textColor="@color/white"
             />

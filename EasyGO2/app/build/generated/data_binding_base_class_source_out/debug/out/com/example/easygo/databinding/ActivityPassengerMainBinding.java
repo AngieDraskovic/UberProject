@@ -4,6 +4,7 @@ package com.example.easygo.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
@@ -25,11 +26,16 @@ public final class ActivityPassengerMainBinding implements ViewBinding {
   @NonNull
   public final ToolbarLayoutBinding toolbar;
 
+  @NonNull
+  public final WebView webView;
+
   private ActivityPassengerMainBinding(@NonNull RelativeLayout rootView,
-      @NonNull Button rideOrderBtn, @NonNull ToolbarLayoutBinding toolbar) {
+      @NonNull Button rideOrderBtn, @NonNull ToolbarLayoutBinding toolbar,
+      @NonNull WebView webView) {
     this.rootView = rootView;
     this.rideOrderBtn = rideOrderBtn;
     this.toolbar = toolbar;
+    this.webView = webView;
   }
 
   @Override
@@ -72,8 +78,14 @@ public final class ActivityPassengerMainBinding implements ViewBinding {
       }
       ToolbarLayoutBinding binding_toolbar = ToolbarLayoutBinding.bind(toolbar);
 
+      id = R.id.web_view;
+      WebView webView = ViewBindings.findChildViewById(rootView, id);
+      if (webView == null) {
+        break missingId;
+      }
+
       return new ActivityPassengerMainBinding((RelativeLayout) rootView, rideOrderBtn,
-          binding_toolbar);
+          binding_toolbar, webView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

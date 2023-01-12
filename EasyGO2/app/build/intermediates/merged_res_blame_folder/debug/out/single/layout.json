@@ -20,6 +20,10 @@
         "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\activity_driver_profile.xml"
     },
     {
+        "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-mergeDebugResources-31:\\layout\\web_view.xml",
+        "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\web_view.xml"
+    },
+    {
         "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-mergeDebugResources-31:\\layout\\fragment_fragment3_details.xml",
         "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\fragment_fragment3_details.xml"
     },
@@ -36,8 +40,16 @@
         "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\graph_layout.xml"
     },
     {
+        "merged": "com.example.easygo.app-mergeDebugResources-31:/layout/fragment_fragment2_time.xml",
+        "source": "com.example.easygo.app-main-34:/layout/fragment_fragment2_time.xml"
+    },
+    {
         "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-mergeDebugResources-31:\\layout\\fragment_fragment2_future.xml",
         "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\fragment_fragment2_future.xml"
+    },
+    {
+        "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-mergeDebugResources-31:\\layout\\fragment_fragment4_confirm.xml",
+        "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\fragment_fragment4_confirm.xml"
     },
     {
         "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-mergeDebugResources-31:\\layout\\activity_driver_main.xml",
@@ -50,6 +62,10 @@
     {
         "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-mergeDebugResources-31:\\layout\\fragment_fragment4_order.xml",
         "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\fragment_fragment4_order.xml"
+    },
+    {
+        "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-mergeDebugResources-31:\\layout\\fragment_fragment2_time.xml",
+        "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\fragment_fragment2_time.xml"
     },
     {
         "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-mergeDebugResources-31:\\layout\\activity_driver_account.xml",
@@ -84,6 +100,10 @@
         "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\activity_passenger_inbox.xml"
     },
     {
+        "merged": "com.example.easygo.app-mergeDebugResources-31:/layout/fragment_fragment4_confirm.xml",
+        "source": "com.example.easygo.app-main-34:/layout/fragment_fragment4_confirm.xml"
+    },
+    {
         "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-mergeDebugResources-31:\\layout\\toolbar_layout.xml",
         "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\toolbar_layout.xml"
     },
@@ -92,16 +112,16 @@
         "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\activity_passenger_history.xml"
     },
     {
-        "merged": "com.example.easygo.app-mergeDebugResources-31:/layout/fragment_fragment3_details.xml",
-        "source": "com.example.easygo.app-main-34:/layout/fragment_fragment3_details.xml"
-    },
-    {
         "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-mergeDebugResources-31:\\layout\\fragment_fragment1_locations.xml",
         "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\fragment_fragment1_locations.xml"
     },
     {
         "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-mergeDebugResources-31:\\layout\\activity_passenger_account.xml",
         "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\activity_passenger_account.xml"
+    },
+    {
+        "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-mergeDebugResources-31:\\layout\\map.xml",
+        "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\map.xml"
     },
     {
         "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-mergeDebugResources-31:\\layout\\navigation.xml",

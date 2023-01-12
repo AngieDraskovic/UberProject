@@ -7,8 +7,14 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.easygo.R;
+import com.example.easygo.model.Ride;
+import com.example.easygo.model.enumerations.VehicleName;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +31,10 @@ public class Fragment3Details extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private Ride ride;
+    private Spinner vehicleSpinner;
+    private CheckBox babyTransportCheckbox;
+    private CheckBox petTransportCheckbox;
 
     public Fragment3Details() {
         // Required empty public constructor
@@ -34,19 +44,17 @@ public class Fragment3Details extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
      * @return A new instance of fragment Fragment3Details.
      */
     // TODO: Rename and change types and number of parameters
-    public static Fragment3Details newInstance(String param1, String param2) {
+    public static Fragment3Details newInstance(Ride ride) {
         Fragment3Details fragment = new Fragment3Details();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putSerializable("ride", ride);
         fragment.setArguments(args);
         return fragment;
     }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,14 +68,40 @@ public class Fragment3Details extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_fragment3_details, container, false);
 
         Bundle bundle = getArguments();
         if (bundle != null) {
-            // TODO: Rad sa fragmentima
+            this.ride = (Ride) bundle.getSerializable("ride");
         }
 
+        this.vehicleSpinner = view.findViewById(R.id.vehicle_spinner);
+        this.babyTransportCheckbox = view.findViewById(R.id.baby_transport_checkbox);
+        this.petTransportCheckbox = view.findViewById(R.id.pet_transport_checkbox);
+
+        Button submitButton = view.findViewById(R.id.submitBtnDetails);
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setRideValues();
+                Toast.makeText(getContext(), "Vehicle details selected.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         return view;
+    }
+
+    private void setRideValues() {
+        String selectedVehicle = vehicleSpinner.getSelectedItem().toString();
+        if(selectedVehicle.equals("STANDARD"))
+            ride.setVehicleName(VehicleName.STANDARD);
+        else if(selectedVehicle.equals("LUXURY"))
+            ride.setVehicleName(VehicleName.LUXURY);
+        else if(selectedVehicle.equals("VAN"))
+            ride.setVehicleName(VehicleName.VAN);
+        else
+
+        ride.setBabyproof(babyTransportCheckbox.isChecked());
+        ride.setPetsAllowed(petTransportCheckbox.isChecked());
     }
 }

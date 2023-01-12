@@ -27,7 +27,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="#979595"
+        android:backgroundTint="@color/gray"
         android:padding="8dp"
         android:text="Ride order"
         android:textColor="@color/black" />

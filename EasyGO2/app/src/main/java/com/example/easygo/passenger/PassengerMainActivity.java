@@ -18,6 +18,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.easygo.R;
 import com.example.easygo.UserLoginActivity;
+import com.example.easygo.model.Ride;
 import com.example.easygo.passenger.rideorder.RideOrderActivity;
 
 public class PassengerMainActivity extends AppCompatActivity {
@@ -30,12 +31,9 @@ public class PassengerMainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
         WebView webView = findViewById(R.id.web_view);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.loadUrl("file:///android_asset/leaflet.html");
-
-
 
 //        webView.loadUrl("https://leafletjs.com/examples/quick-start/example.html");
 //        webView.evaluateJavascript("loadmap();",null);

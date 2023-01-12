@@ -1,14 +1,16 @@
 package com.example.easygo.model;
 
 import com.example.easygo.model.enumerations.RideStatus;
+import com.example.easygo.model.enumerations.VehicleName;
 import com.example.easygo.model.users.Driver;
 import com.example.easygo.model.users.Passenger;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Ride {
+public class Ride implements Serializable {
     private int id;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
@@ -20,13 +22,14 @@ public class Ride {
     private boolean splitFare;
     private RideStatus status;
     private VehicleType vehicleType;
+    private VehicleName vehicleName;
     private Driver driver;
     private Rejection rejection;
     private List<Message> messages;
     private Panic panic;
     private List<Passenger> passengers;
     private List<Payment> payments;
-    private Route route;
+    private List<Route> routes;
     private List<Review> reviews;
 
     public Ride(){
@@ -34,6 +37,7 @@ public class Ride {
         this.passengers = new ArrayList<Passenger>();
         this.payments = new ArrayList<Payment>();
         this.reviews = new ArrayList<Review>();
+        this.routes = new ArrayList<Route>();
     }
 
     public Ride(int id, LocalDateTime startTime, LocalDateTime endTime, double price, int estimatedTime, boolean panicButton, boolean babyproof, boolean petsAllowed, boolean splitFare, RideStatus status, VehicleType vehicleType, Driver driver, Rejection rejection, Panic panic, Route route) {
@@ -52,7 +56,6 @@ public class Ride {
         this.driver = driver;
         this.rejection = rejection;
         this.panic = panic;
-        this.route = route;
     }
 
     public int getId() {
@@ -88,7 +91,7 @@ public class Ride {
     }
 
     public int getEstimatedTime() {
-        return estimatedTime;
+        return 15;
     }
 
     public void setEstimatedTime(int estimatedTime) {
@@ -191,12 +194,12 @@ public class Ride {
         this.payments = payments;
     }
 
-    public Route getRoute() {
-        return route;
+    public List<Route> getRoutes() {
+        return this.routes;
     }
 
-    public void setRoute(Route route) {
-        this.route = route;
+    public void setRoute(List<Route> routes) {
+        this.routes = routes;
     }
 
     public List<Review> getReviews() {
@@ -205,5 +208,25 @@ public class Ride {
 
     public void setReviews(List<Review> reviews) {
         this.reviews = reviews;
+    }
+
+    public VehicleName getVehicleName() {
+        return vehicleName;
+    }
+
+    public void setVehicleName(VehicleName vehicleName) {
+        this.vehicleName = vehicleName;
+    }
+
+    public void setRoutes(List<Route> routes) {
+        this.routes = routes;
+    }
+
+    public String getBabyProofString() {
+        return (this.babyproof) ? "Yes" : "No";
+    }
+
+    public String getPetsAllowedString() {
+        return (this.petsAllowed) ? "Yes" : "No";
     }
 }
