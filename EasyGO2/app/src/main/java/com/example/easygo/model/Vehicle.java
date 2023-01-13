@@ -6,8 +6,8 @@ public class Vehicle {
     private int id;
     private String model;
     private String regPlates;
-    private int seatNum;
-    private boolean babyproof;
+    private int numSeats;
+    private boolean babyProof;
     private boolean petsAllowed;
     private VehicleType type;
     private Driver driver;
@@ -19,8 +19,8 @@ public class Vehicle {
         this.id = id;
         this.model = model;
         this.regPlates = regPlates;
-        this.seatNum = seatNum;
-        this.babyproof = babyproof;
+        this.numSeats = seatNum;
+        this.babyProof = babyproof;
         this.petsAllowed = petsAllowed;
         this.type = type;
         this.driver = driver;
@@ -52,19 +52,19 @@ public class Vehicle {
     }
 
     public int getSeatNum() {
-        return seatNum;
+        return numSeats;
     }
 
     public void setSeatNum(int seatNum) {
-        this.seatNum = seatNum;
+        this.numSeats = seatNum;
     }
 
     public boolean isBabyproof() {
-        return babyproof;
+        return babyProof;
     }
 
     public void setBabyproof(boolean babyproof) {
-        this.babyproof = babyproof;
+        this.babyProof = babyproof;
     }
 
     public boolean isPetsAllowed() {
