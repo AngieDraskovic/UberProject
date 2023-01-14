@@ -23,8 +23,12 @@ import androidx.core.app.NotificationManagerCompat;
 
 import com.example.easygo.R;
 import com.example.easygo.UserLoginActivity;
+
 import com.example.easygo.driver.DriverMainActivity;
 import com.example.easygo.passenger.PassengerGradeRideActivity;
+import com.example.easygo.passenger.rideorder.RideOrderActivity;
+
+
 public class PassengerMainActivity extends AppCompatActivity {
 
     @Override
@@ -35,13 +39,13 @@ public class PassengerMainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         WebView webView = findViewById(R.id.web_view);
-//        webView.getSettings().setJavaScriptEnabled(true);
-//        webView.loadUrl("file:///android_asset/index.html");
         webView.getSettings().setJavaScriptEnabled(true);
         webView.loadUrl("file:///android_asset/leaflet.html");
+
       //  webView.addJavascriptInterface(new WebAppinterface(), "Android");
+
 //        webView.loadUrl("https://leafletjs.com/examples/quick-start/example.html");
-       webView.evaluateJavascript("loadmap();",null);
+        webView.evaluateJavascript("loadmap();",null);
         webView.evaluateJavascript("console.log('js loaded')",null);
 
         makeNotification();
@@ -50,6 +54,16 @@ public class PassengerMainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
+        /* Dodali smo dugme na pocetnu stranicu passengera i klikom na to dugme pokrecemo proces narucivanja */
+        Button rideOrderBtn = findViewById(R.id.rideOrderBtn);
+        rideOrderBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(PassengerMainActivity.this, RideOrderActivity.class));
+            }
+        });
+
     }
 
     @Override
