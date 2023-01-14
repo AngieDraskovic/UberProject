@@ -23,7 +23,7 @@ public class MockupDrivers {
         Vehicle v2 = new Vehicle(2, "Ferrari", "423-FSDF-3D", 5, true, true, null, VehicleName.VAN, null, null);
         Vehicle v3 = new Vehicle(3, "Audi", "423-FSDF-3D", 5, true, true, null, VehicleName.LUXURY, null, null);
 
-        Driver driver1 = new Driver(1, "Dejan", "Stankovic", R.drawable.dejan_stankovic, "061-032-3230", "dejanstankovic@gmail.com", "Svetog Save 1", "dejan123", false, true, "1MM23", "FDS-33D-1", v1);
+        Driver driver1 = new Driver(1, "Dejan", "Stankovic", R.drawable.dejan_stankovic, "061-032-3230", "d", "Svetog Save 1", "d", false, true, "1MM23", "FDS-33D-1", v1);
         Driver driver2 = new Driver(2, "Milos", "Milojevic", R.drawable.milos_milojevic, "062-032-3230", "milosmilojevic@gmail.com", "Svetog Save 2", "milos123", false, true, "2MM23", "FDS-33D-2", v2);
         Driver driver3 = new Driver(3, "Vladan", "Milojevic", R.drawable.vladan_milojevic, "063-032-3230", "vladanmilojevic@gmail.com", "Svetog Save 3", "vladan123", false, true, "3MM23", "FDS-33D-3", v3);
 

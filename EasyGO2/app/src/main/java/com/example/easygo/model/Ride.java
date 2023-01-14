@@ -40,7 +40,7 @@ public class Ride implements Serializable {
         this.routes = new ArrayList<Route>();
     }
 
-    public Ride(int id, LocalDateTime startTime, LocalDateTime endTime, double price, int estimatedTime, boolean panicButton, boolean babyproof, boolean petsAllowed, boolean splitFare, RideStatus status, VehicleType vehicleType, Driver driver, Rejection rejection, Panic panic, Route route) {
+    public Ride(int id, LocalDateTime startTime, LocalDateTime endTime, double price, int estimatedTime, boolean panicButton, boolean babyproof, boolean petsAllowed, boolean splitFare, RideStatus status, VehicleType vehicleType, Driver driver, Rejection rejection, Panic panic) {
         this();
         this.id = id;
         this.startTime = startTime;

@@ -62,6 +62,7 @@ id detailsLayout
 id driverFullName
 id driverIconPicture
 id driverProfile
+id driver_web_view
 id easygo
 id email
 id et_address
@@ -141,7 +142,6 @@ id successFragmentBtn
 id surname
 id textView
 id time_picker
-id toggleActive
 id toolbar
 id txtAddress
 id txtEmail
