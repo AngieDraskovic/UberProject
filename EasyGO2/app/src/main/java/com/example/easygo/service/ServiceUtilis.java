@@ -1,7 +1,9 @@
 package com.example.easygo.service;
+import com.example.easygo.BuildConfig;
 import com.example.easygo.model.Vehicle;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.Call;
 import okhttp3.OkHttpClient;
@@ -13,8 +15,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ServiceUtilis {
 
 
-    public static final String EASYGO_SERVICE_API_PATH = "http://localhost:8080/api/";
-    public static final String VEHICLE = "Vehicle";
+    public static final String EASYGO_SERVICE_API_PATH = BuildConfig.LOCALHOST;
+    public static final String driver = "driver";
+    public static final String vehicle = "vehicle";
+    public static final String passenger = "passenger";
 
     // definisemo retrofit instancu preko koje se odvija komunikacija
     public static Retrofit retrofit = new Retrofit.Builder()
@@ -39,5 +43,7 @@ public class ServiceUtilis {
 
     // definisanje konkretne instance servisa na internetu sa kojom vrsimo komunikaciju
     public static ReviewerService reviewerService = retrofit.create(ReviewerService.class);
+
+    public static IUserService userService = retrofit.create(IUserService.class);
 
 }

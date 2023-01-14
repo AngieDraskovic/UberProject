@@ -6,9 +6,11 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintSet;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -26,8 +28,15 @@ import android.widget.Toast;
 
 import com.example.easygo.LoggedIn;
 import com.example.easygo.R;
+import com.example.easygo.dto.UserDTO;
 import com.example.easygo.model.users.Passenger;
 import com.example.easygo.UserLoginActivity;
+import com.example.easygo.service.ServiceUtilis;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class PassengerAccountActivity extends AppCompatActivity {
 
     private Passenger passenger;
@@ -41,7 +50,8 @@ public class PassengerAccountActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         View view = (View)findViewById(R.id.account);
-        this.passenger = LoggedIn.getPassenger();
+        getPassenger();
+      //  Log.d(passenger.getName(), "IMEEEEEEEEEE");
         LinearLayout editProfile = (LinearLayout) findViewById(R.id.userProfile);
         LinearLayout financialCard = (LinearLayout)findViewById(R.id.financialCard);
         LinearLayout reports = (LinearLayout)findViewById(R.id.reports);
@@ -95,7 +105,7 @@ public class PassengerAccountActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        setPassengerData();
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -134,6 +144,31 @@ public class PassengerAccountActivity extends AppCompatActivity {
     }
 
 
+    public void  getPassenger(){
+        SharedPreferences preferences = getSharedPreferences("preference_file_name", MODE_PRIVATE);
+        int id = preferences.getInt("p_id", 0);
+
+        Call<UserDTO> call = ServiceUtilis.userService.getDriver(id);
+        call.enqueue(new Callback<UserDTO>() {
+            @Override
+            public void onResponse(Call<UserDTO> call, Response<UserDTO> response) {
+                if (response.isSuccessful()) {
+                    assert response.body() != null;
+                    passenger = new Passenger(response.body());
+                    setPassengerData(passenger);
+                } else {
+                    // handle error response
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UserDTO> call, Throwable t) {
+
+            }
+        });
+    }
+
 
 
     @Override
@@ -167,7 +202,7 @@ public class PassengerAccountActivity extends AppCompatActivity {
     }
 
 
-    private void setPassengerData() {
+    private void setPassengerData(Passenger passenger) {
         String user = passenger.getName() + " " + passenger.getSurname();
 
         ((TextView) findViewById(R.id.txtUser)).setText(user);
