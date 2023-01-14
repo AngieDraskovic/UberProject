@@ -14,6 +14,7 @@ import com.example.easygo.R;
 import com.example.easygo.mockup.MockupPassengers;
 import com.example.easygo.model.users.Passenger;
 import com.google.android.material.button.MaterialButton;
+import com.example.easygo.driver.DriverMainActivity;
 
 public class PassengerRegisterActivity extends AppCompatActivity {
 
