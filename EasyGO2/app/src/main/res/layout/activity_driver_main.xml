@@ -11,13 +11,12 @@
         android:id="@+id/toolbar"
         layout="@layout/toolbar_layout" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MAIN"
-        android:textColor="@color/white"
-        android:layout_below="@id/toggleActive"
-        android:layout_centerHorizontal="true"/>
+    <WebView
+        android:id="@+id/driver_web_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"/>
+
 
     <ToggleButton
         android:id="@+id/toggleActive"

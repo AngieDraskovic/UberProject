@@ -1343,6 +1343,7 @@ color error_color_material_dark
 color error_color_material_light
 color foreground_material_dark
 color foreground_material_light
+color gray
 color highlighted_text_material_dark
 color highlighted_text_material_light
 color m3_appbar_overlay_color
@@ -2591,6 +2592,7 @@ drawable ic_baseline_password_24
 drawable ic_baseline_person_outline_24
 drawable ic_baseline_phone_enabled_24
 drawable ic_clock_black_24dp
+drawable ic_flag
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -2827,6 +2829,7 @@ id clockwise
 id closest
 id collapseActionView
 id compress
+id confirmOrderBtn
 id confirm_button
 id constraint
 id container
@@ -2858,6 +2861,7 @@ id design_menu_item_text
 id design_navigation_view
 id destinationEdit
 id detailsFragmentBtn
+id detailsLayout
 id dialog_button
 id dimensions
 id direct
@@ -2877,6 +2881,7 @@ id dragUp
 id driverFullName
 id driverIconPicture
 id driverProfile
+id driver_web_view
 id dropdown_menu
 id easeIn
 id easeInOut
@@ -2922,6 +2927,7 @@ id fragment_container_view_tag
 id frost
 id fullscreen_header
 id futureFragmentBtn
+id futureOrderDetails
 id get_datetime_button
 id ghost_view
 id ghost_view_holder
@@ -3067,12 +3073,15 @@ id north
 id notification_background
 id notification_main_column
 id notification_main_column_container
+id nowFutureButtons
 id numOfKiloGraph
 id numOfRidesGraph
 id number
 id off
 id on
 id onInterceptTouchReturnSwipe
+id orderForFutureBtn
+id orderForNowBtn
 id outline
 id outward
 id overshoot
@@ -3105,7 +3114,14 @@ id repeat
 id reports
 id reportsIcon
 id reverseSawtooth
+id rideBabyTransport
+id rideDeparture
+id rideDestination
 id rideOrderBtn
+id rideOrderDetails
+id ridePetTransport
+id rideTime
+id rideVehicleName
 id right
 id rightToLeft
 id right_icon
@@ -3183,6 +3199,8 @@ id status_bar_latest_event_content
 id stop
 id stretch
 id submenuarrow
+id submitBtn
+id submitBtnDetails
 id submit_area
 id successFragmentBtn
 id supportScrollUp
@@ -3224,7 +3242,6 @@ id title
 id titleDividerNoCustom
 id title_template
 id toggle
-id toggleActive
 id toolbar
 id top
 id topPanel
@@ -3263,6 +3280,7 @@ id view_tree_view_model_store_owner
 id visible
 id visible_removing_fragment_view_tag
 id walletIcon
+id web_view
 id west
 id withText
 id with_icon
@@ -3430,15 +3448,16 @@ layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout financialcard_popup
 layout fragment_fragment1_locations
-layout fragment_fragment2_future
+layout fragment_fragment2_time
 layout fragment_fragment3_details
-layout fragment_fragment4_order
+layout fragment_fragment4_confirm
 layout fragment_messages
 layout graph_layout
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
 layout m3_auto_complete_simple_item
+layout map
 layout material_chip_input_combo
 layout material_clock_display
 layout material_clock_display_divider
@@ -3506,6 +3525,7 @@ layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
 layout toolbar_layout
+layout web_view
 menu layout_items
 mipmap ic_launcher
 mipmap ic_launcher_round

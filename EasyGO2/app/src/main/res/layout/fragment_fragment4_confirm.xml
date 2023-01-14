@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".passenger.rideorder.Fragment4Confirm">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp">
+
+        <RelativeLayout
+            android:id="@+id/rideOrderDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_margin="20dp"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/rideDeparture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Departure: "
+                android:layout_marginTop="5dp"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/rideDestination"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rideDeparture"
+                android:layout_marginTop="5dp"
+                android:text="Destination: "
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/rideTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rideDestination"
+                android:layout_marginTop="5dp"
+                android:text="Time: "
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/rideVehicleName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rideTime"
+                android:layout_marginTop="5dp"
+                android:text="Vehicle name: "
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/rideBabyTransport"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rideVehicleName"
+                android:layout_marginTop="5dp"
+                android:text="Baby transport: "
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/ridePetTransport"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rideBabyTransport"
+                android:layout_marginTop="5dp"
+                android:text="Pet transport: "
+                android:textSize="20dp" />
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/confirmOrderBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rideOrderDetails"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="@color/gray"
+            android:text="Confirm"
+            android:textColor="@color/white"/>
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

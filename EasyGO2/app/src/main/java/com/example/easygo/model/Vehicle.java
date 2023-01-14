@@ -1,5 +1,6 @@
 package com.example.easygo.model;
 
+import com.example.easygo.model.enumerations.VehicleName;
 import com.example.easygo.model.users.Driver;
 
 public class Vehicle {
@@ -9,20 +10,22 @@ public class Vehicle {
     private int numSeats;
     private boolean babyProof;
     private boolean petsAllowed;
-    private VehicleType type;
+    private VehicleType vehicleType;
+    private VehicleName vehicleName;
     private Driver driver;
     private Location currLocation;
 
     public Vehicle() {}
 
-    public Vehicle(int id, String model, String regPlates, int seatNum, boolean babyproof, boolean petsAllowed, VehicleType type, Driver driver, Location currLocation) {
+    public Vehicle(int id, String model, String regPlates, int seatNum, boolean babyproof, boolean petsAllowed, VehicleType type, VehicleName vehicleName, Driver driver, Location currLocation) {
         this.id = id;
         this.model = model;
         this.regPlates = regPlates;
         this.numSeats = seatNum;
         this.babyProof = babyproof;
         this.petsAllowed = petsAllowed;
-        this.type = type;
+        this.vehicleType = type;
+        this.vehicleName = vehicleName;
         this.driver = driver;
         this.currLocation = currLocation;
     }
@@ -75,12 +78,12 @@ public class Vehicle {
         this.petsAllowed = petsAllowed;
     }
 
-    public VehicleType getType() {
-        return type;
+    public VehicleType getVehicleType() {
+        return vehicleType;
     }
 
-    public void setType(VehicleType type) {
-        this.type = type;
+    public void setVehicleType(VehicleType vehicleType) {
+        this.vehicleType = vehicleType;
     }
 
     public Driver getDriver() {
@@ -97,5 +100,13 @@ public class Vehicle {
 
     public void setCurrLocation(Location currLocation) {
         this.currLocation = currLocation;
+    }
+
+    public VehicleName getVehicleName() {
+        return vehicleName;
+    }
+
+    public void setVehicleName(VehicleName vehicleName) {
+        this.vehicleName = vehicleName;
     }
 }

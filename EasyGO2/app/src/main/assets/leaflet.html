@@ -22,14 +22,54 @@
     <br><br><br><br><br><br><br><br><br><br><br><br>
 
 </div>
-<script>
+    <script>
+
         var map = L.map('map').setView([45.2396, 19.8227], 13);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
-            maxZoom: 18
-        }).addTo(map);
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
 
 
+
+        function getFive() {
+            return [48.84723894, 12.9842394];
+        }
+
+
+        async function getCoordinatesByAddress(address) {
+            try {
+                const response = await fetch('https://nominatim.openstreetmap.org/search?format=json&q=' + address);
+                const data = await response.json();
+                var coordinates = [data[0].lat, data[0].lon];
+                var marker = L.marker(coordinates).addTo(map);
+                return coordinates;
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        async function getPromise(address) {
+            let coordinates = await getCoordinatesByAddress(address);
+            return JSON.stringify(coordinates);
+        }
+
+        async function getDeparture(address) {
+            getPromise(address).then(function(coordinates) {
+                Android.setDeparture(coordinates);
+            });
+        }
+
+        async function getDestination(address) {
+            getPromise(address).then(function(coordinates) {
+                Android.setDestination(coordinates);
+            });
+        }
+
+
+
+        console.log(getPromise());
+        console.log(getCoordinatesByAddress());
+
+        
     </script>
 </body>
 </html>

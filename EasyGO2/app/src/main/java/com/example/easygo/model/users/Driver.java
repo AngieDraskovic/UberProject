@@ -4,6 +4,7 @@ import com.example.easygo.dto.UserDTO;
 import com.example.easygo.model.Ride;
 import com.example.easygo.model.Vehicle;
 import com.example.easygo.model.WorkingHours;
+import com.example.easygo.model.enumerations.VehicleName;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -79,5 +80,32 @@ public class Driver extends User{
 
     public void setWorkingHours(List<WorkingHours> workingHours) {
         this.workingHours = workingHours;
+    }
+
+    public boolean isAvailable(Ride newRide) {
+        if (!this.active)
+            return false;
+
+        // Checking for rides
+        for (Ride ride : this.rides) {
+            if (this.isBusy(ride, newRide))
+                return false;
+        }
+
+        return true;
+    }
+
+    private boolean isBusy(Ride ride, Ride newRide) {
+        return ride.getStartTime().isBefore(newRide.getStartTime().plusMinutes(newRide.getEstimatedTime()))
+                && newRide.getStartTime().isBefore(ride.getStartTime().plusMinutes(ride.getEstimatedTime()));
+    }
+
+
+    public boolean compatibileVehicle(Ride rideDTO) {
+        if (!rideDTO.getVehicleName().equals(this.vehicle.getVehicleName()))
+            return false;
+        if (rideDTO.isPetsAllowed() && !this.vehicle.isPetsAllowed())
+            return false;
+        return !rideDTO.isBabyproof() || this.vehicle.isBabyproof();
     }
 }

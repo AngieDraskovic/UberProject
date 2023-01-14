@@ -14,6 +14,7 @@ import android.widget.Button;
 import com.example.easygo.FragmentTransition;
 import com.example.easygo.R;
 import com.example.easygo.UserLoginActivity;
+import com.example.easygo.model.Ride;
 import com.example.easygo.passenger.PassengerAccountActivity;
 import com.example.easygo.passenger.PassengerInboxActivity;
 import com.example.easygo.passenger.PassengerMainActivity;
@@ -29,11 +30,14 @@ public class RideOrderActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        Ride ride = new Ride();
+        FragmentTransition.to(Fragment1Locations.newInstance(ride), RideOrderActivity.this, false, R.id.fragmentContainer);
+
         Button locationsFragmentBtn = findViewById(R.id.locationsFragmentBtn);
         locationsFragmentBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentTransition.to(Fragment1Locations.newInstance("parameter1", "parameter2"), RideOrderActivity.this, false, R.id.fragmentContainer);
+                FragmentTransition.to(Fragment1Locations.newInstance(ride), RideOrderActivity.this, false, R.id.fragmentContainer);
             }
         });
 
@@ -41,7 +45,7 @@ public class RideOrderActivity extends AppCompatActivity {
         futureFragmentBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentTransition.to(Fragment2Future.newInstance("parameter1", "parameter2"), RideOrderActivity.this, false, R.id.fragmentContainer);
+                FragmentTransition.to(Fragment2Time.newInstance(ride), RideOrderActivity.this, false, R.id.fragmentContainer);
 
             }
         });
@@ -50,7 +54,7 @@ public class RideOrderActivity extends AppCompatActivity {
         detailsFragmentBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentTransition.to(Fragment3Details.newInstance("parameter1", "parameter2"), RideOrderActivity.this, false, R.id.fragmentContainer);
+                FragmentTransition.to(Fragment3Details.newInstance(ride), RideOrderActivity.this, false, R.id.fragmentContainer);
 
             }
         });
@@ -59,7 +63,7 @@ public class RideOrderActivity extends AppCompatActivity {
         successFragmentBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentTransition.to(Fragment4Order.newInstance("parameter1", "parameter2"), RideOrderActivity.this, false, R.id.fragmentContainer);
+                FragmentTransition.to(Fragment4Confirm.newInstance(ride), RideOrderActivity.this, false, R.id.fragmentContainer);
 
             }
         });

@@ -23,6 +23,7 @@ import androidx.core.app.NotificationManagerCompat;
 
 import com.example.easygo.R;
 import com.example.easygo.UserLoginActivity;
+import com.example.easygo.model.Ride;
 
 import com.example.easygo.driver.DriverMainActivity;
 import com.example.easygo.passenger.PassengerGradeRideActivity;
@@ -38,6 +39,7 @@ public class PassengerMainActivity extends AppCompatActivity {
         createNotificationChannel();
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         WebView webView = findViewById(R.id.web_view);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.loadUrl("file:///android_asset/leaflet.html");

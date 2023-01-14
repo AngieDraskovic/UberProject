@@ -4,8 +4,8 @@ package com.example.easygo.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.RelativeLayout;
-import android.widget.ToggleButton;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
@@ -20,15 +20,15 @@ public final class ActivityDriverMainBinding implements ViewBinding {
   private final RelativeLayout rootView;
 
   @NonNull
-  public final ToggleButton toggleActive;
+  public final WebView driverWebView;
 
   @NonNull
   public final ToolbarLayoutBinding toolbar;
 
   private ActivityDriverMainBinding(@NonNull RelativeLayout rootView,
-      @NonNull ToggleButton toggleActive, @NonNull ToolbarLayoutBinding toolbar) {
+      @NonNull WebView driverWebView, @NonNull ToolbarLayoutBinding toolbar) {
     this.rootView = rootView;
-    this.toggleActive = toggleActive;
+    this.driverWebView = driverWebView;
     this.toolbar = toolbar;
   }
 
@@ -59,9 +59,9 @@ public final class ActivityDriverMainBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.toggleActive;
-      ToggleButton toggleActive = ViewBindings.findChildViewById(rootView, id);
-      if (toggleActive == null) {
+      id = R.id.driver_web_view;
+      WebView driverWebView = ViewBindings.findChildViewById(rootView, id);
+      if (driverWebView == null) {
         break missingId;
       }
 
@@ -72,7 +72,7 @@ public final class ActivityDriverMainBinding implements ViewBinding {
       }
       ToolbarLayoutBinding binding_toolbar = ToolbarLayoutBinding.bind(toolbar);
 
-      return new ActivityDriverMainBinding((RelativeLayout) rootView, toggleActive,
+      return new ActivityDriverMainBinding((RelativeLayout) rootView, driverWebView,
           binding_toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
