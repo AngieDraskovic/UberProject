@@ -41,6 +41,11 @@ public class User {
         this.blocked = blocked;
     }
 
+    public User(Integer id, String email) {
+        this.id = id;
+        this.email = email;
+    }
+
 
     public int getId() {
         return id;

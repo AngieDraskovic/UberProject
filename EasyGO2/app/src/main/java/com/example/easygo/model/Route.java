@@ -1,5 +1,6 @@
 package com.example.easygo.model;
 
+import com.example.easygo.dto.RouteDTO;
 import com.example.easygo.model.users.Passenger;
 
 import java.time.LocalDateTime;
@@ -8,29 +9,23 @@ import java.util.List;
 
 public class Route {
     private int id;
-    private LocalDateTime startTime;
-    private LocalDateTime endTime;
     private Location startLocation;
     private Location endLocation;
     private double kilometers;
     private int estimatedTime;
-    private double price;
-    private List<Passenger> passengers;
+    private Ride ride;
 
-    public Route(){
-        this.passengers = new ArrayList<Passenger>();
+    public Route(RouteDTO routeDTO){
+        this.startLocation = new Location(routeDTO.getDeparture());
+        this.endLocation = new Location(routeDTO.getDestination());
     }
-
-    public Route(int id, LocalDateTime startTime, LocalDateTime endTime, Location startLocation, Location endLocation, double kilometers, int estimatedTime, double price) {
-        this();
+    public Route(int id, LocalDateTime startTime, LocalDateTime endTime, Location startLocation, Location endLocation, double kilometers, int estimatedTime, Ride ride) {
         this.id = id;
-        this.startTime = startTime;
-        this.endTime = endTime;
         this.startLocation = startLocation;
         this.endLocation = endLocation;
         this.kilometers = kilometers;
         this.estimatedTime = estimatedTime;
-        this.price = price;
+        this.ride = ride;
     }
 
     public int getId() {
@@ -39,22 +34,6 @@ public class Route {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public LocalDateTime getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(LocalDateTime startTime) {
-        this.startTime = startTime;
-    }
-
-    public LocalDateTime getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(LocalDateTime endTime) {
-        this.endTime = endTime;
     }
 
     public Location getStartLocation() {
@@ -89,19 +68,4 @@ public class Route {
         this.estimatedTime = estimatedTime;
     }
 
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public List<Passenger> getPassengers() {
-        return passengers;
-    }
-
-    public void setPassengers(List<Passenger> passengers) {
-        this.passengers = passengers;
-    }
 }

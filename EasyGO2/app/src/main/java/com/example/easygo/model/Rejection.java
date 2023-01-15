@@ -1,5 +1,6 @@
 package com.example.easygo.model;
 
+import com.example.easygo.dto.RejectionDTO;
 import com.example.easygo.model.users.User;
 
 import java.time.LocalDateTime;
@@ -13,6 +14,10 @@ public class Rejection {
 
     public Rejection() {}
 
+    public Rejection(RejectionDTO rejectionDTO){
+        this.time = rejectionDTO.getTimeOfRejection();
+        this.reason = rejectionDTO.getReason();
+    }
     public Rejection(int id, LocalDateTime time, String reason, User user, Ride ride) {
         this.id = id;
         this.time = time;

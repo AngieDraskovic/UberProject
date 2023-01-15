@@ -19,6 +19,7 @@ public class ServiceUtilis {
     public static final String driver = "driver";
     public static final String vehicle = "vehicle";
     public static final String passenger = "passenger";
+    public static final String ride = "ride";
 
     // definisemo retrofit instancu preko koje se odvija komunikacija
     public static Retrofit retrofit = new Retrofit.Builder()
@@ -42,8 +43,6 @@ public class ServiceUtilis {
     }
 
     // definisanje konkretne instance servisa na internetu sa kojom vrsimo komunikaciju
-    public static ReviewerService reviewerService = retrofit.create(ReviewerService.class);
-
     public static IUserService userService = retrofit.create(IUserService.class);
 
 }

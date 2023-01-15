@@ -24,6 +24,14 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".passenger.rideorder.RideOrderActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <activity
             android:name=".passenger.PassengerReportActivity"
             android:exported="false">
             <meta-data

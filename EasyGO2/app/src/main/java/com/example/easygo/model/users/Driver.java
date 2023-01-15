@@ -1,5 +1,6 @@
 package com.example.easygo.model.users;
 
+import com.example.easygo.dto.DriverRideDTO;
 import com.example.easygo.dto.UserDTO;
 import com.example.easygo.model.Ride;
 import com.example.easygo.model.Vehicle;
@@ -17,7 +18,10 @@ public class Driver extends User{
     private List<WorkingHours> workingHours;
 
     public Driver() {};
+    public Driver(DriverRideDTO driverRideDTO){
+        super(driverRideDTO.getId(), driverRideDTO.getEmail());
 
+    }
     public Driver(UserDTO userDTO){
         super(userDTO.getId(), userDTO.getName(), userDTO.getSurname(), 0, userDTO.getTelephoneNumber(), userDTO.getEmail(),
                 userDTO.getAddress()," ", false);

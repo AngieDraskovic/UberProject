@@ -4,19 +4,19 @@ import com.example.easygo.model.users.Passenger;
 
 public class Review {
     private int id;
-    private double grade;
+    private int grade;
     private String comment;
     private Ride ride;
-    private Passenger reviewer;
+    private Passenger passenger;
 
     public Review() {};
 
-    public Review(int id, double grade, String comment, Ride ride, Passenger reviewer) {
+    public Review(int id, int grade, String comment, Ride ride, Passenger reviewer) {
         this.id = id;
         this.grade = grade;
         this.comment = comment;
         this.ride = ride;
-        this.reviewer = reviewer;
+        this.passenger = reviewer;
     }
 
     public int getId() {
@@ -27,11 +27,11 @@ public class Review {
         this.id = id;
     }
 
-    public double getGrade() {
+    public int getGrade() {
         return grade;
     }
 
-    public void setGrade(double grade) {
+    public void setGrade(int grade) {
         this.grade = grade;
     }
 
@@ -51,12 +51,12 @@ public class Review {
         this.ride = ride;
     }
 
-    public Passenger getReviewer() {
-        return reviewer;
+    public Passenger getPassenger() {
+        return passenger;
     }
 
-    public void setReviewer(Passenger reviewer) {
-        this.reviewer = reviewer;
+    public void setPassenger(Passenger passenger) {
+        this.passenger = passenger;
     }
 
 

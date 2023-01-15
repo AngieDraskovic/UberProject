@@ -1,6 +1,8 @@
 package com.example.easygo.model;
 
+import com.example.easygo.dto.RideDTOResponse;
 import com.example.easygo.model.enumerations.RideStatus;
+import com.example.easygo.model.enumerations.VehicleName;
 import com.example.easygo.model.users.Driver;
 import com.example.easygo.model.users.Passenger;
 
@@ -13,7 +15,7 @@ public class Ride {
     private LocalDateTime startTime;
     private LocalDateTime endTime;
     private double price;
-    private int estimatedTime;
+    private double estimatedTime;
     private boolean panicButton;
     private boolean babyproof;
     private boolean petsAllowed;
@@ -34,6 +36,26 @@ public class Ride {
         this.passengers = new ArrayList<Passenger>();
         this.payments = new ArrayList<Payment>();
         this.reviews = new ArrayList<Review>();
+    }
+
+    public Ride(RideDTOResponse rideResponse){
+        this.id = rideResponse.getId();
+        this.babyproof = rideResponse.getBabyTransport();
+        this.estimatedTime = rideResponse.getEstimatedTimeInMinutes();
+        this.status = rideResponse.getStatus();
+        this.panicButton = false;
+        this.petsAllowed = rideResponse.getPetTransport();
+        this.startTime = rideResponse.getStartTime();
+        this.endTime = rideResponse.getEndTime();
+        this.driver = new Driver(rideResponse.getDriver());
+        if(rideResponse.getRejection() != null) {
+            this.rejection = new Rejection(rideResponse.getRejection());
+        }
+        this.price = rideResponse.getTotalCost();
+        this.route = new Route(rideResponse.getLocations()[0]);
+        this.vehicleType = new VehicleType();
+        this.vehicleType.setVehicleName(VehicleName.STANDARD);
+
     }
 
     public Ride(int id, LocalDateTime startTime, LocalDateTime endTime, double price, int estimatedTime, boolean panicButton, boolean babyproof, boolean petsAllowed, boolean splitFare, RideStatus status, VehicleType vehicleType, Driver driver, Rejection rejection, Panic panic, Route route) {
@@ -87,7 +109,7 @@ public class Ride {
         this.price = price;
     }
 
-    public int getEstimatedTime() {
+    public double getEstimatedTime() {
         return estimatedTime;
     }
 

@@ -4,6 +4,7 @@ package com.example.easygo.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.RelativeLayout;
 import android.widget.ToggleButton;
 import androidx.annotation.NonNull;
@@ -25,11 +26,16 @@ public final class ActivityDriverMainBinding implements ViewBinding {
   @NonNull
   public final ToolbarLayoutBinding toolbar;
 
+  @NonNull
+  public final WebView webView;
+
   private ActivityDriverMainBinding(@NonNull RelativeLayout rootView,
-      @NonNull ToggleButton toggleActive, @NonNull ToolbarLayoutBinding toolbar) {
+      @NonNull ToggleButton toggleActive, @NonNull ToolbarLayoutBinding toolbar,
+      @NonNull WebView webView) {
     this.rootView = rootView;
     this.toggleActive = toggleActive;
     this.toolbar = toolbar;
+    this.webView = webView;
   }
 
   @Override
@@ -72,8 +78,14 @@ public final class ActivityDriverMainBinding implements ViewBinding {
       }
       ToolbarLayoutBinding binding_toolbar = ToolbarLayoutBinding.bind(toolbar);
 
-      return new ActivityDriverMainBinding((RelativeLayout) rootView, toggleActive,
-          binding_toolbar);
+      id = R.id.web_view;
+      WebView webView = ViewBindings.findChildViewById(rootView, id);
+      if (webView == null) {
+        break missingId;
+      }
+
+      return new ActivityDriverMainBinding((RelativeLayout) rootView, toggleActive, binding_toolbar,
+          webView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
