@@ -13,8 +13,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
@@ -23,6 +25,7 @@ import androidx.core.app.NotificationManagerCompat;
 
 import com.example.easygo.R;
 import com.example.easygo.UserLoginActivity;
+import com.example.easygo.mockup.MockupRides;
 import com.example.easygo.model.Ride;
 
 import com.example.easygo.driver.DriverMainActivity;
@@ -32,6 +35,10 @@ import com.example.easygo.passenger.rideorder.RideOrderActivity;
 
 public class PassengerMainActivity extends AppCompatActivity {
 
+
+    private Ride activeRide;
+    private WebView webView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,9 +47,38 @@ public class PassengerMainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        WebView webView = findViewById(R.id.web_view);
+        class JavaScriptInterface {
+            @JavascriptInterface
+            public void setDeparture(final String coordinates) { // "["", ""]"
+                double latitude = Double.parseDouble(coordinates.split(",")[0].substring(2, coordinates.split(",")[0].length()-1));
+                double longitude = Double.parseDouble(coordinates.split(",")[1].substring(1, coordinates.split(",")[1].length()-2));
+                activeRide.getRoutes().get(0).getDeparture().setLatitude(latitude);
+                activeRide.getRoutes().get(0).getDeparture().setLongitude(longitude);
+//                Toast.makeText(DriverMainActivity.this, "Departure: " + coordinates, Toast.LENGTH_SHORT).show();
+            }
+
+            @JavascriptInterface
+            public void setDestination(final String coordinates) {
+                double latitude = Double.parseDouble(coordinates.split(",")[0].substring(2, coordinates.split(",")[0].length()-1));
+                double longitude = Double.parseDouble(coordinates.split(",")[1].substring(1, coordinates.split(",")[1].length()-2));
+                activeRide.getRoutes().get(0).getDeparture().setLatitude(latitude);
+                activeRide.getRoutes().get(0).getDeparture().setLongitude(longitude);
+//                Toast.makeText(DriverMainActivity.this, "Destination: " + coordinates, Toast.LENGTH_SHORT).show();
+            }
+        }
+
+        webView = findViewById(R.id.web_view);
         webView.getSettings().setJavaScriptEnabled(true);
+        webView.addJavascriptInterface(new JavaScriptInterface(), "Android");
+        webView.setWebViewClient(new WebViewClient() {
+            public void onPageFinished(WebView view, String url) {
+                showRoute();
+                showDeparture();
+                showDestination();
+            }
+        });
         webView.loadUrl("file:///android_asset/leaflet.html");
+
 
       //  webView.addJavascriptInterface(new WebAppinterface(), "Android");
 
@@ -65,8 +101,11 @@ public class PassengerMainActivity extends AppCompatActivity {
                 startActivity(new Intent(PassengerMainActivity.this, RideOrderActivity.class));
             }
         });
-
+        checkForActiveRides();
+        showRideOnMap();
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -135,6 +174,11 @@ public class PassengerMainActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
+
+    private void checkForActiveRides() {
+    }
+
+
     private void makeNotification(){
         Intent intent = new Intent(this, PassengerGradeRideActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -164,7 +208,40 @@ public class PassengerMainActivity extends AppCompatActivity {
             // Register the channel with the system; you can't change the importance
             // or other notification behaviors after this
             NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            if (MockupRides.getRides().size() == 4) this.activeRide = MockupRides.getRides().get(4);
             notificationManager.createNotificationChannel(channel);
         }
     }
+
+    private void showRideOnMap() {
+        showDeparture();
+        showDestination();
+        showRoute();
+    }
+
+    private void showRoute() {
+        if (activeRide == null)
+            return;
+        webView.setWebViewClient(new WebViewClient() {
+            public void onPageFinished(WebView view, String url) {
+                String departure = activeRide.getRoutes().get(0).getDeparture().getAddress();
+                String destination = activeRide.getRoutes().get(0).getDestination().getAddress();
+                webView.evaluateJavascript("javascript:addRoute(\""+departure+"\", \""+destination+"\")", null);            }
+        });
+    }
+
+    private void showDeparture() {
+        if (activeRide == null)
+            return;
+        String departureAddress = activeRide.getRoutes().get(0).getDeparture().getAddress();
+        webView.evaluateJavascript("javascript:getDeparture('"+departureAddress+"')", null);
+    }
+
+    private void showDestination() {
+        if (activeRide == null)
+            return;
+        String destinationAddress = activeRide.getRoutes().get(0).getDestination().getAddress();
+        webView.evaluateJavascript("javascript:getDestination('"+destinationAddress+"')", null);
+    }
+
 }

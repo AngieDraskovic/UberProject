@@ -6,10 +6,11 @@ import com.example.easygo.model.Vehicle;
 import com.example.easygo.model.WorkingHours;
 import com.example.easygo.model.enumerations.VehicleName;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Driver extends User{
+public class Driver extends User implements Serializable {
     private boolean active;
     private String driverLicense;
     private String vehicleRegistration;
@@ -107,5 +108,10 @@ public class Driver extends User{
         if (rideDTO.isPetsAllowed() && !this.vehicle.isPetsAllowed())
             return false;
         return !rideDTO.isBabyproof() || this.vehicle.isBabyproof();
+    }
+
+    @Override
+    public String toString() {
+        return getName() + " " + getSurname();
     }
 }

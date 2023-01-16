@@ -23,9 +23,9 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
-                android:backgroundTint="@color/white"
+                android:backgroundTint="@color/gray"
                 android:text="For now"
-                android:textColor="@color/black"/>
+                android:textColor="@color/white"/>
 
             <Button
                 android:id="@+id/orderForFutureBtn"
@@ -37,9 +37,9 @@
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
                 android:layout_toRightOf="@id/orderForNowBtn"
-                android:backgroundTint="@color/white"
+                android:backgroundTint="@color/gray"
                 android:text="For future"
-                android:textColor="@color/black"/>
+                android:textColor="@color/white"/>
         </RelativeLayout>
 
 

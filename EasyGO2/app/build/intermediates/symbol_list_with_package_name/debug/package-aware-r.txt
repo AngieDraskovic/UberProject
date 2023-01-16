@@ -2586,11 +2586,15 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable financialcard_background
 drawable ic_baseline_arrow_back_24
+drawable ic_baseline_directions_car_24
+drawable ic_baseline_done_24
 drawable ic_baseline_email_24
 drawable ic_baseline_home_24
+drawable ic_baseline_message_24
 drawable ic_baseline_password_24
 drawable ic_baseline_person_outline_24
 drawable ic_baseline_phone_enabled_24
+drawable ic_baseline_reply_24
 drawable ic_clock_black_24dp
 drawable ic_flag
 drawable ic_keyboard_black_24dp
@@ -3206,6 +3210,7 @@ id successFragmentBtn
 id supportScrollUp
 id surname
 id tabMode
+id table
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
 id tag_accessibility_heading
@@ -3420,6 +3425,7 @@ layout activity_driver_profile
 layout activity_main
 layout activity_message_detail
 layout activity_passenger_account
+layout activity_passenger_grade_ride
 layout activity_passenger_history
 layout activity_passenger_inbox
 layout activity_passenger_main
@@ -3520,6 +3526,7 @@ layout notification_template_media_custom
 layout notification_template_part_chronometer
 layout notification_template_part_time
 layout probno
+layout ride_details_layout
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material

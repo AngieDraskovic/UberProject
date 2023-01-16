@@ -12,8 +12,14 @@ import java.util.HashMap;
 
 public class MockupRides {
 
+    private static HashMap<Integer, Ride> ridesMap = getRides();
+
     public static HashMap<Integer, Ride> getRides() {
-        HashMap<Integer, Ride> ridesMap = new HashMap<Integer, Ride>();
+        if (ridesMap != null)
+            return ridesMap;
+
+        ridesMap = new HashMap<Integer, Ride>();
+
 
         LocalDateTime start1 = LocalDateTime.of(2022, 11, 15, 15, 15);
         LocalDateTime end1 = LocalDateTime.of(2022, 11, 15, 15, 45);
@@ -27,7 +33,7 @@ public class MockupRides {
         LocalDateTime end3 = LocalDateTime.of(2022, 11, 15, 17, 45);
         Driver driver3 = MockupDrivers.getDrivers().get(3);
 
-        RideStatus status = RideStatus.ACTIVE;
+        RideStatus status = RideStatus.DONE;
 
         Ride ride1 = new Ride(1, start1, end1, 20, 30, false, false, false, false, status, null, driver1, null, null);
         ArrayList<Route> routes1 = new ArrayList<Route>();

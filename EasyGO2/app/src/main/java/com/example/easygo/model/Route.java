@@ -2,11 +2,12 @@ package com.example.easygo.model;
 
 import com.example.easygo.model.users.Passenger;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Route {
+public class Route implements Serializable {
     private int id;
     private LocalDateTime startTime;
     private LocalDateTime endTime;

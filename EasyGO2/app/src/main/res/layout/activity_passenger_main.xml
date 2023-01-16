@@ -30,6 +30,6 @@
         android:backgroundTint="@color/gray"
         android:padding="8dp"
         android:text="Ride order"
-        android:textColor="@color/black" />
+        android:textColor="@color/white" />
 
 </RelativeLayout>
