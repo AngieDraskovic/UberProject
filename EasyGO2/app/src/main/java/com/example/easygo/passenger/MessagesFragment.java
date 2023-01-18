@@ -55,7 +55,7 @@ public class MessagesFragment extends ListFragment {
     public void onListItemClick(@NonNull ListView l, @NonNull View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
 
-        Conversation conversation = MockupMessages.getCurrUserMessages().get(position);
+        Conversation conversation = MockupMessages.getCurrUserMessages(LoggedIn.getUser()).get(position);
 
         Intent intent = new Intent(getActivity(), MessageDetailActivity.class);
 

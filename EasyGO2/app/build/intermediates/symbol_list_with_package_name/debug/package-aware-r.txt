@@ -3021,6 +3021,7 @@ id media_actions
 id message
 id messageDate
 id messageTime
+id message_icon
 id messagesContent
 id middle
 id mini
@@ -3095,6 +3096,7 @@ id parent
 id parentPanel
 id parentRelative
 id parent_matrix
+id passenger_message_icon
 id password
 id passwordRepeat
 id password_toggle

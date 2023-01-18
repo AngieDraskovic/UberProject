@@ -10,23 +10,30 @@ import androidx.core.app.NotificationManagerCompat;
 
 import android.annotation.SuppressLint;
 import android.app.AlarmManager;
+import android.app.AlertDialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import androidx.core.app.RemoteInput;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.webkit.JavascriptInterface;
 import android.webkit.ValueCallback;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 import android.webkit.WebView;
 
@@ -35,6 +42,7 @@ import com.example.easygo.R;
 import com.example.easygo.dto.RideDTOResponse;
 import com.example.easygo.dto.UserDTO;
 import com.example.easygo.mockup.MockupDrivers;
+import com.example.easygo.mockup.MockupMessages;
 import com.example.easygo.mockup.MockupRides;
 import com.example.easygo.model.Location;
 import com.example.easygo.model.Ride;
@@ -42,6 +50,7 @@ import com.example.easygo.model.Route;
 import com.example.easygo.model.enumerations.RideStatus;
 import com.example.easygo.model.Conversation;
 import com.example.easygo.model.users.Driver;
+import com.example.easygo.model.users.Passenger;
 import com.example.easygo.passenger.PassengerAccountActivity;
 import com.example.easygo.passenger.PassengerInboxActivity;
 import com.example.easygo.passenger.PassengerMainActivity;
@@ -72,6 +81,8 @@ public class DriverMainActivity extends AppCompatActivity {
     private AlarmManager alarmManager;
 
     private WebView webView;
+    private ImageView messageIcon;
+
     private Driver driver;
     private Driver driverHTTPPravi;
     private Ride activeRide;
@@ -89,6 +100,14 @@ public class DriverMainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        messageIcon = findViewById(R.id.message_icon);
+        messageIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showMessageInput();
+            }
+        });
+
         getDriverHTTPPravi();
 //        Toast.makeText(DriverMainActivity.this, driverHTTPPravi.getPassword(), Toast.LENGTH_SHORT).show();
 
@@ -101,16 +120,7 @@ public class DriverMainActivity extends AppCompatActivity {
 //        Intent intentService = new Intent(this, DriverMessageService.class);
 //        startService(intentService);
 
-//        webView = findViewById(R.id.web_view);
-//        webView.getSettings().setJavaScriptEnabled(true);
-//        webView.loadUrl("file:///android_asset/index.html");
-//        webView.getSettings().setJavaScriptEnabled(true);
         this.driver = MockupDrivers.findDriver("d", "d");
-//        webView.loadUrl("file:///android_asset/leaflet.html");
-        // webView.addJavascriptInterface(new WebAppinterface(), "Android");
-        // webView.loadUrl("https://leafletjs.com/examples/quick-start/example.html");
-//        webView.evaluateJavascript("loadmap();",null);
-//        webView.evaluateJavascript("console.log('js loaded')",null);
         //create an instance of RideNotification
         RideNotification rideNotification = new RideNotification(this);
 
@@ -150,6 +160,8 @@ public class DriverMainActivity extends AppCompatActivity {
             }
         });
         webView.loadUrl("file:///android_asset/leaflet.html");
+        checkForActiveRides();
+
     }
 
 
@@ -207,7 +219,7 @@ public class DriverMainActivity extends AppCompatActivity {
            Kad se hoveruje dole na 3000 to je objasnjeno.  */
 //        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 3000, pendingIntent);
 //        checkForActiveRides();
-        checkForActiveRides();
+
     }
 
 
@@ -217,6 +229,7 @@ public class DriverMainActivity extends AppCompatActivity {
         for (Ride ride : rides.values()) {
             if (driver.equals(ride.getDriver()) && ride.getStatus().equals(RideStatus.ACTIVE)) {
                 this.activeRide = ride;
+                messageIcon.setVisibility(View.VISIBLE);
                 showRideOnMap();
                 return;
             }
@@ -231,36 +244,21 @@ public class DriverMainActivity extends AppCompatActivity {
 
     private void showDeparture() {
         String departureAddress = activeRide.getRoutes().get(0).getDeparture().getAddress();
-//        webView.setWebViewClient(new WebViewClient() {
-//            public void onPageFinished(WebView view, String url) {
-                webView.evaluateJavascript("javascript:getDeparture('"+departureAddress+"')", null);
-                print("ULAZI U SHOWDEPARTURE");
-//            }
-//        });
+        webView.evaluateJavascript("javascript:getDeparture('"+departureAddress+"')", null);
+        print("ULAZI U SHOWDEPARTURE");
     }
 
     private void showDestination() {
         String destinationAddress = activeRide.getRoutes().get(0).getDestination().getAddress();
-//        webView.setWebViewClient(new WebViewClient() {
-//            public void onPageFinished(WebView view, String url) {
-                webView.evaluateJavascript("javascript:getDestination('"+destinationAddress+"')", null);
-//            }
-//        });
+        webView.evaluateJavascript("javascript:getDestination('"+destinationAddress+"')", null);
     }
 
     private void showRoute() {
         webView.setWebViewClient(new WebViewClient() {
             public void onPageFinished(WebView view, String url) {
-//                double lat1 = activeRide.getRoutes().get(0).getDeparture().getLatitude();
-//                double lat2 = activeRide.getRoutes().get(0).getDeparture().getLongitude();
-//                double lng1 = activeRide.getRoutes().get(0).getDestination().getLatitude();
-//                double lng2 = activeRide.getRoutes().get(0).getDestination().getLongitude();;
-//               webView.evaluateJavascript("javascript:addRoute("+lat1+", "+lat2+", "+lng1+", "+lng2+")", null);
-
                 String departure = activeRide.getRoutes().get(0).getDeparture().getAddress();
                 String destination = activeRide.getRoutes().get(0).getDestination().getAddress();
                 webView.evaluateJavascript("javascript:addRoute(\""+departure+"\", \""+destination+"\")", null);            }
-
         });
     }
 
@@ -337,6 +335,59 @@ public class DriverMainActivity extends AppCompatActivity {
 
         NotificationManager notificationManager = getSystemService(NotificationManager.class);
         notificationManager.createNotificationChannel(channel);
+    }
+
+
+    /* Ova metoda prikazuje popup za slanje poruke */
+    private void showMessageInput() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Enter Message");
+
+        final EditText messageEditText = new EditText(this);
+        messageEditText.setInputType(InputType.TYPE_CLASS_TEXT);
+        builder.setView(messageEditText);
+
+        builder.setPositiveButton("Send", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String newMessage = messageEditText.getText().toString();
+                for (Passenger passenger : activeRide.getPassengers()){
+                    MockupMessages.createMessage(newMessage, driver, passenger, activeRide);
+                    showMessageNotification(passenger);
+                }
+                Toast.makeText(DriverMainActivity.this, "Message sent", Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
+    }
+
+    private void showMessageNotification(Passenger passenger) {
+        /* Dobavi konverzaciju izmedju te dvije osobe */
+        Conversation conversation = MockupMessages.getConversation(driver, passenger);
+
+        Intent intent = new Intent(this, PassengerMainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "id")
+                .setSmallIcon(R.drawable.ic_baseline_directions_car_24)
+                .setContentTitle("Message notification")
+                .setContentText("Your ride is over! Tap to grade your ride!")
+                .setStyle(new NotificationCompat.BigTextStyle()
+                        .bigText(conversation + "\n"))
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true);           // gasi notifikaciju
+
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+        notificationManager.notify(123, builder.build());
     }
 
 

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,12 +24,17 @@ public final class ActivityDriverMainBinding implements ViewBinding {
   public final WebView driverWebView;
 
   @NonNull
+  public final ImageView messageIcon;
+
+  @NonNull
   public final ToolbarLayoutBinding toolbar;
 
   private ActivityDriverMainBinding(@NonNull RelativeLayout rootView,
-      @NonNull WebView driverWebView, @NonNull ToolbarLayoutBinding toolbar) {
+      @NonNull WebView driverWebView, @NonNull ImageView messageIcon,
+      @NonNull ToolbarLayoutBinding toolbar) {
     this.rootView = rootView;
     this.driverWebView = driverWebView;
+    this.messageIcon = messageIcon;
     this.toolbar = toolbar;
   }
 
@@ -65,6 +71,12 @@ public final class ActivityDriverMainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.message_icon;
+      ImageView messageIcon = ViewBindings.findChildViewById(rootView, id);
+      if (messageIcon == null) {
+        break missingId;
+      }
+
       id = R.id.toolbar;
       View toolbar = ViewBindings.findChildViewById(rootView, id);
       if (toolbar == null) {
@@ -72,7 +84,7 @@ public final class ActivityDriverMainBinding implements ViewBinding {
       }
       ToolbarLayoutBinding binding_toolbar = ToolbarLayoutBinding.bind(toolbar);
 
-      return new ActivityDriverMainBinding((RelativeLayout) rootView, driverWebView,
+      return new ActivityDriverMainBinding((RelativeLayout) rootView, driverWebView, messageIcon,
           binding_toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);

@@ -23,7 +23,7 @@ public class SplashActivity extends AppCompatActivity {
                 startActivity(new Intent(SplashActivity.this, UserLoginActivity.class));
                 finish();
             }
-        }, 5000);
+        }, 50);
     }
 
     @Override

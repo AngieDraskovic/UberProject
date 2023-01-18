@@ -104,6 +104,7 @@ id loginbtn
 id logout
 id messageDate
 id messageTime
+id message_icon
 id messagesContent
 id moneyGraph
 id name
@@ -114,6 +115,7 @@ id numOfRidesGraph
 id number
 id orderForFutureBtn
 id orderForNowBtn
+id passenger_message_icon
 id password
 id passwordRepeat
 id pet_transport_checkbox

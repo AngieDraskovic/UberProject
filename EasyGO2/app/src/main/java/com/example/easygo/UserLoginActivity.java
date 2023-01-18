@@ -16,6 +16,10 @@ import com.example.easygo.driver.DriverMainActivity;
 import com.example.easygo.dto.LoginDTO;
 import com.example.easygo.dto.LoginResponseDTO;
 import com.example.easygo.dto.TokenDTO;
+import com.example.easygo.mockup.MockupDrivers;
+import com.example.easygo.mockup.MockupPassengers;
+import com.example.easygo.model.users.Driver;
+import com.example.easygo.model.users.Passenger;
 import com.example.easygo.passenger.PassengerMainActivity;
 import com.example.easygo.passenger.PassengerRegisterActivity;
 import com.example.easygo.service.ServiceUtilis;
@@ -45,7 +49,7 @@ public class UserLoginActivity extends AppCompatActivity {
 
         MaterialButton loginbtn = (MaterialButton) findViewById(R.id.loginbtn);
         MaterialButton signup = (MaterialButton) findViewById(R.id.signbtn);
-/*
+
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,7 +72,8 @@ public class UserLoginActivity extends AppCompatActivity {
 
             }
         });
-*/
+
+/*
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -78,9 +83,8 @@ public class UserLoginActivity extends AppCompatActivity {
                 loginUser(email, password);
 
             }
-
         });
-
+*/
 
         signup.setOnClickListener(new View.OnClickListener(){
             @Override

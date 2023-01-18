@@ -33,7 +33,7 @@ public class MockupRides {
         LocalDateTime end3 = LocalDateTime.of(2022, 11, 15, 17, 45);
         Driver driver3 = MockupDrivers.getDrivers().get(3);
 
-        RideStatus status = RideStatus.DONE;
+        RideStatus status = RideStatus.ACTIVE;
 
         Ride ride1 = new Ride(1, start1, end1, 20, 30, false, false, false, false, status, null, driver1, null, null);
         ArrayList<Route> routes1 = new ArrayList<Route>();
@@ -45,10 +45,10 @@ public class MockupRides {
         Ride ride2 = new Ride(2, start2, end2, 10, 30, false, false, false, false, status, null, driver2, null, null);
         Ride ride3 = new Ride(3, start3, end3, 30, 30, false, false, false, false, status, null, driver3, null, null);
 
-        ride1.getPassengers().add(MockupPassengers.getPassengers().get(1));
-        ride2.getPassengers().add(MockupPassengers.getPassengers().get(2));
-        ride2.getPassengers().add(MockupPassengers.getPassengers().get(3));
-        ride3.getPassengers().add(MockupPassengers.getPassengers().get(1));
+        ride1.getPassengers().add(MockupPassengers.getPassengers().get(5));
+        ride2.getPassengers().add(MockupPassengers.getPassengers().get(5));
+        ride2.getPassengers().add(MockupPassengers.getPassengers().get(6));
+        ride3.getPassengers().add(MockupPassengers.getPassengers().get(4));
 
         ridesMap.put(ride1.getId(), ride1);
         ridesMap.put(ride2.getId(), ride2);

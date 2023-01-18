@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,6 +22,9 @@ public final class ActivityPassengerMainBinding implements ViewBinding {
   private final RelativeLayout rootView;
 
   @NonNull
+  public final ImageView passengerMessageIcon;
+
+  @NonNull
   public final Button rideOrderBtn;
 
   @NonNull
@@ -30,9 +34,10 @@ public final class ActivityPassengerMainBinding implements ViewBinding {
   public final WebView webView;
 
   private ActivityPassengerMainBinding(@NonNull RelativeLayout rootView,
-      @NonNull Button rideOrderBtn, @NonNull ToolbarLayoutBinding toolbar,
-      @NonNull WebView webView) {
+      @NonNull ImageView passengerMessageIcon, @NonNull Button rideOrderBtn,
+      @NonNull ToolbarLayoutBinding toolbar, @NonNull WebView webView) {
     this.rootView = rootView;
+    this.passengerMessageIcon = passengerMessageIcon;
     this.rideOrderBtn = rideOrderBtn;
     this.toolbar = toolbar;
     this.webView = webView;
@@ -65,6 +70,12 @@ public final class ActivityPassengerMainBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.passenger_message_icon;
+      ImageView passengerMessageIcon = ViewBindings.findChildViewById(rootView, id);
+      if (passengerMessageIcon == null) {
+        break missingId;
+      }
+
       id = R.id.rideOrderBtn;
       Button rideOrderBtn = ViewBindings.findChildViewById(rootView, id);
       if (rideOrderBtn == null) {
@@ -84,8 +95,8 @@ public final class ActivityPassengerMainBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityPassengerMainBinding((RelativeLayout) rootView, rideOrderBtn,
-          binding_toolbar, webView);
+      return new ActivityPassengerMainBinding((RelativeLayout) rootView, passengerMessageIcon,
+          rideOrderBtn, binding_toolbar, webView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

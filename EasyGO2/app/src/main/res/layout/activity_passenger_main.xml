@@ -32,4 +32,16 @@
         android:text="Ride order"
         android:textColor="@color/white" />
 
+    <ImageView
+        android:id="@+id/passenger_message_icon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_message"
+        android:background="#B6B6B6"
+        android:visibility="gone"
+        />
+
 </RelativeLayout>
