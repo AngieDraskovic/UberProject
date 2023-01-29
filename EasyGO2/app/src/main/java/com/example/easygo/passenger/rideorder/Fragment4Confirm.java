@@ -12,12 +12,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.easygo.R;
+import com.example.easygo.driver.DriverMainActivity;
+import com.example.easygo.dto.RideDTORequest;
+import com.example.easygo.dto.RideDTOResponse;
 import com.example.easygo.mockup.MockupDrivers;
+import com.example.easygo.mockup.MockupRides;
 import com.example.easygo.model.Ride;
+import com.example.easygo.model.enumerations.RideStatus;
 import com.example.easygo.model.users.Driver;
+import com.example.easygo.service.ServiceUtilis;
 
 import java.util.HashMap;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -84,8 +94,11 @@ public class Fragment4Confirm extends Fragment {
                 if (driver == null) {
                     Toast.makeText(getContext(), "There is no available driver.", Toast.LENGTH_SHORT).show();
                 } else {
+                    ride.setStatus(RideStatus.ACTIVE);
                     ride.setDriver(driver);
                     driver.getRides().add(ride);
+                    saveRide(ride);
+//                    createRideExample(ride);
                     Toast.makeText(getContext(), "Successfully ordered ride.\n\n" + driver + " will be your driver.", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -119,5 +132,38 @@ public class Fragment4Confirm extends Fragment {
         rideVehicleName.setText("Vehicle name: " + ride.getVehicleName().toString());
         rideBabyTransport.setText("Baby transport: " + ride.getBabyProofString());
         ridePetTransport.setText("Pet transport: " + ride.getPetsAllowedString());
+    }
+
+    public void saveRide(Ride ride) {
+        MockupRides.getRides().put(4, ride);
+    }
+
+
+    public void createRideExample(Ride ride) {
+        RideDTORequest rideDTORequest = new RideDTORequest(ride);
+        print(rideDTORequest.getStartTime().toString());
+        Call<RideDTORequest> call = ServiceUtilis.rideService.createExampleRide(rideDTORequest);
+        print("pozvao ride service");
+
+        call.enqueue(new Callback<RideDTORequest>() {
+            @Override
+            public void onResponse(Call<RideDTORequest> call, Response<RideDTORequest> response) {
+                if (response.isSuccessful()) {
+                    Toast.makeText(getContext(),"Usao u response", Toast.LENGTH_SHORT).show();
+                    assert response.body() != null;
+//                                Toast.makeText(DriverMainActivity.this, activeRideHTTP.setStatus(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<RideDTORequest> call, Throwable t) {
+                Toast.makeText(getContext(),"Failovao ride service", Toast.LENGTH_SHORT).show();
+                print(t.toString());
+            }
+        });
+    }
+
+    public void print(String what) {
+        System.out.println("ISPIS: " + what);
     }
 }

@@ -3,7 +3,9 @@ package com.example.easygo.model;
 import com.example.easygo.model.enumerations.VehicleName;
 import com.example.easygo.model.users.Driver;
 
-public class Vehicle {
+import java.io.Serializable;
+
+public class Vehicle implements Serializable {
     private int id;
     private String model;
     private String regPlates;

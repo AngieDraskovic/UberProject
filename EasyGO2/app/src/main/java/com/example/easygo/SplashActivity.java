@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.window.SplashScreen;
 
+import com.example.easygo.driver.DriverMainActivity;
 import com.example.easygo.passenger.PassengerMainActivity;
 
 public class SplashActivity extends AppCompatActivity {

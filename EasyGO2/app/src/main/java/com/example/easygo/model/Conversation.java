@@ -58,11 +58,15 @@ public class Conversation {
 
     @Override
     public String toString() {
-        return "Conversation{" +
-                "anotherUser=" + anotherUser +
-                ", lastMessage='" + lastMessage + '\'' +
-                ", messages=" + messages +
-                ", lastMessageObject=" + lastMessageObject +
-                '}';
+        StringBuilder conversationStr = new StringBuilder();
+        for (Message message : messages) {
+            if (message.getSender().equals(anotherUser))
+                conversationStr.append(anotherUser).append(": ").append(message.getText()).append("\n");
+            else
+                conversationStr.append("Me: ").append(message.getText()).append("\n");
+        }
+        return conversationStr.toString();
     }
+
+
 }

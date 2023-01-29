@@ -40,10 +40,6 @@
         "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\graph_layout.xml"
     },
     {
-        "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-mergeDebugResources-31:\\layout\\fragment_fragment2_future.xml",
-        "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\fragment_fragment2_future.xml"
-    },
-    {
         "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-mergeDebugResources-31:\\layout\\fragment_fragment4_confirm.xml",
         "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\fragment_fragment4_confirm.xml"
     },
@@ -54,10 +50,6 @@
     {
         "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-mergeDebugResources-31:\\layout\\activity_message_detail.xml",
         "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\activity_message_detail.xml"
-    },
-    {
-        "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-mergeDebugResources-31:\\layout\\fragment_fragment4_order.xml",
-        "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\fragment_fragment4_order.xml"
     },
     {
         "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-mergeDebugResources-31:\\layout\\fragment_fragment2_time.xml",
@@ -76,12 +68,12 @@
         "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\activity_driver_history.xml"
     },
     {
-        "merged": "com.example.easygo.app-mergeDebugResources-31:/layout/activity_driver_main.xml",
-        "source": "com.example.easygo.app-main-34:/layout/activity_driver_main.xml"
-    },
-    {
         "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-mergeDebugResources-31:\\layout\\activity_main.xml",
         "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-mergeDebugResources-31:\\layout\\ride_details_layout.xml",
+        "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\ride_details_layout.xml"
     },
     {
         "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-mergeDebugResources-31:\\layout\\probno.xml",
@@ -92,8 +84,16 @@
         "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\activity_passenger_ride_history.xml"
     },
     {
+        "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-mergeDebugResources-31:\\layout\\activity_passenger_grade_ride.xml",
+        "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\activity_passenger_grade_ride.xml"
+    },
+    {
         "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-mergeDebugResources-31:\\layout\\fragment_messages.xml",
         "source": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\fragment_messages.xml"
+    },
+    {
+        "merged": "com.example.easygo.app-mergeDebugResources-31:/layout/activity_passenger_main.xml",
+        "source": "com.example.easygo.app-main-34:/layout/activity_passenger_main.xml"
     },
     {
         "merged": "C:\\Users\\WindowsX\\.gradle\\daemon\\7.4\\com.example.easygo.app-mergeDebugResources-31:\\layout\\activity_passenger_inbox.xml",

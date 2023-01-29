@@ -2,10 +2,11 @@ package com.example.easygo.model;
 
 import com.example.easygo.model.enumerations.VehicleName;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VehicleType {
+public class VehicleType implements Serializable {
     private int id;
     private VehicleName vehicleName;
     private int pricePerKilometer;

@@ -4,6 +4,8 @@
     <title>Leaflet Map</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin="anonymous"></script>
+    <link rel='stylesheet' href='https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css'/>
+    <script src='https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js'></script>
     <style>
         #map {
             height: 100%;
@@ -60,14 +62,51 @@
 
         async function getDestination(address) {
             getPromise(address).then(function(coordinates) {
+                console.log(coordinates);
                 Android.setDestination(coordinates);
             });
         }
 
+        async function getCord(address){
+            const response = await fetch('https://nominatim.openstreetmap.org/search?format=json&q=' + address);
+            const data = await response.json();
+            var coordinates = [data[0].lat, data[0].lon];
+            return coordinates;
+        }
 
+        function addRoute(lat1, lat2, lng1, lng2){
+            var waypoint1 = L.latLng(lat1, lng1);
+            var waypoint2 = L.latLng(lat2, lng2);
+            control = L.Routing.control({
+                waypoints: [waypoint1, waypoint2]
+            }).addTo(map).on('routesfound', (e) => {
+                let routes = e.routes;
+                let summary = routes[0].summary;
+                kilometers = summary.totalDistance/1000;
+                time = summary.totalTime% 3600/60;
+            })
+        }
 
-        console.log(getPromise());
-        console.log(getCoordinatesByAddress());
+        async function addRoute(departure, destination){
+            console.log(departure);
+            try{
+                var waypoint1 = await getCord(departure);
+                var waypoint2 = await getCord(destination);
+            }catch(err){
+
+            }
+            console.log(waypoint2);
+            control = L.Routing.control({
+                waypoints: [waypoint1, waypoint2]
+            }).addTo(map).on('routesfound', (e) => {
+                let routes = e.routes;
+                let summary = routes[0].summary;
+                kilometers = summary.totalDistance/1000;
+                time = summary.totalTime% 3600/60;
+            })
+        }
+
+        // addRoute("Narodnog Fronta 69, Novi Sad", "dr Svetislava Kasapinovica 33");
 
         
     </script>

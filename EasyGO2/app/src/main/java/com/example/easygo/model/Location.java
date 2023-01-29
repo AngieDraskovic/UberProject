@@ -1,6 +1,8 @@
 package com.example.easygo.model;
 
-public class Location {
+import java.io.Serializable;
+
+public class Location implements Serializable {
     private int id;
     private double longitude;
     private double latitude;

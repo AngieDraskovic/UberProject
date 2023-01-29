@@ -8,7 +8,7 @@ import com.example.easygo.R;
 public class MockupPassengers {
 
     private static int lastId;
-    private static HashMap<Integer, Passenger> passengersMap = getPassengers();
+    private static HashMap<Integer, Passenger> passengersMap;
 
     public static HashMap<Integer, Passenger> getPassengers() {
         if (passengersMap != null)
