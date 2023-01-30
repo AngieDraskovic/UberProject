@@ -10,5 +10,5 @@ public final class BuildConfig {
   public static final int VERSION_CODE = 1;
   public static final String VERSION_NAME = "1.0";
   // Field from build type: debug
-  public static final String LOCALHOST = "http://192.168.1.7:8080/api/";
+  public static final String LOCALHOST = "http://192.168.0.17:8080/api/";
 }
