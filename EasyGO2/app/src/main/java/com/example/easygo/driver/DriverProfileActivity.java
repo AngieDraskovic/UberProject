@@ -14,9 +14,12 @@ import android.widget.Toast;
 
 import com.example.easygo.LoggedIn;
 import com.example.easygo.R;
+import com.example.easygo.dto.UpdateDriverDTO;
+import com.example.easygo.dto.UpdatePassengerDTO;
 import com.example.easygo.dto.UserDTO;
 import com.example.easygo.mockup.MockupDrivers;
 import com.example.easygo.model.users.Driver;
+import com.example.easygo.passenger.PassengerProfileActivity;
 import com.example.easygo.service.ServiceUtilis;
 
 import retrofit2.Call;
@@ -30,7 +33,6 @@ public class DriverProfileActivity extends AppCompatActivity {
     private EditText phoneEdit;
     private EditText emailEdit;
     private EditText addressEdit;
-    private EditText passwordEdit;
     private ImageView profileIcon;
 
     private Driver driver;
@@ -97,16 +99,6 @@ public class DriverProfileActivity extends AppCompatActivity {
             }
         });
 
-        passwordEdit = (EditText)findViewById(R.id.et_password);
-        passwordEdit.setOnFocusChangeListener(new View.OnFocusChangeListener(){
-            @Override
-            public void onFocusChange(View v, boolean hasFocus){
-                if(hasFocus) {
-                    passwordEdit.setText("");
-                    passwordEdit.setHint("Password");
-                }
-            }
-        });
 
         TextView backArrow = (TextView)findViewById(R.id.back_arrow);
         backArrow.setOnClickListener(new View.OnClickListener() {
@@ -122,13 +114,13 @@ public class DriverProfileActivity extends AppCompatActivity {
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                driver.setName(nameEdit.getText().toString());
-                driver.setSurname(lastnameEdit.getText().toString());
-                driver.setPhone(phoneEdit.getText().toString());
-                driver.setEmail(emailEdit.getText().toString());
-                driver.setAddress(addressEdit.getText().toString());
-                driver.setPassword(passwordEdit.getText().toString());
-                Toast.makeText(DriverProfileActivity.this, "Update successfull!", Toast.LENGTH_SHORT).show();
+//                driver.setName(nameEdit.getText().toString());
+//                driver.setSurname(lastnameEdit.getText().toString());
+//                driver.setPhone(phoneEdit.getText().toString());
+//                driver.setEmail(emailEdit.getText().toString());
+//                driver.setAddress(addressEdit.getText().toString());
+//                Toast.makeText(DriverProfileActivity.this, "Update successfull!", Toast.LENGTH_SHORT).show();
+                  updateDriver();
             }
         });
     }
@@ -144,11 +136,32 @@ public class DriverProfileActivity extends AppCompatActivity {
         phoneEdit.setText(driver.getPhone());
         emailEdit.setText(driver.getEmail());
         addressEdit.setText(driver.getAddress());
-        passwordEdit.setText(driver.getPassword());
         profileIcon.setImageResource(driver.getProfilePic());
     }
 
+    public void updateDriver(){
+        UpdateDriverDTO updateDriverDTO = new UpdateDriverDTO(this.nameEdit.getText().toString(),
+                this.lastnameEdit.getText().toString(),
+                "", this.phoneEdit.getText().toString(), this.emailEdit.getText().toString(),
+                this.addressEdit.getText().toString());
+        SharedPreferences preferences = getSharedPreferences("preference_file_name", MODE_PRIVATE);
+        int id = preferences.getInt("p_id", 0);
+        Call<UpdateDriverDTO> call = ServiceUtilis.userService.updateDriver(updateDriverDTO, id);
+        call.enqueue(new Callback<UpdateDriverDTO>() {
+            @Override
+            public void onResponse(Call<UpdateDriverDTO> call, Response<UpdateDriverDTO> response) {
+                if(response.isSuccessful()){
+                    Toast.makeText(DriverProfileActivity.this, "Update successfull!", Toast.LENGTH_SHORT).show();
+                }
+            }
 
+            @Override
+            public void onFailure(Call<UpdateDriverDTO> call, Throwable t) {
+
+            }
+        });
+
+    }
     public void getDriver(){
         SharedPreferences preferences = getSharedPreferences("preference_file_name", MODE_PRIVATE);
         int id = preferences.getInt("p_id", 0);
