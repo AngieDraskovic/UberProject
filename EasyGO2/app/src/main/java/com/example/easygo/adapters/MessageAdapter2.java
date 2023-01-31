@@ -9,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.easygo.LoggedIn;
 import com.example.easygo.R;
 import com.example.easygo.mockup.MockupMessages;
 import com.example.easygo.model.Conversation;
@@ -31,10 +32,10 @@ public class MessageAdapter2 extends BaseAdapter
     }
 
     @Override
-    public int getCount() { return MockupMessages.getCurrUserMessages().size(); }
+    public int getCount() { return MockupMessages.getCurrUserMessages(LoggedIn.getUser()).size(); }
 
     @Override
-    public Conversation getItem(int index) { return MockupMessages.getCurrUserMessages().get(index); }
+    public Conversation getItem(int index) { return MockupMessages.getCurrUserMessages(LoggedIn.getUser()).get(index); }
 
     @Override
     public long getItemId(int i) {
@@ -45,7 +46,7 @@ public class MessageAdapter2 extends BaseAdapter
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View vi = convertView;
-        Conversation conversation = MockupMessages.getCurrUserMessages().get(position);
+        Conversation conversation = MockupMessages.getCurrUserMessages(LoggedIn.getUser()).get(position);
 
         if (convertView == null)
             vi = activity.getLayoutInflater().inflate(R.layout.message_list_item, null);

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bkg"
+    tools:context=".passenger.PassengerGradeRideActivity">
+
+
+    <RelativeLayout
+        android:layout_width="320dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
+        android:background="#E2FFFFFF">
+
+        <TextView
+            android:id="@+id/back_arrow"
+            android:layout_width="39dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="4dp"
+            android:drawableLeft="@drawable/ic_baseline_arrow_back_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.043"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TableLayout
+            android:id="@+id/table"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp">
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text=" GRADE VEHICLE: "
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/vehicleGrade"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="5"
+                    android:textAlignment="center"
+                    android:textSize="15sp" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text=" GRADE DRIVER: "
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/driverGrade"
+                    android:layout_width="55dp"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="5"
+                    android:textAlignment="center"
+                    android:textSize="15sp" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="30dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text=" LEAVE A COMMENT: "
+                    android:textSize="15sp" />
+
+                <TextView />
+            </TableRow>
+
+            <EditText
+                android:id="@+id/gradeComment"
+                android:textSize="15sp">
+
+            </EditText>
+        </TableLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/confirmGradeBtn"
+            android:layout_width="152dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/table"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#D3D88D54"
+            android:text="DONE" />
+
+    </RelativeLayout>
+</RelativeLayout>

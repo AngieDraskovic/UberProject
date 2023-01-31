@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="vehicle_options">
+        <item>STANDARD</item>
+        <item>LUXURY</item>
+        <item>VAN</item>
+    </string-array>
+    <string name="vehicle_prompt">Select vehicle</string>
+    <string name="baby_transport">Baby Transport</string>
+    <string name="pet_transport">Pet Transport</string>
+</resources>

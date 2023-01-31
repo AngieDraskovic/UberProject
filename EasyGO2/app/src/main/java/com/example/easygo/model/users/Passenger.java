@@ -1,5 +1,7 @@
 package com.example.easygo.model.users;
 
+import com.example.easygo.R;
+import com.example.easygo.dto.UserDTO;
 import com.example.easygo.model.FavouriteRoute;
 import com.example.easygo.model.Panic;
 import com.example.easygo.model.Payment;
@@ -18,8 +20,18 @@ public class Passenger extends User {
     private List<FavouriteRoute> favouriteRoutes;
 
     public Passenger() {};
-    public Passenger(int id, String name, String surname, int profilePic, String phone, String email, String address, String password, boolean blocked) {
-        super(id, name, surname, profilePic, phone, email, address, password, blocked);
+
+    public Passenger(User user) {
+        super(user);
+    }
+
+    public Passenger(UserDTO userDTO){
+        super(userDTO.getId(), userDTO.getName(), userDTO.getSurname(), R.drawable.profile1, userDTO.getTelephoneNumber(), userDTO.getEmail(),
+                userDTO.getAddress()," ", userDTO.isActive(), userDTO.isBlocked());
+    }
+
+    public Passenger(int id, String name, String surname, int profilePic, String phone, String email, String address, String password, boolean active, boolean blocked) {
+        super(id, name, surname, profilePic, phone, email, address, password, active, blocked);
         this.rides = new ArrayList<Ride>();
         this.panics = new ArrayList<Panic>();
         this.payments = new ArrayList<Payment>();

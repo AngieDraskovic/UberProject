@@ -1,22 +1,23 @@
 package com.example.easygo.mockup;
 
-import com.example.easygo.LoggedIn;
 import com.example.easygo.model.Conversation;
 import com.example.easygo.model.Message;
 import com.example.easygo.model.Ride;
 import com.example.easygo.model.enumerations.MessaggeType;
-import com.example.easygo.model.users.Driver;
 import com.example.easygo.model.users.User;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 public class MockupMessages {
 
+    private static ArrayList<Message> messages;
+
     public static ArrayList<Message> getMessages() {
-        ArrayList<Message> messages = new ArrayList<Message>();
+        if (messages != null)
+            return messages;
+        messages = new ArrayList<Message>();
 
         // Tipa je User jer je tako navedeno u dijagramu, ali realno za razmjenu poruka nam i ne trebaju neki detaljniji podaci
         User driver1 = MockupDrivers.getDrivers().get(1);
@@ -37,7 +38,7 @@ public class MockupMessages {
         Ostalo je isto u svim porukama: tekst, vrijeme, tip poruke.
          */
 
-
+        createMessage("Da li ostaje dogovor?", passenger1, driver1, ride1);
         Message ride1Message1 = new Message(1, "Da li ostaje dogovor?", LocalDateTime.now(), MessaggeType.RIDE, passenger1, driver1, ride1);
         Message ride1Message2 = new Message(2, "Dogovor ostaje.", LocalDateTime.now(), MessaggeType.RIDE, driver1, passenger1, ride1);
         Message ride1Message3 = new Message(10, "U redu", LocalDateTime.now(), MessaggeType.RIDE, passenger1, driver2, ride1);
@@ -76,14 +77,18 @@ public class MockupMessages {
         return messages;
     }
 
-    public static ArrayList<Conversation> getCurrUserMessages() {
-        User currUser = LoggedIn.getUser();
+    public static void createMessage(String text, User sender, User receiver, Ride ride) {
+        Message message = new Message(getMessages().size(), text, LocalDateTime.now(), MessaggeType.RIDE, sender, receiver, ride);
+        messages.add(message);
+    }
+
+    public static ArrayList<Conversation> getCurrUserMessages(User currUser) {
         HashMap<User, ArrayList<Message>> messagesMap = new HashMap<User, ArrayList<Message>>();
         ArrayList<Conversation> conversations = new ArrayList<Conversation>();
 
         for (Message message : getMessages()) {
-            if (message.getSender().equals(currUser) || message.getDeliverer().equals(currUser)) {
-                User anotherUser = (message.getSender().equals(currUser)) ? message.getDeliverer() : message.getSender();
+            if (message.getSender().equals(currUser) || message.getReceiver().equals(currUser)) {
+                User anotherUser = (message.getSender().equals(currUser)) ? message.getReceiver() : message.getSender();
 
                 if (messagesMap.containsKey(anotherUser))
                     messagesMap.get(anotherUser).add(message);
@@ -100,7 +105,16 @@ public class MockupMessages {
         }
 
         return conversations;
-
     }
+
+    public static Conversation getConversation(User me, User anotherUser) {
+        ArrayList<Conversation> myConversations = getCurrUserMessages(me);
+        for (Conversation conversation : myConversations) {
+            if (conversation.getAnotherUser().equals(anotherUser))
+                return conversation;
+        }
+        return null;
+    }
+
 
 }

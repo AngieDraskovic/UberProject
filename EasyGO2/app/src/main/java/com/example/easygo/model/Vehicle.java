@@ -1,28 +1,34 @@
 package com.example.easygo.model;
 
+import com.example.easygo.model.enumerations.VehicleName;
 import com.example.easygo.model.users.Driver;
 
-public class Vehicle {
+import java.io.Serializable;
+
+public class Vehicle implements Serializable {
     private int id;
     private String model;
-    private String regPlates;
-    private int seatNum;
-    private boolean babyproof;
-    private boolean petsAllowed;
-    private VehicleType type;
+    private VehicleName vehicleName;
+    private String licenseNumber;
+    private int passengerSeats;
+    private boolean babyTransport;
+    private boolean petTransport;
+    private VehicleType vehicleType;
+
     private Driver driver;
     private Location currLocation;
 
     public Vehicle() {}
 
-    public Vehicle(int id, String model, String regPlates, int seatNum, boolean babyproof, boolean petsAllowed, VehicleType type, Driver driver, Location currLocation) {
+    public Vehicle(int id, String model, String regPlates, int seatNum, boolean babyproof, boolean petsAllowed, VehicleType type, VehicleName vehicleName, Driver driver, Location currLocation) {
         this.id = id;
         this.model = model;
-        this.regPlates = regPlates;
-        this.seatNum = seatNum;
-        this.babyproof = babyproof;
-        this.petsAllowed = petsAllowed;
-        this.type = type;
+        this.licenseNumber = regPlates;
+        this.passengerSeats = seatNum;
+        this.babyTransport = babyproof;
+        this.petTransport = petsAllowed;
+        this.vehicleType = type;
+        this.vehicleName = vehicleName;
         this.driver = driver;
         this.currLocation = currLocation;
     }
@@ -43,44 +49,44 @@ public class Vehicle {
         this.model = model;
     }
 
-    public String getRegPlates() {
-        return regPlates;
+    public String getLicenseNumber() {
+        return licenseNumber;
     }
 
-    public void setRegPlates(String regPlates) {
-        this.regPlates = regPlates;
+    public void setLicenseNumber(String licenseNumber) {
+        this.licenseNumber = licenseNumber;
     }
 
     public int getSeatNum() {
-        return seatNum;
+        return passengerSeats;
     }
 
     public void setSeatNum(int seatNum) {
-        this.seatNum = seatNum;
+        this.passengerSeats = seatNum;
     }
 
     public boolean isBabyproof() {
-        return babyproof;
+        return babyTransport;
     }
 
     public void setBabyproof(boolean babyproof) {
-        this.babyproof = babyproof;
+        this.babyTransport = babyproof;
     }
 
-    public boolean isPetsAllowed() {
-        return petsAllowed;
+    public boolean isPetTransport() {
+        return petTransport;
     }
 
-    public void setPetsAllowed(boolean petsAllowed) {
-        this.petsAllowed = petsAllowed;
+    public void setPetTransport(boolean petTransport) {
+        this.petTransport = petTransport;
     }
 
-    public VehicleType getType() {
-        return type;
+    public VehicleType getVehicleType() {
+        return vehicleType;
     }
 
-    public void setType(VehicleType type) {
-        this.type = type;
+    public void setVehicleType(VehicleType vehicleType) {
+        this.vehicleType = vehicleType;
     }
 
     public Driver getDriver() {
@@ -97,5 +103,13 @@ public class Vehicle {
 
     public void setCurrLocation(Location currLocation) {
         this.currLocation = currLocation;
+    }
+
+    public VehicleName getVehicleName() {
+        return vehicleName;
+    }
+
+    public void setVehicleName(VehicleName vehicleName) {
+        this.vehicleName = vehicleName;
     }
 }

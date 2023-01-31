@@ -14,6 +14,7 @@ import com.example.easygo.R;
 import com.example.easygo.mockup.MockupPassengers;
 import com.example.easygo.model.users.Passenger;
 import com.google.android.material.button.MaterialButton;
+import com.example.easygo.driver.DriverMainActivity;
 
 public class PassengerRegisterActivity extends AppCompatActivity {
 
@@ -38,7 +39,7 @@ public class PassengerRegisterActivity extends AppCompatActivity {
                 takeValues();
                 if (validInput()) {
                     int id = MockupPassengers.generateId();
-                    Passenger passenger = new Passenger(id, name, surname, R.drawable.profile_default, phone, email, address, password, false);
+                    Passenger passenger = new Passenger(id, name, surname, R.drawable.profile_default, phone, email, address, password, true, false);
                     MockupPassengers.addNew(passenger);
                     LoggedIn.setPassenger(passenger);
                     startActivity(new Intent(PassengerRegisterActivity.this, PassengerMainActivity.class));

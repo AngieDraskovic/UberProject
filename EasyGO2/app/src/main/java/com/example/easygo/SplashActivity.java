@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.window.SplashScreen;
 
+import com.example.easygo.driver.DriverMainActivity;
+import com.example.easygo.passenger.PassengerMainActivity;
+
 public class SplashActivity extends AppCompatActivity {
 
     @Override
@@ -20,7 +23,7 @@ public class SplashActivity extends AppCompatActivity {
                 startActivity(new Intent(SplashActivity.this, UserLoginActivity.class));
                 finish();
             }
-        }, 5000);
+        }, 50);
     }
 
     @Override

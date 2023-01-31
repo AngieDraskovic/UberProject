@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,15 +15,16 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.easygo.LoggedIn;
 import com.example.easygo.R;
+import com.example.easygo.dto.UserDTO;
 import com.example.easygo.model.users.Driver;
-import com.example.easygo.passenger.PassengerAccountActivity;
-import com.example.easygo.passenger.PassengerInboxActivity;
-import com.example.easygo.passenger.PassengerMainActivity;
-import com.example.easygo.passenger.PassengerProfileActivity;
-import com.example.easygo.passenger.PassengerRideHistoryActivity;
 import com.example.easygo.UserLoginActivity;
+import com.example.easygo.service.ServiceUtilis;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class DriverAccountActivity extends AppCompatActivity {
 
     private Driver driver;
@@ -34,8 +36,7 @@ public class DriverAccountActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        this.driver = LoggedIn.getDriver();
-        setDriverData();
+        getDriver();
 
         LinearLayout editProfile = findViewById(R.id.driverProfile);
         editProfile.setOnClickListener(new View.OnClickListener() {
@@ -91,17 +92,40 @@ public class DriverAccountActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        setDriverData();
     }
 
-    private void setDriverData() {
+    private void setDriverData(Driver driver) {
         String user = driver.getName() + " " + driver.getSurname();
 
         ((TextView) findViewById(R.id.txtUser)).setText(user);
         ((TextView) findViewById(R.id.txtEmail)).setText(driver.getEmail());
-        ((TextView) findViewById(R.id.txtPhone)).setText(driver.getPhone());
+        ((TextView) findViewById(R.id.txtPhone)).setText(driver.getTelephoneNumber());
         ((TextView) findViewById(R.id.txtAddress)).setText(driver.getAddress());
         ((ImageView) findViewById(R.id.profileImg)).setImageResource(driver.getProfilePic());
+    }
+
+
+    public void getDriver(){
+        SharedPreferences preferences = getSharedPreferences("preference_file_name", MODE_PRIVATE);
+        int id = preferences.getInt("p_id", 0);
+        Call<UserDTO> call = ServiceUtilis.userService.getDriver(id);
+        call.enqueue(new Callback<UserDTO>() {
+            @Override
+            public void onResponse(Call<UserDTO> call, Response<UserDTO> response) {
+                if (response.isSuccessful()) {
+                    assert response.body() != null;
+                    driver = new Driver(response.body());
+                    setDriverData(driver);
+                } else {
+                    // handle error response
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UserDTO> call, Throwable t) {
+
+            }
+        });
     }
 
 
