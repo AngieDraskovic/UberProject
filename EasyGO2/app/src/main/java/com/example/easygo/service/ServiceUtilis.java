@@ -39,7 +39,7 @@ public class ServiceUtilis {
                 .connectTimeout(120, TimeUnit.SECONDS)
                 .readTimeout(120, TimeUnit.SECONDS)
                 .writeTimeout(120, TimeUnit.SECONDS)
-                .addInterceptor(new CustomInterceptor()).build();
+                .addInterceptor(interceptor).build();
 
         return client;
     }

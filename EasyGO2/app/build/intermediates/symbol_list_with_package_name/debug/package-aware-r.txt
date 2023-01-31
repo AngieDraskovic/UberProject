@@ -2767,7 +2767,6 @@ id action_mode_bar_stub
 id action_mode_close_button
 id action_text
 id actions
-id activationCode
 id activity_chooser_view_content
 id add
 id adress
@@ -3433,7 +3432,6 @@ layout activity_driver_profile
 layout activity_main
 layout activity_message_detail
 layout activity_passenger_account
-layout activity_passenger_activation
 layout activity_passenger_grade_ride
 layout activity_passenger_history
 layout activity_passenger_inbox

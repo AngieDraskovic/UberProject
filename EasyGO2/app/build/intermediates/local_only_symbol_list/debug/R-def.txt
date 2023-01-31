@@ -46,7 +46,6 @@ drawable white_background
 drawable whitish_background
 id VehicleDetailsLbl
 id account
-id activationCode
 id adress
 id baby_transport_checkbox
 id backImageView
@@ -60,7 +59,6 @@ id btnInbox
 id button
 id confirmGradeBtn
 id confirmOrderBtn
-id confirm_button
 id date_picker
 id departureEdit
 id destinationEdit
@@ -178,7 +176,6 @@ layout activity_driver_profile
 layout activity_main
 layout activity_message_detail
 layout activity_passenger_account
-layout activity_passenger_activation
 layout activity_passenger_grade_ride
 layout activity_passenger_history
 layout activity_passenger_inbox
