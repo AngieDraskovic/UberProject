@@ -12,10 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.easygo.LoggedIn;
 import com.example.easygo.R;
-import com.example.easygo.UserLoginActivity;
-import com.example.easygo.driver.DriverProfileActivity;
 import com.example.easygo.dto.UserDTO;
 import com.example.easygo.model.users.Passenger;
 import com.example.easygo.service.ServiceUtilis;
@@ -145,7 +142,7 @@ public class PassengerProfileActivity extends AppCompatActivity {
             public void onClick(View view) {
                 passenger.setName(nameEdit.getText().toString());
                 passenger.setSurname(lastnameEdit.getText().toString());
-                passenger.setPhone(phone.getText().toString());
+                passenger.setTelephoneNumber(phone.getText().toString());
                 passenger.setEmail(email.getText().toString());
                 passenger.setAddress(address.getText().toString());
                 passenger.setPassword(password.getText().toString());
@@ -159,7 +156,7 @@ public class PassengerProfileActivity extends AppCompatActivity {
         nameEdit.setText(passenger.getName());
         lastnameEdit.setText(passenger.getSurname());
         email.setText(passenger.getEmail());
-        phone.setText(passenger.getPhone());
+        phone.setText(passenger.getTelephoneNumber());
         address.setText(passenger.getAddress());
         password.setText(passenger.getPassword());
         profileIcon.setImageResource(passenger.getProfilePic());

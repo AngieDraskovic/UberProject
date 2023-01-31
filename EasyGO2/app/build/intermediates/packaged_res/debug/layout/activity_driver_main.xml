@@ -29,15 +29,18 @@
         android:background="#B6B6B6"
         android:visibility="gone"
          />
-<!--    <ToggleButton-->
-<!--        android:id="@+id/toggleActive"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:checked="true"-->
-<!--        android:layout_alignBottom="@id/web_view"-->
-<!--        android:layout_alignRight="@id/web_view"-->
-<!--        android:textOff="Offline"-->
-<!--        android:textOn="Online" />-->
+
+    <ToggleButton
+        android:id="@+id/toggleActive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:layout_alignBottom="@id/driver_web_view"
+        android:layout_alignLeft="@id/driver_web_view"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="10dp"
+        android:textOff="Offline"
+        android:textOn="Online" />
 
 
 </RelativeLayout>

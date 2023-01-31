@@ -1,21 +1,36 @@
 package com.example.easygo.model;
 
 import com.example.easygo.model.users.User;
+import com.example.easygo.utility.Convert;
 
 import java.time.LocalDateTime;
 
 public class Rejection {
     private int id;
-    private LocalDateTime time;
+    private Ride ride;
     private String reason;
     private User user;
-    private Ride ride;
+    private int[] timeOfRejection;
+
 
     public Rejection() {}
 
+    public Rejection(String reason) {
+        this.reason = reason;
+        this.timeOfRejection = Convert.toIntArray(LocalDateTime.now());
+    }
+
+    public Rejection(Rejection rejection) {
+        this.id = rejection.id;
+        this.ride = rejection.ride;
+        this.reason = rejection.reason;
+        this.user = rejection.user;
+        this.timeOfRejection = rejection.timeOfRejection;
+    }
+
     public Rejection(int id, LocalDateTime time, String reason, User user, Ride ride) {
         this.id = id;
-        this.time = time;
+        this.timeOfRejection = Convert.toIntArray(time);
         this.reason = reason;
         this.user = user;
         this.ride = ride;
@@ -29,13 +44,9 @@ public class Rejection {
         this.id = id;
     }
 
-    public LocalDateTime getTime() {
-        return time;
-    }
+    public LocalDateTime getTimeOfRejection() {return Convert.toLocalDateTime(timeOfRejection);}
 
-    public void setTime(LocalDateTime time) {
-        this.time = time;
-    }
+    public void setTimeOfRejection(LocalDateTime timeOfRejection) {this.timeOfRejection = Convert.toIntArray(timeOfRejection);}
 
     public String getReason() {
         return reason;

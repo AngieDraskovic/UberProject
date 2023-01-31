@@ -2833,6 +2833,7 @@ id clockwise
 id closest
 id collapseActionView
 id compress
+id confirmGradeBtn
 id confirmOrderBtn
 id confirm_button
 id constraint
@@ -2883,6 +2884,7 @@ id dragRight
 id dragStart
 id dragUp
 id driverFullName
+id driverGrade
 id driverIconPicture
 id driverProfile
 id driver_web_view
@@ -2936,6 +2938,7 @@ id get_datetime_button
 id ghost_view
 id ghost_view_holder
 id gone
+id gradeComment
 id graph
 id graph1Name
 id graph2Name
@@ -3249,6 +3252,7 @@ id title
 id titleDividerNoCustom
 id title_template
 id toggle
+id toggleActive
 id toolbar
 id top
 id topPanel
@@ -3275,6 +3279,7 @@ id useLogo
 id userProfile
 id userProfile2
 id username
+id vehicleGrade
 id vehicle_spinner
 id vertical_only
 id viewSupporter

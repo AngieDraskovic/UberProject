@@ -8,12 +8,13 @@ import java.io.Serializable;
 public class Vehicle implements Serializable {
     private int id;
     private String model;
-    private String regPlates;
-    private int numSeats;
-    private boolean babyProof;
-    private boolean petsAllowed;
-    private VehicleType vehicleType;
     private VehicleName vehicleName;
+    private String licenseNumber;
+    private int passengerSeats;
+    private boolean babyTransport;
+    private boolean petTransport;
+    private VehicleType vehicleType;
+
     private Driver driver;
     private Location currLocation;
 
@@ -22,10 +23,10 @@ public class Vehicle implements Serializable {
     public Vehicle(int id, String model, String regPlates, int seatNum, boolean babyproof, boolean petsAllowed, VehicleType type, VehicleName vehicleName, Driver driver, Location currLocation) {
         this.id = id;
         this.model = model;
-        this.regPlates = regPlates;
-        this.numSeats = seatNum;
-        this.babyProof = babyproof;
-        this.petsAllowed = petsAllowed;
+        this.licenseNumber = regPlates;
+        this.passengerSeats = seatNum;
+        this.babyTransport = babyproof;
+        this.petTransport = petsAllowed;
         this.vehicleType = type;
         this.vehicleName = vehicleName;
         this.driver = driver;
@@ -48,36 +49,36 @@ public class Vehicle implements Serializable {
         this.model = model;
     }
 
-    public String getRegPlates() {
-        return regPlates;
+    public String getLicenseNumber() {
+        return licenseNumber;
     }
 
-    public void setRegPlates(String regPlates) {
-        this.regPlates = regPlates;
+    public void setLicenseNumber(String licenseNumber) {
+        this.licenseNumber = licenseNumber;
     }
 
     public int getSeatNum() {
-        return numSeats;
+        return passengerSeats;
     }
 
     public void setSeatNum(int seatNum) {
-        this.numSeats = seatNum;
+        this.passengerSeats = seatNum;
     }
 
     public boolean isBabyproof() {
-        return babyProof;
+        return babyTransport;
     }
 
     public void setBabyproof(boolean babyproof) {
-        this.babyProof = babyproof;
+        this.babyTransport = babyproof;
     }
 
-    public boolean isPetsAllowed() {
-        return petsAllowed;
+    public boolean isPetTransport() {
+        return petTransport;
     }
 
-    public void setPetsAllowed(boolean petsAllowed) {
-        this.petsAllowed = petsAllowed;
+    public void setPetTransport(boolean petTransport) {
+        this.petTransport = petTransport;
     }
 
     public VehicleType getVehicleType() {

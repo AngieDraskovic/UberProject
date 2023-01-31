@@ -9,7 +9,8 @@ public class UserDTO {
     private String telephoneNumber;
     private String email;
     private String address;
-
+    private boolean active;
+    private boolean blocked;
 
     public Integer getId() {
         return id;
@@ -65,5 +66,21 @@ public class UserDTO {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    public boolean isBlocked() {
+        return blocked;
+    }
+
+    public void setBlocked(boolean blocked) {
+        this.blocked = blocked;
     }
 }

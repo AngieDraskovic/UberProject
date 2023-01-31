@@ -21,7 +21,7 @@ public class PassengerDTOResponse {
         this.surname = passenger.getSurname();
         this.email = passenger.getEmail();
         this.profilePicture = String.valueOf(passenger.getProfilePic());
-        this.telephoneNumber = passenger.getPhone();
+        this.telephoneNumber = passenger.getTelephoneNumber();
         this.address = passenger.getAddress();
         this.password = passenger.getPassword();
         // this.blocked = passenger.getBlocked();

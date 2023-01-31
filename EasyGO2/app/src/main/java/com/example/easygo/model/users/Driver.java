@@ -4,14 +4,12 @@ import com.example.easygo.dto.UserDTO;
 import com.example.easygo.model.Ride;
 import com.example.easygo.model.Vehicle;
 import com.example.easygo.model.WorkingHours;
-import com.example.easygo.model.enumerations.VehicleName;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Driver extends User implements Serializable {
-    private boolean active;
     private String driverLicense;
     private String vehicleRegistration;
     private Vehicle vehicle;
@@ -20,27 +18,22 @@ public class Driver extends User implements Serializable {
 
     public Driver() {};
 
+    public Driver(User user) {
+        super(user);
+    }
+
     public Driver(UserDTO userDTO){
         super(userDTO.getId(), userDTO.getName(), userDTO.getSurname(), 0, userDTO.getTelephoneNumber(), userDTO.getEmail(),
-                userDTO.getAddress()," ", false);
+                userDTO.getAddress()," ", userDTO.isActive(), userDTO.isBlocked());
     }
 
     public Driver(int id, String name, String surname, int profilePic, String phone, String email, String address, String password, boolean blocked, boolean active, String driverLicense, String vehicleRegistration, Vehicle vehicle) {
-        super(id, name, surname, profilePic, phone, email, address, password, blocked);
-        this.active = active;
+        super(id, name, surname, profilePic, phone, email, address, password, active, blocked);
         this.driverLicense = driverLicense;
         this.vehicleRegistration = vehicleRegistration;
         this.vehicle = vehicle;
         this.rides = new ArrayList<Ride>();
         this.workingHours = new ArrayList<WorkingHours>();
-    }
-
-    public boolean isActive() {
-        return active;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
     }
 
     public String getDriverLicense() {
@@ -84,7 +77,7 @@ public class Driver extends User implements Serializable {
     }
 
     public boolean isAvailable(Ride newRide) {
-        if (!this.active)
+        if (!this.isActive())
             return false;
 
         // Checking for rides
@@ -103,11 +96,11 @@ public class Driver extends User implements Serializable {
 
 
     public boolean compatibileVehicle(Ride rideDTO) {
-        if (!rideDTO.getVehicleName().equals(this.vehicle.getVehicleName()))
+        if (!rideDTO.getVehicleType().equals(this.vehicle.getVehicleName()))
             return false;
-        if (rideDTO.isPetsAllowed() && !this.vehicle.isPetsAllowed())
+        if (rideDTO.isPetTransport() && !this.vehicle.isPetTransport())
             return false;
-        return !rideDTO.isBabyproof() || this.vehicle.isBabyproof();
+        return !rideDTO.isBabyTransport() || this.vehicle.isBabyproof();
     }
 
     @Override

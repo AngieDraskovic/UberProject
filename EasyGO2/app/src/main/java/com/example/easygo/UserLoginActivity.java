@@ -49,7 +49,7 @@ public class UserLoginActivity extends AppCompatActivity {
 
         MaterialButton loginbtn = (MaterialButton) findViewById(R.id.loginbtn);
         MaterialButton signup = (MaterialButton) findViewById(R.id.signbtn);
-
+/*
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,8 +72,8 @@ public class UserLoginActivity extends AppCompatActivity {
 
             }
         });
+*/
 
-/*
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -84,7 +84,7 @@ public class UserLoginActivity extends AppCompatActivity {
 
             }
         });
-*/
+
 
         signup.setOnClickListener(new View.OnClickListener(){
             @Override

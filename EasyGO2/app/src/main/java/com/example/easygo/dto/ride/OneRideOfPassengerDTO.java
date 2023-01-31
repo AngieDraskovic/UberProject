@@ -1,20 +1,25 @@
-package com.example.easygo.dto;
+package com.example.easygo.dto.ride;
 
+import com.example.easygo.dto.PassengerRideDTO;
+import com.example.easygo.dto.RejectionDTO;
+import com.example.easygo.dto.RouteDTO;
+import com.example.easygo.dto.ride.DriverRideDTO;
 import com.example.easygo.model.Ride;
 import com.example.easygo.model.Route;
+import com.example.easygo.model.enumerations.RideStatus;
 import com.example.easygo.model.enumerations.VehicleName;
 import com.example.easygo.model.users.Passenger;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Set;
 
 public class OneRideOfPassengerDTO {
     private Integer id;
-    private LocalDateTime startTime;
-    private LocalDateTime endTime;
+    private int[] startTime;
+    private int[] endTime;
     private Double totalCost;
     private DriverRideDTO driver;
+    private RideStatus status;
     private Double estimatedTimeInMinutes;
     private Boolean babyTransport;
     private Boolean petTransport;
@@ -23,6 +28,7 @@ public class OneRideOfPassengerDTO {
     private RouteDTO[] locations;
     private RejectionDTO rejection;
 
+    /*
     public OneRideOfPassengerDTO(Ride ride){
         this.id = ride.getId();
         this.startTime = ride.getStartTime();
@@ -50,8 +56,8 @@ public class OneRideOfPassengerDTO {
         }
         this.locations = locationDTOS;
         this.rejection = new RejectionDTO(ride.getRejection());
-
     }
+     */
 
     public Integer getId() {
         return id;
@@ -60,22 +66,23 @@ public class OneRideOfPassengerDTO {
     public void setId(Integer id) {
         this.id = id;
     }
-
-    public LocalDateTime getStartTime() {
+/*
+    public LocalDateTime getStartTimeLocal() {
         return startTime;
     }
 
-    public void setStartTime(LocalDateTime startTime) {
+    public void setStartTimeLocal(LocalDateTime startTime) {
         this.startTime = startTime;
     }
 
-    public LocalDateTime getEndTime() {
+    public LocalDateTime getEndTimeLocal() {
         return endTime;
     }
 
-    public void setEndTime(LocalDateTime endTime) {
+    public void setEndTimeLocal(LocalDateTime endTime) {
         this.endTime = endTime;
     }
+    */
 
     public Double getTotalCost() {
         return totalCost;
@@ -147,5 +154,13 @@ public class OneRideOfPassengerDTO {
 
     public void setRejection(RejectionDTO rejection) {
         this.rejection = rejection;
+    }
+
+    public RideStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(RideStatus status) {
+        this.status = status;
     }
 }

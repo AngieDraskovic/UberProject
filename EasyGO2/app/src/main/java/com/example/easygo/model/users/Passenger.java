@@ -21,13 +21,17 @@ public class Passenger extends User {
 
     public Passenger() {};
 
-    public Passenger(UserDTO userDTO){
-        super(userDTO.getId(), userDTO.getName(), userDTO.getSurname(), R.drawable.profile1, userDTO.getTelephoneNumber(), userDTO.getEmail(),
-                userDTO.getAddress()," ", false);
+    public Passenger(User user) {
+        super(user);
     }
 
-    public Passenger(int id, String name, String surname, int profilePic, String phone, String email, String address, String password, boolean blocked) {
-        super(id, name, surname, profilePic, phone, email, address, password, blocked);
+    public Passenger(UserDTO userDTO){
+        super(userDTO.getId(), userDTO.getName(), userDTO.getSurname(), R.drawable.profile1, userDTO.getTelephoneNumber(), userDTO.getEmail(),
+                userDTO.getAddress()," ", userDTO.isActive(), userDTO.isBlocked());
+    }
+
+    public Passenger(int id, String name, String surname, int profilePic, String phone, String email, String address, String password, boolean active, boolean blocked) {
+        super(id, name, surname, profilePic, phone, email, address, password, active, blocked);
         this.rides = new ArrayList<Ride>();
         this.panics = new ArrayList<Panic>();
         this.payments = new ArrayList<Payment>();

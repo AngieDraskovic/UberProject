@@ -15,16 +15,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.easygo.LoggedIn;
 import com.example.easygo.R;
 import com.example.easygo.dto.UserDTO;
 import com.example.easygo.model.users.Driver;
-import com.example.easygo.model.users.Passenger;
-import com.example.easygo.passenger.PassengerAccountActivity;
-import com.example.easygo.passenger.PassengerInboxActivity;
-import com.example.easygo.passenger.PassengerMainActivity;
-import com.example.easygo.passenger.PassengerProfileActivity;
-import com.example.easygo.passenger.PassengerRideHistoryActivity;
 import com.example.easygo.UserLoginActivity;
 import com.example.easygo.service.ServiceUtilis;
 
@@ -106,7 +99,7 @@ public class DriverAccountActivity extends AppCompatActivity {
 
         ((TextView) findViewById(R.id.txtUser)).setText(user);
         ((TextView) findViewById(R.id.txtEmail)).setText(driver.getEmail());
-        ((TextView) findViewById(R.id.txtPhone)).setText(driver.getPhone());
+        ((TextView) findViewById(R.id.txtPhone)).setText(driver.getTelephoneNumber());
         ((TextView) findViewById(R.id.txtAddress)).setText(driver.getAddress());
         ((ImageView) findViewById(R.id.profileImg)).setImageResource(driver.getProfilePic());
     }

@@ -3,30 +3,22 @@ package com.example.easygo.passenger;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.constraintlayout.widget.ConstraintSet;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MenuInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.easygo.LoggedIn;
 import com.example.easygo.R;
 import com.example.easygo.dto.UserDTO;
 import com.example.easygo.model.users.Passenger;
@@ -207,7 +199,7 @@ public class PassengerAccountActivity extends AppCompatActivity {
 
         ((TextView) findViewById(R.id.txtUser)).setText(user);
         ((TextView) findViewById(R.id.txtEmail)).setText(passenger.getEmail());
-        ((TextView) findViewById(R.id.txtPhone)).setText(passenger.getPhone());
+        ((TextView) findViewById(R.id.txtPhone)).setText(passenger.getTelephoneNumber());
         ((TextView) findViewById(R.id.txtAddress)).setText(passenger.getAddress());
         ((ImageView) findViewById(R.id.profileImg)).setImageResource(passenger.getProfilePic());
     }

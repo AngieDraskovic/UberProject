@@ -1,4 +1,4 @@
-package com.example.easygo.dto;
+package com.example.easygo.dto.ride;
 
 import com.example.easygo.model.users.Driver;
 

@@ -94,14 +94,14 @@ public class Fragment3Details extends Fragment {
     private void setRideValues() {
         String selectedVehicle = vehicleSpinner.getSelectedItem().toString();
         if(selectedVehicle.equals("STANDARD"))
-            ride.setVehicleName(VehicleName.STANDARD);
+            ride.setVehicleType(VehicleName.STANDARD);
         else if(selectedVehicle.equals("LUXURY"))
-            ride.setVehicleName(VehicleName.LUXURY);
+            ride.setVehicleType(VehicleName.LUXURY);
         else if(selectedVehicle.equals("VAN"))
-            ride.setVehicleName(VehicleName.VAN);
+            ride.setVehicleType(VehicleName.VAN);
         else
 
-        ride.setBabyproof(babyTransportCheckbox.isChecked());
-        ride.setPetsAllowed(petTransportCheckbox.isChecked());
+        ride.setBabyTransport(babyTransportCheckbox.isChecked());
+        ride.setPetTransport(petTransportCheckbox.isChecked());
     }
 }

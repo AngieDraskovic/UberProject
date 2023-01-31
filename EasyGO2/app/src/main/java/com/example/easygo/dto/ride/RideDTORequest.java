@@ -1,19 +1,19 @@
-package com.example.easygo.dto;
+package com.example.easygo.dto.ride;
 
-import com.example.easygo.LoggedIn;
-import com.example.easygo.R;
+import com.example.easygo.dto.PassengerDTOResult;
+import com.example.easygo.dto.RouteDTO;
 import com.example.easygo.model.Ride;
 import com.example.easygo.model.enumerations.VehicleName;
-import com.example.easygo.model.users.Passenger;
 
 import java.time.LocalDateTime;
 
 public class RideDTORequest {
+    private VehicleName vehicleType;
     private Boolean babyTransport;
     private Boolean petTransport;
     private PassengerDTOResult[] passengers;
     private RouteDTO[] locations;
-    private VehicleName vehicleType;
+
     private LocalDateTime startTime;
     private double estimatedTime;
     private double kilometers;
@@ -32,18 +32,18 @@ public class RideDTORequest {
     }
 
     public RideDTORequest(Ride ride) {
-        this.babyTransport = ride.isBabyproof();
-        this.petTransport = ride.isPetsAllowed();
+        this.babyTransport = ride.isBabyTransport();
+        this.petTransport = ride.isPetTransport();
 
         PassengerDTOResult[] passengers = new PassengerDTOResult[1];
-        passengers[0] = new PassengerDTOResult(1, "Mirko", "Ivanic", "picture", "043242423", "mirko@gmail.com", "mirko123");
+        passengers[0] = new PassengerDTOResult(1, "Mirko", "Ivanic", "picture", "043242423", "mirko@gmail.com", "mirko123", true, false);
         this.passengers = new PassengerDTOResult[0];
 
         RouteDTO[] locations = new RouteDTO[1];
-        locations[0] = new RouteDTO(ride.getRoutes().get(0));
+        locations[0] = new RouteDTO(ride.getLocations().get(0));
         this.locations = new RouteDTO[0];
 
-        this.vehicleType = ride.getVehicleName();
+        this.vehicleType = ride.getVehicleType();
         this.startTime = ride.getStartTime();
         this.estimatedTime = 15.0;
         this.kilometers = 1.2;

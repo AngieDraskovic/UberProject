@@ -20,6 +20,8 @@ public class ServiceUtilis {
     public static final String vehicle = "vehicle";
     public static final String passenger = "passenger";
     public static final String ride = "ride";
+    public static final String review = "review";
+    public static final String message = "message";
 
     // definisemo retrofit instancu preko koje se odvija komunikacija
     public static Retrofit retrofit = new Retrofit.Builder()
@@ -47,5 +49,7 @@ public class ServiceUtilis {
 
     public static IUserService userService = retrofit.create(IUserService.class);
     public static IRideService rideService = retrofit.create(IRideService.class);
-
+    public static IReviewService reviewService = retrofit.create(IReviewService.class);
+    public static IDriverService driverService = retrofit.create(IDriverService.class);
+    public static IMessageService messageService = retrofit.create(IMessageService.class);
 }

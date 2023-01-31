@@ -57,6 +57,7 @@ id btnHistory
 id btnHome
 id btnInbox
 id button
+id confirmGradeBtn
 id confirmOrderBtn
 id date_picker
 id departureEdit
@@ -64,6 +65,7 @@ id destinationEdit
 id detailsFragmentBtn
 id detailsLayout
 id driverFullName
+id driverGrade
 id driverIconPicture
 id driverProfile
 id driver_web_view
@@ -81,6 +83,7 @@ id fragmentContainer
 id futureFragmentBtn
 id futureOrderDetails
 id get_datetime_button
+id gradeComment
 id graph1Name
 id graph2Name
 id graph3Name
@@ -149,6 +152,7 @@ id surname
 id table
 id textView
 id time_picker
+id toggleActive
 id toolbar
 id txtAddress
 id txtEmail
@@ -159,6 +163,7 @@ id txtUser
 id userProfile
 id userProfile2
 id username
+id vehicleGrade
 id vehicle_spinner
 id viewSupporter
 id walletIcon

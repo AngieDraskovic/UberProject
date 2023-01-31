@@ -12,10 +12,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.easygo.LoggedIn;
 import com.example.easygo.R;
 import com.example.easygo.dto.UserDTO;
-import com.example.easygo.mockup.MockupDrivers;
 import com.example.easygo.model.users.Driver;
 import com.example.easygo.service.ServiceUtilis;
 
@@ -124,7 +122,7 @@ public class DriverProfileActivity extends AppCompatActivity {
             public void onClick(View view) {
                 driver.setName(nameEdit.getText().toString());
                 driver.setSurname(lastnameEdit.getText().toString());
-                driver.setPhone(phoneEdit.getText().toString());
+                driver.setTelephoneNumber(phoneEdit.getText().toString());
                 driver.setEmail(emailEdit.getText().toString());
                 driver.setAddress(addressEdit.getText().toString());
                 driver.setPassword(passwordEdit.getText().toString());
@@ -141,7 +139,7 @@ public class DriverProfileActivity extends AppCompatActivity {
     private void setDriverData(Driver driver) {
         nameEdit.setText(driver.getName());
         lastnameEdit.setText(driver.getSurname());
-        phoneEdit.setText(driver.getPhone());
+        phoneEdit.setText(driver.getTelephoneNumber());
         emailEdit.setText(driver.getEmail());
         addressEdit.setText(driver.getAddress());
         passwordEdit.setText(driver.getPassword());

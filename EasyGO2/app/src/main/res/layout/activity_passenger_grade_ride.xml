@@ -42,6 +42,7 @@
                     android:textSize="15sp" />
 
                 <EditText
+                    android:id="@+id/vehicleGrade"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingLeft="10dp"
@@ -60,6 +61,7 @@
                     android:textSize="15sp" />
 
                 <EditText
+                    android:id="@+id/driverGrade"
                     android:layout_width="55dp"
                     android:layout_height="wrap_content"
                     android:paddingLeft="10dp"
@@ -80,13 +82,15 @@
                 <TextView />
             </TableRow>
 
-            <EditText android:textSize="15sp">
+            <EditText
+                android:id="@+id/gradeComment"
+                android:textSize="15sp">
 
             </EditText>
         </TableLayout>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/loginbtn"
+            android:id="@+id/confirmGradeBtn"
             android:layout_width="152dp"
             android:layout_height="40dp"
             android:layout_below="@+id/table"

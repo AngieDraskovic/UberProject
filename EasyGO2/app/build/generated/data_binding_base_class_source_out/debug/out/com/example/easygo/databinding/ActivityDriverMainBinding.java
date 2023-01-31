@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.ToggleButton;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
@@ -27,14 +28,18 @@ public final class ActivityDriverMainBinding implements ViewBinding {
   public final ImageView messageIcon;
 
   @NonNull
+  public final ToggleButton toggleActive;
+
+  @NonNull
   public final ToolbarLayoutBinding toolbar;
 
   private ActivityDriverMainBinding(@NonNull RelativeLayout rootView,
       @NonNull WebView driverWebView, @NonNull ImageView messageIcon,
-      @NonNull ToolbarLayoutBinding toolbar) {
+      @NonNull ToggleButton toggleActive, @NonNull ToolbarLayoutBinding toolbar) {
     this.rootView = rootView;
     this.driverWebView = driverWebView;
     this.messageIcon = messageIcon;
+    this.toggleActive = toggleActive;
     this.toolbar = toolbar;
   }
 
@@ -77,6 +82,12 @@ public final class ActivityDriverMainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.toggleActive;
+      ToggleButton toggleActive = ViewBindings.findChildViewById(rootView, id);
+      if (toggleActive == null) {
+        break missingId;
+      }
+
       id = R.id.toolbar;
       View toolbar = ViewBindings.findChildViewById(rootView, id);
       if (toolbar == null) {
@@ -85,7 +96,7 @@ public final class ActivityDriverMainBinding implements ViewBinding {
       ToolbarLayoutBinding binding_toolbar = ToolbarLayoutBinding.bind(toolbar);
 
       return new ActivityDriverMainBinding((RelativeLayout) rootView, driverWebView, messageIcon,
-          binding_toolbar);
+          toggleActive, binding_toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -15,8 +15,6 @@ import com.example.easygo.R;
 import com.example.easygo.model.Ride;
 import com.example.easygo.model.Route;
 
-import java.io.Serializable;
-
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link Fragment1Locations#newInstance} factory method to
@@ -85,9 +83,9 @@ public class Fragment1Locations extends Fragment {
                 if (departure.equals("") || destination.equals("")) {
                     Toast.makeText(getContext(), "Departure and destination cannot be empty.", Toast.LENGTH_SHORT).show();
                 } else {
-                    ride.getRoutes().add(new Route());
-                    ride.getRoutes().get(0).getDeparture().setAddress(departure);
-                    ride.getRoutes().get(0).getDestination().setAddress(destination);
+                    ride.getLocations().add(new Route());
+                    ride.getLocations().get(0).getDeparture().setAddress(departure);
+                    ride.getLocations().get(0).getDestination().setAddress(destination);
                     Toast.makeText(getContext(), "Departure and destination selected.", Toast.LENGTH_SHORT).show();
                 }
             }

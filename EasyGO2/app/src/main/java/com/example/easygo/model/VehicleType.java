@@ -9,10 +9,15 @@ import java.util.List;
 public class VehicleType implements Serializable {
     private int id;
     private VehicleName vehicleName;
-    private int pricePerKilometer;
+    private double pricePerKilometer;
 
     public VehicleType() {
 
+    }
+    public VehicleType(VehicleType vehicleType) {
+        this.id = vehicleType.id;
+        this.vehicleName = vehicleType.vehicleName;
+        this.pricePerKilometer = vehicleType.pricePerKilometer;
     }
 
     public VehicleType(int id, VehicleName vehicleName, int pricePerKilometer) {
@@ -38,7 +43,7 @@ public class VehicleType implements Serializable {
         this.vehicleName = vehicleName;
     }
 
-    public int getPricePerKilometer() {
+    public double getPricePerKilometer() {
         return pricePerKilometer;
     }
 

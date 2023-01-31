@@ -9,31 +9,25 @@ import java.util.List;
 
 public class Route implements Serializable {
     private int id;
-    private LocalDateTime startTime;
-    private LocalDateTime endTime;
     private Location departure;
     private Location destination;
-    private double kilometers;
-    private int estimatedTime;
-    private double price;
-    private List<Passenger> passengers;
 
     public Route(){
-        this.passengers = new ArrayList<Passenger>();
         this.departure = new Location();
         this.destination = new Location();
     }
 
-    public Route(int id, LocalDateTime startTime, LocalDateTime endTime, Location startLocation, Location endLocation, double kilometers, int estimatedTime, double price) {
+    public Route(Route route) {
+        this.id = route.id;
+        this.departure = route.departure;
+        this.destination = route.destination;
+    }
+
+    public Route(int id, Location startLocation, Location endLocation) {
         this();
         this.id = id;
-        this.startTime = startTime;
-        this.endTime = endTime;
         this.departure = startLocation;
         this.destination = endLocation;
-        this.kilometers = kilometers;
-        this.estimatedTime = estimatedTime;
-        this.price = price;
     }
 
     public int getId() {
@@ -42,22 +36,6 @@ public class Route implements Serializable {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public LocalDateTime getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(LocalDateTime startTime) {
-        this.startTime = startTime;
-    }
-
-    public LocalDateTime getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(LocalDateTime endTime) {
-        this.endTime = endTime;
     }
 
     public Location getDeparture() {
@@ -76,35 +54,4 @@ public class Route implements Serializable {
         this.destination = destination;
     }
 
-    public double getKilometers() {
-        return kilometers;
-    }
-
-    public void setKilometers(double kilometers) {
-        this.kilometers = kilometers;
-    }
-
-    public int getEstimatedTime() {
-        return estimatedTime;
-    }
-
-    public void setEstimatedTime(int estimatedTime) {
-        this.estimatedTime = estimatedTime;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public List<Passenger> getPassengers() {
-        return passengers;
-    }
-
-    public void setPassengers(List<Passenger> passengers) {
-        this.passengers = passengers;
-    }
 }

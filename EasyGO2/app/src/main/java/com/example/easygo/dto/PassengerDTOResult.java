@@ -11,8 +11,10 @@ public class PassengerDTOResult {
     private String telephoneNumber;
     private String email;
     private String address;
+    private Boolean active;
+    private Boolean blocked;
 
-    public PassengerDTOResult(Integer id, String name, String surname, String profilePicture, String telephoneNumber, String email, String address) {
+    public PassengerDTOResult(Integer id, String name, String surname, String profilePicture, String telephoneNumber, String email, String address, Boolean active, Boolean blocked) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -20,6 +22,8 @@ public class PassengerDTOResult {
         this.telephoneNumber = telephoneNumber;
         this.email = email;
         this.address = address;
+        this.active = active;
+        this.blocked = blocked;
     }
 
     public PassengerDTOResult(Passenger passenger){
@@ -28,8 +32,10 @@ public class PassengerDTOResult {
         this.surname = passenger.getSurname();
         this.email = passenger.getEmail();
         this.profilePicture = String.valueOf(passenger.getProfilePic());
-        this.telephoneNumber = passenger.getPhone();
+        this.telephoneNumber = passenger.getTelephoneNumber();
         this.address = passenger.getAddress();
+        this.active = passenger.isActive();
+        this.blocked = passenger.isBlocked();
     }
 
     public Integer getId() {

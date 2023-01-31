@@ -1,4 +1,6 @@
-package com.example.easygo.dto;
+package com.example.easygo.dto.ride;
+
+import com.example.easygo.dto.ride.OneRideOfPassengerDTO;
 
 public class RidesOfPassengerDTO {
     private int totalCount;

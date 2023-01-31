@@ -1,10 +1,14 @@
-package com.example.easygo.dto;
+package com.example.easygo.dto.ride;
 
+import com.example.easygo.dto.PassengerRideDTO;
+import com.example.easygo.dto.RejectionDTO;
+import com.example.easygo.dto.ReviewDTO;
+import com.example.easygo.dto.RouteDTO;
+import com.example.easygo.dto.ride.DriverRideDTO;
 import com.example.easygo.model.enumerations.RideStatus;
 import com.example.easygo.model.enumerations.VehicleName;
 
 import java.time.LocalDateTime;
-import java.util.Arrays;
 
 public class RideDTOResponse {
     private Integer id;

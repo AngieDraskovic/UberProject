@@ -9,15 +9,14 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.JavascriptInterface;
-import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
@@ -30,8 +29,8 @@ import androidx.core.app.NotificationManagerCompat;
 
 import com.example.easygo.R;
 import com.example.easygo.UserLoginActivity;
+import com.example.easygo.dto.UserDTO;
 import com.example.easygo.mockup.MockupMessages;
-import com.example.easygo.mockup.MockupPassengers;
 import com.example.easygo.mockup.MockupRides;
 import com.example.easygo.model.Conversation;
 import com.example.easygo.model.Ride;
@@ -39,10 +38,14 @@ import com.example.easygo.model.Ride;
 import com.example.easygo.driver.DriverMainActivity;
 import com.example.easygo.model.enumerations.RideStatus;
 import com.example.easygo.model.users.Passenger;
-import com.example.easygo.passenger.PassengerGradeRideActivity;
 import com.example.easygo.passenger.rideorder.RideOrderActivity;
+import com.example.easygo.service.ServiceUtilis;
 
 import java.util.HashMap;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class PassengerMainActivity extends AppCompatActivity {
@@ -63,15 +66,15 @@ public class PassengerMainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        this.passenger = MockupPassengers.findPassenger("salekatai@gmail.com", "sale123");
+        getPassenger();
 
         class JavaScriptInterface {
             @JavascriptInterface
             public void setDeparture(final String coordinates) { // "["", ""]"
                 double latitude = Double.parseDouble(coordinates.split(",")[0].substring(2, coordinates.split(",")[0].length()-1));
                 double longitude = Double.parseDouble(coordinates.split(",")[1].substring(1, coordinates.split(",")[1].length()-2));
-                activeRide.getRoutes().get(0).getDeparture().setLatitude(latitude);
-                activeRide.getRoutes().get(0).getDeparture().setLongitude(longitude);
+                activeRide.getLocations().get(0).getDeparture().setLatitude(latitude);
+                activeRide.getLocations().get(0).getDeparture().setLongitude(longitude);
 //                Toast.makeText(DriverMainActivity.this, "Departure: " + coordinates, Toast.LENGTH_SHORT).show();
             }
 
@@ -79,8 +82,8 @@ public class PassengerMainActivity extends AppCompatActivity {
             public void setDestination(final String coordinates) {
                 double latitude = Double.parseDouble(coordinates.split(",")[0].substring(2, coordinates.split(",")[0].length()-1));
                 double longitude = Double.parseDouble(coordinates.split(",")[1].substring(1, coordinates.split(",")[1].length()-2));
-                activeRide.getRoutes().get(0).getDeparture().setLatitude(latitude);
-                activeRide.getRoutes().get(0).getDeparture().setLongitude(longitude);
+                activeRide.getLocations().get(0).getDeparture().setLatitude(latitude);
+                activeRide.getLocations().get(0).getDeparture().setLongitude(longitude);
 //                Toast.makeText(DriverMainActivity.this, "Destination: " + coordinates, Toast.LENGTH_SHORT).show();
             }
         }
@@ -90,9 +93,9 @@ public class PassengerMainActivity extends AppCompatActivity {
         webView.addJavascriptInterface(new JavaScriptInterface(), "Android");
         webView.setWebViewClient(new WebViewClient() {
             public void onPageFinished(WebView view, String url) {
-                showRoute();
-                showDeparture();
-                showDestination();
+//                showRoute();
+//                showDeparture();
+//                showDestination();
             }
         });
         webView.loadUrl("file:///android_asset/leaflet.html");
@@ -116,8 +119,8 @@ public class PassengerMainActivity extends AppCompatActivity {
             }
         });
 
-        makeNotification();
-        checkForActiveRides();
+//        makeNotification();
+//        checkForActiveRides();
     }
 
     private void checkForActiveRides() {
@@ -278,8 +281,10 @@ public class PassengerMainActivity extends AppCompatActivity {
 
 
 
-    private void makeNotification(){
+    private void makeNotification(Ride ride, Passenger passenger){
         Intent intent = new Intent(this, PassengerGradeRideActivity.class);
+        intent.putExtra("ride", ride.getId());
+        intent.putExtra("passenger", passenger.getId());
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
@@ -322,8 +327,8 @@ public class PassengerMainActivity extends AppCompatActivity {
             return;
         webView.setWebViewClient(new WebViewClient() {
             public void onPageFinished(WebView view, String url) {
-                String departure = activeRide.getRoutes().get(0).getDeparture().getAddress();
-                String destination = activeRide.getRoutes().get(0).getDestination().getAddress();
+                String departure = activeRide.getLocations().get(0).getDeparture().getAddress();
+                String destination = activeRide.getLocations().get(0).getDestination().getAddress();
                 webView.evaluateJavascript("javascript:addRoute(\""+departure+"\", \""+destination+"\")", null);            }
         });
     }
@@ -331,15 +336,71 @@ public class PassengerMainActivity extends AppCompatActivity {
     private void showDeparture() {
         if (activeRide == null)
             return;
-        String departureAddress = activeRide.getRoutes().get(0).getDeparture().getAddress();
+        String departureAddress = activeRide.getLocations().get(0).getDeparture().getAddress();
         webView.evaluateJavascript("javascript:getDeparture('"+departureAddress+"')", null);
     }
 
     private void showDestination() {
         if (activeRide == null)
             return;
-        String destinationAddress = activeRide.getRoutes().get(0).getDestination().getAddress();
+        String destinationAddress = activeRide.getLocations().get(0).getDestination().getAddress();
         webView.evaluateJavascript("javascript:getDestination('"+destinationAddress+"')", null);
+    }
+
+    public void getPassenger(){
+        SharedPreferences preferences = getSharedPreferences("preference_file_name", MODE_PRIVATE);
+        int id = preferences.getInt("p_id", 0);
+        Call<UserDTO> call = ServiceUtilis.userService.getPassenger(id);
+        call.enqueue(new Callback<UserDTO>() {
+            @Override
+            public void onResponse(Call<UserDTO> call, Response<UserDTO> response) {
+                if (response.isSuccessful()) {
+                    assert response.body() != null;
+                    passenger = new Passenger(response.body());
+                    getPassengerActiveRide(passenger);
+
+                    Toast.makeText(PassengerMainActivity.this, passenger.getName(), Toast.LENGTH_SHORT).show();
+                } else {
+                    // handle error response
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UserDTO> call, Throwable t) {
+
+            }
+        });
+    }
+
+
+    public void getPassengerActiveRide(Passenger passenger){
+        Call<Ride> call = ServiceUtilis.rideService.getPassengerActiveRide(passenger.getId());
+        call.enqueue(new Callback<Ride>() {
+            @Override
+            public void onResponse(Call<Ride> call, Response<Ride> response) {
+                if (response.isSuccessful()) {
+                    assert response.body() != null;
+                    activeRide = new Ride(response.body());
+
+                    if (activeRide.getId() != 0) {
+                        // Za sada tu aktivnu voznju ocjenjujemo, kad (ako) budemo imali pravo, nakon sto voznja zavrsi salje se notif
+
+                        makeNotification(activeRide, passenger);
+
+                        // TODO: Show it on on map
+                    }
+
+
+                } else {
+                    // handle error response
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Ride> call, Throwable t) {
+                Toast.makeText(PassengerMainActivity.this, "Failovao passenger active ride", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 }

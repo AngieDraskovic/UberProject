@@ -1,17 +1,14 @@
 package com.example.easygo.mockup;
 
-import com.example.easygo.LoggedIn;
 import com.example.easygo.model.Conversation;
 import com.example.easygo.model.Message;
 import com.example.easygo.model.Ride;
 import com.example.easygo.model.enumerations.MessaggeType;
-import com.example.easygo.model.users.Driver;
 import com.example.easygo.model.users.User;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 public class MockupMessages {
 
@@ -90,8 +87,8 @@ public class MockupMessages {
         ArrayList<Conversation> conversations = new ArrayList<Conversation>();
 
         for (Message message : getMessages()) {
-            if (message.getSender().equals(currUser) || message.getDeliverer().equals(currUser)) {
-                User anotherUser = (message.getSender().equals(currUser)) ? message.getDeliverer() : message.getSender();
+            if (message.getSender().equals(currUser) || message.getReceiver().equals(currUser)) {
+                User anotherUser = (message.getSender().equals(currUser)) ? message.getReceiver() : message.getSender();
 
                 if (messagesMap.containsKey(anotherUser))
                     messagesMap.get(anotherUser).add(message);
