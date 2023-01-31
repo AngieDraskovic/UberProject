@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bkg"
+    tools:context=".passenger.PassengerActivationActivity">
+
+
+    <EditText
+        android:id="@+id/activationCode"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:hint= "Enter your activation code from email"
+        android:textColorHint="@color/black"
+        android:background="#FFFFFF"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:padding="4dp"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/confirm_button"
+        android:layout_width="192dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="#D3B55E1C"
+        android:layout_marginTop="40dp"
+        android:layout_below="@id/activationCode"
+        android:text="CONFIRM" />
+
+</RelativeLayout>

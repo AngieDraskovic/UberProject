@@ -140,7 +140,7 @@ public class PassengerAccountActivity extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("preference_file_name", MODE_PRIVATE);
         int id = preferences.getInt("p_id", 0);
 
-        Call<UserDTO> call = ServiceUtilis.userService.getDriver(id);
+        Call<UserDTO> call = ServiceUtilis.userService.getPassenger(id);
         call.enqueue(new Callback<UserDTO>() {
             @Override
             public void onResponse(Call<UserDTO> call, Response<UserDTO> response) {

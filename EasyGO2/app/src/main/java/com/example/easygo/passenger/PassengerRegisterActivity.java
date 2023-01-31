@@ -11,10 +11,16 @@ import android.widget.Toast;
 
 import com.example.easygo.LoggedIn;
 import com.example.easygo.R;
+import com.example.easygo.dto.PostPassengerDTO;
 import com.example.easygo.mockup.MockupPassengers;
 import com.example.easygo.model.users.Passenger;
+import com.example.easygo.service.ServiceUtilis;
 import com.google.android.material.button.MaterialButton;
 import com.example.easygo.driver.DriverMainActivity;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class PassengerRegisterActivity extends AppCompatActivity {
 
@@ -33,17 +39,53 @@ public class PassengerRegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_passenger_register);
 
         MaterialButton signBtn = (MaterialButton) findViewById(R.id.signbtn);
+//        signBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                takeValues();
+//                if (validInput()) {
+//                    int id = MockupPassengers.generateId();
+//                    Passenger passenger = new Passenger(id, name, surname, R.drawable.profile_default, phone, email, address, password, false);
+//                    MockupPassengers.addNew(passenger);
+//                    LoggedIn.setPassenger(passenger);
+//                    startActivity(new Intent(PassengerRegisterActivity.this, PassengerMainActivity.class));
+//                }
+//            }
+//        });
+
         signBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 takeValues();
-                if (validInput()) {
-                    int id = MockupPassengers.generateId();
-                    Passenger passenger = new Passenger(id, name, surname, R.drawable.profile_default, phone, email, address, password, true, false);
-                    MockupPassengers.addNew(passenger);
-                    LoggedIn.setPassenger(passenger);
-                    startActivity(new Intent(PassengerRegisterActivity.this, PassengerMainActivity.class));
+                if(validInput()){
+                    registerPassenger();
                 }
+            }
+        });
+    }
+
+    private void registerPassenger(){
+        // String name, String surname, String profilePicture, String telephoneNumber, String email, String address, String password
+        PostPassengerDTO passengerDTO = new PostPassengerDTO(this.name, this.surname,
+                "profilePic", this.phone, this.email,
+                this.address, this.password, this.passwordRepeat);
+        Call<PostPassengerDTO> call = ServiceUtilis.userService.createPassenger(passengerDTO);
+        call.enqueue(new Callback<PostPassengerDTO>() {
+            @Override
+            public void onResponse(Call<PostPassengerDTO> call, Response<PostPassengerDTO> response) {
+                if(response.isSuccessful()){
+                    Toast.makeText(PassengerRegisterActivity.this, "Please check your email for activation code!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(PassengerRegisterActivity.this, PassengerActivationActivity.class);
+                    intent.putExtra("EMAIL", response.body().getEmail());
+                    intent.putExtra("PASSWORD", returnPassword());
+                    startActivity(intent);
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<PostPassengerDTO> call, Throwable t) {
+
             }
         });
     }
@@ -61,6 +103,9 @@ public class PassengerRegisterActivity extends AppCompatActivity {
         this.passwordRepeat = ((EditText) findViewById(R.id.passwordRepeat)).getText().toString();
     }
 
+    private String returnPassword(){
+        return this.password;
+    }
 
     private boolean validInput() {
         if (name.equals("") || surname.equals("") || phone.equals("") || address.equals("") || password.equals("")) {
