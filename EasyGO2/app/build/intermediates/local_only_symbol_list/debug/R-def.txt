@@ -12,6 +12,7 @@ color white
 drawable background_splashscreen
 drawable bkg
 drawable black_layout
+drawable car
 drawable dejan_stankovic
 drawable financialcard_background
 drawable ic_baseline_arrow_back_24
@@ -58,6 +59,7 @@ id btnHistory
 id btnHome
 id btnInbox
 id button
+id carImage
 id confirmOrderBtn
 id confirm_button
 id date_picker
@@ -159,6 +161,7 @@ id txtUser
 id userProfile
 id userProfile2
 id username
+id vehicle
 id vehicle_spinner
 id viewSupporter
 id walletIcon
@@ -196,6 +199,7 @@ layout navigation
 layout probno
 layout ride_details_layout
 layout toolbar_layout
+layout vehicle_popup
 layout web_view
 menu layout_items
 mipmap ic_launcher

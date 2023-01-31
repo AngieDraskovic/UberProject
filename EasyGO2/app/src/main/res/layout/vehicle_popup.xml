@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/carImage"
+        android:layout_width="match_parent"
+        android:layout_height="219dp"
+        android:elevation="5dp"
+        app:srcCompat="@drawable/car" />
+
+    <TableLayout
+        android:id="@+id/table"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/carImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+
+    <TableRow
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:text=" MODEL: "
+            android:textSize="15sp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="BMW"
+            android:textSize="15sp" />
+    </TableRow>
+        <TableRow
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text=" LICENSE PLATE: "
+                android:textSize="15sp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="KO4-E-771"
+                android:textSize="15sp" />
+        </TableRow>
+        <TableRow
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text=" VEHICLE TYPE: "
+                android:textSize="15sp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="STANDARD"
+                android:textSize="15sp" />
+        </TableRow>
+        <TableRow
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text=" PASSENGER SEATS: "
+                android:textSize="15sp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textAlignment="center"
+                android:text="4"
+                android:textSize="15sp" />
+        </TableRow>
+        <CheckBox
+            android:id="@+id/baby_transport_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/table"
+            android:text="@string/baby_transport"
+            android:textColor="@color/black"
+            android:buttonTint="@color/black"/>
+
+        <CheckBox
+            android:id="@+id/pet_transport_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/table"
+            android:text="@string/pet_transport"
+            android:textColor="@color/black"
+            android:buttonTint="@color/black"/>
+    </TableLayout>
+
+</RelativeLayout>

@@ -50,30 +50,30 @@ public class UserLoginActivity extends AppCompatActivity {
         MaterialButton loginbtn = (MaterialButton) findViewById(R.id.loginbtn);
         MaterialButton signup = (MaterialButton) findViewById(R.id.signbtn);
 
-        loginbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String email = emailEditTxt.getText().toString();
-                String password = passwordEditTxt.getText().toString();
+//        loginbtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                String email = emailEditTxt.getText().toString();
+//                String password = passwordEditTxt.getText().toString();
+//
+//                Passenger passenger;
+//                Driver driver;
+//                if ((passenger = MockupPassengers.findPassenger(email, password)) != null) {
+//                    LoggedIn.setPassenger(passenger);
+//                    startActivity(new Intent(UserLoginActivity.this, PassengerMainActivity.class));
+//                }
+//                else if ((driver = MockupDrivers.findDriver(email, password)) != null) {
+//                    LoggedIn.setDriver(driver);
+//                    startActivity(new Intent(UserLoginActivity.this, DriverMainActivity.class));
+//                }
+//                else {
+//                    Toast.makeText(UserLoginActivity.this,"Incorrect email and password!", Toast.LENGTH_SHORT).show();
+//                }
+//
+//            }
+//        });
 
-                Passenger passenger;
-                Driver driver;
-                if ((passenger = MockupPassengers.findPassenger(email, password)) != null) {
-                    LoggedIn.setPassenger(passenger);
-                    startActivity(new Intent(UserLoginActivity.this, PassengerMainActivity.class));
-                }
-                else if ((driver = MockupDrivers.findDriver(email, password)) != null) {
-                    LoggedIn.setDriver(driver);
-                    startActivity(new Intent(UserLoginActivity.this, DriverMainActivity.class));
-                }
-                else {
-                    Toast.makeText(UserLoginActivity.this,"Incorrect email and password!", Toast.LENGTH_SHORT).show();
-                }
 
-            }
-        });
-
-/*
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -84,7 +84,7 @@ public class UserLoginActivity extends AppCompatActivity {
 
             }
         });
-*/
+
 
         signup.setOnClickListener(new View.OnClickListener(){
             @Override

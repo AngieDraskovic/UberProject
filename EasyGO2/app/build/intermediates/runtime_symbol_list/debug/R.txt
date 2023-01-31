@@ -2577,6 +2577,7 @@ int drawable btn_radio_off_mtrl 0x7f08007b
 int drawable btn_radio_off_to_on_mtrl_animation 0x7f08007c
 int drawable btn_radio_on_mtrl 0x7f08007d
 int drawable btn_radio_on_to_off_mtrl_animation 0x7f08007e
+int drawable car 0x7f0800f4
 int drawable dejan_stankovic 0x7f08007f
 int drawable design_fab_background 0x7f080080
 int drawable design_ic_visibility 0x7f080081
@@ -2812,6 +2813,7 @@ int id cache_measures 0x7f090071
 int id callMeasure 0x7f090072
 int id cancel_action 0x7f090073
 int id cancel_button 0x7f090074
+int id carImage 0x7f09025b
 int id carryVelocity 0x7f090075
 int id center 0x7f090076
 int id centerCrop 0x7f090077
@@ -3273,6 +3275,7 @@ int id useLogo 0x7f090240
 int id userProfile 0x7f090241
 int id userProfile2 0x7f090242
 int id username 0x7f090243
+int id vehicle 0x7f09025c
 int id vehicle_spinner 0x7f090244
 int id vertical_only 0x7f090245
 int id viewSupporter 0x7f090246
@@ -3533,6 +3536,7 @@ int layout select_dialog_multichoice_material 0x7f0c008b
 int layout select_dialog_singlechoice_material 0x7f0c008c
 int layout support_simple_spinner_dropdown_item 0x7f0c008d
 int layout toolbar_layout 0x7f0c008e
+int layout vehicle_popup 0x7f0c0091
 int layout web_view 0x7f0c008f
 int menu layout_items 0x7f0e0000
 int mipmap ic_launcher 0x7f0f0000
