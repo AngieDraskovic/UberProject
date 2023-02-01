@@ -8,11 +8,15 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.example.easygo.R;
@@ -39,12 +43,22 @@ public class DriverAccountActivity extends AppCompatActivity {
         getDriver();
 
         LinearLayout editProfile = findViewById(R.id.driverProfile);
+        LinearLayout vehicleLayout = (LinearLayout)findViewById(R.id.vehicle);
         editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 editProfile.setBackgroundColor(Color.parseColor("#574A46"));
                 Intent intent = new Intent(DriverAccountActivity.this, DriverProfileActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        vehicleLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                vehicleLayout.setBackgroundColor(Color.parseColor("#574A46"));
+               startActivity(new Intent(DriverAccountActivity.this, VehicleActivity.class));
+
             }
         });
     }

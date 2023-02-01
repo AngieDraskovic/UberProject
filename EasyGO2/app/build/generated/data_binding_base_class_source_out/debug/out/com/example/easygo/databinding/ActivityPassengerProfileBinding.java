@@ -45,9 +45,6 @@ public final class ActivityPassengerProfileBinding implements ViewBinding {
   public final EditText etLastName;
 
   @NonNull
-  public final EditText etPassword;
-
-  @NonNull
   public final TextInputLayout layoutAddress;
 
   @NonNull
@@ -66,19 +63,15 @@ public final class ActivityPassengerProfileBinding implements ViewBinding {
   public final TextInputLayout layoutLastName;
 
   @NonNull
-  public final TextInputLayout layoutPassword;
-
-  @NonNull
   public final ImageView profileIcon;
 
   private ActivityPassengerProfileBinding(@NonNull ConstraintLayout rootView,
       @NonNull TextView backArrow, @NonNull Button btUpdate, @NonNull EditText etAddress,
       @NonNull EditText etContactNo, @NonNull EditText etEmail, @NonNull EditText etFirstName,
-      @NonNull EditText etLastName, @NonNull EditText etPassword,
-      @NonNull TextInputLayout layoutAddress, @NonNull TextInputLayout layoutContactNo,
-      @NonNull TextInputLayout layoutEmail, @NonNull TextInputLayout layoutFirstName,
-      @NonNull TextInputLayout layoutImage, @NonNull TextInputLayout layoutLastName,
-      @NonNull TextInputLayout layoutPassword, @NonNull ImageView profileIcon) {
+      @NonNull EditText etLastName, @NonNull TextInputLayout layoutAddress,
+      @NonNull TextInputLayout layoutContactNo, @NonNull TextInputLayout layoutEmail,
+      @NonNull TextInputLayout layoutFirstName, @NonNull TextInputLayout layoutImage,
+      @NonNull TextInputLayout layoutLastName, @NonNull ImageView profileIcon) {
     this.rootView = rootView;
     this.backArrow = backArrow;
     this.btUpdate = btUpdate;
@@ -87,14 +80,12 @@ public final class ActivityPassengerProfileBinding implements ViewBinding {
     this.etEmail = etEmail;
     this.etFirstName = etFirstName;
     this.etLastName = etLastName;
-    this.etPassword = etPassword;
     this.layoutAddress = layoutAddress;
     this.layoutContactNo = layoutContactNo;
     this.layoutEmail = layoutEmail;
     this.layoutFirstName = layoutFirstName;
     this.layoutImage = layoutImage;
     this.layoutLastName = layoutLastName;
-    this.layoutPassword = layoutPassword;
     this.profileIcon = profileIcon;
   }
 
@@ -167,12 +158,6 @@ public final class ActivityPassengerProfileBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.et_password;
-      EditText etPassword = ViewBindings.findChildViewById(rootView, id);
-      if (etPassword == null) {
-        break missingId;
-      }
-
       id = R.id.layout_address;
       TextInputLayout layoutAddress = ViewBindings.findChildViewById(rootView, id);
       if (layoutAddress == null) {
@@ -209,12 +194,6 @@ public final class ActivityPassengerProfileBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.layout_password;
-      TextInputLayout layoutPassword = ViewBindings.findChildViewById(rootView, id);
-      if (layoutPassword == null) {
-        break missingId;
-      }
-
       id = R.id.profileIcon;
       ImageView profileIcon = ViewBindings.findChildViewById(rootView, id);
       if (profileIcon == null) {
@@ -222,9 +201,8 @@ public final class ActivityPassengerProfileBinding implements ViewBinding {
       }
 
       return new ActivityPassengerProfileBinding((ConstraintLayout) rootView, backArrow, btUpdate,
-          etAddress, etContactNo, etEmail, etFirstName, etLastName, etPassword, layoutAddress,
-          layoutContactNo, layoutEmail, layoutFirstName, layoutImage, layoutLastName,
-          layoutPassword, profileIcon);
+          etAddress, etContactNo, etEmail, etFirstName, etLastName, layoutAddress, layoutContactNo,
+          layoutEmail, layoutFirstName, layoutImage, layoutLastName, profileIcon);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

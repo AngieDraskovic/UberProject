@@ -2578,6 +2578,7 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable car
 drawable dejan_stankovic
 drawable design_fab_background
 drawable design_ic_visibility
@@ -2586,6 +2587,7 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable financialcard_background
 drawable ic_baseline_arrow_back_24
+drawable ic_baseline_cancel_24
 drawable ic_baseline_directions_car_24
 drawable ic_baseline_done_24
 drawable ic_baseline_email_24
@@ -2813,6 +2815,7 @@ id cache_measures
 id callMeasure
 id cancel_action
 id cancel_button
+id carImage
 id carryVelocity
 id center
 id centerCrop
@@ -2909,7 +2912,6 @@ id et_contact_no
 id et_email
 id et_first_name
 id et_last_name
-id et_password
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
@@ -2986,7 +2988,6 @@ id layout_email
 id layout_first_name
 id layout_image
 id layout_last_name
-id layout_password
 id left
 id leftToRight
 id legacy
@@ -3030,6 +3031,7 @@ id messagesContent
 id middle
 id mini
 id mirror
+id model
 id moneyGraph
 id month_grid
 id month_navigation_bar
@@ -3110,6 +3112,7 @@ id peekHeight
 id percent
 id pet_transport_checkbox
 id pin
+id plate
 id position
 id postLayout
 id pressed
@@ -3159,6 +3162,7 @@ id search_mag_icon
 id search_plate
 id search_src_text
 id search_voice_btn
+id seats
 id selectDateLbl
 id selectTimeLbl
 id selectVehicleLbl
@@ -3276,10 +3280,12 @@ id unchecked
 id uniform
 id unlabeled
 id up
+id updateBtn
 id useLogo
 id userProfile
 id userProfile2
 id username
+id vehicle
 id vehicleGrade
 id vehicle_spinner
 id vertical_only
@@ -3445,6 +3451,7 @@ layout activity_passenger_ride_history
 layout activity_ride_order
 layout activity_splash
 layout activity_user_login
+layout activity_vehicle
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -3541,6 +3548,7 @@ layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
 layout toolbar_layout
+layout vehicle_popup
 layout web_view
 menu layout_items
 mipmap ic_launcher

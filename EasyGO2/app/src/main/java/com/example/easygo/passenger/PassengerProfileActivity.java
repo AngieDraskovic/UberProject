@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.easygo.R;
+import com.example.easygo.dto.UpdatePassengerDTO;
 import com.example.easygo.dto.UserDTO;
 import com.example.easygo.model.users.Passenger;
 import com.example.easygo.service.ServiceUtilis;
@@ -28,7 +29,6 @@ public class PassengerProfileActivity extends AppCompatActivity {
     private EditText email;
     private EditText address;
     private EditText phone;
-    private EditText password;
     private ImageView profileIcon;
     private Passenger passenger;
 
@@ -57,7 +57,6 @@ public class PassengerProfileActivity extends AppCompatActivity {
         email = (EditText)findViewById(R.id.et_email);
         phone = (EditText)findViewById(R.id.et_contact_no);
         address = (EditText)findViewById(R.id.et_address);
-        password = (EditText)findViewById(R.id.et_password);
         profileIcon = (ImageView)findViewById(R.id.profileIcon);
         //
 
@@ -116,15 +115,6 @@ public class PassengerProfileActivity extends AppCompatActivity {
             }
         });
 
-        password.setOnFocusChangeListener(new View.OnFocusChangeListener(){
-            @Override
-            public void onFocusChange(View v, boolean hasFocus){
-                if(hasFocus) {
-                    password.setText("");
-                    password.setHint("Password");
-                }
-            }
-        });
 
 
         TextView backArrow = (TextView)findViewById(R.id.back_arrow);
@@ -140,16 +130,46 @@ public class PassengerProfileActivity extends AppCompatActivity {
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                passenger.setName(nameEdit.getText().toString());
-                passenger.setSurname(lastnameEdit.getText().toString());
-                passenger.setTelephoneNumber(phone.getText().toString());
-                passenger.setEmail(email.getText().toString());
-                passenger.setAddress(address.getText().toString());
-                passenger.setPassword(password.getText().toString());
-                Toast.makeText(PassengerProfileActivity.this, "Update successfull!", Toast.LENGTH_SHORT).show();
+//                passenger.setName(nameEdit.getText().toString());
+//                passenger.setSurname(lastnameEdit.getText().toString());
+//                passenger.setPhone(phone.getText().toString());
+//                passenger.setEmail(email.getText().toString());
+//                passenger.setAddress(address.getText().toString());
+//                passenger.setPassword(password.getText().toString());
+//                Toast.makeText(PassengerProfileActivity.this, "Update successfull!", Toast.LENGTH_SHORT).show();
+                updatePassenger();
+            }
+        });
+    }
+
+
+    public void updatePassenger(){
+        UpdatePassengerDTO updatePassengerDTO = new UpdatePassengerDTO(this.nameEdit.getText().toString(),
+                this.lastnameEdit.getText().toString(),
+                "", this.phone.getText().toString(), this.email.getText().toString(),
+                this.address.getText().toString());
+        SharedPreferences preferences = getSharedPreferences("preference_file_name", MODE_PRIVATE);
+        int id = preferences.getInt("p_id", 0);
+        Call<UpdatePassengerDTO> call = ServiceUtilis.userService.updatePassenger(updatePassengerDTO, id);
+        call.enqueue(new Callback<UpdatePassengerDTO>() {
+            @Override
+            public void onResponse(Call<UpdatePassengerDTO> call, Response<UpdatePassengerDTO> response) {
+                if(response.isSuccessful()){
+                    Toast.makeText(PassengerProfileActivity.this, "Update successfull!", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UpdatePassengerDTO> call, Throwable t) {
 
             }
         });
+
+
+
+
+
+
     }
 
     public void setPassenger(Passenger passenger){
@@ -158,7 +178,6 @@ public class PassengerProfileActivity extends AppCompatActivity {
         email.setText(passenger.getEmail());
         phone.setText(passenger.getTelephoneNumber());
         address.setText(passenger.getAddress());
-        password.setText(passenger.getPassword());
         profileIcon.setImageResource(passenger.getProfilePic());
     }
 

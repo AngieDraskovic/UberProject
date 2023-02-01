@@ -27,6 +27,13 @@
         android:theme="@style/Theme.EasyGO"
         android:usesCleartextTraffic="true" >
         <activity
+            android:name="com.example.easygo.driver.VehicleActivity"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name="com.example.easygo.passenger.PassengerActivationActivity"
             android:exported="false" >
             <meta-data
