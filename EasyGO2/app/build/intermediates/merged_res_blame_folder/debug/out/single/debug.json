@@ -20,6 +20,10 @@
         "source": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\xml\\data_extraction_rules.xml"
     },
     {
+        "merged": "com.example.easygo.app-merged_res-32:/layout_activity_passenger_activation.xml.flat",
+        "source": "com.example.easygo.app-main-34:/layout/activity_passenger_activation.xml"
+    },
+    {
         "merged": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\drawable_whitish_background.xml.flat",
         "source": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\drawable\\whitish_background.xml"
     },
@@ -56,12 +60,12 @@
         "source": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\drawable\\ic_baseline_cancel_24.xml"
     },
     {
-        "merged": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\drawable-xhdpi_ic_message.png.flat",
-        "source": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-debug-33:\\drawable-xhdpi\\ic_message.png"
-    },
-    {
         "merged": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\drawable-xxhdpi_ic_message.png.flat",
         "source": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-debug-33:\\drawable-xxhdpi\\ic_message.png"
+    },
+    {
+        "merged": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\drawable-xhdpi_ic_message.png.flat",
+        "source": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-debug-33:\\drawable-xhdpi\\ic_message.png"
     },
     {
         "merged": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\drawable-v24_reports.png.flat",
@@ -104,12 +108,12 @@
         "source": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\activity_driver_inbox.xml"
     },
     {
-        "merged": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\mipmap-xxhdpi\\ic_launcher_round.webp"
-    },
-    {
         "merged": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\drawable-v24_car.jpg.flat",
         "source": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\drawable-v24\\car.jpg"
+    },
+    {
+        "merged": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\mipmap-xxhdpi\\ic_launcher_round.webp"
     },
     {
         "merged": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\drawable-xxhdpi_ic_flag.png.flat",
@@ -328,10 +332,6 @@
         "source": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\toolbar_layout.xml"
     },
     {
-        "merged": "com.example.easygo.app-merged_res-32:/layout_activity_passenger_profile.xml.flat",
-        "source": "com.example.easygo.app-main-34:/layout/activity_passenger_profile.xml"
-    },
-    {
         "merged": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\drawable-v24_sale_katai.png.flat",
         "source": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\drawable-v24\\sale_katai.png"
     },
@@ -352,16 +352,16 @@
         "source": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-debug-33:\\drawable-anydpi\\ic_message.xml"
     },
     {
+        "merged": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\layout_activity_passenger_profile.xml.flat",
+        "source": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\activity_passenger_profile.xml"
+    },
+    {
         "merged": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\layout_fragment_fragment4_confirm.xml.flat",
         "source": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\fragment_fragment4_confirm.xml"
     },
     {
         "merged": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\layout_fragment_messages.xml.flat",
         "source": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\fragment_messages.xml"
-    },
-    {
-        "merged": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\layout_activity_passenger_profile.xml.flat",
-        "source": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\activity_passenger_profile.xml"
     },
     {
         "merged": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\drawable_ic_baseline_arrow_back_24.xml.flat",
@@ -374,10 +374,6 @@
     {
         "merged": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\drawable_ic_baseline_directions_car_24.xml.flat",
         "source": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\drawable\\ic_baseline_directions_car_24.xml"
-    },
-    {
-        "merged": "com.example.easygo.app-merged_res-32:/layout_activity_vehicle.xml.flat",
-        "source": "com.example.easygo.app-main-34:/layout/activity_vehicle.xml"
     },
     {
         "merged": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-merged_res-32:\\mipmap-xhdpi_ic_launcher.webp.flat",

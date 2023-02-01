@@ -28,7 +28,7 @@
 
         var map = L.map('map').setView([45.2396, 19.8227], 13);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'}).addTo(map);
 
 
 
@@ -107,8 +107,39 @@
         }
 
         // addRoute("Narodnog Fronta 69, Novi Sad", "dr Svetislava Kasapinovica 33");
-
         
+        async function stimulateMovement(departure, destination){
+            try{
+                var waypoint1 = await getCord(departure);
+                var waypoint2 = await getCord(destination);
+            }catch(err){
+            }
+            console.log(waypoint1);
+            console.log(waypoint2);
+            var control = L.Routing.control({
+                waypoints: [waypoint1, waypoint2],
+            routeWhileDragging: false,
+            createMarker: function() { return null; }
+            }).addTo(map);
+            
+            control.on('routeselected', function(e) {
+            var route = e.route.coordinates;
+            var marker = L.marker(route[0]).addTo(map);
+            var index = 0;
+            var moveMarker = function() {
+            if (index === route.length - 1) {
+            clearInterval(interval);
+            alert("You have reached your destination!");
+            return;
+            }
+            marker.setLatLng(route[index]);
+            index = (index + 1) % route.length;
+            };
+            var interval = setInterval(moveMarker, 500);
+            });
+        }
+
+      //  stimulateMovement("Svetislava Kasapinovica, Novi Sad", "Strazilovska 12, Novi Sad");
     </script>
 </body>
 </html>

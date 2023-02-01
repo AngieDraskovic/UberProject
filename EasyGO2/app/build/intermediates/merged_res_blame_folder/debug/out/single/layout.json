@@ -56,10 +56,6 @@
         "source": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\fragment_fragment3_details.xml"
     },
     {
-        "merged": "com.example.easygo.app-mergeDebugResources-31:/layout/activity_vehicle.xml",
-        "source": "com.example.easygo.app-main-34:/layout/activity_vehicle.xml"
-    },
-    {
         "merged": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-mergeDebugResources-31:\\layout\\activity_passenger_register.xml",
         "source": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\activity_passenger_register.xml"
     },
@@ -104,10 +100,6 @@
         "source": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\activity_splash.xml"
     },
     {
-        "merged": "com.example.easygo.app-mergeDebugResources-31:/layout/activity_passenger_profile.xml",
-        "source": "com.example.easygo.app-main-34:/layout/activity_passenger_profile.xml"
-    },
-    {
         "merged": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-mergeDebugResources-31:\\layout\\fragment_fragment2_time.xml",
         "source": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\fragment_fragment2_time.xml"
     },
@@ -138,6 +130,10 @@
     {
         "merged": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-mergeDebugResources-31:\\layout\\ride_details_layout.xml",
         "source": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-main-34:\\layout\\ride_details_layout.xml"
+    },
+    {
+        "merged": "com.example.easygo.app-mergeDebugResources-31:/layout/activity_passenger_activation.xml",
+        "source": "com.example.easygo.app-main-34:/layout/activity_passenger_activation.xml"
     },
     {
         "merged": "C:\\Users\\Anastasija\\.gradle\\daemon\\7.4\\com.example.easygo.app-mergeDebugResources-31:\\layout\\activity_passenger_profile.xml",

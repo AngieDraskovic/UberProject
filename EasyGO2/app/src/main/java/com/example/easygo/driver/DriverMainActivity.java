@@ -224,6 +224,7 @@ public class DriverMainActivity extends AppCompatActivity {
         showDeparture();
         showDestination();
         showRoute();
+        showSimulation();
     }
 
     private void showDeparture() {
@@ -246,6 +247,15 @@ public class DriverMainActivity extends AppCompatActivity {
         });
     }
 
+
+    private void showSimulation() {
+        webView.setWebViewClient(new WebViewClient() {
+            public void onPageFinished(WebView view, String url) {
+                String departure = activeRide.getLocations().get(0).getDeparture().getAddress();
+                String destination = activeRide.getLocations().get(0).getDestination().getAddress();
+                webView.evaluateJavascript("javascript:stimulateMovement(\""+departure+"\", \""+destination+"\")", null);            }
+        });
+    }
 
 
     private void makeNotification(OneRideOfPassengerDTO ride){
