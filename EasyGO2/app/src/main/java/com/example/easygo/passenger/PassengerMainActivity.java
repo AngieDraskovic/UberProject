@@ -50,7 +50,7 @@ import retrofit2.Response;
 
 public class PassengerMainActivity extends AppCompatActivity {
 
-
+    // atributiii
     private Ride activeRide;
     private WebView webView;
     private Button rideOrderBtn;
