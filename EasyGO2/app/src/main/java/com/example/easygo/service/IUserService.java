@@ -7,6 +7,7 @@ import com.example.easygo.dto.ResponseMessageDTO;
 import com.example.easygo.dto.UpdateDriverDTO;
 import com.example.easygo.dto.UpdatePassengerDTO;
 import com.example.easygo.dto.UserDTO;
+import com.example.easygo.dto.ride.VehicleDTO;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -40,4 +41,11 @@ public interface IUserService {
     @PUT(ServiceUtilis.driver + "/{id}")
     Call<UpdateDriverDTO> updateDriver(@Body UpdateDriverDTO updateDriverDTO,
                                        @Path("id") Integer id);
+
+    @GET(ServiceUtilis.driver + "/{id}/vehicle")
+    Call<VehicleDTO> getDriverVehicle(@Path("id") Integer id);
+
+    @PUT(ServiceUtilis.driver + "/{id}/vehicle")
+    Call<VehicleDTO> updateDriverVehicle(@Path("id") Integer id, @Body VehicleDTO vehicleDTO);
+
 }

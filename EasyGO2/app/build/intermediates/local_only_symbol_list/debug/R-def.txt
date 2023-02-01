@@ -12,9 +12,11 @@ color white
 drawable background_splashscreen
 drawable bkg
 drawable black_layout
+drawable car
 drawable dejan_stankovic
 drawable financialcard_background
 drawable ic_baseline_arrow_back_24
+drawable ic_baseline_cancel_24
 drawable ic_baseline_directions_car_24
 drawable ic_baseline_done_24
 drawable ic_baseline_email_24
@@ -58,6 +60,7 @@ id btnHistory
 id btnHome
 id btnInbox
 id button
+id carImage
 id confirmGradeBtn
 id confirmOrderBtn
 id confirm_button
@@ -78,7 +81,6 @@ id et_contact_no
 id et_email
 id et_first_name
 id et_last_name
-id et_password
 id financialCard
 id forgotpass
 id fragmentContainer
@@ -103,7 +105,6 @@ id layout_email
 id layout_first_name
 id layout_image
 id layout_last_name
-id layout_password
 id locationsFragmentBtn
 id loginbtn
 id logout
@@ -111,6 +112,7 @@ id messageDate
 id messageTime
 id message_icon
 id messagesContent
+id model
 id moneyGraph
 id name
 id navFragment
@@ -124,6 +126,7 @@ id passenger_message_icon
 id password
 id passwordRepeat
 id pet_transport_checkbox
+id plate
 id profileIcon
 id profileImg
 id reports
@@ -137,6 +140,7 @@ id ridePetTransport
 id rideTime
 id rideVehicleName
 id rootLinear
+id seats
 id selectDateLbl
 id selectTimeLbl
 id selectVehicleLbl
@@ -162,9 +166,11 @@ id txtMessageContent
 id txtPhone
 id txtSenderName
 id txtUser
+id updateBtn
 id userProfile
 id userProfile2
 id username
+id vehicle
 id vehicleGrade
 id vehicle_spinner
 id viewSupporter
@@ -190,6 +196,7 @@ layout activity_passenger_ride_history
 layout activity_ride_order
 layout activity_splash
 layout activity_user_login
+layout activity_vehicle
 layout financialcard_popup
 layout fragment_fragment1_locations
 layout fragment_fragment2_time
@@ -203,6 +210,7 @@ layout navigation
 layout probno
 layout ride_details_layout
 layout toolbar_layout
+layout vehicle_popup
 layout web_view
 menu layout_items
 mipmap ic_launcher

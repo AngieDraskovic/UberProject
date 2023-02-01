@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".driver.VehicleActivity">
+
+
+    <ImageView
+        android:id="@+id/carImage"
+        android:layout_width="304dp"
+        android:layout_height="191dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:elevation="5dp"
+        app:srcCompat="@drawable/car" />
+
+    <TableLayout
+        android:id="@+id/table"
+        android:layout_width="302dp"
+        android:layout_height="344dp"
+        android:layout_below="@+id/carImage"
+        android:layout_centerHorizontal="true"
+        android:background="#F3EEEE">
+
+        <TableRow
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text=" MODEL: "
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/model"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="BMW"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text=" LICENSE PLATE: "
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/plate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="KO4-E-771"
+                android:textSize="16sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text=" PASSENGER SEATS: "
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/seats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="4"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+        </TableRow>
+
+        <Spinner
+            android:id="@+id/vehicle_spinner"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_below="@id/selectVehicleLbl"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="40dp"
+            android:background="@color/black"
+            android:backgroundTint="#C1BEBE"
+            android:entries="@array/vehicle_options"
+            android:prompt="@string/vehicle_prompt"
+            android:textColor="@color/gray" />
+
+        <CheckBox
+            android:id="@+id/baby_transport_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/table"
+            android:buttonTint="@color/black"
+            android:text="@string/baby_transport"
+            android:textColor="@color/gray"
+            android:textSize="16sp" />
+
+        <CheckBox
+            android:id="@+id/pet_transport_checkbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/table"
+            android:buttonTint="@color/black"
+            android:text="@string/pet_transport"
+            android:textColor="@color/gray"
+            android:textSize="16sp" />
+    </TableLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/updateBtn"
+        android:layout_width="200dp"
+        android:layout_height="46dp"
+        android:layout_below="@id/table"
+        android:layout_centerHorizontal="true"
+
+        android:layout_marginStart="20dp"
+
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="0dp"
+        android:backgroundTint="#D3DF9258"
+        android:text="UPDATE"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

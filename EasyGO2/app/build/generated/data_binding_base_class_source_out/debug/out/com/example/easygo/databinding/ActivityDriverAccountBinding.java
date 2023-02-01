@@ -57,12 +57,16 @@ public final class ActivityDriverAccountBinding implements ViewBinding {
   @NonNull
   public final TextView txtUser;
 
+  @NonNull
+  public final LinearLayout vehicle;
+
   private ActivityDriverAccountBinding(@NonNull RelativeLayout rootView,
       @NonNull ImageView backImageView, @NonNull LinearLayout driverFullName,
       @NonNull ImageView driverIconPicture, @NonNull LinearLayout driverProfile,
       @NonNull ImageView iconVehicle, @NonNull ImageView profileImg, @NonNull ImageView reportsIcon,
       @NonNull ToolbarLayoutBinding toolbar, @NonNull TextView txtAddress,
-      @NonNull TextView txtEmail, @NonNull TextView txtPhone, @NonNull TextView txtUser) {
+      @NonNull TextView txtEmail, @NonNull TextView txtPhone, @NonNull TextView txtUser,
+      @NonNull LinearLayout vehicle) {
     this.rootView = rootView;
     this.backImageView = backImageView;
     this.driverFullName = driverFullName;
@@ -76,6 +80,7 @@ public final class ActivityDriverAccountBinding implements ViewBinding {
     this.txtEmail = txtEmail;
     this.txtPhone = txtPhone;
     this.txtUser = txtUser;
+    this.vehicle = vehicle;
   }
 
   @Override
@@ -178,9 +183,15 @@ public final class ActivityDriverAccountBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.vehicle;
+      LinearLayout vehicle = ViewBindings.findChildViewById(rootView, id);
+      if (vehicle == null) {
+        break missingId;
+      }
+
       return new ActivityDriverAccountBinding((RelativeLayout) rootView, backImageView,
           driverFullName, driverIconPicture, driverProfile, iconVehicle, profileImg, reportsIcon,
-          binding_toolbar, txtAddress, txtEmail, txtPhone, txtUser);
+          binding_toolbar, txtAddress, txtEmail, txtPhone, txtUser, vehicle);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
