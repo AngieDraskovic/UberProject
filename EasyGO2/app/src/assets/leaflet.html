@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leaflet Map</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin="anonymous"></script>
+    <style>
+        #map {
+            height: 100%;
+        }
+        body {
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="map">
+    <br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+
+</div>
+<script>
+        var map = L.map('map').setView([45.2396, 19.8227], 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
+            maxZoom: 18
+        }).addTo(map);
+
+        map.on('click', function(event) {
+            var lat = event.latlng.lat;
+            var lng = event.latlng.lng;
+            Android.onMapClicked(lat, lng);
+        });
+
+          function addMarkerByAddress(address) {
+            // Fetch coordinates from the geocoding API
+            fetch('https://nominatim.openstreetmap.org/search?format=json&q=' + address)
+            .then(response => response.json())
+            .then(data => {
+              var coordinates = [data[0].lat, data[0].lon];
+              var marker = L.marker(coordinates).addTo(map);
+            });
+          }
+
+          addMarkerByAddress("New York, NY");
+          addMarkerByAddress("Los Angeles, CA");
+    </script>
+</body>
+</html>

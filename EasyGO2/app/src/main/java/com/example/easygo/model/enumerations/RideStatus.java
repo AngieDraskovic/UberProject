@@ -1,9 +1,11 @@
 package com.example.easygo.model.enumerations;
 
 public enum RideStatus {
-    ON_HOLD,
+    PENDING,
+    STARTED,
     ACCEPTED,
-    DENIED,
+    CANCELED,
     ACTIVE,
-    DONE;
+    FINISHED,
+    REJECTED
 }

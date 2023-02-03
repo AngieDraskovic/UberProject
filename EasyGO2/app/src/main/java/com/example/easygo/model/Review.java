@@ -1,22 +1,47 @@
 package com.example.easygo.model;
 
+import com.example.easygo.model.users.Driver;
 import com.example.easygo.model.users.Passenger;
 
 public class Review {
     private int id;
-    private double grade;
+    private int driverGrade;
+    private int vehicleGrade;
     private String comment;
+    private Passenger passenger;
+    private Driver driver;
+    private Vehicle vehicle;
     private Ride ride;
-    private Passenger reviewer;
+
 
     public Review() {};
 
-    public Review(int id, double grade, String comment, Ride ride, Passenger reviewer) {
-        this.id = id;
-        this.grade = grade;
+    public Review(int driverGrade, int vehicleGrade, String comment) {
+        this.driverGrade = driverGrade;
+        this.vehicleGrade = vehicleGrade;
         this.comment = comment;
+    }
+
+    public Review(Review review) {
+        this.id = review.id;
+        this.driverGrade = review.driverGrade;
+        this.vehicleGrade = review.vehicleGrade;
+        this.comment = review.comment;
+        this.passenger = review.passenger;
+        this.driver = review.driver;
+        this.vehicle = review.vehicle;
+        this.ride = review.ride;
+    }
+
+    public Review(int id, int driverGrade, int vehicleGrade, String comment, Passenger passenger, Driver driver, Vehicle vehicle, Ride ride) {
+        this.id = id;
+        this.driverGrade = driverGrade;
+        this.vehicleGrade = vehicleGrade;
+        this.comment = comment;
+        this.passenger = passenger;
+        this.driver = driver;
+        this.vehicle = vehicle;
         this.ride = ride;
-        this.reviewer = reviewer;
     }
 
     public int getId() {
@@ -27,13 +52,21 @@ public class Review {
         this.id = id;
     }
 
-    public double getGrade() {
-        return grade;
-    }
+    public int getDriverGrade() {return driverGrade;}
 
-    public void setGrade(double grade) {
-        this.grade = grade;
-    }
+    public void setDriverGrade(int driverGrade) {this.driverGrade = driverGrade;}
+
+    public int getVehicleGrade() {return vehicleGrade;}
+
+    public void setVehicleGrade(int vehicleGrade) {this.vehicleGrade = vehicleGrade;}
+
+    public Driver getDriver() {return driver;}
+
+    public void setDriver(Driver driver) {this.driver = driver;}
+
+    public Vehicle getVehicle() {return vehicle;}
+
+    public void setVehicle(Vehicle vehicle) {this.vehicle = vehicle;}
 
     public String getComment() {
         return comment;
@@ -51,12 +84,12 @@ public class Review {
         this.ride = ride;
     }
 
-    public Passenger getReviewer() {
-        return reviewer;
+    public Passenger getPassenger() {
+        return passenger;
     }
 
-    public void setReviewer(Passenger reviewer) {
-        this.reviewer = reviewer;
+    public void setPassenger(Passenger passenger) {
+        this.passenger = passenger;
     }
 
 

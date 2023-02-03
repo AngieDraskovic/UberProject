@@ -1,22 +1,29 @@
 package com.example.easygo.model.users;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.example.easygo.model.Message;
 import com.example.easygo.model.Rejection;
+import com.example.easygo.utility.Pictures;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class User {
+public class User implements Serializable, Parcelable {
 
     private int id;
     private String name;
     private String surname;
     private int profilePic;
-    private String phone;
+    private String profilePicture;
+    private String telephoneNumber;
     private String email;
     private String address;
     private String password;
+    private boolean active;
     private boolean blocked;
     private List<Message> sentMessages;
     private List<Message> deliveredMessages;
@@ -28,19 +35,64 @@ public class User {
         this.rejections = new ArrayList<Rejection>();
     }
 
-    public User(int id, String name, String surname, int profilePic, String phone, String email, String address, String password, boolean blocked){
+    public User(User user){
+        this();
+        this.id = user.id;
+        this.name = user.name;
+        this.surname = user.surname;
+        this.profilePicture = user.profilePicture;
+        this.profilePic = Pictures.get(user.profilePicture);
+        this.telephoneNumber = user.telephoneNumber;
+        this.email = user.email;
+        this.address = user.address;
+        this.password = user.password;
+        this.active = user.active;
+        this.blocked = user.blocked;
+    }
+
+    public User(int id, String name, String surname, int profilePic, String profilePicture, String phone, String email, String address, String password, boolean active, boolean blocked){
         this();
         this.id = id;
         this.name = name;
         this.surname = surname;
-        this.profilePic = profilePic;
-        this.phone = phone;
+        this.profilePicture = profilePicture;
+        this.profilePic = Pictures.get(profilePicture);
+        this.telephoneNumber = phone;
         this.email = email;
         this.address = address;
         this.password = password;
         this.blocked = blocked;
+        this.active = active;
     }
 
+
+    protected User(Parcel in) {
+        id = in.readInt();
+        name = in.readString();
+        surname = in.readString();
+        profilePic = in.readInt();
+        profilePicture = in.readString();
+        telephoneNumber = in.readString();
+        email = in.readString();
+        address = in.readString();
+        password = in.readString();
+        active = in.readByte() != 0;
+        blocked = in.readByte() != 0;
+        sentMessages = in.createTypedArrayList(Message.CREATOR);
+        deliveredMessages = in.createTypedArrayList(Message.CREATOR);
+    }
+
+    public static final Creator<User> CREATOR = new Creator<User>() {
+        @Override
+        public User createFromParcel(Parcel in) {
+            return new User(in);
+        }
+
+        @Override
+        public User[] newArray(int size) {
+            return new User[size];
+        }
+    };
 
     public int getId() {
         return id;
@@ -60,17 +112,15 @@ public class User {
     public void setSurname(String surname) {
         this.surname = surname;
     }
-    public int getProfilePic() {
-        return profilePic;
-    }
+    public int getProfilePic() {return Pictures.get(profilePicture);}
     public void setProfilePic(int profilePic) {
         this.profilePic = profilePic;
     }
-    public String getPhone() {
-        return phone;
+    public String getTelephoneNumber() {
+        return telephoneNumber;
     }
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setTelephoneNumber(String telephoneNumber) {
+        this.telephoneNumber = telephoneNumber;
     }
     public String getEmail() {
         return email;
@@ -96,6 +146,12 @@ public class User {
     public void setBlocked(boolean blocked) {
         this.blocked = blocked;
     }
+    public boolean isActive() {
+        return active;
+    }
+    public void setActive(boolean active) {
+        this.active = active;
+    }
     public List<Message> getSentMessages() { return sentMessages; }
     public List<Message> getDeliveredMessages() { return deliveredMessages; }
     public void setSentMessages(List<Message> sentMessages) { this.sentMessages = sentMessages; }
@@ -107,6 +163,14 @@ public class User {
 
     public void setRejections(List<Rejection> rejections) {
         this.rejections = rejections;
+    }
+
+    public String getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(String profilePicture) {
+        this.profilePicture = profilePicture;
     }
 
     @Override
@@ -125,5 +189,27 @@ public class User {
     @Override
     public String toString() {
         return name + " " + surname;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(id);
+        parcel.writeString(name);
+        parcel.writeString(surname);
+        parcel.writeInt(profilePic);
+        parcel.writeString(profilePicture);
+        parcel.writeString(telephoneNumber);
+        parcel.writeString(email);
+        parcel.writeString(address);
+        parcel.writeString(password);
+        parcel.writeByte((byte) (active ? 1 : 0));
+        parcel.writeByte((byte) (blocked ? 1 : 0));
+        parcel.writeTypedList(sentMessages);
+        parcel.writeTypedList(deliveredMessages);
     }
 }

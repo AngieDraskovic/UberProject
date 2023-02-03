@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leaflet Map</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin="anonymous"></script>
+    <link rel='stylesheet' href='https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css'/>
+    <script src='https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js'></script>
+    <style>
+        #map {
+            height: 100%;
+        }
+        body {
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="map">
+    <br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+
+</div>
+<script>
+
+        var map = L.map('map').setView([45.2396, 19.8227], 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'}).addTo(map);
+
+
+
+        function getFive() {
+            return [48.84723894, 12.9842394];
+        }
+
+
+        async function getCoordinatesByAddress(address, pin) {
+            try {
+                const response = await fetch('https://nominatim.openstreetmap.org/search?format=json&q=' + address);
+                const data = await response.json();
+                var coordinates = [data[0].lat, data[0].lon];
+
+                var customIcon = L.icon({
+                    iconUrl: pin,
+                    iconSize: [38, 35],
+                    iconAnchor: [22, 34],
+                    popupAnchor: [-3, -76],
+                });
+                var marker = L.marker(coordinates, {icon: customIcon}).addTo(map);
+<!--                var marker = L.marker(coordinates).addTo(map);-->
+                return coordinates;
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        async function getPromise(address, pin) {
+            let coordinates = await getCoordinatesByAddress(address, pin);
+            return JSON.stringify(coordinates);
+        }
+
+        async function getDeparture(address) {
+            getPromise(address, './departure.png').then(function(coordinates) {
+                Android.setDeparture(coordinates);
+            });
+        }
+
+        async function getDestination(address) {
+            getPromise(address, './destination.png').then(function(coordinates) {
+                console.log(coordinates);
+                Android.setDestination(coordinates);
+            });
+        }
+
+        async function getCord(address){
+            const response = await fetch('https://nominatim.openstreetmap.org/search?format=json&q=' + address);
+            const data = await response.json();
+            var coordinates = [data[0].lat, data[0].lon];
+            return coordinates;
+        }
+
+        function addRoute(lat1, lat2, lng1, lng2){
+            var waypoint1 = L.latLng(lat1, lng1);
+            var waypoint2 = L.latLng(lat2, lng2);
+            control = L.Routing.control({
+                waypoints: [waypoint1, waypoint2]
+            }).addTo(map).on('routesfound', (e) => {
+                let routes = e.routes;
+                let summary = routes[0].summary;
+                kilometers = summary.totalDistance/1000;
+                time = summary.totalTime% 3600/60;
+            })
+        }
+
+        async function addRoute(departure, destination){
+            console.log(departure);
+            try{
+                var waypoint1 = await getCord(departure);
+                var waypoint2 = await getCord(destination);
+            }catch(err){
+
+            }
+            console.log(waypoint2);
+            control = L.Routing.control({
+                waypoints: [waypoint1, waypoint2]
+            }).addTo(map).on('routesfound', (e) => {
+                let routes = e.routes;
+                let summary = routes[0].summary;
+                kilometers = summary.totalDistance/1000;
+                time = summary.totalTime% 3600/60;
+            })
+        }
+
+        // addRoute("Narodnog Fronta 69, Novi Sad", "dr Svetislava Kasapinovica 33");
+
+        async function stimulateMovement(departure, destination){
+            try{
+                var waypoint1 = await getCord(departure);
+                var waypoint2 = await getCord(destination);
+            }catch(err){
+            }
+            console.log(waypoint1);
+            console.log(waypoint2);
+            var control = L.Routing.control({
+                waypoints: [waypoint1, waypoint2],
+            routeWhileDragging: false,
+            createMarker: function() { return null; }
+            }).addTo(map);
+
+            control.on('routeselected', function(e) {
+            var route = e.route.coordinates;
+            var marker = L.marker(route[0]).addTo(map);
+            var index = 0;
+            var moveMarker = function() {
+            if (index === route.length - 1) {
+            clearInterval(interval);
+            alert("You have reached your destination!");
+            return;
+            }
+            marker.setLatLng(route[index]);
+            index = (index + 1) % route.length;
+            };
+            var interval = setInterval(moveMarker, 500);
+            });
+        }
+
+      //  stimulateMovement("Svetislava Kasapinovica, Novi Sad", "Strazilovska 12, Novi Sad");
+    </script>
+</body>
+</html>

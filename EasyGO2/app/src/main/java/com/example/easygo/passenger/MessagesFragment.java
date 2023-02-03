@@ -26,22 +26,32 @@ import java.util.ArrayList;
 
 public class MessagesFragment extends ListFragment {
 
+    protected ArrayList<Conversation> conversations;
+
     public MessagesFragment() {
 
     }
 
-    public static MessagesFragment newInstance() {
+    public static MessagesFragment newInstance(Bundle bundle) {
         MessagesFragment fragment = new MessagesFragment();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
+        fragment.setArguments(bundle);
+
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        MessageAdapter2 adapter = new MessageAdapter2(getActivity());
+
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+            this.conversations = bundle.getParcelableArrayList("conversations");
+        }
+
+        MessageAdapter2 adapter = new MessageAdapter2(getActivity(), conversations);
         setListAdapter(adapter);
+
+
     }
 
     @Override
@@ -55,7 +65,8 @@ public class MessagesFragment extends ListFragment {
     public void onListItemClick(@NonNull ListView l, @NonNull View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
 
-        Conversation conversation = MockupMessages.getCurrUserMessages().get(position);
+        Conversation conversation = conversations.get(position);
+//        Conversation conversation = new Conversation();
 
         Intent intent = new Intent(getActivity(), MessageDetailActivity.class);
 
@@ -63,6 +74,8 @@ public class MessagesFragment extends ListFragment {
         String[] senders = getSendersFromConversation(conversation);        // ['me', vozac;]
         intent.putExtra("textMessages", textMessages);
         intent.putExtra("senders", senders);
+        intent.putExtra("anotherUser", conversation.getAnotherUser().toString());
+        intent.putExtra("icon", conversation.getAnotherUser().getProfilePic());
         startActivity(intent);
     }
 
@@ -74,7 +87,6 @@ public class MessagesFragment extends ListFragment {
             User me = LoggedIn.getUser();
             senders[i] = (sender.equals(me)) ? "Me" : sender.toString();
         }
-
 
         return senders;
     }

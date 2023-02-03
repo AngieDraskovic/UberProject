@@ -1,16 +1,29 @@
 package com.example.easygo.model;
 
-public class Location {
+import java.io.Serializable;
+
+public class Location implements Serializable {
     private int id;
-    private double lenght;
-    private double width;
+    private String address;
+    private double latitude;
+    private double longitude;
 
-    public Location() {};
 
-    public Location(int id, double lenght, double width) {
+
+    public Location() {}
+
+    public Location(Location location) {
+        this.id = location.id;
+        this.address = location.address;
+        this.latitude = location.latitude;
+        this.longitude = location.longitude;
+    }
+
+    public Location(int id, double longitude, double latitude, String address) {
         this.id = id;
-        this.lenght = lenght;
-        this.width = width;
+        this.longitude = longitude;
+        this.latitude = latitude;
+        this.address = address;
     }
 
     public int getId() {
@@ -21,19 +34,23 @@ public class Location {
         this.id = id;
     }
 
-    public double getLenght() {
-        return lenght;
+    public double getLongitude() {
+        return longitude;
     }
 
-    public void setLenght(double lenght) {
-        this.lenght = lenght;
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
     }
 
-    public double getWidth() {
-        return width;
+    public double getLatitude() {
+        return latitude;
     }
 
-    public void setWidth(double width) {
-        this.width = width;
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
     }
+
+    public String getAddress() { return address; }
+
+    public void setAddress(String address) { this.address = address; }
 }

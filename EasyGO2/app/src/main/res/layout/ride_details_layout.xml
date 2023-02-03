@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="350dp"
+    android:layout_height="420dp"
+    >
+
+
+    <RelativeLayout
+        android:layout_width="350dp"
+        android:layout_height="420dp"
+        android:layout_centerVertical="true"
+        android:elevation="50dp">
+
+       <TableLayout
+           android:id="@+id/table"
+           android:layout_centerHorizontal="true"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+        >
+
+           <TableRow
+               android:layout_marginStart="10dp"
+               android:layout_marginTop="15dp"
+               >
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_marginEnd="10dp"
+                   android:text=" DRIVER: "
+                   android:textSize="15sp" />
+
+               <EditText
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:paddingLeft="10dp"
+                   android:paddingRight="10dp"
+                   android:text="Ime i prezime vozaca"
+                   android:textSize="15sp" />
+           </TableRow>
+           <TableRow
+               android:layout_marginStart="10dp"
+               android:layout_marginTop="15dp"
+               >
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_marginEnd="10dp"
+                   android:text=" DRIVER CONTACT: "
+                   android:textSize="15sp" />
+
+               <EditText
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:paddingLeft="10dp"
+                   android:paddingRight="10dp"
+                   android:text="0432423"
+                   android:textSize="15sp" />
+           </TableRow>
+           <TableRow
+               android:layout_marginStart="10dp"
+               android:layout_marginTop="15dp"
+               >
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_marginEnd="10dp"
+                   android:text=" DEPARTURE: "
+                   android:textSize="15sp" />
+
+               <EditText
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:paddingLeft="10dp"
+                   android:paddingRight="10dp"
+                   android:text="polazna adresa"
+                   android:textSize="15sp" />
+           </TableRow>
+           <TableRow
+               android:layout_marginStart="10dp"
+               android:layout_marginTop="15dp"
+               >
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_marginEnd="10dp"
+                   android:text=" DESTINATION: "
+                   android:textSize="15sp" />
+
+               <EditText
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:paddingLeft="10dp"
+                   android:paddingRight="10dp"
+                   android:text="krajnja adresa"
+                   android:textSize="15sp" />
+           </TableRow>
+           <TableRow
+               android:layout_marginStart="10dp"
+               android:layout_marginTop="15dp"
+               >
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_marginEnd="10dp"
+                   android:text=" VEHICLE TYPE "
+                   android:textSize="15sp" />
+
+               <EditText
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:paddingLeft="10dp"
+                   android:paddingRight="10dp"
+                   android:text=" STANDARD"
+                   android:textSize="15sp" />
+           </TableRow>
+           <TableRow
+               android:layout_marginStart="10dp"
+               android:layout_marginTop="15dp"
+               >
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_marginEnd="10dp"
+                   android:text=" PRICE "
+                   android:textSize="15sp" />
+
+               <EditText
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:paddingLeft="10dp"
+                   android:paddingRight="10dp"
+                   android:text=" 500din"
+                   android:textSize="15sp" />
+           </TableRow>
+       </TableLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/loginbtn"
+            android:layout_width="152dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/table"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="#D3D88D54"
+            android:text="CLOSE" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

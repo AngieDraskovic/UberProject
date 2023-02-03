@@ -10,31 +10,26 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.easygo.R;
-import com.example.easygo.mockup.MockupMessages;
 import com.example.easygo.model.Conversation;
-import com.example.easygo.model.Message;
 import com.example.easygo.model.enumerations.MessaggeType;
 
-import org.w3c.dom.Text;
-
-import java.nio.charset.StandardCharsets;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
-import java.util.concurrent.BrokenBarrierException;
+import java.util.ArrayList;
 
-public class MessageAdapter2 extends BaseAdapter
-{
+public class MessageAdapter2 extends BaseAdapter {
     private Activity activity;
+    private ArrayList<Conversation> conversations;
 
-    public MessageAdapter2(Activity activity){
+    public MessageAdapter2(Activity activity, ArrayList<Conversation> conversations){
         this.activity = activity;
+        this.conversations = conversations;
     }
 
     @Override
-    public int getCount() { return MockupMessages.getCurrUserMessages().size(); }
+    public int getCount() { return conversations.size();/* MockupMessages.getCurrUserMessages(LoggedIn.getUser()).size(); */ }
 
     @Override
-    public Conversation getItem(int index) { return MockupMessages.getCurrUserMessages().get(index); }
+    public Conversation getItem(int index) { return conversations.get(index); /* MockupMessages.getCurrUserMessages(LoggedIn.getUser()).get(index); */ }
 
     @Override
     public long getItemId(int i) {
@@ -45,7 +40,8 @@ public class MessageAdapter2 extends BaseAdapter
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View vi = convertView;
-        Conversation conversation = MockupMessages.getCurrUserMessages().get(position);
+        Conversation conversation = this.conversations.get(position);
+//        Conversation conversation = MockupMessages.getCurrUserMessages(LoggedIn.getUser()).get(position);
 
         if (convertView == null)
             vi = activity.getLayoutInflater().inflate(R.layout.message_list_item, null);

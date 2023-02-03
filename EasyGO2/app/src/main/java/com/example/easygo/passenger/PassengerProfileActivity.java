@@ -3,6 +3,7 @@ package com.example.easygo.passenger;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,11 +12,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.easygo.LoggedIn;
 import com.example.easygo.R;
-import com.example.easygo.UserLoginActivity;
-import com.example.easygo.driver.DriverProfileActivity;
+import com.example.easygo.dto.UpdatePassengerDTO;
+import com.example.easygo.dto.UserDTO;
 import com.example.easygo.model.users.Passenger;
+import com.example.easygo.service.ServiceUtilis;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class PassengerProfileActivity extends AppCompatActivity {
 
@@ -24,7 +29,6 @@ public class PassengerProfileActivity extends AppCompatActivity {
     private EditText email;
     private EditText address;
     private EditText phone;
-    private EditText password;
     private ImageView profileIcon;
     private Passenger passenger;
 
@@ -47,22 +51,14 @@ public class PassengerProfileActivity extends AppCompatActivity {
     @Override
     protected void onResume(){
         super.onResume();
-        this.passenger = LoggedIn.getPassenger();
+        getPassenger();
         nameEdit = (EditText)findViewById(R.id.et_first_name);
         lastnameEdit = (EditText)findViewById(R.id.et_last_name);
         email = (EditText)findViewById(R.id.et_email);
         phone = (EditText)findViewById(R.id.et_contact_no);
         address = (EditText)findViewById(R.id.et_address);
-        password = (EditText)findViewById(R.id.et_password);
         profileIcon = (ImageView)findViewById(R.id.profileIcon);
-        //setujem editTextove sa mockup podacima
-        nameEdit.setText(passenger.getName());
-        lastnameEdit.setText(passenger.getSurname());
-        email.setText(passenger.getEmail());
-        phone.setText(passenger.getPhone());
-        address.setText(passenger.getAddress());
-        password.setText(passenger.getPassword());
-        profileIcon.setImageResource(passenger.getProfilePic());
+        //
 
         //na fokus se pojavljuje hint a brise se napisano
 
@@ -119,15 +115,6 @@ public class PassengerProfileActivity extends AppCompatActivity {
             }
         });
 
-        password.setOnFocusChangeListener(new View.OnFocusChangeListener(){
-            @Override
-            public void onFocusChange(View v, boolean hasFocus){
-                if(hasFocus) {
-                    password.setText("");
-                    password.setHint("Password");
-                }
-            }
-        });
 
 
         TextView backArrow = (TextView)findViewById(R.id.back_arrow);
@@ -143,13 +130,75 @@ public class PassengerProfileActivity extends AppCompatActivity {
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                passenger.setName(nameEdit.getText().toString());
-                passenger.setSurname(lastnameEdit.getText().toString());
-                passenger.setPhone(phone.getText().toString());
-                passenger.setEmail(email.getText().toString());
-                passenger.setAddress(address.getText().toString());
-                passenger.setPassword(password.getText().toString());
-                Toast.makeText(PassengerProfileActivity.this, "Update successfull!", Toast.LENGTH_SHORT).show();
+//                passenger.setName(nameEdit.getText().toString());
+//                passenger.setSurname(lastnameEdit.getText().toString());
+//                passenger.setPhone(phone.getText().toString());
+//                passenger.setEmail(email.getText().toString());
+//                passenger.setAddress(address.getText().toString());
+//                passenger.setPassword(password.getText().toString());
+//                Toast.makeText(PassengerProfileActivity.this, "Update successfull!", Toast.LENGTH_SHORT).show();
+                updatePassenger();
+            }
+        });
+    }
+
+
+    public void updatePassenger(){
+        UpdatePassengerDTO updatePassengerDTO = new UpdatePassengerDTO(this.nameEdit.getText().toString(),
+                this.lastnameEdit.getText().toString(),
+                this.passenger.getProfilePicture(), this.phone.getText().toString(), this.email.getText().toString(),
+                this.address.getText().toString());
+        SharedPreferences preferences = getSharedPreferences("preference_file_name", MODE_PRIVATE);
+        int id = preferences.getInt("p_id", 0);
+        Call<UpdatePassengerDTO> call = ServiceUtilis.userService.updatePassenger(updatePassengerDTO, id);
+        call.enqueue(new Callback<UpdatePassengerDTO>() {
+            @Override
+            public void onResponse(Call<UpdatePassengerDTO> call, Response<UpdatePassengerDTO> response) {
+                if(response.isSuccessful()){
+                    Toast.makeText(PassengerProfileActivity.this, "Update successfully!", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UpdatePassengerDTO> call, Throwable t) {
+
+            }
+        });
+
+
+
+
+
+
+    }
+
+    public void setPassenger(Passenger passenger){
+        nameEdit.setText(passenger.getName());
+        lastnameEdit.setText(passenger.getSurname());
+        email.setText(passenger.getEmail());
+        phone.setText(passenger.getTelephoneNumber());
+        address.setText(passenger.getAddress());
+        profileIcon.setImageResource(passenger.getProfilePic());
+    }
+
+    public void getPassenger(){
+        SharedPreferences preferences = getSharedPreferences("preference_file_name", MODE_PRIVATE);
+        int id = preferences.getInt("p_id", 0);
+        Call<UserDTO> call = ServiceUtilis.userService.getPassenger(id);
+        call.enqueue(new Callback<UserDTO>() {
+            @Override
+            public void onResponse(Call<UserDTO> call, Response<UserDTO> response) {
+                if (response.isSuccessful()) {
+                    assert response.body() != null;
+                    passenger = new Passenger(response.body());
+                    setPassenger(passenger);
+                } else {
+                    // handle error response
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UserDTO> call, Throwable t) {
 
             }
         });

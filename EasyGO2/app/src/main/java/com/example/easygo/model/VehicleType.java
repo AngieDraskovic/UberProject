@@ -2,19 +2,22 @@ package com.example.easygo.model;
 
 import com.example.easygo.model.enumerations.VehicleName;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VehicleType {
+public class VehicleType implements Serializable {
     private int id;
     private VehicleName vehicleName;
-    private int pricePerKilometer;
-    private List<Vehicle> vehicles;
-    private List<Ride> rides;
+    private double pricePerKilometer;
 
     public VehicleType() {
-        this.vehicles = new ArrayList<Vehicle>();
-        this.rides = new ArrayList<Ride>();
+
+    }
+    public VehicleType(VehicleType vehicleType) {
+        this.id = vehicleType.id;
+        this.vehicleName = vehicleType.vehicleName;
+        this.pricePerKilometer = vehicleType.pricePerKilometer;
     }
 
     public VehicleType(int id, VehicleName vehicleName, int pricePerKilometer) {
@@ -40,7 +43,7 @@ public class VehicleType {
         this.vehicleName = vehicleName;
     }
 
-    public int getPricePerKilometer() {
+    public double getPricePerKilometer() {
         return pricePerKilometer;
     }
 
@@ -48,19 +51,4 @@ public class VehicleType {
         this.pricePerKilometer = pricePerKilometer;
     }
 
-    public List<Vehicle> getVehicles() {
-        return vehicles;
-    }
-
-    public void setVehicles(List<Vehicle> vehicles) {
-        this.vehicles = vehicles;
-    }
-
-    public List<Ride> getRides() {
-        return rides;
-    }
-
-    public void setRides(List<Ride> rides) {
-        this.rides = rides;
-    }
 }

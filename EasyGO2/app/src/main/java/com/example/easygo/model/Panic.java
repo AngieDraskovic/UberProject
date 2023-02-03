@@ -1,23 +1,40 @@
 package com.example.easygo.model;
 
 import com.example.easygo.model.users.Passenger;
+import com.example.easygo.model.users.User;
+import com.example.easygo.utility.Convert;
 
 import java.time.LocalDateTime;
 
 public class Panic {
     private int id;
-    private LocalDateTime time;
+    private int[] time;
     private String reason;
-    private Passenger passenger;
+    private Integer userId;
     private Ride ride;
 
-    public Panic() {};
+    public Panic() {}
 
-    public Panic(int id, LocalDateTime time, String reason, Passenger passenger, Ride ride) {
-        this.id = id;
-        this.time = time;
+    public Panic(String reason, Integer userId, Ride ride) {
         this.reason = reason;
-        this.passenger = passenger;
+        this.userId = userId;
+        this.ride = ride;
+        this.time = Convert.toIntArray(LocalDateTime.now());
+    }
+
+    public Panic(Panic panic){
+        this.id = panic.id;
+        this.time = panic.time;
+        this.reason = panic.reason;
+        this.userId = panic.userId;
+        this.ride = panic.ride;
+    }
+
+    public Panic(int id, LocalDateTime time, String reason, Integer userId, Ride ride) {
+        this.id = id;
+        this.time = Convert.toIntArray(time);
+        this.reason = reason;
+        this.userId = userId;
         this.ride = ride;
     }
 
@@ -29,13 +46,9 @@ public class Panic {
         this.id = id;
     }
 
-    public LocalDateTime getTime() {
-        return time;
-    }
+    public LocalDateTime getTime() {return Convert.toLocalDateTime(time);}
 
-    public void setTime(LocalDateTime time) {
-        this.time = time;
-    }
+    public void setTime(LocalDateTime time) {this.time = Convert.toIntArray(time);}
 
     public String getReason() {
         return reason;
@@ -45,12 +58,12 @@ public class Panic {
         this.reason = reason;
     }
 
-    public Passenger getPassenger() {
-        return passenger;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setPassenger(Passenger passenger) {
-        this.passenger = passenger;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public Ride getRide() {
@@ -60,4 +73,6 @@ public class Panic {
     public void setRide(Ride ride) {
         this.ride = ride;
     }
+
+
 }
