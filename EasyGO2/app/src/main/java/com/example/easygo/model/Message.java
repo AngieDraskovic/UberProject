@@ -1,21 +1,34 @@
 package com.example.easygo.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.example.easygo.model.enumerations.MessaggeType;
 import com.example.easygo.model.users.User;
 import com.example.easygo.utility.Convert;
 
 import java.time.LocalDateTime;
 
-public class Message {
+public class Message implements Parcelable {
     private int id;
     private User sender;
     private User receiver;
     private String text;
     private int[] time;
     private MessaggeType type;
+    private int rideId;
     private Ride ride;
 
     public Message() {}
+
+    public Message(String text, User sender, User deliverer, int rideId) {
+        this.text = text;
+        this.time = Convert.toIntArray(LocalDateTime.now());
+        this.type = MessaggeType.RIDE;
+        this.sender = sender;
+        this.receiver = deliverer;
+        this.rideId = rideId;
+    }
 
     public Message(Message message) {
         this.id = message.id;
@@ -36,6 +49,27 @@ public class Message {
         this.receiver = deliverer;
         this.ride = ride;
     }
+
+    protected Message(Parcel in) {
+        id = in.readInt();
+        text = in.readString();
+        time = in.createIntArray();
+        rideId = in.readInt();
+        sender = in.readParcelable(User.class.getClassLoader());
+        receiver = in.readParcelable(User.class.getClassLoader());
+    }
+
+    public static final Creator<Message> CREATOR = new Creator<Message>() {
+        @Override
+        public Message createFromParcel(Parcel in) {
+            return new Message(in);
+        }
+
+        @Override
+        public Message[] newArray(int size) {
+            return new Message[size];
+        }
+    };
 
     public int getId() {
         return id;
@@ -102,5 +136,20 @@ public class Message {
                 ", deliverer=" + receiver +
                 ", ride=" + ride +
                 '}';
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(id);
+        parcel.writeString(text);
+        parcel.writeIntArray(time);
+        parcel.writeInt(rideId);
+        parcel.writeParcelable(sender, i);
+        parcel.writeParcelable(receiver, i);
     }
 }

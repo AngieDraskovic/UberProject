@@ -10,24 +10,31 @@ public class Panic {
     private int id;
     private int[] time;
     private String reason;
-    private User user;
+    private Integer userId;
     private Ride ride;
 
     public Panic() {}
+
+    public Panic(String reason, Integer userId, Ride ride) {
+        this.reason = reason;
+        this.userId = userId;
+        this.ride = ride;
+        this.time = Convert.toIntArray(LocalDateTime.now());
+    }
 
     public Panic(Panic panic){
         this.id = panic.id;
         this.time = panic.time;
         this.reason = panic.reason;
-        this.user = panic.user;
+        this.userId = panic.userId;
         this.ride = panic.ride;
     }
 
-    public Panic(int id, LocalDateTime time, String reason, User user, Ride ride) {
+    public Panic(int id, LocalDateTime time, String reason, Integer userId, Ride ride) {
         this.id = id;
         this.time = Convert.toIntArray(time);
         this.reason = reason;
-        this.user = user;
+        this.userId = userId;
         this.ride = ride;
     }
 
@@ -51,12 +58,12 @@ public class Panic {
         this.reason = reason;
     }
 
-    public User getUser() {
-        return user;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public Ride getRide() {

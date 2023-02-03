@@ -14,9 +14,12 @@ import com.example.easygo.R;
 import com.example.easygo.dto.PostPassengerDTO;
 import com.example.easygo.mockup.MockupPassengers;
 import com.example.easygo.model.users.Passenger;
+import com.example.easygo.service.ErrorResponse;
 import com.example.easygo.service.ServiceUtilis;
 import com.google.android.material.button.MaterialButton;
 import com.example.easygo.driver.DriverMainActivity;
+
+import java.io.IOException;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -39,19 +42,6 @@ public class PassengerRegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_passenger_register);
 
         MaterialButton signBtn = (MaterialButton) findViewById(R.id.signbtn);
-//        signBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                takeValues();
-//                if (validInput()) {
-//                    int id = MockupPassengers.generateId();
-//                    Passenger passenger = new Passenger(id, name, surname, R.drawable.profile_default, phone, email, address, password, false);
-//                    MockupPassengers.addNew(passenger);
-//                    LoggedIn.setPassenger(passenger);
-//                    startActivity(new Intent(PassengerRegisterActivity.this, PassengerMainActivity.class));
-//                }
-//            }
-//        });
 
         signBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +63,16 @@ public class PassengerRegisterActivity extends AppCompatActivity {
         call.enqueue(new Callback<PostPassengerDTO>() {
             @Override
             public void onResponse(Call<PostPassengerDTO> call, Response<PostPassengerDTO> response) {
+                if(!response.isSuccessful()){
+                    ErrorResponse errorResponse = null;
+                    try {
+                        errorResponse = new ErrorResponse(response.code(), response.errorBody().string());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    Toast.makeText(PassengerRegisterActivity.this, errorResponse.getErrorMessage(), Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 if(response.isSuccessful()){
                     Toast.makeText(PassengerRegisterActivity.this, "Please check your email for activation code!", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(PassengerRegisterActivity.this, PassengerActivationActivity.class);
@@ -85,7 +85,7 @@ public class PassengerRegisterActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<PostPassengerDTO> call, Throwable t) {
-
+                Toast.makeText(PassengerRegisterActivity.this, "Request failed: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

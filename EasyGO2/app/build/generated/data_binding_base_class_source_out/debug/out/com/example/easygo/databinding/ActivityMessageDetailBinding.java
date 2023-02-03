@@ -4,6 +4,7 @@ package com.example.easygo.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -20,16 +21,21 @@ public final class ActivityMessageDetailBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
-  public final LinearLayout rootLinear;
+  public final ImageView chatHeaderProfileIcon;
 
   @NonNull
-  public final TextView textView;
+  public final TextView chatHeaderUser;
+
+  @NonNull
+  public final LinearLayout rootLinear;
 
   private ActivityMessageDetailBinding(@NonNull LinearLayout rootView,
-      @NonNull LinearLayout rootLinear, @NonNull TextView textView) {
+      @NonNull ImageView chatHeaderProfileIcon, @NonNull TextView chatHeaderUser,
+      @NonNull LinearLayout rootLinear) {
     this.rootView = rootView;
+    this.chatHeaderProfileIcon = chatHeaderProfileIcon;
+    this.chatHeaderUser = chatHeaderUser;
     this.rootLinear = rootLinear;
-    this.textView = textView;
   }
 
   @Override
@@ -59,15 +65,22 @@ public final class ActivityMessageDetailBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      LinearLayout rootLinear = (LinearLayout) rootView;
-
-      id = R.id.textView;
-      TextView textView = ViewBindings.findChildViewById(rootView, id);
-      if (textView == null) {
+      id = R.id.chatHeaderProfileIcon;
+      ImageView chatHeaderProfileIcon = ViewBindings.findChildViewById(rootView, id);
+      if (chatHeaderProfileIcon == null) {
         break missingId;
       }
 
-      return new ActivityMessageDetailBinding((LinearLayout) rootView, rootLinear, textView);
+      id = R.id.chatHeaderUser;
+      TextView chatHeaderUser = ViewBindings.findChildViewById(rootView, id);
+      if (chatHeaderUser == null) {
+        break missingId;
+      }
+
+      LinearLayout rootLinear = (LinearLayout) rootView;
+
+      return new ActivityMessageDetailBinding((LinearLayout) rootView, chatHeaderProfileIcon,
+          chatHeaderUser, rootLinear);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

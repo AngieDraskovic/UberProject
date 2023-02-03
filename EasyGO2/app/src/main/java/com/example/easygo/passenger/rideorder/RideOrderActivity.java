@@ -31,6 +31,7 @@ public class RideOrderActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         Ride ride = new Ride();
+        ride.getPassengers().add(PassengerMainActivity.getCurrentPassenger());
         FragmentTransition.to(Fragment1Locations.newInstance(ride), RideOrderActivity.this, false, R.id.fragmentContainer);
 
         Button locationsFragmentBtn = findViewById(R.id.locationsFragmentBtn);

@@ -27,7 +27,7 @@ public interface IRideService {
 //    Call<RideDTOResponse> getDriverActiveRide(@Path("driverId") Integer id);
 
     @GET(ServiceUtilis.driver +"/{driverId}/next-rides")
-    Call<List<OneRideOfPassengerDTO>> getDriverNextRides(@Path("driverId") Integer id);
+    Call<List<Ride>> getDriverNextRides(@Path("driverId") Integer id);
 
     @GET(ServiceUtilis.driver +"/{driverId}/active-working-hour")
     Call<WorkingHourDTOResponse> getDriverActiveWorikingHour(@Path("driverId") Integer id);

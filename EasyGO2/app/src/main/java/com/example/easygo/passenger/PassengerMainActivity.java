@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -33,15 +34,22 @@ import com.example.easygo.dto.UserDTO;
 import com.example.easygo.mockup.MockupMessages;
 import com.example.easygo.mockup.MockupRides;
 import com.example.easygo.model.Conversation;
+import com.example.easygo.model.Message;
+import com.example.easygo.model.Panic;
+import com.example.easygo.model.Remark;
 import com.example.easygo.model.Ride;
 
 import com.example.easygo.driver.DriverMainActivity;
 import com.example.easygo.model.enumerations.RideStatus;
+import com.example.easygo.model.users.Driver;
 import com.example.easygo.model.users.Passenger;
 import com.example.easygo.passenger.rideorder.RideOrderActivity;
 import com.example.easygo.service.ServiceUtilis;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -51,12 +59,16 @@ import retrofit2.Response;
 public class PassengerMainActivity extends AppCompatActivity {
 
     // atributiii
-    private Ride activeRide;
+
     private WebView webView;
     private Button rideOrderBtn;
     private ImageView messageIcon;
+    private Button panicButton;
+    private Button remarkButton;
 
-    private Passenger passenger;
+    private static Passenger passenger;
+    private Ride activeRide;
+    private List<Message> messages;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +77,8 @@ public class PassengerMainActivity extends AppCompatActivity {
         createNotificationChannel();
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        messages = new ArrayList<>();
 
         getPassenger();
 
@@ -93,9 +107,12 @@ public class PassengerMainActivity extends AppCompatActivity {
         webView.addJavascriptInterface(new JavaScriptInterface(), "Android");
         webView.setWebViewClient(new WebViewClient() {
             public void onPageFinished(WebView view, String url) {
-//                showRoute();
-//                showDeparture();
-//                showDestination();
+                if (activeRide != null) {
+//                    showRoute();
+                    showSimulation();
+                    showDeparture();
+                    showDestination();
+                }
             }
         });
         webView.loadUrl("file:///android_asset/leaflet.html");
@@ -119,6 +136,22 @@ public class PassengerMainActivity extends AppCompatActivity {
             }
         });
 
+        panicButton = findViewById(R.id.passengerPanicButton);
+        panicButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showPanicPopup(activeRide);
+            }
+        });
+
+        remarkButton = findViewById(R.id.passengerRemarkButton);
+        remarkButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showRemarkPopup(activeRide);
+            }
+        });
+
 //        makeNotification();
 //        checkForActiveRides();
     }
@@ -137,6 +170,15 @@ public class PassengerMainActivity extends AppCompatActivity {
     }
 
 
+    private void showActiveRideForm(){
+        messageIcon.setVisibility(View.VISIBLE);
+        panicButton.setVisibility(View.VISIBLE);
+        remarkButton.setVisibility(View.VISIBLE);
+
+        rideOrderBtn.setVisibility(View.GONE);
+    }
+
+
     /* Ova metoda prikazuje popup za slanje poruke */
     private void showMessageInput() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -149,9 +191,10 @@ public class PassengerMainActivity extends AppCompatActivity {
         builder.setPositiveButton("Send", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                String newMessage = messageEditText.getText().toString();
-                MockupMessages.createMessage(newMessage, passenger, activeRide.getDriver(), activeRide);
-                showMessageNotification();  // salje notifikaciju driveru
+                String text = messageEditText.getText().toString();
+                Message message = new Message(text, passenger, activeRide.getDriver(), activeRide.getId());
+                createMessage(message);
+
                 Toast.makeText(PassengerMainActivity.this, "Message sent", Toast.LENGTH_SHORT).show();
             }
         });
@@ -165,11 +208,13 @@ public class PassengerMainActivity extends AppCompatActivity {
         builder.show();
     }
 
-    private void showMessageNotification() {
-        /* Dobavi konverzaciju izmedju te dvije osobe */
-        Conversation conversation = MockupMessages.getConversation(passenger, activeRide.getDriver());
 
-        Intent intent = new Intent(this, DriverMainActivity.class);
+    private void showMessageNotification(Passenger passenger) {
+        /* Dobavi konverzaciju izmedju te dvije osobe */
+        Driver driver = activeRide.getDriver();
+        Conversation conversation = MockupMessages.getConversation(passenger, driver, messages);
+
+        Intent intent = new Intent(this, PassengerMainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
@@ -185,6 +230,61 @@ public class PassengerMainActivity extends AppCompatActivity {
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
         notificationManager.notify(123, builder.build());
+    }
+
+
+    private void showPanicPopup(Ride ride) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Enter panic reason:");
+
+        final EditText messageEditText = new EditText(this);
+        messageEditText.setInputType(InputType.TYPE_CLASS_TEXT);
+        builder.setView(messageEditText);
+
+        builder.setPositiveButton("Send", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String panicReason = messageEditText.getText().toString();
+                Panic panic = new Panic(panicReason, passenger.getId(), ride);
+                panicRide(ride, panic);
+                Toast.makeText(PassengerMainActivity.this, "Ride panic", Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
+    }
+
+    private void showRemarkPopup(Ride ride) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Remark driver:");
+
+        final EditText messageEditText = new EditText(this);
+        messageEditText.setInputType(InputType.TYPE_CLASS_TEXT);
+        builder.setView(messageEditText);
+
+        builder.setPositiveButton("Send", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String text = messageEditText.getText().toString();
+                Remark remark = new Remark(text, LocalDateTime.now(), activeRide.getDriver().getId());
+                createRemark(remark);
+                Toast.makeText(PassengerMainActivity.this, "Driver remarked", Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
     }
 
 //    private void makeNotification(){
@@ -248,11 +348,6 @@ public class PassengerMainActivity extends AppCompatActivity {
         return true;
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-    }
 
     @Override
     protected void onRestart() {
@@ -267,11 +362,6 @@ public class PassengerMainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
     }
 
     @Override
@@ -319,30 +409,28 @@ public class PassengerMainActivity extends AppCompatActivity {
     private void showRideOnMap() {
         showDeparture();
         showDestination();
-        showRoute();
+//        showRoute();
+        showSimulation();
     }
 
     private void showRoute() {
-        if (activeRide == null)
-            return;
-        webView.setWebViewClient(new WebViewClient() {
-            public void onPageFinished(WebView view, String url) {
-                String departure = activeRide.getLocations().get(0).getDeparture().getAddress();
-                String destination = activeRide.getLocations().get(0).getDestination().getAddress();
-                webView.evaluateJavascript("javascript:addRoute(\""+departure+"\", \""+destination+"\")", null);            }
-        });
+        String departure = activeRide.getLocations().get(0).getDeparture().getAddress();
+        String destination = activeRide.getLocations().get(0).getDestination().getAddress();
+        webView.evaluateJavascript("javascript:addRoute(\""+departure+"\", \""+destination+"\")", null);
+    }
+
+    private void showSimulation() {
+        String departure = activeRide.getLocations().get(0).getDeparture().getAddress();
+        String destination = activeRide.getLocations().get(0).getDestination().getAddress();
+        webView.evaluateJavascript("javascript:stimulateMovement(\""+departure+"\", \""+destination+"\")", null);
     }
 
     private void showDeparture() {
-        if (activeRide == null)
-            return;
         String departureAddress = activeRide.getLocations().get(0).getDeparture().getAddress();
         webView.evaluateJavascript("javascript:getDeparture('"+departureAddress+"')", null);
     }
 
     private void showDestination() {
-        if (activeRide == null)
-            return;
         String destinationAddress = activeRide.getLocations().get(0).getDestination().getAddress();
         webView.evaluateJavascript("javascript:getDestination('"+destinationAddress+"')", null);
     }
@@ -358,10 +446,6 @@ public class PassengerMainActivity extends AppCompatActivity {
                     assert response.body() != null;
                     passenger = new Passenger(response.body());
                     getPassengerActiveRide(passenger);
-
-                    Toast.makeText(PassengerMainActivity.this, passenger.getName(), Toast.LENGTH_SHORT).show();
-                } else {
-                    // handle error response
                 }
             }
 
@@ -380,19 +464,20 @@ public class PassengerMainActivity extends AppCompatActivity {
             public void onResponse(Call<Ride> call, Response<Ride> response) {
                 if (response.isSuccessful()) {
                     assert response.body() != null;
-                    activeRide = new Ride(response.body());
+                    Ride ride = new Ride(response.body());
 
-                    if (activeRide.getId() != 0) {
-                        // Za sada tu aktivnu voznju ocjenjujemo, kad (ako) budemo imali pravo, nakon sto voznja zavrsi salje se notif
-
-                        makeNotification(activeRide, passenger);
-
-                        // TODO: Show it on on map
+                    if (ride.getId() != 0 && activeRide == null) {
+                        activeRide = ride;
+                        getRidePassengers(ride);
+                        getRideDriver(ride);
+                        showActiveRideForm();
+                        showRideOnMap();
                     }
 
-
-                } else {
-                    // handle error response
+                    if (ride.getId() == 0 && activeRide != null) {
+                        makeNotification(activeRide, passenger);
+                        recreate();
+                    }
                 }
             }
 
@@ -401,6 +486,165 @@ public class PassengerMainActivity extends AppCompatActivity {
                 Toast.makeText(PassengerMainActivity.this, "Failovao passenger active ride", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+
+    public void getRidePassengers(Ride ride){
+        int i = 0;
+        for (Passenger passenger : ride.getPassengers()){
+            getPassengerById(ride, i);
+            i++;
+        }
+    }
+
+
+    public void getPassengerById(Ride ride, int i) {
+        Call<UserDTO> call = ServiceUtilis.userService.getPassenger(ride.getPassengers().get(i).getId());
+        call.enqueue(new Callback<UserDTO>() {
+            @Override
+            public void onResponse(Call<UserDTO> call, Response<UserDTO> response) {
+                if (response.isSuccessful()) {
+                    assert response.body() != null;
+                    ride.getPassengers().set(i, new Passenger(response.body()));
+                    System.out.println("Pass");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UserDTO> call, Throwable t) {
+                Toast.makeText(PassengerMainActivity.this, "Failovao get passengers", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+
+    public void getRideDriver(Ride ride) {
+        Call<UserDTO> call = ServiceUtilis.userService.getDriver(ride.getDriver().getId());
+        call.enqueue(new Callback<UserDTO>() {
+            @Override
+            public void onResponse(Call<UserDTO> call, Response<UserDTO> response) {
+                if (response.isSuccessful()) {
+                    assert response.body() != null;
+                    ride.setDriver(new Driver(response.body()));
+                    System.out.println("Pass");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UserDTO> call, Throwable t) {
+                Toast.makeText(PassengerMainActivity.this, "Failovao set driver", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+
+    public void panicRide(Ride ride, Panic panic) {
+        Call<Ride> call = ServiceUtilis.rideService.panicRide(panic, ride.getId());
+        call.enqueue(new Callback<Ride>() {
+            @Override
+            public void onResponse(Call<Ride> call, Response<Ride> response) {
+                if (response.isSuccessful()) {
+                    Toast.makeText(PassengerMainActivity.this, "Ride panic", Toast.LENGTH_SHORT).show();
+                    recreate();
+                }
+            }
+            @Override
+            public void onFailure(Call<Ride> call, Throwable t) {
+                System.out.println("ISPIS: Failovano panic ride");
+            }
+        });
+    }
+
+
+    public void getRideMessages(Ride ride) {
+        Call<List<Message>> call = ServiceUtilis.messageService.getRideMessages(ride.getId());
+        call.enqueue(new Callback<List<Message>>() {
+            @Override
+            public void onResponse(Call<List<Message>> call, Response<List<Message>> response) {
+                if (response.isSuccessful()) {
+                    assert response.body() != null;
+                    List<Message> newMessages = response.body();
+                    if (newMessages.size() > messages.size()) {
+                        System.out.println("new size: " + newMessages.size() + "     SIZE: " + messages.size());
+                        messages = newMessages;
+                        showMessageNotification(passenger);
+                    }
+                    messages = newMessages;
+                }
+            }
+            @Override
+            public void onFailure(Call<List<Message>> call, Throwable t) {
+                System.out.println("ISPIS: Failovano finish ride");
+            }
+        });
+    }
+
+
+    public void createMessage(Message message) {
+        messages.add(message);
+        Call<Message> call = ServiceUtilis.messageService.createMessage(message);
+        call.enqueue(new Callback<Message>() {
+            @Override
+            public void onResponse(Call<Message> call, Response<Message> response) {
+                if (response.isSuccessful()) {
+                    System.out.println("ISPIS: Prosao create message");
+                }
+            }
+            @Override
+            public void onFailure(Call<Message> call, Throwable t) {
+                System.out.println("ISPIS: Failovano create message");
+            }
+        });
+    }
+
+
+    public void createRemark(Remark remark) {
+        Call<Remark> call = ServiceUtilis.userService.createRemark(remark, remark.getUserId());
+        call.enqueue(new Callback<Remark>() {
+            @Override
+            public void onResponse(Call<Remark> call, Response<Remark> response) {
+                if (response.isSuccessful()) {
+                    System.out.println("ISPIS: Prosao remark driver");
+                }
+            }
+            @Override
+            public void onFailure(Call<Remark> call, Throwable t) {
+                System.out.println("ISPIS: Failovano remark driver");
+            }
+        });
+    }
+
+    public static Passenger getCurrentPassenger() {
+        return passenger;
+    }
+
+
+    private Handler handler = new Handler();
+    private Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            if (passenger != null)
+                getPassengerActiveRide(passenger);
+            if (activeRide != null)
+                getRideMessages(activeRide);
+
+            // Schedule the next execution after 10 seconds
+            handler.postDelayed(this, 5 * 1000);
+        }
+    };
+
+    // Start the timer when the activity starts
+    @Override
+    protected void onStart() {
+        super.onStart();
+        handler.post(runnable);
+    }
+
+    // Stop the timer when the activity stops
+    @Override
+    protected void onStop() {
+        super.onStop();
+        handler.removeCallbacks(runnable);
     }
 
 }

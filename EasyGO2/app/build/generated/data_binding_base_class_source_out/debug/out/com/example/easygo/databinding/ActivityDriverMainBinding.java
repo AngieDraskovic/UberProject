@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.ToggleButton;
@@ -22,6 +23,12 @@ public final class ActivityDriverMainBinding implements ViewBinding {
   private final RelativeLayout rootView;
 
   @NonNull
+  public final Button driverFinishRideButton;
+
+  @NonNull
+  public final Button driverPanicButton;
+
+  @NonNull
   public final WebView driverWebView;
 
   @NonNull
@@ -34,9 +41,12 @@ public final class ActivityDriverMainBinding implements ViewBinding {
   public final ToolbarLayoutBinding toolbar;
 
   private ActivityDriverMainBinding(@NonNull RelativeLayout rootView,
+      @NonNull Button driverFinishRideButton, @NonNull Button driverPanicButton,
       @NonNull WebView driverWebView, @NonNull ImageView messageIcon,
       @NonNull ToggleButton toggleActive, @NonNull ToolbarLayoutBinding toolbar) {
     this.rootView = rootView;
+    this.driverFinishRideButton = driverFinishRideButton;
+    this.driverPanicButton = driverPanicButton;
     this.driverWebView = driverWebView;
     this.messageIcon = messageIcon;
     this.toggleActive = toggleActive;
@@ -70,6 +80,18 @@ public final class ActivityDriverMainBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.driverFinishRideButton;
+      Button driverFinishRideButton = ViewBindings.findChildViewById(rootView, id);
+      if (driverFinishRideButton == null) {
+        break missingId;
+      }
+
+      id = R.id.driverPanicButton;
+      Button driverPanicButton = ViewBindings.findChildViewById(rootView, id);
+      if (driverPanicButton == null) {
+        break missingId;
+      }
+
       id = R.id.driver_web_view;
       WebView driverWebView = ViewBindings.findChildViewById(rootView, id);
       if (driverWebView == null) {
@@ -95,8 +117,8 @@ public final class ActivityDriverMainBinding implements ViewBinding {
       }
       ToolbarLayoutBinding binding_toolbar = ToolbarLayoutBinding.bind(toolbar);
 
-      return new ActivityDriverMainBinding((RelativeLayout) rootView, driverWebView, messageIcon,
-          toggleActive, binding_toolbar);
+      return new ActivityDriverMainBinding((RelativeLayout) rootView, driverFinishRideButton,
+          driverPanicButton, driverWebView, messageIcon, toggleActive, binding_toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

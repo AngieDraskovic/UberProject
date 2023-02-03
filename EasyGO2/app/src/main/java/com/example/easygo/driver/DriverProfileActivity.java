@@ -93,7 +93,7 @@ public class DriverProfileActivity extends AppCompatActivity {
             public void onFocusChange(View v, boolean hasFocus){
                 if(hasFocus) {
                     addressEdit.setText("");
-                    addressEdit.setHint("Adress");
+                    addressEdit.setHint("Address");
                 }
             }
         });
@@ -135,7 +135,7 @@ public class DriverProfileActivity extends AppCompatActivity {
     public void updateDriver(){
         UpdateDriverDTO updateDriverDTO = new UpdateDriverDTO(this.nameEdit.getText().toString(),
                 this.lastnameEdit.getText().toString(),
-                "", this.phoneEdit.getText().toString(), this.emailEdit.getText().toString(),
+                this.driver.getProfilePicture(), this.phoneEdit.getText().toString(), this.emailEdit.getText().toString(),
                 this.addressEdit.getText().toString());
         SharedPreferences preferences = getSharedPreferences("preference_file_name", MODE_PRIVATE);
         int id = preferences.getInt("p_id", 0);
@@ -144,13 +144,13 @@ public class DriverProfileActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<UpdateDriverDTO> call, Response<UpdateDriverDTO> response) {
                 if(response.isSuccessful()){
-                    Toast.makeText(DriverProfileActivity.this, "Update successfull!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DriverProfileActivity.this, "Update successfully!", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<UpdateDriverDTO> call, Throwable t) {
-
+                Toast.makeText(DriverProfileActivity.this, "failovao successfully!", Toast.LENGTH_SHORT).show();
             }
         });
 

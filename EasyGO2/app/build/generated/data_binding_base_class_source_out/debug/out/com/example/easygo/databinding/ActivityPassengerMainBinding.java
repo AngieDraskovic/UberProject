@@ -25,6 +25,12 @@ public final class ActivityPassengerMainBinding implements ViewBinding {
   public final ImageView passengerMessageIcon;
 
   @NonNull
+  public final Button passengerPanicButton;
+
+  @NonNull
+  public final Button passengerRemarkButton;
+
+  @NonNull
   public final Button rideOrderBtn;
 
   @NonNull
@@ -34,10 +40,13 @@ public final class ActivityPassengerMainBinding implements ViewBinding {
   public final WebView webView;
 
   private ActivityPassengerMainBinding(@NonNull RelativeLayout rootView,
-      @NonNull ImageView passengerMessageIcon, @NonNull Button rideOrderBtn,
+      @NonNull ImageView passengerMessageIcon, @NonNull Button passengerPanicButton,
+      @NonNull Button passengerRemarkButton, @NonNull Button rideOrderBtn,
       @NonNull ToolbarLayoutBinding toolbar, @NonNull WebView webView) {
     this.rootView = rootView;
     this.passengerMessageIcon = passengerMessageIcon;
+    this.passengerPanicButton = passengerPanicButton;
+    this.passengerRemarkButton = passengerRemarkButton;
     this.rideOrderBtn = rideOrderBtn;
     this.toolbar = toolbar;
     this.webView = webView;
@@ -76,6 +85,18 @@ public final class ActivityPassengerMainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.passengerPanicButton;
+      Button passengerPanicButton = ViewBindings.findChildViewById(rootView, id);
+      if (passengerPanicButton == null) {
+        break missingId;
+      }
+
+      id = R.id.passengerRemarkButton;
+      Button passengerRemarkButton = ViewBindings.findChildViewById(rootView, id);
+      if (passengerRemarkButton == null) {
+        break missingId;
+      }
+
       id = R.id.rideOrderBtn;
       Button rideOrderBtn = ViewBindings.findChildViewById(rootView, id);
       if (rideOrderBtn == null) {
@@ -96,7 +117,7 @@ public final class ActivityPassengerMainBinding implements ViewBinding {
       }
 
       return new ActivityPassengerMainBinding((RelativeLayout) rootView, passengerMessageIcon,
-          rideOrderBtn, binding_toolbar, webView);
+          passengerPanicButton, passengerRemarkButton, rideOrderBtn, binding_toolbar, webView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

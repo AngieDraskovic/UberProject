@@ -148,9 +148,6 @@ public class PassengerAccountActivity extends AppCompatActivity {
                     assert response.body() != null;
                     passenger = new Passenger(response.body());
                     setPassengerData(passenger);
-                } else {
-                    // handle error response
-
                 }
             }
 

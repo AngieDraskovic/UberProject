@@ -130,8 +130,6 @@ public class DriverAccountActivity extends AppCompatActivity {
                     assert response.body() != null;
                     driver = new Driver(response.body());
                     setDriverData(driver);
-                } else {
-                    // handle error response
                 }
             }
 

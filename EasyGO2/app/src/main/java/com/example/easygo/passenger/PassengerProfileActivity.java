@@ -146,7 +146,7 @@ public class PassengerProfileActivity extends AppCompatActivity {
     public void updatePassenger(){
         UpdatePassengerDTO updatePassengerDTO = new UpdatePassengerDTO(this.nameEdit.getText().toString(),
                 this.lastnameEdit.getText().toString(),
-                "", this.phone.getText().toString(), this.email.getText().toString(),
+                this.passenger.getProfilePicture(), this.phone.getText().toString(), this.email.getText().toString(),
                 this.address.getText().toString());
         SharedPreferences preferences = getSharedPreferences("preference_file_name", MODE_PRIVATE);
         int id = preferences.getInt("p_id", 0);
@@ -155,7 +155,7 @@ public class PassengerProfileActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<UpdatePassengerDTO> call, Response<UpdatePassengerDTO> response) {
                 if(response.isSuccessful()){
-                    Toast.makeText(PassengerProfileActivity.this, "Update successfull!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PassengerProfileActivity.this, "Update successfully!", Toast.LENGTH_SHORT).show();
                 }
             }
 

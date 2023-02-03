@@ -30,6 +30,34 @@
         android:visibility="gone"
          />
 
+    <Button
+        android:id="@+id/driverFinishRideButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:layout_alignParentRight="true"
+        android:layout_above="@id/message_icon"
+        android:backgroundTint="@color/gray"
+        android:padding="8dp"
+        android:text="FINISH RIDE"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        />
+
+    <Button
+        android:id="@+id/driverPanicButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_above="@id/driverFinishRideButton"
+        android:layout_marginRight="16dp"
+        android:backgroundTint="#FF3D00"
+        android:padding="8dp"
+        android:text="PANIC"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        />
+
     <ToggleButton
         android:id="@+id/toggleActive"
         android:layout_width="wrap_content"

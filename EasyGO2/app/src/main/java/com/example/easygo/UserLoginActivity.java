@@ -80,6 +80,9 @@ public class UserLoginActivity extends AppCompatActivity {
                 deleteTokenPreferences();
                 String email = emailEditTxt.getText().toString();
                 String password = passwordEditTxt.getText().toString();
+
+//                String email = "dejan@gmail.com";
+//                String password = "dejan123";
                 loginUser(email, password);
 
             }
@@ -103,7 +106,10 @@ public class UserLoginActivity extends AppCompatActivity {
         call.enqueue(new Callback<LoginResponseDTO>() {
             @Override
             public void onResponse(Call<LoginResponseDTO> call, Response<LoginResponseDTO> response) {
-                if(!response.isSuccessful()) return;
+                if(!response.isSuccessful()){
+                    Toast.makeText(UserLoginActivity.this, "Wrong username or password. Try again!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 if(response.code()==204){                                                                   // mozda treba 200 :D
                     Toast.makeText(UserLoginActivity.this, "email not confirmed! ", Toast.LENGTH_SHORT).show();
                     return;
@@ -136,7 +142,8 @@ public class UserLoginActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<LoginResponseDTO> call, Throwable t) {
-
+                Log.d("GRESKAAA" , t.getMessage());
+                Toast.makeText(UserLoginActivity.this, "Request failed: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

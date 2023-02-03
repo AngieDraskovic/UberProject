@@ -44,4 +44,32 @@
         android:visibility="gone"
         />
 
+    <Button
+        android:id="@+id/passengerRemarkButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:layout_alignParentRight="true"
+        android:layout_above="@id/passenger_message_icon"
+        android:backgroundTint="@color/gray"
+        android:padding="8dp"
+        android:text="REMARK DRIVER"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        />
+
+    <Button
+        android:id="@+id/passengerPanicButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_above="@id/passengerRemarkButton"
+        android:layout_marginRight="16dp"
+        android:backgroundTint="#FF3D00"
+        android:padding="8dp"
+        android:text="PANIC"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        />
+
 </RelativeLayout>

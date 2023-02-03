@@ -151,7 +151,7 @@ public class Fragment4Confirm extends Fragment {
                 if (response.isSuccessful()) {
                     assert response.body() != null;
                     Ride newRide = response.body();
-                    Toast.makeText(getContext(),"Create ride", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(),"Successfully ordered ride!", Toast.LENGTH_SHORT).show();
                 }
             }
             @Override

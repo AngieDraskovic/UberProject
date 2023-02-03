@@ -38,11 +38,11 @@ MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\Wind
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\WindowsX\.gradle\caches\transforms-3\5494538d61a363f20d03ecac1b94dc16\transformed\asynclayoutinflater-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.core:core:1.8.0] C:\Users\WindowsX\.gradle\caches\transforms-3\87a796fe63836d99a2198ac6a6284cb3\transformed\core-1.8.0\AndroidManifest.xml:17:1-26:12
 MERGED from [com.auth0.android:jwtdecode:2.0.1] C:\Users\WindowsX\.gradle\caches\transforms-3\af92634895645795d5684a3674b474d0\transformed\jetified-jwtdecode-2.0.1\AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\WindowsX\.gradle\caches\transforms-3\fa3659a04c6e45d556b5f8662112b28b\transformed\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\WindowsX\.gradle\caches\transforms-3\b1ff8782cfcecfc397dad65b90e9c690\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\WindowsX\.gradle\caches\transforms-3\2843dd8f352d29054991aa53179df82d\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:17:1-37:12
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.5.1] C:\Users\WindowsX\.gradle\caches\transforms-3\890fbcef9c869e9a85209cc5c9a96739\transformed\lifecycle-runtime-2.5.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.savedstate:savedstate:1.2.0] C:\Users\WindowsX\.gradle\caches\transforms-3\4e9c4335ae9643d33813af8de5dcccc1\transformed\jetified-savedstate-1.2.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\WindowsX\.gradle\caches\transforms-3\fa3659a04c6e45d556b5f8662112b28b\transformed\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\WindowsX\.gradle\caches\transforms-3\4acf5e1ffd3dd0501ffb513566a1fad9\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
 MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\WindowsX\.gradle\caches\transforms-3\e187364c1939241e3cc323ceb5af3719\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:17:1-33:12
 MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\WindowsX\.gradle\caches\transforms-3\1fac657088262e01baed01fbff1f9e4c\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:17:1-24:12
@@ -359,6 +359,8 @@ MERGED from [androidx.core:core:1.8.0] C:\Users\WindowsX\.gradle\caches\transfor
 MERGED from [androidx.core:core:1.8.0] C:\Users\WindowsX\.gradle\caches\transforms-3\87a796fe63836d99a2198ac6a6284cb3\transformed\core-1.8.0\AndroidManifest.xml:20:5-22:41
 MERGED from [com.auth0.android:jwtdecode:2.0.1] C:\Users\WindowsX\.gradle\caches\transforms-3\af92634895645795d5684a3674b474d0\transformed\jetified-jwtdecode-2.0.1\AndroidManifest.xml:7:5-9:41
 MERGED from [com.auth0.android:jwtdecode:2.0.1] C:\Users\WindowsX\.gradle\caches\transforms-3\af92634895645795d5684a3674b474d0\transformed\jetified-jwtdecode-2.0.1\AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\WindowsX\.gradle\caches\transforms-3\fa3659a04c6e45d556b5f8662112b28b\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\WindowsX\.gradle\caches\transforms-3\fa3659a04c6e45d556b5f8662112b28b\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\WindowsX\.gradle\caches\transforms-3\b1ff8782cfcecfc397dad65b90e9c690\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\WindowsX\.gradle\caches\transforms-3\b1ff8782cfcecfc397dad65b90e9c690\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\WindowsX\.gradle\caches\transforms-3\2843dd8f352d29054991aa53179df82d\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:21:5-23:41
@@ -367,8 +369,6 @@ MERGED from [androidx.lifecycle:lifecycle-runtime:2.5.1] C:\Users\WindowsX\.grad
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.5.1] C:\Users\WindowsX\.gradle\caches\transforms-3\890fbcef9c869e9a85209cc5c9a96739\transformed\lifecycle-runtime-2.5.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.savedstate:savedstate:1.2.0] C:\Users\WindowsX\.gradle\caches\transforms-3\4e9c4335ae9643d33813af8de5dcccc1\transformed\jetified-savedstate-1.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.savedstate:savedstate:1.2.0] C:\Users\WindowsX\.gradle\caches\transforms-3\4e9c4335ae9643d33813af8de5dcccc1\transformed\jetified-savedstate-1.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\WindowsX\.gradle\caches\transforms-3\fa3659a04c6e45d556b5f8662112b28b\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\WindowsX\.gradle\caches\transforms-3\fa3659a04c6e45d556b5f8662112b28b\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\WindowsX\.gradle\caches\transforms-3\4acf5e1ffd3dd0501ffb513566a1fad9\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\WindowsX\.gradle\caches\transforms-3\4acf5e1ffd3dd0501ffb513566a1fad9\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\WindowsX\.gradle\caches\transforms-3\e187364c1939241e3cc323ceb5af3719\transformed\jetified-startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41

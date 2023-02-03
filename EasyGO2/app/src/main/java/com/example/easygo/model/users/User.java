@@ -1,14 +1,18 @@
 package com.example.easygo.model.users;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.example.easygo.model.Message;
 import com.example.easygo.model.Rejection;
+import com.example.easygo.utility.Pictures;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class User implements Serializable {
+public class User implements Serializable, Parcelable {
 
     private int id;
     private String name;
@@ -36,8 +40,8 @@ public class User implements Serializable {
         this.id = user.id;
         this.name = user.name;
         this.surname = user.surname;
-        this.profilePic = user.profilePic;
         this.profilePicture = user.profilePicture;
+        this.profilePic = Pictures.get(user.profilePicture);
         this.telephoneNumber = user.telephoneNumber;
         this.email = user.email;
         this.address = user.address;
@@ -46,12 +50,13 @@ public class User implements Serializable {
         this.blocked = user.blocked;
     }
 
-    public User(int id, String name, String surname, int profilePic, String phone, String email, String address, String password, boolean active, boolean blocked){
+    public User(int id, String name, String surname, int profilePic, String profilePicture, String phone, String email, String address, String password, boolean active, boolean blocked){
         this();
         this.id = id;
         this.name = name;
         this.surname = surname;
-        this.profilePic = profilePic;
+        this.profilePicture = profilePicture;
+        this.profilePic = Pictures.get(profilePicture);
         this.telephoneNumber = phone;
         this.email = email;
         this.address = address;
@@ -60,6 +65,34 @@ public class User implements Serializable {
         this.active = active;
     }
 
+
+    protected User(Parcel in) {
+        id = in.readInt();
+        name = in.readString();
+        surname = in.readString();
+        profilePic = in.readInt();
+        profilePicture = in.readString();
+        telephoneNumber = in.readString();
+        email = in.readString();
+        address = in.readString();
+        password = in.readString();
+        active = in.readByte() != 0;
+        blocked = in.readByte() != 0;
+        sentMessages = in.createTypedArrayList(Message.CREATOR);
+        deliveredMessages = in.createTypedArrayList(Message.CREATOR);
+    }
+
+    public static final Creator<User> CREATOR = new Creator<User>() {
+        @Override
+        public User createFromParcel(Parcel in) {
+            return new User(in);
+        }
+
+        @Override
+        public User[] newArray(int size) {
+            return new User[size];
+        }
+    };
 
     public int getId() {
         return id;
@@ -79,9 +112,7 @@ public class User implements Serializable {
     public void setSurname(String surname) {
         this.surname = surname;
     }
-    public int getProfilePic() {
-        return profilePic;
-    }
+    public int getProfilePic() {return Pictures.get(profilePicture);}
     public void setProfilePic(int profilePic) {
         this.profilePic = profilePic;
     }
@@ -158,5 +189,27 @@ public class User implements Serializable {
     @Override
     public String toString() {
         return name + " " + surname;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(id);
+        parcel.writeString(name);
+        parcel.writeString(surname);
+        parcel.writeInt(profilePic);
+        parcel.writeString(profilePicture);
+        parcel.writeString(telephoneNumber);
+        parcel.writeString(email);
+        parcel.writeString(address);
+        parcel.writeString(password);
+        parcel.writeByte((byte) (active ? 1 : 0));
+        parcel.writeByte((byte) (blocked ? 1 : 0));
+        parcel.writeTypedList(sentMessages);
+        parcel.writeTypedList(deliveredMessages);
     }
 }

@@ -9,6 +9,7 @@ import com.example.easygo.model.users.User;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class MockupMessages {
 
@@ -82,12 +83,25 @@ public class MockupMessages {
         messages.add(message);
     }
 
-    public static ArrayList<Conversation> getCurrUserMessages(User currUser) {
+    public static ArrayList<Conversation> getCurrUserMessages(User currUser, List<Message> messages) {
         HashMap<User, ArrayList<Message>> messagesMap = new HashMap<User, ArrayList<Message>>();
         ArrayList<Conversation> conversations = new ArrayList<Conversation>();
 
-        for (Message message : getMessages()) {
-            if (message.getSender().equals(currUser) || message.getReceiver().equals(currUser)) {
+//        for (Message message : getMessages()) {
+//            if (message.getSender().equals(currUser) || message.getReceiver().equals(currUser)) {
+//                User anotherUser = (message.getSender().equals(currUser)) ? message.getReceiver() : message.getSender();
+//
+//                if (messagesMap.containsKey(anotherUser))
+//                    messagesMap.get(anotherUser).add(message);
+//                else {
+//                    messagesMap.put(anotherUser, new ArrayList<Message>());
+//                    messagesMap.get(anotherUser).add(message);
+//                }
+//            }
+//        }
+
+        for (Message message : messages) {
+            if ( (message.getSender().equals(currUser)) || (message.getReceiver().equals(currUser)) ) {
                 User anotherUser = (message.getSender().equals(currUser)) ? message.getReceiver() : message.getSender();
 
                 if (messagesMap.containsKey(anotherUser))
@@ -99,6 +113,12 @@ public class MockupMessages {
             }
         }
 
+//        for (HashMap.Entry<User, ArrayList<Message>> set : messagesMap.entrySet()) {
+//            String lastMessage = set.getValue().get(set.getValue().size()-1).getText();
+//            conversations.add(new Conversation(set.getKey(), lastMessage, set.getValue(), set.getValue().get(set.getValue().size()-1)));
+//        }
+
+
         for (HashMap.Entry<User, ArrayList<Message>> set : messagesMap.entrySet()) {
             String lastMessage = set.getValue().get(set.getValue().size()-1).getText();
             conversations.add(new Conversation(set.getKey(), lastMessage, set.getValue(), set.getValue().get(set.getValue().size()-1)));
@@ -107,8 +127,8 @@ public class MockupMessages {
         return conversations;
     }
 
-    public static Conversation getConversation(User me, User anotherUser) {
-        ArrayList<Conversation> myConversations = getCurrUserMessages(me);
+    public static Conversation getConversation(User me, User anotherUser, List<Message> messages) {
+        ArrayList<Conversation> myConversations = getCurrUserMessages(me, messages);
         for (Conversation conversation : myConversations) {
             if (conversation.getAnotherUser().equals(anotherUser))
                 return conversation;

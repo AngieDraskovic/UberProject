@@ -8,6 +8,7 @@ import com.example.easygo.dto.UpdateDriverDTO;
 import com.example.easygo.dto.UpdatePassengerDTO;
 import com.example.easygo.dto.UserDTO;
 import com.example.easygo.dto.ride.VehicleDTO;
+import com.example.easygo.model.Remark;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -47,5 +48,8 @@ public interface IUserService {
 
     @PUT(ServiceUtilis.driver + "/{id}/vehicle")
     Call<VehicleDTO> updateDriverVehicle(@Path("id") Integer id, @Body VehicleDTO vehicleDTO);
+
+    @POST(ServiceUtilis.user + "/{id}/note")
+    Call<Remark> createRemark(@Body Remark remark, @Path("id") Integer id);
 
 }

@@ -27,7 +27,16 @@ public class MessageReceiver extends BroadcastReceiver {
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
         NotificationCompat.Builder notification = new NotificationCompat.Builder(context, DriverMainActivity.DRIVER_CHANNEL);
 
-        if (intent.getAction().equals("message")) {
+        if (RemoteInput.getResultsFromIntent(intent) != null){
+            CharSequence rejectionReason = RemoteInput.getResultsFromIntent(intent).getCharSequence("rejectionReason");
+            Rejection rejection = new Rejection((String) rejectionReason);
+
+            int rideId = DriverMainActivity.getNextRide().getId();
+            rejectRide(rideId, rejection);
+            System.out.println("ISPIS: " + rejectionReason);
+        }
+
+        if (intent.getAction() != null && intent.getAction().equals("message")) {
             String messageText = intent.getExtras().getString("messageText");
 
             notification.setSmallIcon(R.drawable.ic_message);
@@ -36,21 +45,30 @@ public class MessageReceiver extends BroadcastReceiver {
             notificationManager.notify(1, notification.build());
         }
 
-        if (intent.getAction().equals("ACCEPT")) {
-            int rideId = intent.getIntExtra("rideId", 0);
+        if (intent.getAction() != null && intent.getAction().equals("ACCEPT")) {
+            int rideId = DriverMainActivity.getNextRide().getId();
             if (rideId != 0){
-                acceptRide(rideId);
+                startRide(rideId);
             }
             notificationManager.cancelAll();
+
+            /* Ponovo pokreni DriverMainActivity */
+            Intent intent1 = new Intent(context, DriverMainActivity.class);
+            intent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(intent1);
         }
-        if (intent.getAction().toUpperCase().equals("DECLINE")) {
+        if (intent.getAction() != null && intent.getAction().toUpperCase().equals("DECLINE")) {
             int rideId = intent.getIntExtra("rideId", 0);
             Bundle remoteInput = RemoteInput.getResultsFromIntent(intent);
             if (remoteInput != null) {
                 CharSequence declineReason = remoteInput.getCharSequence("key_text_reply");
                 String reason = declineReason.toString();
                 Rejection rejection = new Rejection(reason);
-                rejectRide(rideId, rejection);
+                rejectRide(2, rejection);
+
+                Intent intent1 = new Intent(context, DriverMainActivity.class);
+                intent1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent1);
             }
         }
     }
@@ -68,6 +86,24 @@ public class MessageReceiver extends BroadcastReceiver {
             @Override
             public void onFailure(Call<Ride> call, Throwable t) {
 
+            }
+        });
+    }
+
+
+    public void startRide(Integer rideId) {
+        Call<Ride> call = ServiceUtilis.rideService.startRide(rideId);
+        call.enqueue(new Callback<Ride>() {
+            @Override
+            public void onResponse(Call<Ride> call, Response<Ride> response) {
+                if (response.isSuccessful()) {
+
+                    System.out.println("ISPIS: Zapoceta voznja");
+                }
+            }
+            @Override
+            public void onFailure(Call<Ride> call, Throwable t) {
+                System.out.println("ISPIS: Failovano start ride");
             }
         });
     }

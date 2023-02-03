@@ -1280,6 +1280,7 @@ color accent_material_dark
 color accent_material_light
 color androidx_core_ripple_material_light
 color androidx_core_secondary_text_default_material_light
+color another_message_color
 color background_floating_material_dark
 color background_floating_material_light
 color background_material_dark
@@ -1832,6 +1833,7 @@ color mtrl_textinput_disabled_color
 color mtrl_textinput_filled_box_default_background_color
 color mtrl_textinput_focused_box_stroke_color
 color mtrl_textinput_hovered_box_stroke_color
+color my_message_color
 color notification_action_color_filter
 color notification_icon_bg_color
 color notification_material_background_media_default_color
@@ -2478,6 +2480,8 @@ dimen subtitle_corner_radius
 dimen subtitle_outline_width
 dimen subtitle_shadow_offset
 dimen subtitle_shadow_radius
+dimen text_margin
+dimen text_padding
 dimen tooltip_corner_radius
 dimen tooltip_horizontal_padding
 dimen tooltip_margin
@@ -2687,6 +2691,7 @@ drawable profile
 drawable profile1
 drawable profile_default
 drawable reports
+drawable rounded_background_teal
 drawable routes
 drawable sale_katai
 drawable test_level_drawable
@@ -2695,6 +2700,7 @@ drawable tooltip_frame_light
 drawable vehicle
 drawable vladan_milojevic
 drawable wallet
+drawable whatsapp_background
 drawable white_background
 drawable whitish_background
 id ALT
@@ -2825,6 +2831,8 @@ id center_vertical
 id chain
 id chain2
 id chains
+id chatHeaderProfileIcon
+id chatHeaderUser
 id checkbox
 id checked
 id chronometer
@@ -2887,9 +2895,11 @@ id dragLeft
 id dragRight
 id dragStart
 id dragUp
+id driverFinishRideButton
 id driverFullName
 id driverGrade
 id driverIconPicture
+id driverPanicButton
 id driverProfile
 id driver_web_view
 id dropdown_menu
@@ -3102,6 +3112,8 @@ id parent
 id parentPanel
 id parentRelative
 id parent_matrix
+id passengerPanicButton
+id passengerRemarkButton
 id passenger_message_icon
 id password
 id passwordRepeat
@@ -3241,7 +3253,6 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
-id textView
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon

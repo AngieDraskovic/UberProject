@@ -19,9 +19,11 @@ public class ServiceUtilis {
     public static final String driver = "driver";
     public static final String vehicle = "vehicle";
     public static final String passenger = "passenger";
+    public static final String user = "user";
     public static final String ride = "ride";
     public static final String review = "review";
     public static final String message = "message";
+
 
     // definisemo retrofit instancu preko koje se odvija komunikacija
     public static Retrofit retrofit = new Retrofit.Builder()

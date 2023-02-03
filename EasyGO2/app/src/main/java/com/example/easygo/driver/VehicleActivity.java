@@ -66,8 +66,6 @@ public class VehicleActivity extends AppCompatActivity {
         }else{
             vehice_spinner.setSelection(2);
         }
-
-
     }
 
     public void updateVehicle(){
@@ -76,7 +74,7 @@ public class VehicleActivity extends AppCompatActivity {
         VehicleDTO vehicleDTO = new VehicleDTO(id,
                 this.model.getText().toString(), this.plate.getText().toString(),
                 Integer.parseInt(this.seats.getText().toString()),
-                this.pet_transport.isChecked(), this.baby_transport.isChecked());
+                this.baby_transport.isChecked(), this.pet_transport.isChecked());
         String selectedVehicle = vehice_spinner.getSelectedItem().toString();
         if(selectedVehicle.equals("STANDARD"))
             vehicleDTO.setVehicleType(VehicleName.STANDARD);
@@ -90,7 +88,7 @@ public class VehicleActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<VehicleDTO> call, Response<VehicleDTO> response) {
                 if (response.isSuccessful()) {
-                    Toast.makeText(VehicleActivity.this, "Update successfull!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(VehicleActivity.this, "Update successfully!", Toast.LENGTH_SHORT).show();
                 }
             }
 

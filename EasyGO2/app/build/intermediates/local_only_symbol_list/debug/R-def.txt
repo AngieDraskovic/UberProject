@@ -1,14 +1,18 @@
 R_DEF: Internal format may change without notice
 local
 array vehicle_options
+color another_message_color
 color black
 color gray
+color my_message_color
 color purple_200
 color purple_500
 color purple_700
 color teal_200
 color teal_700
 color white
+dimen text_margin
+dimen text_padding
 drawable background_splashscreen
 drawable bkg
 drawable black_layout
@@ -39,11 +43,13 @@ drawable profile
 drawable profile1
 drawable profile_default
 drawable reports
+drawable rounded_background_teal
 drawable routes
 drawable sale_katai
 drawable vehicle
 drawable vladan_milojevic
 drawable wallet
+drawable whatsapp_background
 drawable white_background
 drawable whitish_background
 id VehicleDetailsLbl
@@ -61,6 +67,8 @@ id btnHome
 id btnInbox
 id button
 id carImage
+id chatHeaderProfileIcon
+id chatHeaderUser
 id confirmGradeBtn
 id confirmOrderBtn
 id confirm_button
@@ -69,9 +77,11 @@ id departureEdit
 id destinationEdit
 id detailsFragmentBtn
 id detailsLayout
+id driverFinishRideButton
 id driverFullName
 id driverGrade
 id driverIconPicture
+id driverPanicButton
 id driverProfile
 id driver_web_view
 id easygo
@@ -122,6 +132,8 @@ id numOfRidesGraph
 id number
 id orderForFutureBtn
 id orderForNowBtn
+id passengerPanicButton
+id passengerRemarkButton
 id passenger_message_icon
 id password
 id passwordRepeat
@@ -156,7 +168,6 @@ id submitBtnDetails
 id successFragmentBtn
 id surname
 id table
-id textView
 id time_picker
 id toggleActive
 id toolbar

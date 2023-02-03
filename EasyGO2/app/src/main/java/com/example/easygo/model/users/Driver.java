@@ -23,12 +23,12 @@ public class Driver extends User implements Serializable {
     }
 
     public Driver(UserDTO userDTO){
-        super(userDTO.getId(), userDTO.getName(), userDTO.getSurname(), 0, userDTO.getTelephoneNumber(), userDTO.getEmail(),
+        super(userDTO.getId(), userDTO.getName(), userDTO.getSurname(), 0, userDTO.getProfilePicture(), userDTO.getTelephoneNumber(), userDTO.getEmail(),
                 userDTO.getAddress()," ", userDTO.isActive(), userDTO.isBlocked());
     }
 
-    public Driver(int id, String name, String surname, int profilePic, String phone, String email, String address, String password, boolean blocked, boolean active, String driverLicense, String vehicleRegistration, Vehicle vehicle) {
-        super(id, name, surname, profilePic, phone, email, address, password, active, blocked);
+    public Driver(int id, String name, String surname, int profilePic, String profilePicture, String phone, String email, String address, String password, boolean blocked, boolean active, String driverLicense, String vehicleRegistration, Vehicle vehicle) {
+        super(id, name, surname, profilePic, profilePicture, phone, email, address, password, active, blocked);
         this.driverLicense = driverLicense;
         this.vehicleRegistration = vehicleRegistration;
         this.vehicle = vehicle;
